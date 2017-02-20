@@ -46,7 +46,17 @@ module.exports = {
                     }
                 ]
             }
+        },
+        vueify: {
+            lego: {
+                files: [{
+                    expand: true,
+                    src: './src/**/*.vue',
+                    dest: './',
+                    ext: '.vue.js'
+                }]
+            }
         }
     },
-    taskList: ["tmod:lego", "browserify:lego", "copy:lego"]
+    taskList: ["vueify:lego", "tmod:lego", "browserify:lego", "copy:lego"]
 }

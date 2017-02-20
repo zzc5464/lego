@@ -15413,12 +15413,13 @@ module.exports = BaseController;
 'use strict';
 
 var Controller  = require('controller'),
-    VueManager  = require('./gum.vue.manager'),
-    Vue         = require('vue'),
+    // VueManager  = require('./gum.vue.manager'),
+    // Vue         = require('vue'),
     Q           = require('q');
 
-function FController(obj) {
+function FController(obj, VueManager) {
     Controller.call(this, obj);
+    this.VueManager = VueManager;
 }
 
 FController.prototype = new Controller();
@@ -15447,6 +15448,7 @@ FController.prototype.renderHTML = function (html, data, callback) {
 }
 
 FController.prototype.renderVUE = function (html, vdata, data, callback) {
+    var VueManager = this.VueManager;
     this.renderHTML(html, data, function () {
         VueManager.getInstance({
             el: '#wrapper',

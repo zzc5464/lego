@@ -1,6 +1,7 @@
 'use strict';
 
 var FController = require('fcontroller'),
+    VueManager = require('../../../../src/utils/gum.vue.manager'),
     tplIndexView = require('../views/tpl.index');
 
 function BasicController () {
@@ -11,11 +12,24 @@ function BasicController () {
     this.routers = {
         'index': 'index'
     }
+    this.VueManager = VueManager;
 }
 
 BasicController.prototype = new FController({
     index: function () {
-        this.renderHTML(tplIndexView(), {title: 'basic'}, function () {});
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplIndexView(data), data, '购买成功', function (app) {
+                $('#done').tap(function () {
+                    navigate('financing/fuying7/vue2');
+                });
+            });
+        }
+
+        show.call(this, {
+            text: '1000'
+        });
     }
 });
 
