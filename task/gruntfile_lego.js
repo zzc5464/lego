@@ -3,11 +3,11 @@ module.exports = {
     cleanTmod: true,
     config: {
         tmod: {
-            my_assets: {
-                src: './client/modules/myAssets/myAssets/views/*.html',
-                dest: './client/modules/',
+            lego: {
+                src: './examples/components/basic/views/*.html',
+                dest: './examples/',
                 options: {
-                    "base": './client/modules/',
+                    "base": './examples/',
                     "output": "./dest",
                     "charset": "utf-8",
                     "syntax": "native",
@@ -19,51 +19,34 @@ module.exports = {
                     "combo": true,
                     "minify": true,
                     "cache": false,
-                    "alias": 'template'
+                    "alias": '../../../template'
                 }
             }
         },
         browserify: {
-            my_assets: {
+            lego: {
                 options: {
                     browserifyOptions: {
                         debug: false
                     },
                     external: [
-                        'common'
+                        'fcontroller'
                     ]
                 },
-                src: ['./client/modules/myAssets/myAssets/controller/my.assets.controller.js'],
-                dest: '../insurance_release_src/modules/myAssets/myAssets/myAssets.js'
-            }
-        },
-        uglify: {
-            my_assets: {
-                files: {
-                    "../insurance_release/modules/myAssets/myAssets/myAssets.js": ["../insurance_release_src/modules/myAssets/myAssets/myAssets.js"]
-                }
-            }
-        },
-        cssmin: {
-            my_assets: {
-                files: {
-                    "../insurance_release/assets/css/my.assets.css": "../insurance_release_src/assets/css/my.assets.css"
-                }
+                src: ['./examples/components/basic/controller/basic.controller.js'],
+                dest: './webroot/modules/components/basic/basic.js'
             }
         },
         copy: {
-            my_assets: {
+            lego: {
                 files: [
                     {
-                        src: "./client/modules/myAssets/myAssets/css/my.assets.css",
-                        dest: "../insurance_release_src/assets/css/my.assets.css"
+                        src: "./examples/components/basic/css/basic.css",
+                        dest: "./webroot/css/basic.css"
                     }
                 ]
             }
         }
     },
-    taskList: ["tmod:my_assets", "browserify:my_assets",
-        "uglify:my_assets", "copy:my_assets", "cssmin:my_assets"]
+    taskList: ["tmod:lego", "browserify:lego", "copy:lego"]
 }
-
-
