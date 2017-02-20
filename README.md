@@ -1,6 +1,13 @@
 # lego
 A UI components library
 
+使用说明：
+1. grunt lego;
+2. nginx => webroot;
+3. npm install;
+
+
+文件夹说明：
 1. example - 基于 GUM 框架的模块开发目录，用于实现 UI 组件的各种示例；TODO：要把 GUM 框架的一套编译机制复用；
 2. lib - 库文件，gum.app.js / vuejs / ......
 3. src - 源文件，可编译成 JS 库文件，直接用给模块使用；TODO：编写编译脚本;
