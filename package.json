@@ -54,6 +54,7 @@
     "grunt-svgmin": "^0.4.0",
     "grunt-tmod": "^0.2.6",
     "grunt-usemin": "^2.3.0",
+    "grunt-vueify": "^1.0.1",
     "grunt-wiredep": "^1.7.0",
     "jasmine-core": "^2.3.4",
     "jit-grunt": "^0.10.0",
@@ -67,7 +68,10 @@
     "karma-phantomjs-launcher": "^0.2.0",
     "load-grunt-tasks": "^0.4.0",
     "phantomjs": "^1.9.17",
-    "time-grunt": "^0.4.0"
+    "time-grunt": "^0.4.0",
+    "vue": "^2.1.10",
+    "vue-hot-reload-api": "^2.0.9",
+    "vueify": "^9.4.0"
   },
   "browserify": {
     "transform": [

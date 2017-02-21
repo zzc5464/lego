@@ -25,7 +25,7 @@ module.exports = function(name) {
         fn: 'financial_news',
         cff: 'financing_fy5app',
         fy5: 'financing_fy5',
-        fy5thirdparty:'financing_fuying5thirdparty',
+        fy5thirdparty: 'financing_fuying5thirdparty',
         fy7: 'financing_fy7',
         flanding: 'financing_landing',
         eva: 'financing_evaluation',
@@ -35,8 +35,8 @@ module.exports = function(name) {
         account: 'financing_account',
         assets: 'financing_assets',
         validate: 'financing_validate',
-        twoStepValidate:'financing_twoStepValidate',
-        hass:'health_archives_service_stop_tips',
+        twoStepValidate: 'financing_twoStepValidate',
+        hass: 'health_archives_service_stop_tips',
         ma: 'myassets',
         gum_ui: 'gumui',
         examples: 'gumuiexamples',
@@ -71,11 +71,11 @@ module.exports = function(name) {
         fof: 'financing_fof',
         store: 'entry_store',
         mid: 'activity_Midautumn',
-        bill:'activity_Billrecharg',
+        bill: 'activity_Billrecharg',
         entryOrders: 'entry_orders',
         iai: 'insurance_addInsurance',
-        ncs:'new_customer_service',
-        auto:'financing_autocar'
+        ncs: 'new_customer_service',
+        auto: 'financing_autocar'
     };
     if (alias[name]) {
         name = alias[name];

@@ -1,12 +1,12 @@
 <template>
-    <span >{{ text }}</span>
+    <span>{{ text }}</span>
 </template>
 
 <script>
     module.exports = {
         data: function() {
             return {
-                text: 'Hello text'
+                text: 'highlight text'
             }
         }
     }
