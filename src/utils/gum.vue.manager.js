@@ -6,9 +6,23 @@ var components = {
     'b-text': require('../basic/text/text.vue.js'),
     'b-highlight': require('../basic/highlight/highlight.vue.js'),
     'b-skeleton': require('../basic/skeleton/skeleton.vue.js'),
+
     'b-icon': require('../basic/icon/icon.vue.js'),
+
     'b-image': require('../basic/image/image.vue.js'),
     'b-svg': require('../basic/svg/svg.vue.js'),
+
+    'b-button': require('../basic/button/button.vue.js'),
+    'b-text-button': require('../basic/text-button/text-button.vue.js'),
+    'b-tab-button': require('../basic/tab-button/tab-button.vue.js'),
+    'b-image-button': require('../basic/image-button/image-button.vue.js'),
+
+    'b-text-field': require('../basic/text-field/text-field.vue.js'),
+    'b-address-field': require('../basic/text-field/text-field.vue.js'),
+    'b-email-field': require('../basic/text-field/text-field.vue.js'),
+    'b-number-field': require('../basic/number-field/number-field.vue.js'),
+    'b-tel-field': require('../basic/tel-field/tel-field.vue.js'),
+
     'p-main': require('../page/main/main.vue.js'),
     'p-footer': require('../page/footer/footer.vue.js'),
     'p-header': require('../page/header/header.vue.js'),
