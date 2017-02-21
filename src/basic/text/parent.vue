@@ -14,7 +14,6 @@
 </template>
 
 <script>
-    var child = require('./child.vue.js');
     module.exports = {
         props:['time','wenben'],
         data: function () {
@@ -22,9 +21,6 @@
                 times: this.time + 1,
                 texts: this.wenben
             }
-        },
-        components:{
-            child
         }
     }
 </script> 

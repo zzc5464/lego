@@ -47,6 +47,11 @@ module.exports = {
                 ]
             }
         },
+        clean: {
+            lego: {
+                src: ['./src/**/*.vue.js']
+            }
+        },
         vueify: {
             lego: {
                 files: [{
@@ -58,5 +63,5 @@ module.exports = {
             }
         }
     },
-    taskList: ["vueify:lego", "tmod:lego", "browserify:lego", "copy:lego"]
+    taskList: ["vueify:lego", "tmod:lego", "browserify:lego", "copy:lego", "clean:lego"]
 }
