@@ -36,15 +36,9 @@ BasicController.prototype = new FController({
 });
 
 (new BasicController()).initController({});
-<<<<<<< HEAD
 },{"../../../../src/utils/gum.vue.manager":17,"../views/tpl.index":2,"fcontroller":"fcontroller"}],2:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"abb3ccf6c6ae8ce55c6294709255bb19"}*/
-var template=require("../../../template");module.exports=template("components/basic/views/tpl.index",'<b-text id="show" color="black" size="32">123</b-text>');
-=======
-},{"../../../../src/utils/gum.vue.manager":10,"../views/tpl.index":2,"fcontroller":"fcontroller"}],2:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"66cbdd35f25dfe2651bfd7f776f229fc"}*/
+/*TMODJS:{"version":1,"md5":"e9bdf412f5be967bf4e9bb9aca6ff2af"}*/
 var template=require("../../../template");module.exports=template("components/basic/views/tpl.index","<b-text :time='text' :wenben='text2'></b-text>");
->>>>>>> b81cb5bdfe312a9802c2b1c0983860348a8ae8c3
 },{"../../../template":3}],3:[function(require,module,exports){
 /*TMODJS:{}*/
 !function(){function a(a,b){return(/string|function/.test(typeof b)?h:g)(a,b)}function b(a,c){return"string"!=typeof a&&(c=typeof a,"number"===c?a+="":a="function"===c?b(a.call(a)):""),a}function c(a){return l[a]}function d(a){return b(a).replace(/&(?![\w#]+;)|[<>"']/g,c)}function e(a,b){if(m(a))for(var c=0,d=a.length;d>c;c++)b.call(a,a[c],c,a);else for(c in a)b.call(a,a[c],c)}function f(a,b){var c=/(\/)[^\/]+\1\.\.\1/,d=("./"+a).replace(/[^\/]+$/,""),e=d+b;for(e=e.replace(/\/\.\//g,"/");e.match(c);)e=e.replace(c,"/");return e}function g(b,c){var d=a.get(b)||i({filename:b,name:"Render Error",message:"Template not found"});return c?d(c):d}function h(a,b){if("string"==typeof b){var c=b;b=function(){return new k(c)}}var d=j[a]=function(c){try{return new b(c,a)+""}catch(d){return i(d)()}};return d.prototype=b.prototype=n,d.toString=function(){return b+""},d}function i(a){var b="{Template Error}",c=a.stack||"";if(c)c=c.split("\n").slice(0,2).join("\n");else for(var d in a)c+="<"+d+">\n"+a[d]+"\n\n";return function(){return"object"==typeof console&&console.error(b+"\n\n"+c),b}}var j=a.cache={},k=this.String,l={"<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","&":"&#38;"},m=Array.isArray||function(a){return"[object Array]"==={}.toString.call(a)},n=a.utils={$helpers:{},$include:function(a,b,c){return a=f(c,a),g(a,b)},$string:b,$escape:d,$each:e},o=a.helpers=n.$helpers;a.get=function(a){return j[a.replace(/^\.\//,"")]},a.helper=function(a,b){o[a]=b},module.exports=a}();
@@ -60,40 +54,25 @@ var process = module.exports = {};
 var cachedSetTimeout;
 var cachedClearTimeout;
 
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
 (function () {
     try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
+        cachedSetTimeout = setTimeout;
     } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
+        cachedSetTimeout = function () {
+            throw new Error('setTimeout is not defined');
+        }
     }
     try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
+        cachedClearTimeout = clearTimeout;
     } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
+        cachedClearTimeout = function () {
+            throw new Error('clearTimeout is not defined');
+        }
     }
 } ())
 function runTimeout(fun) {
     if (cachedSetTimeout === setTimeout) {
         //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
         return setTimeout(fun, 0);
     }
     try {
@@ -114,11 +93,6 @@ function runTimeout(fun) {
 function runClearTimeout(marker) {
     if (cachedClearTimeout === clearTimeout) {
         //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
         return clearTimeout(marker);
     }
     try {
@@ -15174,23 +15148,26 @@ exports.insert = function (css) {
 },{}],9:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n\n")
-'use strict';
+
+
+
+
+
+
+
 
 module.exports = {
-    props: ['time', 'wenben'],
-    data: function data() {
+    props:['time','wenben'],
+    data: function () {
         return {
             times: this.time + 1,
             texts: this.wenben
-        };
+        }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
-<<<<<<< HEAD
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<h1 _v-84e5a5f8=\"\">{{text}}</h1>\n"
-=======
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div _v-84e5a5f8=\"\">\n    <h1 _v-84e5a5f8=\"\">{{times}}</h1>\n    <h2 _v-84e5a5f8=\"\">{{texts}}</h2>\n</div>\n"
->>>>>>> b81cb5bdfe312a9802c2b1c0983860348a8ae8c3
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
