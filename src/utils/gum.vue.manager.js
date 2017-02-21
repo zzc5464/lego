@@ -3,7 +3,15 @@
 var Vue = require('vue/dist/vue.common');
 
 var components = {
-    'b-text'        : require('../basic/text/text.vue.js')
+    'b-text'        : require('../basic/text/text.vue.js'),
+
+    'p-main'        : require('../page/main/main.vue.js'),
+    'p-footer'      : require('../page/footer/footer.vue.js'),
+    'p-header'      : require('../page/header/header.vue.js'),
+    'p-cover'       : require('../page/cover/cover.vue.js'),
+    'p-mask'        : require('../page/mask/mask.vue.js'),
+    'p-presentation': require('../page/presentation/presentation.vue.js'),
+    'p-popup'       : require('../page/popup/popup.vue.js')
 };
 
 function VueManager () {    
