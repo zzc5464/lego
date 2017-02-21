@@ -12,7 +12,7 @@
                 times: this.time + 1,
                 texts: this.wenben
             }
-        }
+        } 
     }
 </script>
 <style scoped>
