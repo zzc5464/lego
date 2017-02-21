@@ -36,7 +36,7 @@ BasicController.prototype = new FController({
 });
 
 (new BasicController()).initController({});
-},{"../../../../src/utils/gum.vue.manager":17,"../views/tpl.index":2,"fcontroller":"fcontroller"}],2:[function(require,module,exports){
+},{"../../../../src/utils/gum.vue.manager":22,"../views/tpl.index":2,"fcontroller":"fcontroller"}],2:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"e9bdf412f5be967bf4e9bb9aca6ff2af"}*/
 var template=require("../../../template");module.exports=template("components/basic/views/tpl.index","<b-text :time='text' :wenben='text2'></b-text>");
 },{"../../../template":3}],3:[function(require,module,exports){
@@ -15287,12 +15287,78 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":7,"vue-hot-reload-api":5}],17:[function(require,module,exports){
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_cell\"></div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-2cf463a9", module.exports)
+  } else {
+    hotAPI.update("_v-2cf463a9", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":5}],18:[function(require,module,exports){
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_column\"></div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-e67e4e2e", module.exports)
+  } else {
+    hotAPI.update("_v-e67e4e2e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":5}],19:[function(require,module,exports){
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_flex-column\"></div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-3c4dc802", module.exports)
+  } else {
+    hotAPI.update("_v-3c4dc802", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":5}],20:[function(require,module,exports){
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_single-cell\"></div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-ffede88e", module.exports)
+  } else {
+    hotAPI.update("_v-ffede88e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":5}],21:[function(require,module,exports){
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_sticker\"></div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-2d8da8a5", module.exports)
+  } else {
+    hotAPI.update("_v-2d8da8a5", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":5}],22:[function(require,module,exports){
 'use strict';
 
 var Vue = require('vue/dist/vue.common');
 
 var components = {
     'b-text'        : require('../basic/text/text.vue.js'),
+
+    's-single-cell' : require('../structure/single-cell/single-cell.vue.js'),
+    's-cell'        : require('../structure/cell/cell.vue.js'),
+    's-column'      : require('../structure/column/column.vue.js'),
+    's-flex-column' : require('../structure/flex-column/flex-column.vue.js'),
+    's-sticker'     : require('../structure/sticker/sticker.vue.js'),
 
     'p-main'        : require('../page/main/main.vue.js'),
     'p-footer'      : require('../page/footer/footer.vue.js'),
@@ -15323,4 +15389,4 @@ VueManager.prototype = {
 }
 
 module.exports = new VueManager();
-},{"../basic/text/text.vue.js":9,"../page/cover/cover.vue.js":10,"../page/footer/footer.vue.js":11,"../page/header/header.vue.js":12,"../page/main/main.vue.js":13,"../page/mask/mask.vue.js":14,"../page/popup/popup.vue.js":15,"../page/presentation/presentation.vue.js":16,"vue/dist/vue.common":6}]},{},[1]);
+},{"../basic/text/text.vue.js":9,"../page/cover/cover.vue.js":10,"../page/footer/footer.vue.js":11,"../page/header/header.vue.js":12,"../page/main/main.vue.js":13,"../page/mask/mask.vue.js":14,"../page/popup/popup.vue.js":15,"../page/presentation/presentation.vue.js":16,"../structure/cell/cell.vue.js":17,"../structure/column/column.vue.js":18,"../structure/flex-column/flex-column.vue.js":19,"../structure/single-cell/single-cell.vue.js":20,"../structure/sticker/sticker.vue.js":21,"vue/dist/vue.common":6}]},{},[1]);

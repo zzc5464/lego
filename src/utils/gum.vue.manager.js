@@ -5,6 +5,12 @@ var Vue = require('vue/dist/vue.common');
 var components = {
     'b-text'        : require('../basic/text/text.vue.js'),
 
+    's-single-cell' : require('../structure/single-cell/single-cell.vue.js'),
+    's-cell'        : require('../structure/cell/cell.vue.js'),
+    's-column'      : require('../structure/column/column.vue.js'),
+    's-flex-column' : require('../structure/flex-column/flex-column.vue.js'),
+    's-sticker'     : require('../structure/sticker/sticker.vue.js'),
+
     'p-main'        : require('../page/main/main.vue.js'),
     'p-footer'      : require('../page/footer/footer.vue.js'),
     'p-header'      : require('../page/header/header.vue.js'),
