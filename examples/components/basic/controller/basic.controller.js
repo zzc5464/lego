@@ -28,9 +28,8 @@ BasicController.prototype = new FController({
                 });
             });
         }
-
         show.call(this, {
-            text: 1000,
+            text: '我是一个占位符',
             text2:'vue content'
         });
     },
