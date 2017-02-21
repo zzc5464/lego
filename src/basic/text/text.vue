@@ -1,12 +1,17 @@
 <template>
-    <h1>{{text}}</h1>
+    <div>
+        <h1>{{times}}</h1>
+        <h2>{{texts}}</h2>
+    </div>
 </template>
 
 <script>
     module.exports = {
+        props:['time','wenben'],
         data: function () {
             return {
-                text: 'Hello'
+                times: this.time + 1,
+                texts: this.wenben
             }
         }
     }

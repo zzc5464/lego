@@ -28,7 +28,8 @@ BasicController.prototype = new FController({
         }
 
         show.call(this, {
-            text: '1000'
+            text: 1000,
+            text2:'vue content'
         });
     }
 });
