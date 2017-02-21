@@ -1,3 +1,5 @@
 <template>
-    <div class='_cell'></div>
+    <div class='_cell'>
+        <slot></slot>
+    </div>
 </template>

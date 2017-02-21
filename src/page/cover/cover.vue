@@ -1,3 +1,5 @@
 <template>
-    <aside class='_cover'></aside>
+    <aside class='_cover'>
+        <slot></slot>
+    </aside>
 </template>
