@@ -8,7 +8,14 @@ var components = {
     'b-skeleton': require('../basic/skeleton/skeleton.vue.js'),
     'b-icon': require('../basic/icon/icon.vue.js'),
     'b-image': require('../basic/image/image.vue.js'),
-    'b-svg': require('../basic/svg/svg.vue.js')
+    'b-svg': require('../basic/svg/svg.vue.js'),
+    'p-main': require('../page/main/main.vue.js'),
+    'p-footer': require('../page/footer/footer.vue.js'),
+    'p-header': require('../page/header/header.vue.js'),
+    'p-cover': require('../page/cover/cover.vue.js'),
+    'p-mask': require('../page/mask/mask.vue.js'),
+    'p-presentation': require('../page/presentation/presentation.vue.js'),
+    'p-popup': require('../page/popup/popup.vue.js')
 };
 
 function VueManager() {
