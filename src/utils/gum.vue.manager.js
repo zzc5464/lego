@@ -2,7 +2,7 @@
 
 var Vue = require('vue/dist/vue.common');
 
-var components = {
+var components = { 
     'b-text'        : require('../basic/text/text.vue.js'),
     // 'test-parent'        : require('../basic/text/parent.vue.js'),
     // 'test-child'        : require('../basic/text/child.vue.js'),
