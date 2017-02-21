@@ -3,7 +3,9 @@
 var Vue = require('vue/dist/vue.common');
 
 var components = {
-    'b-text'        : require('../basic/text/text.vue.js')
+    'b-text'        : require('../basic/text/text.vue.js'),
+    'parent'        : require('../basic/text/parent.vue.js'),
+    'child'        : require('../basic/text/child.vue.js'),
 };
 
 function VueManager () {    
