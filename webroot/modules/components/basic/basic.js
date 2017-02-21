@@ -53,7 +53,7 @@ BasicController.prototype = new FController({
 });
 
 (new BasicController()).initController({});
-},{"../../../../src/utils/gum.vue.manager":22,"../views/tpl.index":2,"fcontroller":"fcontroller"}],2:[function(require,module,exports){
+},{"../../../../src/utils/gum.vue.manager":27,"../views/tpl.index":2,"fcontroller":"fcontroller"}],2:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"bd026d9513322aa2b9305588645902ff"}*/
 var template=require("../../../template");module.exports=template("components/basic/views/tpl.index","<h1> <b-text :time='text' :wenben='text2'></b-text> </h1> <h2> <b-highlight> </b-highlight> </h2> <h3> <b-skeleton> </b-skeleton> </h3> <b-icon></b-icon> <b-image></b-image>");
 },{"../../../template":3}],3:[function(require,module,exports){
@@ -15482,6 +15482,66 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":7,"vue-hot-reload-api":5}],22:[function(require,module,exports){
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_cell\"></div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-2cf463a9", module.exports)
+  } else {
+    hotAPI.update("_v-2cf463a9", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":5}],23:[function(require,module,exports){
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_column\"></div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-e67e4e2e", module.exports)
+  } else {
+    hotAPI.update("_v-e67e4e2e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":5}],24:[function(require,module,exports){
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_flex-column\"></div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-3c4dc802", module.exports)
+  } else {
+    hotAPI.update("_v-3c4dc802", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":5}],25:[function(require,module,exports){
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_single-cell\"></div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-ffede88e", module.exports)
+  } else {
+    hotAPI.update("_v-ffede88e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":5}],26:[function(require,module,exports){
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_sticker\"></div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-2d8da8a5", module.exports)
+  } else {
+    hotAPI.update("_v-2d8da8a5", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":5}],27:[function(require,module,exports){
 'use strict';
 
 var Vue = require('vue/dist/vue.common');
@@ -15498,6 +15558,11 @@ var components = {
     'p-header': require('../page/header/header.vue.js'),
     'p-cover': require('../page/cover/cover.vue.js'),
     'p-mask': require('../page/mask/mask.vue.js'),
+    's-single-cell': require('../structure/single-cell/single-cell.vue.js'),
+    's-cell': require('../structure/cell/cell.vue.js'),
+    's-column': require('../structure/column/column.vue.js'),
+    's-flex-column': require('../structure/flex-column/flex-column.vue.js'),
+    's-sticker': require('../structure/sticker/sticker.vue.js'),
     'p-presentation': require('../page/presentation/presentation.vue.js'),
     'p-popup': require('../page/popup/popup.vue.js')
 };
@@ -15522,4 +15587,4 @@ VueManager.prototype = {
 }
 
 module.exports = new VueManager();
-},{"../basic/highlight/highlight.vue.js":9,"../basic/icon/icon.vue.js":10,"../basic/image/image.vue.js":11,"../basic/skeleton/skeleton.vue.js":12,"../basic/svg/svg.vue.js":13,"../basic/text/text.vue.js":14,"../page/cover/cover.vue.js":15,"../page/footer/footer.vue.js":16,"../page/header/header.vue.js":17,"../page/main/main.vue.js":18,"../page/mask/mask.vue.js":19,"../page/popup/popup.vue.js":20,"../page/presentation/presentation.vue.js":21,"vue/dist/vue.common":6}]},{},[1]);
+},{"../basic/highlight/highlight.vue.js":9,"../basic/icon/icon.vue.js":10,"../basic/image/image.vue.js":11,"../basic/skeleton/skeleton.vue.js":12,"../basic/svg/svg.vue.js":13,"../basic/text/text.vue.js":14,"../page/cover/cover.vue.js":15,"../page/footer/footer.vue.js":16,"../page/header/header.vue.js":17,"../page/main/main.vue.js":18,"../page/mask/mask.vue.js":19,"../page/popup/popup.vue.js":20,"../page/presentation/presentation.vue.js":21,"../structure/cell/cell.vue.js":22,"../structure/column/column.vue.js":23,"../structure/flex-column/flex-column.vue.js":24,"../structure/single-cell/single-cell.vue.js":25,"../structure/sticker/sticker.vue.js":26,"vue/dist/vue.common":6}]},{},[1]);
