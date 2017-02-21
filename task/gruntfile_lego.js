@@ -52,6 +52,13 @@ module.exports = {
                 src: ['./src/**/*.vue.js']
             }
         },
+        sass: {
+            lego: {
+                files: {
+                    './webroot/css/lego.css': './src/sass/lego.scss'
+                }
+            }
+        },
         vueify: {
             lego: {
                 files: [{
@@ -63,5 +70,5 @@ module.exports = {
             }
         }
     },
-    taskList: ["vueify:lego", "tmod:lego", "browserify:lego", "copy:lego", "clean:lego"]
+    taskList: ["vueify:lego", "tmod:lego", "browserify:lego", "sass:lego", "copy:lego", "clean:lego"]
 }

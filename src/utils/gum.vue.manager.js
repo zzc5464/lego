@@ -4,8 +4,8 @@ var Vue = require('vue/dist/vue.common');
 
 var components = {
     'b-text'        : require('../basic/text/text.vue.js'),
-    'test-parent'        : require('../basic/text/parent.vue.js'),
-    'test-child'        : require('../basic/text/child.vue.js'),
+    // 'test-parent'        : require('../basic/text/parent.vue.js'),
+    // 'test-child'        : require('../basic/text/child.vue.js'),
 
     's-single-cell' : require('../structure/single-cell/single-cell.vue.js'),
     's-cell'        : require('../structure/cell/cell.vue.js'),

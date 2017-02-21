@@ -1,3 +1,30 @@
-._cover {
-    
+html, body, #wrapper {
+    height: 100%;
+}
+
+html {
+    font-size: 16px;
+}
+@media only screen and (min-width: 360px) {
+    html { font-size: 18px; }
+}
+@media only screen and (min-width: 375px) {
+    html { font-size: 19px; }
+}
+@media only screen and (min-width: 412px) {
+    html { font-size: 21px; }
+}
+
+body {
+    font-family: PingFangSC-Regular, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+._font-light {
+    font-family: PingFangSC-Light, sans-serif;
+}
+._font-medium {
+    font-family: PingFangSC-Medium, sans-serif;
 }
