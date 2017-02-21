@@ -1,3 +1,5 @@
 <template>
-    <aside class="_presentation"></aside>
+    <aside class="_presentation">
+        <slot></slot>
+    </aside>
 </template>

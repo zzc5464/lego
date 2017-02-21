@@ -1,13 +1,7 @@
-<h1>
-    <b-text :time='text' :wenben='text2'></b-text>
-</h1>
-<h2>
-    <b-highlight>
-    </b-highlight>
-</h2>
-<h3>
-    <b-skeleton>
-    </b-skeleton>
-</h3>
-<b-icon></b-icon>
-<b-image></b-image>
+<test-parent class='foo' :wenben='text2' v-bind="{id:'btn','other-attr':'hi'}" :style="{color:'red'}">
+     <li>1</li>
+     <li>2</li>
+     <li>3</li>
+     <header slot='head'>初始化的一些内容</header>
+     <test-child slot='child'><span>{{text}}</span></test-child>
+</test-parent>

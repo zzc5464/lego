@@ -33,6 +33,7 @@ var components = {
     's-column': require('../structure/column/column.vue.js'),
     's-flex-column': require('../structure/flex-column/flex-column.vue.js'),
     's-sticker': require('../structure/sticker/sticker.vue.js'),
+
     'p-presentation': require('../page/presentation/presentation.vue.js'),
     'p-popup': require('../page/popup/popup.vue.js')
 };
