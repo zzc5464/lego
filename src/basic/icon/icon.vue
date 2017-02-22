@@ -8,9 +8,7 @@
 
         data: function () {
             return {
-                classObj: {
-                    iconName: 'icon-' + this.name
-                }
+                iconName: 'icon-' + this.name
             };
         }
     }
