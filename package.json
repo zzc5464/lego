@@ -66,6 +66,7 @@
     "karma-jasmine": "^0.3.5",
     "karma-phantomjs-launcher": "^0.2.0",
     "load-grunt-tasks": "^0.4.0",
+    "node-sass": "^4.5.0",
     "phantomjs": "^1.9.17",
     "time-grunt": "^0.4.0"
   },
