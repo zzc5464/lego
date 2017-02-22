@@ -6,11 +6,12 @@
 
 <script>
     module.exports = {
-        props: [ 'height', 'border' ],
+        props: [ 'height', 'border', 'bgcolor' ],
         data: function() {
             return {
                 styleObj: {
-                    height: this.height + 'rem'
+                    height: this.height + 'rem',
+                    backgroundColor: this.bgcolor
                 },
                 classObj: {
                     '_border': this.border === 'true'

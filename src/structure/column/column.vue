@@ -11,8 +11,9 @@
         data: function() {
             return {
                 styleObj: {
-                    width: this.width + 'rem', 
-                    textAlign: this.align || 'left'
+                    width       : this.width + 'rem', 
+                    // height      : '100%',
+                    textAlign   : this.align || 'left'
                 }
             };
         }
