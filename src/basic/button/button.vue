@@ -1,22 +1,31 @@
 <template>
-    <button type="button">{{ texts }}</button>
+    <button :style="obj"><slot></slot></button>
 </template>
 
 <script>
     module.exports = {
-        data: function() {
+        props: [ 'width', 'height', 'filled'],
+        data: function () {
             return {
-                texts: 'button'
-            }
+                obj: {
+                    width: this.width + 'rem',
+                    height: this.height + 'rem',
+                    backgroundColor: this.filled,
+                    lineHeight: this.height + 'rem'
+                }
+            };
+        },
+        methods: {
+            
         }
     }
 </script>
 
 <style scoped>
     button {
-        border: 1px solid #dcdcdc;
-        background-color: #fff;
-        padding: 4px 8px;
+        border: none;
+        padding: 0;
         border-radius: 4px;
+        text-align: center;
     }
 </style>
