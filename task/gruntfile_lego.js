@@ -45,6 +45,21 @@ module.exports = {
                         dest: "./webroot/css/basic.css"
                     }
                 ]
+            },
+            iconfont: {
+                files: [{
+                    src: "./src/sass/iconfont/iconfont.eot",
+                    dest: "./webroot/css/iconfont/iconfont.eot"
+                }, {
+                    src: "./src/sass/iconfont/iconfont.svg",
+                    dest: "./webroot/css/iconfont/iconfont.svg"
+                }, {
+                    src: "./src/sass/iconfont/iconfont.ttf",
+                    dest: "./webroot/css/iconfont/iconfont.ttf"
+                }, {
+                    src: "./src/sass/iconfont/iconfont.woff",
+                    dest: "./webroot/css/iconfont/iconfont.woff"
+                }]
             }
         },
         clean: {
@@ -70,5 +85,5 @@ module.exports = {
             }
         }
     },
-    taskList: ["vueify:lego", "tmod:lego", "browserify:lego", "sass:lego", "copy:lego", "clean:lego"]
+    taskList: ["vueify:lego", "tmod:lego", "browserify:lego", "sass:lego", "copy:lego", "copy:iconfont", "clean:lego"]
 }
