@@ -1,7 +1,7 @@
 ._cell {
     display: -webkit-box;
     display: -webkit-flex;
-    display:flex;
+    display: flex;
 }
 ._column {
     width: 1rem;
@@ -10,4 +10,7 @@
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
+}
+._single-column {
+    display: block;
 }

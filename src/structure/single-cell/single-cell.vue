@@ -1,3 +1,3 @@
 <template>
-    <div class='_single-cell'></div>
+    <div class='_single-cell'><slot></slot></div>
 </template>
