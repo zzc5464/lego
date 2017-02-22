@@ -11,3 +11,4 @@ A UI components library
   - lib - 库文件，gum.app.js / vuejs / ......
   - src - 源文件，可编译成 JS 库文件，直接用给模块使用；TODO：编写编译脚本; 
   - webroot - 网站根目录，将 nginx 配置到此处，可以用于测试 UI 组件的实际效果。 
+  — sass -  sudo npm install --save node-sass grunt-sass
