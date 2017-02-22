@@ -1,7 +1,11 @@
-._cell {
+._cell, ._single-cell {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
+
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+    align-items:center;
 }
 ._column {
     width: 1rem;
@@ -11,6 +15,11 @@
     -webkit-flex: 1;
     flex: 1;
 }
-._single-column {
-    display: block;
+// ._single-cell {
+//     display: block;
+// }
+._cell._border, ._single-cell._border {
+    background-image: $img-border-btm;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
 }
