@@ -1,5 +1,3 @@
 <template>
-    <aside class="_mask">
-        <slot></slot>
-    </aside>
+    <aside class="_mask"></aside>
 </template>

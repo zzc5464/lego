@@ -1,5 +1,3 @@
 <template>
-    <div class='_column'>
-        <slot></slot>
-    </div>
+    <div class='_column'></div>
 </template>

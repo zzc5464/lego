@@ -30,8 +30,11 @@ BasicController.prototype = new FController({
         }
         show.call(this, {
             text: '我是一个占位符',
-            text2:'vue content'
-        });
+            text2:'vue content',
+            list:[
+               1,2,3,4
+            ]
+        })
     },
 
     wangweiqi: function () {

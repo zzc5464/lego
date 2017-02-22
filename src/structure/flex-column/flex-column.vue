@@ -1,5 +1,3 @@
 <template>
-    <div class='_flex-column'>
-        <slot></slot>
-    </div>
+    <div class='_flex-column'></div>
 </template>

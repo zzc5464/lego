@@ -1,5 +1,3 @@
 <template>
-    <aside class="_popup">
-        <slot></slot>
-    </aside>
+    <aside class="_popup"></aside>
 </template>
