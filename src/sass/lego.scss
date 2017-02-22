@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 html, body, #wrapper {
     height: 100%;
 }
@@ -28,3 +30,5 @@ body {
 ._font-medium {
     font-family: PingFangSC-Medium, sans-serif;
 }
+
+@import 'structure.scss';
