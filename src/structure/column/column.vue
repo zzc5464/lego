@@ -1,5 +1,5 @@
 <template>
-    <div class='_column' :style="styles">
+    <div class='_column' :style="styleObj">
         <slot></slot>
     </div>
 </template>
@@ -10,16 +10,11 @@
 
         data: function() {
             return {
-                styles: {
+                styleObj: {
                     width: this.width + 'rem', 
                     textAlign: this.align | 'left'
                 }
             };
-            // var data = {
-            //     align1: this.align | 'left'
-            // };
-
-            // return data;
         }
     }
 </script>
