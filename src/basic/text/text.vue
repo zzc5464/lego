@@ -22,3 +22,10 @@
         }
     }
 </script>
+
+<style scoped lang="scss">
+@import '../../sass/lego.scss';
+span {
+    font-weight: normal;
+}
+</style>
