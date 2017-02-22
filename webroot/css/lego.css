@@ -36,10 +36,17 @@ body {
   font-family: PingFangSC-Medium, sans-serif;
 }
 
-._cell {
+.f16 {
+  font-size: 16px;
+}
+
+._cell, ._single-cell {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 ._column {
@@ -50,6 +57,12 @@ body {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+}
+
+._cell._border, ._single-cell._border {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
+  background-position: 0 100%;
+  background-repeat: no-repeat;
 }
 
 /*# sourceMappingURL=lego.css.map */

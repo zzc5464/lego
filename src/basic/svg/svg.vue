@@ -1,13 +1,17 @@
 <template>
-    <svg src="" preload=""  />
+    <svg :style="obj"  />
 </template>
 
 <script>
     module.exports = {
-        data: function() {
+        props: ['width', 'height'],
+        data: function () {
             return {
-                text: 'svg text'
-            }
+                obj: {
+                    width: this.width + 'rem',
+                    height: this.height + 'rem'
+                }
+            };
         }
     }
 </script>
@@ -16,7 +20,5 @@
     svg {
         display: block;
         border: 1px solid #f00;
-        width: 50px;
-        height: 50px;
     }
 </style>
