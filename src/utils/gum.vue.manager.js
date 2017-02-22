@@ -4,6 +4,36 @@ var Vue = require('vue/dist/vue.common');
 
 var components = {
     'b-text'        : require('../basic/text/text.vue.js'),
+    'b-highlight'        : require('../basic/highlight/highlight.vue.js'),
+    'b-skeleton'        : require('../basic/skeleton/skeleton.vue.js'),
+
+    'b-icon'        : require('../basic/icon/icon.vue.js'),
+
+    'b-image'        : require('../basic/image/image.vue.js'),
+    'b-svg'        : require('../basic/svg/svg.vue.js'),
+
+    'b-button'        : require('../basic/button/button.vue.js'),
+    'b-rectangular-button'        : require('../basic/rectangular-button/rectangular-button.vue.js'),
+    'b-tab-button'        : require('../basic/tab-button/tab-button.vue.js'),
+    'b-text-button'        : require('../basic/text-button/text-button.vue.js'),
+    'b-image-button'        : require('../basic/image-button/image-button.vue.js'),
+
+    'b-text-field'        : require('../basic/text-field/text-field.vue.js'),
+    'b-number-field'        : require('../basic/number-field/number-field.vue.js'),
+    'b-tel-field'        : require('../basic/tel-field/tel-field.vue.js'),
+    'b-email-field'        : require('../basic/email-field/email-field.vue.js'),
+    'b-address-field'        : require('../basic/address-field/address-field.vue.js'),
+
+    'b-select'        : require('../basic/select/select.vue.js'),
+
+    'b-checkbox'        : require('../basic/checkbox/checkbox.vue.js'),
+    'b-solid-checkbox'        : require('../basic/solid-checkbox/solid-checkbox.vue.js'),
+
+    'b-radio'        : require('../basic/radio/radio.vue.js'),
+
+    'b-toggle'        : require('../basic/toggle/toggle.vue.js'),
+
+
     'test-parent'        : require('../basic/text/parent.vue.js'),
     'test-child'        : require('../basic/text/child.vue.js'),
 

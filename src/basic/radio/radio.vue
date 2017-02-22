@@ -19,4 +19,11 @@
         border-radius: 100%;
         background-color: transparent;
     }
+    ._radio:after {
+        content: '';
+        width: 28px;
+        height: 28px;
+        background-color: #d7ac62;
+        border-radius: 50%;
+    }
 </style>
