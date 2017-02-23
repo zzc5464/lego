@@ -25,6 +25,7 @@
 
 <style scoped>
     button {
+        outline: none;
         border: none;
         padding: 0;
         border-radius: 4px;
