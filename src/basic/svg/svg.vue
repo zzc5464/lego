@@ -16,9 +16,13 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../../sass/svg.scss';
     svg {
         display: block;
-        border: 1px solid #f00;
+        /*background-image: $img-border-btm;*/
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% auto;
     }
 </style>

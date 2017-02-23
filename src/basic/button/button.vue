@@ -1,5 +1,5 @@
 <template>
-    <button :style="obj"><slot></slot></button>
+    <button @click="tapping" :style="obj" ><slot></slot></button>
 </template>
 
 <script>
@@ -8,15 +8,17 @@
         data: function () {
             return {
                 obj: {
-                    width: this.width + 'rem',
-                    height: this.height + 'rem',
-                    backgroundColor: this.filled,
-                    lineHeight: this.height + 'rem'
+                    width: (this.width || 4) + 'rem' ,
+                    height: (this.height || 1.5) + 'rem',
+                    backgroundColor: this.filled || 'transparent',
+                    lineHeight: (this.height || 1.5) + 'rem'
                 }
             };
         },
         methods: {
-            
+            tapping: function(){
+
+            }
         }
     }
 </script>
