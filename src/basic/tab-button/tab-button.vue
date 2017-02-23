@@ -1,12 +1,28 @@
 <template>
-    <button type="button">{{ texts }}</button>
+    <button @click="tapping" :style="obj" ><slot></slot></button>
 </template>
 
 <script>
     module.exports = {
-        data: function() {
+        props: [ 'width', 'height', 'filled', 'position'],
+        data: function () {
             return {
-                texts: 'tab button'
+                obj: {
+                    width: (this.width || 4) + 'rem' ,
+                    height: (this.height || 1.5) + 'rem',
+                    backgroundColor: this.filled || 'transparent',
+                    lineHeight: (this.height || 1.5) + 'rem',
+                    borderTopLeftRadius: (this.position.tl || 0) + 'px',
+                    borderTopRightRadius: (this.position.tr || 0) + 'px',
+                    borderBottomLeftRadius: (this.position.bl || 0) + 'px',
+                    borderBottomRightRadius: (this.position.br || 0) + 'px'
+                }
+            };
+        },
+        methods: {
+            tapping: function(){
+                console.log(typeof(this.position));
+                
             }
         }
     }
@@ -14,16 +30,9 @@
 
 <style scoped>
     button {
-        border: 1px solid #dcdcdc;
-        background-color: #fff;
-        padding: 4px 8px;
-        border-radius: 4px;
-    }
-    
-    button:active {
-        border: 1px solid #dcdcdc;
-        background-color: #fff;
-        padding: 4px 8px;
-        border-radius: 4px;
+        outline: none;
+        border: none;
+        padding: 0;
+        text-align: center;
     }
 </style>

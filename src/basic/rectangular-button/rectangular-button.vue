@@ -1,12 +1,23 @@
 <template>
-    <button type="button">{{ texts }}</button>
+    <button @click="tapping" :style="obj" ><slot></slot></button>
 </template>
 
 <script>
     module.exports = {
-        data: function() {
+        props: [ 'width', 'height', 'filled'],
+        data: function () {
             return {
-                texts: 'rectangular button'
+                obj: {
+                    width: (this.width || 4) + 'rem' ,
+                    height: (this.height || 1.5) + 'rem',
+                    backgroundColor: this.filled || 'transparent',
+                    lineHeight: (this.height || 1.5) + 'rem'
+                }
+            };
+        },
+        methods: {
+            tapping: function(){
+
             }
         }
     }
@@ -14,9 +25,9 @@
 
 <style scoped>
     button {
-        border: 1px solid #dcdcdc;
-        background-color: #fff;
-        padding: 4px 8px;
+        border: none;
+        padding: 0;
         border-radius: 0;
+        text-align: center;
     }
 </style>

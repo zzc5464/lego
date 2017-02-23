@@ -1,22 +1,39 @@
 <template>
-    <button type="button">{{ texts }}</button>
+    <img :style="obj" :src="src">
+    <b-text :style="tobj"><slot></slot></b-text>
 </template>
 
 <script>
     module.exports = {
-        data: function() {
+        props: [ 'width', 'height', 'filled', 'position', 'src'],
+        data: function () {
             return {
-                texts: 'image button'
+                obj: {
+                    width: (this.width || 4) + 'rem' ,
+                    height: (this.height || 1.5) + 'rem'
+                
+                },
+                tobj: {
+                    position: 'relative',
+                    bottom: '10px'
+
+                }
+            };
+        },
+        methods: {
+            tapping: function(){
+                console.log(typeof(this.position));
+                
             }
         }
     }
 </script>
 
 <style scoped>
-    button {
+    img {
         border: none;
-        background-color: #fff;
-        padding: 4px 8px;
-        border-radius: 4px;
+        padding: 0;
+        text-align: center;
+        background-color: #f00;
     }
 </style>
