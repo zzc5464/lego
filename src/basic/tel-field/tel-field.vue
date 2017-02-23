@@ -54,10 +54,37 @@
     }
 </script>
 
-<style scoped lang="scss">
-    @import '../../sass/lego.scss';
+<style scoped lang="sass">
+    $blue: #1875e7;
+    $side: left;
+    .class1{
+        border:1px solid #ddd;
+    }
+
+    @mixin left($value){
+        float: left;
+        width:$value;
+    }
+
     input{
-        color:$c6;
-        font-size:16px;
+        color: $blue;
+        @extend .class1;
+        @include left(200px);
+        border-#{$side}-radius :5px;
+    }
+    div{
+        input{
+            text-align : $side;
+        }
+    }
+    @function double($n){
+        @return $n *2;
+    }
+
+    button{
+        @extend .class1;
+        @include left(50px);
+        background-color: lighten(#cc3, 10%);
+        height: double(15px);
     }
 </style>
