@@ -1,143 +1,123 @@
-@font-face {
-    font-family: "pingan";
-    src: url('./css/iconfont/iconfont.eot'); /* IE9*/
-    src: url('./css/iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('./css/iconfont/iconfont.woff') format('woff'), /* chrome、firefox */
-    url('./css/iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url('./css/iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+
+@font-face {font-family: "pingan";
+  src: url('./css/iconfont/iconfont.eot?t=1487923650635'); /* IE9*/
+  src: url('./css/iconfont/iconfont.eot?t=1487923650635#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./css/iconfont/iconfont.woff?t=1487923650635') format('woff'), /* chrome, firefox */
+  url('./css/iconfont/iconfont.ttf?t=1487923650635') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('./css/iconfont/iconfont.svg?t=1487923650635#pingan') format('svg'); /* iOS 4.1- */
 }
 
-.iconfont {
-    font-family: "pingan" !important;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-right01:before { content: "\e607"; }
-.icon-share01:before { content: "\e606"; }
-.icon-calendar01:before { content: "\e600"; }
-.icon-top01:before { content: "\e609"; }
-.icon-minus01:before { content: "\e618"; }
-.icon-plus01:before { content: "\e617"; }
-
-.icon-calendar:before {
-    content: "\e600";
-}
-.icon-shizhong:before {
-    content: "\e601";
-}
-.icon-chenggongright:before {
-    content: "\e602";
-}
-.icon-tishibell:before {
-    content: "\e603";
-}
-.icon-fail:before {
-    content: "\e604";
-}
-.icon-share:before {
-    content: "\e606";
-}
-.icon-right:before {
-    content: "\e607";
-}
-.icon-fail01:before {
-    content: "\e608";
-}
-.icon-top:before {
-    content: "\e609";
-}
-.icon-chenggong:before {
-    content: "\e60a";
-}
-.icon-bell:before {
-    content: "\e60b";
-}
-.icon-feiji:before {
-    content: "\e610";
-}
-.icon-dagou:before {
-    content: "\e611";
-}
-.icon-icon:before {
-    content: "\e612";
-}
-.icon-jieshu01:before {
-    content: "\e613";
-}
-.icon-jia:before,
-.icon-icon-jia:before {
-    content: "\e617";
-}
-.icon-minus:before {
-    content: "\e618";
-}
-.icon-attention:before {
-    content: "\e605";
-}
-.icon-bening:before {
-    content: "\e60c";
-}
-.icon-guanbi:before {
-    content: "\e60e";
-}
-.icon-gengduo:before {
-    content: "\e60d";
-}
-.icon-fenxiangan:before {
-    content: "\e60f";
-}
-.icon-fanhui:before {
-    content: "\e614";
-}
-.icon-shuhuiri:before {
-    content: "\e61b" !important;
-}
-.icon-jieshu:before {
-    content: "\e61c" !important;
-}
-.icon-qishiri:before {
-    content: "\e61d" !important;
-}
-.icon-rengoukaishi:before {
-    content: "\e61e" !important;
-}
-.icon-fanhui1:before {
-    content: "\e615";
-}
-.icon-guanbi1:before {
-    content: "\e616";
-}
-.icon-haha:before {
-    content: "\e619";
-}
-.icon-iconfrontmoban:before {
-    content: "\e61a";
-}
-
-/*new iconfonts added by chensonghao*/
-@font-face {font-family: "iconfontcsh";
-  src: url('iconfontcsh.eot'); /* IE9*/
-  src: url('iconfontcsh.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfontcsh.woff') format('woff'), /* chrome, firefox */
-  url('iconfontcsh.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfontcsh.svg#iconfontcsh') format('svg'); /* iOS 4.1- */
-}
-
-.iconfontcsh {
-  font-family:"iconfontcsh" !important;
+.pingan {
+  font-family:"pingan" !important;
   font-size:16px;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.iconcsh-warn:before { content: "\e600"; }
-.iconcsh-hammer:before { content: "\e601"; }
-.iconcsh-notice:before { content: "\e602"; }
-.iconcsh-eye-open:before { content: "\e603"; }
-.iconcsh-eye-close:before { content: "\e604"; }
-.iconcsh-unfold:before { content: "\e605"; }
-.iconcsh-fold:before { content: "\e606"; }
+
+.i-flag:before { content: "\e612"; }
+
+.i-cross:before { content: "\e60e"; }
+
+.i-gear:before { content: "\e620"; }
+
+.i-ellipses:before { content: "\e60d"; }
+
+.i-plane:before { content: "\e610"; }
+
+.i-angle-left:before { content: "\e614"; }
+
+.i-calendar:before { content: "\e600"; }
+
+.i-share:before { content: "\e606"; }
+
+.i-check:before { content: "\e607"; }
+
+.i-lightning:before { content: "\e608"; }
+
+.i-arrow-up:before { content: "\e609"; }
+
+.i-plus:before { content: "\e617"; }
+
+.i-minus:before { content: "\e618"; }
+
+.i-clock:before { content: "\e601"; }
+
+.i-check-hand-written:before { content: "\e611"; }
+
+.i-indicator:before { content: "\e613"; }
+
+.i-bell-solid:before { content: "\e60b"; }
+
+.i-check-solid:before { content: "\e60a"; }
+
+.i-check-bold:before { content: "\e602"; }
+
+.i-bell:before { content: "\e603"; }
+
+.i-lightning-solid:before { content: "\e604"; }
+
+.i-i-hollow:before { content: "\e605"; }
+
+.i-hourglass-solid:before { content: "\e60c"; }
+
+.i-eye:before { content: "\e689"; }
+
+.i-cash-hollow:before { content: "\e61b"; }
+
+.i-check-hollow:before { content: "\e61c"; }
+
+.i-start-hollow:before { content: "\e61d"; }
+
+.i-flag-hollow:before { content: "\e61e"; }
+
+.i-angle-left-light:before { content: "\e615"; }
+
+.i-cross-light:before { content: "\e616"; }
+
+.i-angle-right-bold:before { content: "\e61a"; }
+
+.i-magnifier:before { content: "\e619"; }
+
+.i-eye-closed:before { content: "\e630"; }
+
+.i-bean:before { content: "\e61f"; }
+
+.i-plus-light:before { content: "\e621"; }
+
+.i-minus-light:before { content: "\e622"; }
+
+.i-number-zero:before { content: "\e623"; }
+
+.i-number-one:before { content: "\e624"; }
+
+.i-number-two:before { content: "\e625"; }
+
+.i-number-three:before { content: "\e626"; }
+
+.i-number-five:before { content: "\e627"; }
+
+.i-number-six:before { content: "\e628"; }
+
+.i-number-seven:before { content: "\e629"; }
+
+.i-number-nine:before { content: "\e62b"; }
+
+.i-percent:before { content: "\e62c"; }
+
+.i-point:before { content: "\e62d"; }
+
+.i-number-four:before { content: "\e62f"; }
+
+.i-number-eight:before { content: "\e62a"; }
+
+.i-warning:before { content: "\e652"; }
+
+.i-hammer:before { content: "\e653"; }
+
+.i-angle-down:before { content: "\e654"; }
+
+.i-angle-up:before { content: "\e656"; }
+
+.i-quote:before { content: "\e657"; }
+

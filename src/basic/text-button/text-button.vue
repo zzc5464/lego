@@ -1,23 +1,31 @@
 <template>
-    <button type="button">{{ texts }}</button>
+    <button :style="obj" ><slot></slot></button>
 </template>
 
 <script>
     module.exports = {
-        data: function() {
+        props: [ 'width', 'height', 'filled'],
+        data: function () {
             return {
-                texts: 'tab button'
-            }
+                obj: {
+                    size: (this.size || .75) + 'rem' ,
+                    width: (this.width || 4) + 'rem' ,
+                    height: (this.height || 1.5) + 'rem',
+                    color: this.color|| '#666',
+                    lineHeight: (this.height || 1.5) + 'rem'
+                }
+            };
         }
     }
 </script>
 
 <style scoped>
     button {
-        border: 1px solid #dcdcdc;
-        background-color: #fff;
-        padding: 10px 16px;
-        border-radius: 0;
-        font-size: 14px;
+        outline: none;
+        border: none;
+        padding: 0;
+        border-radius: none;
+        text-align: center;
+        background-color: transparent;
     }
 </style>

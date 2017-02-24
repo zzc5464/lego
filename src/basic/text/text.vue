@@ -16,7 +16,7 @@
             return {
                 obj: {
                     fontSize: this.size + 'rem',
-                    color: this.color || '#666'
+                    color: this.color
                 }
             };
         }
@@ -27,5 +27,7 @@
 @import '../../sass/lego.scss';
 span {
     font-weight: normal;
+    color: #666;
+    font-size: .631579rem;
 }
 </style>

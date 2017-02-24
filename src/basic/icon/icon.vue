@@ -1,5 +1,5 @@
 <template>
-    <i class='iconfont' :class='[iconName]' :style='styleObj'></i>
+    <i class='pingan' :class='[iconName]' :style='styleObj'></i>
 </template>
 
 <script>
@@ -13,12 +13,17 @@
             };
 
             return {
-                iconName: 'icon-' + this.name,
+                iconName: 'i-' + this.name,
                 styleObj: {
                     fontSize: this.size + 'rem',
-                    color: colors[this.color] || '#666'
+                    color: colors[this.color] 
                 }
             };
         }
     }
 </script>
+<style scoped>
+    i {
+        color: #666;
+    }
+</style>
