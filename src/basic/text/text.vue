@@ -1,5 +1,5 @@
 <template>
-    <span :style="obj"><slot></slot></span>
+    <span class="_text" :class="[ textColor, fontSize ]"><slot></slot></span>
 </template>
 
 <script>
@@ -7,27 +7,12 @@
         props: [ 'size', 'color' ],
 
         data: function() {
-            // var colors = {
-            //     'black' : '#333',
-            //     'grey'  : '#666',
-            //     'light' : '#999'
-            // };
+            var obj = {};
 
-            return {
-                obj: {
-                    fontSize: this.size + 'rem',
-                    color: this.color
-                }
-            };
+            this.color && (obj.textColor = '_text_color_' + this.color);
+            this.size && (obj.fontSize = '_text_size_' + this.size + 'px');
+
+            return obj;
         }
     }
 </script>
-
-<style scoped lang="scss">
-@import '../../sass/lego.scss';
-span {
-    font-weight: normal;
-    color: #666;
-    font-size: .631579rem;
-}
-</style>
