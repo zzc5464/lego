@@ -1,7 +1,7 @@
 <template>
-    <span>
-        <child-text></child-text>
-        <child-icon :class="[iconName]"></child-icon>
+    <span @click="tap">
+        <child-text :style="obj" class="_childtext"><slot></slot></child-text>
+        <child-icon :style="obj" :class="[iconName]"></child-icon>
     </span>
 </template>
 
@@ -14,13 +14,15 @@
             return {
                 iconName: 'i-' + this.name,
                 obj: {
-                    fontSize: this.size,
+                    fontSize: this.size + 'rem',
                     color: this.color
                 }
             }
         },
         methods: {
-
+            tap: function(){
+                console.log('please !!!')
+            }
         },
         components: {
             'child-text': childText,
@@ -30,5 +32,7 @@
 </script>
 
 <style scoped>
-    
+    ._childtext {
+        vertical-align: 2px;
+    }
 </style>
