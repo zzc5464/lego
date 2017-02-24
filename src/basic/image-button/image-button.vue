@@ -47,7 +47,6 @@
         border: none;
         padding: 0;
         text-align: center;
-        background-color: #f00;
         border-radius: 4px;
         overflow: hidden;
         margin: 0 auto;

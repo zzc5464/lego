@@ -1,6 +1,5 @@
 <template>
-    <span @click="tap" :checked="isChecked">
-      <span class="dot" v-show="isChecked" ></span>  
+    <span @click="tap" :class="{active: isChecked}" :checked="isChecked">
     </span>
 </template>
 
@@ -14,7 +13,7 @@
         },
         methods: {
             tap: function() {
-                // console.log(this.isChecked);
+                console.log(this.isChecked);
                 this.isChecked = !this.isChecked;
                 
             }
@@ -32,7 +31,8 @@
         border-radius: 50%;
         background-color: transparent;
     }
-    .dot {
+    .active:after{
+        content: '';
         position: absolute;
         top: 50%;
         left: 50%;
