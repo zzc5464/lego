@@ -25,9 +25,11 @@
 
 <style scoped>
     button {
+        outline: none;
         border: none;
         padding: 0;
         border-radius: 0;
         text-align: center;
+        box-sizing: border-box;
     }
 </style>
