@@ -12,7 +12,6 @@
             return {
                 styleObj: {
                     width       : this.width + 'rem', 
-                    // height      : '100%',
                     textAlign   : this.align || 'left'
                 }
             };

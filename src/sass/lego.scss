@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+@import 'variables.scss';
 @import 'svg.scss';
 @import 'iconfont.scss';
 
@@ -34,9 +35,21 @@ body {
     font-family: PingFangSC-Medium, sans-serif;
 }
 
-$c6: #999;
-.f16{
-    font-size:16px;
+// 所有 color 属性列表
+._text_color_black {
+    color: $text-color-black;
 }
+._text_color_grey {
+    color: $text-color-grey;
+}
+._text_color_light {
+    color: $text-color-light;
+}
+._text_color_high {
+    color: $text-color-high;
+}
+
+// 所有 background-color 属性列表
+
 
 @import 'structure.scss';
