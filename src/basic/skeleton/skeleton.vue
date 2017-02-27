@@ -1,5 +1,5 @@
 <template>
-    <span class="_skeleton" :class="[ backgroundColor, fontSize ]"><slot></slot></span>
+    <span class='_skeleton' :class='classObj'><slot></slot></span>
 </template>
 
 <script>
@@ -7,12 +7,18 @@
         props: [ 'size', 'bgcolor' ],
 
         data: function() {
-            var obj = {};
+            
+            var list = [];
 
-            this.bgcolor && (obj.backgroundColor = '_bgcolor_' + this.bgcolor);
-            this.size && (obj.fontSize = '_text_size_' + this.size + 'px');
+            this.bgcolor 
+            && list.push('_bgcolor_' + this.bgcolor);
 
-            return obj;
+            this.size
+            && list.push('_text_size_' + this.size + 'px');
+
+            return {
+                classObj: list
+            };
         }
     }
 </script>

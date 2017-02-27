@@ -1,18 +1,21 @@
 <template>
-    <span class="_highlight" :class="classObj"><slot></slot></span>
+    <span class='_highlight' :class='classObj'><slot></slot></span>
 </template>
 
 <script>
     module.exports = {
-        props: [ 'size', 'color' ],
+        props: [ 'size' ],
 
         data: function() {
+
             var list = [];
 
-            this.color && list.push('_text_color_' + this.color);
-            this.size && list.push('_text_size_' + this.size + 'px');
+            this.color
+            && list.push('_text_color_' + this.color);
 
-            return obj;
+            return {
+                classObj: list
+            };
         }
     }
 </script>

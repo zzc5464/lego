@@ -1,41 +1,41 @@
 <template>
-    <img @load="loadImage" class="_image" :style="obj" :src="src" :preload="preload" />
+    <img @load='load' class='_image' :style='styleObj' :src='src' :preload='preload' />
 </template>
 
 <script>
     module.exports = {
-        props: [ 'src', 'preload', 'width', 'height'],
+        props: [ 'src', 'preload', 'width', 'height' ],
+
         data: function () {
+
+            var obj = {};
+
+            this.width  && (obj.width   = this.width  + 'rem');
+            this.height && (obj.height  = this.height + 'rem');
+
             return {
-                obj: {
-                    width: (parseInt(this.width) / 38).toFixed(6) + 'rem',
-                    height: (parseInt(this.height) / 38).toFixed(6) + 'rem'
-                }
-            };
+                styleObj: obj
+            }
         },
+
         methods: {
-            loadImage: function() {
-                // console.log(this.preload);
-                if(this.preload == "true") {
+            load: function() {
+                this.preload === 'true' && (function () {
+                    
                     var img = new Image();
                     img.src = this.src;
+
                     if(img.complete) {
                         console.log('complete ok');
                         return;
                     }
+
                     img.onload = function(){
                         console.log('ok');
                     }
-                }
-                
+
+                })();
             }
         }
     }
 </script>
-
-<!--<style scoped>
-    img {
-        display: block;
-        border: none;
-    }
-</style>-->
