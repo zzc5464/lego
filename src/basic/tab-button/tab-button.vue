@@ -19,7 +19,7 @@
                 }
             };
         },
-        methods: {
+        methods: { 
             tapping: function(){
                 console.log(typeof(this.position));
                 

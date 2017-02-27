@@ -20,7 +20,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped> 
     span {
         display: inline-block;
         width: 32px;

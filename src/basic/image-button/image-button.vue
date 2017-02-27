@@ -25,7 +25,7 @@
                     color: this.color || '#666'
                 }
             };
-        },
+        },  
         methods: {
             tapping: function(){
                 this.pos = !this.pos;

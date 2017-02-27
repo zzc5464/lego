@@ -19,5 +19,5 @@
                 classObj: list
             }
         }
-    }
+    }    
 </script>

@@ -19,7 +19,7 @@
             }
         }
     }
-</script>
+</script>  
 
 <style scoped>
     span {
