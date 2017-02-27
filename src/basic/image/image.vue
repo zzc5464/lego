@@ -17,7 +17,7 @@
                 styleObj: obj
             }
         },
-
+ 
         methods: {
             load: function() {
                 this.preload === 'true' && (function () {

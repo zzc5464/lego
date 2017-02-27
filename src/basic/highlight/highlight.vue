@@ -17,5 +17,5 @@
                 classObj: list
             };
         }
-    }
+    }  
 </script>
