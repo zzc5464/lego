@@ -1,5 +1,31 @@
 ._text {
     font-weight: normal;
     color: $text-color-grey;
-    font-size: .631579rem;
+    font-size: $text-size-24px;
+}
+
+._highlight {
+    font-weight: normal;
+    color: $text-color-high;
+    font-size: $text-size-24px;
+}
+
+._skeleton {
+    display: inline-block;
+    padding: 4px;
+    color: #fff;
+    border-radius: 4px;
+    background-color: $bgcolor-high;
+    font-size: $text-size-24px;
+}
+
+._icon {
+    color: $text-color-grey;
+}
+
+._image {
+    display: block;
+    border: none;
+    width: 100%;
+    height: auto;
 }
