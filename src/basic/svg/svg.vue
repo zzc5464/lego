@@ -1,28 +1,20 @@
 <template>
-    <svg :style="obj"  />
+    <div class='_svg' :style='styleObj'><slot></slot></div>
 </template>
 
 <script>
     module.exports = {
-        props: ['width', 'height'],
+        props: [ 'width', 'height' ],
+
         data: function () {
+            var styleObj = {};
+            
+            this.width  && (styleObj.width  = this.width  + 'rem');
+            this.height && (styleObj.height = this.height + 'rem');
+
             return {
-                obj: {
-                    width: this.width + 'rem',
-                    height: this.height + 'rem'
-                }
+                styleObj: styleObj
             };
         }
     }
 </script>
-
-<style scoped lang="scss">
-@import '../../sass/svg.scss';
-    svg {
-        display: block;
-        /*background-image: $img-border-btm;*/
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 100% auto;
-    }
-</style>
