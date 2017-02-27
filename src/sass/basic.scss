@@ -51,7 +51,7 @@
     padding: 0;
     border-radius: none;
     text-align: center;
-    background-color: transparent;
+    background-color: $bgcolor-transparent;
 }
 
 ._tab_button {
@@ -81,4 +81,91 @@
     border-radius: 4px;
     overflow: hidden;
     margin: 0 auto;
+}
+
+._checkbox {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #dcdcdc;
+    background-color: $bgcolor-transparent;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+}
+._checkbox._checkbox_active {
+    border-color: $bgcolor-high;
+    background-color: $bgcolor-high;
+}
+
+._solid_checkbox {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #dcdcdc;
+    background-color: $bgcolor-transparent;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+}
+._solid_checkbox._solid_checkbox_active {
+    border-color: $bgcolor-high;
+    background-color: $bgcolor-high;
+}
+
+._radio {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #dcdcdc;
+    border-radius: 50%;
+    background-color: $bgcolor-transparent;
+}
+._radio_active:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -14px;
+    margin-left: -14px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background-color: $bgcolor-high;
+    border-radius: 50%;
+}
+
+._toggle {
+    display: inline-block;
+    width: 96px;
+    height: 56px;
+    background-color: #fff;
+    border: 1.5px solid #e5e5e5;
+    border-radius: 28px;
+    position: relative;
+}
+._toggle:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 2px 9px #e5e5e5 ;
+}
+._toggle._toggle_active {
+    background-color: $bgcolor-high;
+    border-color: $bgcolor-high;
+}
+._toggle._toggle_active:after{
+    right: 0;
+    left: auto;
+}
+
+._childtext {
+    vertical-align: 2px;
 }
