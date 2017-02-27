@@ -49,11 +49,39 @@ body {
     color: $text-color-high;
 }
 
+// 所有字体大小
 ._text_size_22px {
     font-size: $text-size-22px;
 }
+._text_size_24px {
+    font-size: $text-size-24px;
+}
+._text_size_30px {
+    font-size: $text-size-30px;
+}
+._text_size_32px {
+    font-size: $text-size-32px;
+}
+._text_size_34px {
+    font-size: $text-size-34px;
+}
+._text_size_36px {
+    font-size: $text-size-36px;
+}
 
 // 所有 background-color 属性列表
-
+._bgcolor_white {
+    background-color: $bgcolor-white;
+}
+._bgcolor_high {
+    background-color: $bgcolor-high;
+}
+._bgcolor_transparent {
+    background-color: $bgcolor-transparent;
+}
+._bgcolor_lightgrey {
+    background-color: $bgcolor-lightgrey;
+}
 
 @import 'structure.scss';
+@import 'basic.scss';

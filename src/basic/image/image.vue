@@ -1,5 +1,5 @@
 <template>
-    <img @load="loadImage" :style="obj" :src="src" :preload="preload" />
+    <img @load="loadImage" class="_image" :class="obj" :src="src" :preload="preload" />
 </template>
 
 <script>
@@ -15,7 +15,7 @@
         },
         methods: {
             loadImage: function() {
-                console.log(this.preload);
+                // console.log(this.preload);
                 if(this.preload == "true") {
                     var img = new Image();
                     img.src = this.src;
@@ -33,9 +33,9 @@
     }
 </script>
 
-<style scoped>
+<!--<style scoped>
     img {
         display: block;
         border: none;
     }
-</style>
+</style>-->
