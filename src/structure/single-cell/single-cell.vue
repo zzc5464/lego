@@ -4,10 +4,11 @@
 
 <script>
     module.exports = {
-        props: [ 'height', 'border', 'bgcolor' ],
+        props: [ 'height', 'border', 'bgcolor', 'align' ],
         data: function() {
             return {
                 styleObj: {
+                    textAlign: this.align || 'left',
                     height: this.height + 'rem',
                     backgroundColor: this.bgcolor
                 },

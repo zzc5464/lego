@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="default" @click="tapping" :style="obj" ><slot></slot></button>
+        <button class="_button" @click="tapping" :style="obj" ><slot></slot></button>
     </div>
 </template>
 
@@ -33,19 +33,3 @@
         }
     }
 </script>
-
-<style scoped lang="scss">
-    ._default {
-        background-color: #d7ac62;
-        color: #fff;
-        outline: none;
-        border: none;
-        padding: 0;
-        border-radius: 4px;
-        text-align: center;
-        box-sizing: border-box;
-    }
-    ._default.tapping {
-        background-color: #b38f47;
-    }
-</style>

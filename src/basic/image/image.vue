@@ -1,5 +1,5 @@
 <template>
-    <img @load="loadImage" class="_image" :class="obj" :src="src" :preload="preload" />
+    <img @load="loadImage" class="_image" :style="obj" :src="src" :preload="preload" />
 </template>
 
 <script>
@@ -8,8 +8,8 @@
         data: function () {
             return {
                 obj: {
-                    width: this.width + 'rem',
-                    height: this.height + 'rem'
+                    width: (parseInt(this.width) / 38).toFixed(6) + 'rem',
+                    height: (parseInt(this.height) / 38).toFixed(6) + 'rem'
                 }
             };
         },

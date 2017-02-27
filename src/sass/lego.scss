@@ -4,6 +4,9 @@
 @import 'svg.scss';
 @import 'iconfont.scss';
 
+@import 'structure.scss';
+@import 'basic.scss';
+
 html, body, #wrapper {
     height: 100%;
 }
@@ -76,6 +79,9 @@ body {
 ._bgcolor_high {
     background-color: $bgcolor-high;
 }
+._bgcolor_high_tapping {
+    background-color: $bgcolor-high-tapping;
+}
 ._bgcolor_transparent {
     background-color: $bgcolor-transparent;
 }
@@ -83,5 +89,3 @@ body {
     background-color: $bgcolor-lightgrey;
 }
 
-@import 'structure.scss';
-@import 'basic.scss';
