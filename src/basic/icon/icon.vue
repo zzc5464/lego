@@ -1,29 +1,27 @@
 <template>
-    <i class='pingan' :class='[iconName]' :style='styleObj'></i>
+    <i class='pingan' :class='classObj'></i>
 </template>
 
 <script>
     module.exports = {
         props: [ 'name', 'size', 'color' ],
+
         data: function () {
-            // var colors = {
-            //     'black' : '#333',
-            //     'grey'  : '#666',
-            //     'light' : '#999'
-            // };
+
+            var list = [];
+
+            this.name
+            && list.push('i-' + this.name);
+
+            this.size
+            && list.push('_text_size_' + this.size + 'px');
+
+            this.color
+            && list.push('_text_color_' + this.color);
 
             return {
-                iconName: 'i-' + this.name,
-                styleObj: {
-                    fontSize: this.size + 'rem',
-                    color: this.color
-                }
+                classObj: list
             };
         }
     }
 </script>
-<style scoped>
-    i {
-        color: #666;
-    }
-</style>
