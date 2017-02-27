@@ -1,5 +1,5 @@
 <template>
-    <button :style="obj" ><slot></slot></button>
+    <button class="_text_button" :style="obj" ><slot></slot></button>
 </template>
 
 <script>
@@ -18,14 +18,3 @@
         }
     }
 </script>
-
-<style scoped>
-    button {
-        outline: none;
-        border: none;
-        padding: 0;
-        border-radius: none;
-        text-align: center;
-        background-color: transparent;
-    }
-</style>

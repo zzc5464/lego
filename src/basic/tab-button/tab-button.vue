@@ -1,5 +1,5 @@
 <template>
-    <button @click="tapping" :style="obj" ><slot></slot></button>
+    <button class="_tab_button" @click="tapping" :style="obj" ><slot></slot></button>
 </template>
 
 <script>

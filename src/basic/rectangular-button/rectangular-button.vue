@@ -1,5 +1,5 @@
 <template>
-    <button @click="tapping" :style="obj" ><slot></slot></button>
+    <button class="_rectanglar_button" @click="tapping" :style="obj" ><slot></slot></button>
 </template>
 
 <script>
@@ -22,14 +22,3 @@
         }
     }
 </script>
-
-<style scoped>
-    button {
-        outline: none;
-        border: none;
-        padding: 0;
-        border-radius: 0;
-        text-align: center;
-        box-sizing: border-box;
-    }
-</style>
