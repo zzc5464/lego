@@ -27,9 +27,7 @@ BasicController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplIndexView(data), data, '购买成功', function (app) {
-                $('#done').tap(function () {
-                    navigate('financing/fuying7/vue2');
-                });
+                
             });
         }
         show.call(this, {

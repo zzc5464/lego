@@ -32,6 +32,7 @@
             },
             sendMsg: function(){
                 var valMsg = this.validate();
+                
                 bus.$emit('phoneNum',valMsg);
             }
         }

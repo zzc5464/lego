@@ -1,10 +1,11 @@
 <template>
-    <button class='_button' :class='classObj' :style='styleObj'><slot></slot></button>
+    <button class='_button' :class='classObj' :style='styleObj' v-on:click='timeKeep'><slot></slot></button>
 </template>
 
 <script>
+    var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'width', 'height', 'size', 'filled' ],
+        props: [ 'width', 'height', 'size', 'filled','validate','seconds'],
 
         data: function () {
             
@@ -22,6 +23,16 @@
             return {
                 styleObj: obj,
                 classObj: list
+            }
+        },
+        methods:{
+            timeKeep:function(){
+                if(this.validate){
+                    alert(1);
+                    bus.$on('phoneNum',function(res){
+                        alert(res);
+                    })
+                }
             }
         }
     }
