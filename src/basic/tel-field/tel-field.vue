@@ -1,18 +1,20 @@
 <template>
-    <div>
-        <input class="_input" type="tel" name="" placeholder="请输入预留手机号码" v-on:blur='sendMsg' v-model='phone'>
-        <button type="" v-on:click="sendMsg">提交</button>
-    </div>
+    <input class='_input' :class='styleObj' type='tel' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='phone' maxlength='max' required='required' >
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props:['size','c'],
+        props:['size','c', 'max', 'placeholder', 'required'],
         data: function() {
+            var obj = {}, list = [];
+
+            this.size && list.push('_text_size_' + this.size + 'px');
+
             return {
-                phone:''
-            };
+                classObj: list,
+                styleObj: obj
+            }
         },
         methods: {
             // validatePhonePrefix :function(number){
@@ -57,38 +59,3 @@
         }
     }
 </script>
-
-<style scoped lang="sass">
-    $blue: #1875e7;
-    $side: left;
-    .class1{
-        border:1px solid #ddd;
-    }
-
-    @mixin left($value){
-        float: left;
-        width:$value;
-    }
-
-    input{
-        color: $blue;
-        @extend .class1;
-        @include left(200px);
-        border-#{$side}-radius :5px;
-    }
-    div{
-        input{
-            text-align : $side;
-        }
-    }
-    @function double($n){
-        @return $n *2;
-    }
-
-    button{
-        @extend .class1;
-        @include left(50px);
-        background-color: lighten(#cc3, 10%);
-        height: double(15px);
-    }
-</style>

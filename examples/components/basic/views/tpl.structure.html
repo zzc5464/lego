@@ -7,22 +7,22 @@
             <b-text size="34" color="black">联系方式</b-text>
         </s-column>
         <s-flex-column align="right">
-            <b-text-button>保存</b-text-button>
+            <b-text-button>修改</b-text-button>
         </s-flex-column>
     </s-cell>
     <s-cell height="3" border="true" >
         <s-column width="6" align="left">
             <b-text size="30" color="grey">手机号码</b-text>
         </s-column>
-        <s-flex-column align="right">
-            <b-tel-field>13323984377</b-tel-field>
+        <s-flex-column align="left">
+            <b-text size="30">13323984377</b-text>
         </s-flex-column>
     </s-cell>
     <s-cell height="3" border="true" >
         <s-column width="6" align="left">
             <b-text size="30" color="grey">联系地址</b-text>
         </s-column>
-        <s-flex-column align="right">
+        <s-flex-column align="left">
             <b-text size="30">上海市浦东新区陆家嘴环路1333号平安大厦</b-text>
         </s-flex-column>
     </s-cell>
@@ -30,8 +30,52 @@
         <s-column width="6" align="left">
             <b-text size="30" color="grey">邮政编码</b-text>
         </s-column>
+        <s-flex-column align="left">
+            <b-text size="30" >200120</b-text>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-column width="6" align="left">
+            <b-text size="30" color="grey">电子邮箱</b-text>
+        </s-column>
+        <s-flex-column align="left">
+            <b-text size="30">ssssss@gmail.com</b-text>
+        </s-flex-column>
+    </s-cell>
+
+    <s-single-cell height="2" border="true" bgcolor="#f0f0f0">
+        <b-text size="28" color="grey">展示信息且支持修改的</b-text>
+    </s-single-cell>
+    <s-cell height="3" border="true" >
+        <s-column width="6" align="left">
+            <b-text size="34" color="black">联系方式</b-text>
+        </s-column>
         <s-flex-column align="right">
-            <b-text>200120</b-text>
+            <b-text-button size="28">保存</b-text-button>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-column width="6" align="left">
+            <b-text size="30" color="grey">手机号码</b-text>
+        </s-column>
+        <s-flex-column align="right">
+            <b-tel-field size="30" placeholder="请输入银行预留电话" >13323984377</b-tel-field>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-column width="6" align="left">
+            <b-text size="30" color="grey">联系地址</b-text>
+        </s-column>
+        <s-flex-column align="right">
+            <b-address-field size="30">上海市浦东新区陆家嘴环路1333号平安大厦</b-address-field>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-column width="6" align="left">
+            <b-text size="30" color="grey">邮政编码</b-text>
+        </s-column>
+        <s-flex-column align="right">
+            <b-number-field size="30" >200120</b-number-field>
         </s-flex-column>
     </s-cell>
     <s-cell height="3" border="true" >
@@ -39,9 +83,10 @@
             <b-text size="30" color="grey">电子邮箱</b-text>
         </s-column>
         <s-flex-column align="right">
-            <b-text size="30">请输入银行预留电话</b-text>
+            <b-email-field size="30">ssssss@gmail.com</b-email-field>
         </s-flex-column>
     </s-cell>
+
     <s-single-cell height="2" border="true" bgcolor="#f0f0f0">
         <b-text size="28" color="grey">单行信息</b-text>
     </s-single-cell>
