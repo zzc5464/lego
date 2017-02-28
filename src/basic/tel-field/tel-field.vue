@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="tel" name="" placeholder="请输入预留手机号码" v-on:blur='sendMsg' v-model='phone'>
+        <input class="_input" type="tel" name="" placeholder="请输入预留手机号码" v-on:blur='sendMsg' v-model='phone'>
         <button type="" v-on:click="sendMsg">提交</button>
     </div>
 </template>

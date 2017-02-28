@@ -169,3 +169,11 @@
 ._childtext {
     vertical-align: 2px;
 }
+
+//input style
+._input {
+    font-size: $text-size-30px;
+    color: $text-color-black;
+    text-align: right;
+    outline: none;
+}
