@@ -1,7 +1,7 @@
 <template>
     <span @click="tap">
         <child-text :style="obj" class="_childtext"><slot></slot></child-text>
-        <child-icon :style="obj" :class="[iconName]"></child-icon>
+        <child-icon color="light" name="angle-right-bold"></child-icon>
     </span>
 </template>
 
