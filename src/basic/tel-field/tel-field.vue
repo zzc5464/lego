@@ -1,5 +1,7 @@
 <template>
+
     <input class='_input' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:input='sendMsg' v-model='phone' maxlength='max' required='required' >
+
 </template>
 
 <script>
@@ -15,6 +17,7 @@
                 classObj: list,
                 styleObj: obj,
                 phone:''
+
             }
         },
         methods: {
