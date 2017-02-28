@@ -8,12 +8,17 @@
     align-items: center;
 }
 ._column {
-    width: 1rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
 }
 ._flex-column {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
 }
 ._cell._border, ._single-cell._border {
     background-image: $img-border-btm;
