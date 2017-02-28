@@ -1,11 +1,11 @@
 <template>
-    <input class='_input' :class='styleObj' type='tel' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='phone' maxlength='max' required='required' >
+    <input class='_input' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:input='sendMsg' v-model='phone' maxlength='max' required='required' >
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props:['size','c', 'max', 'placeholder', 'required'],
+        props:['size', 'max', 'placeholder', 'required'],
         data: function() {
             var obj = {}, list = [];
 
@@ -13,34 +13,11 @@
 
             return {
                 classObj: list,
-                styleObj: obj
+                styleObj: obj,
+                phone:''
             }
         },
         methods: {
-            // validatePhonePrefix :function(number){
-            //     if (number.indexOf("13") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("14") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("15") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("16") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("17") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("18") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("19") === 0){
-            //         return true;
-            //     }
-            //     return false;
-            // },
             validate:function(){
                 var errorMsg = '';
                 if(this.phone.length !== 11){
@@ -53,7 +30,7 @@
                 return errorMsg;
             },
             sendMsg: function(){
-                valMsg = this.validate();
+                var valMsg = this.validate();
                 bus.$emit('phoneNum',valMsg);
             }
         }
