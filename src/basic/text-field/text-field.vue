@@ -1,5 +1,5 @@
 <template>
-    <input class="_input" type="text" name="" value="text field">
+    <input class="_input" type="text" name="" placeholder="placeholder" >
 </template>
 
 <script>
