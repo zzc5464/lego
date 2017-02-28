@@ -1,15 +1,14 @@
+// 文本类型控件的样式
 ._text {
     font-weight: normal;
     color: $text-color-grey;
     font-size: $text-size-24px;
 }
-
 ._highlight {
     font-weight: normal;
     color: $text-color-high;
     font-size: $text-size-24px;
 }
-
 ._skeleton {
     display: inline-block;
     padding: 4px;
@@ -19,28 +18,34 @@
     font-size: $text-size-24px;
 }
 
+// 图片与图标类型控件的样式
 ._icon {
     color: $text-color-grey;
 }
-
 ._image {
     display: block;
     border: none;
-    // width: 100%;
-    // height: auto;
 }
 
-
-._button {
-    background-color: $bgcolor-high;
-    color: #fff;
-    outline: none;
-    border: none;
+// 按钮类型控件的样式
+button {
+    display: block;
+    width: 100%;
     padding: 0;
+}
+._button {
+    background-color: $bgcolor-white;
+    color: $text-color-high;
+    border: $border-2x-high;
     border-radius: 4px;
-    text-align: center;
     box-sizing: border-box;
 }
+._button_filled {
+    color: $text-color-white;
+    border: 0;
+    background-color: $bgcolor-high;
+}
+
 ._button.tapping {
     background-color: $bgcolor-high-tapping;
 }

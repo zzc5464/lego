@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 @import 'variables.scss';
 @import 'svg.scss';
@@ -29,6 +29,12 @@ body {
     -webkit-text-size-adjust: 100%;
     margin: 0;
     padding: 0;
+}
+
+button, input {
+    font-family: PingFangSC-Regular, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    outline: none;
 }
 
 ._font-light {
