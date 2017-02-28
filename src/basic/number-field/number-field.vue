@@ -1,12 +1,17 @@
 <template>
-    <input class="_input" type="number" name="" value="12345789 9876543d21">
+    <input class="_input" :class="classObj" type="number" name="" :placeholder="placeholder" :max="6" :required="required" >
 </template>
 
 <script>
     module.exports = {
+        props: ['size', 'placeholder', 'required'],
         data: function() {
+            var obj = {}, list = [];
+            this.size && list.push('_text_size_' + this.size + 'px');
+
             return {
-                obj: {}
+                classObj: list,
+                styleObj: obj
             }
         }
     }
