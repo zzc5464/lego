@@ -33,6 +33,7 @@ button {
     width: 100%;
     padding: 0;
 }
+// <b-button/>
 ._button {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
     background-repeat: no-repeat;
@@ -52,6 +53,53 @@ button {
         border: $border-3x-high;
     }
 }
+
+// <b-rectangular-button/>
+._rectangular_button {
+    background-color: $bgcolor-white;
+    color: $text-color-high;
+    border: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+// <b-tab-button/>
+._tab_button {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='110%' height='100%'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: $bgcolor-white;
+    color: $text-color-high;
+    border: 0;
+    box-sizing: border-box;
+}
+._tab_button_left {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='110%' height='100%' rx='3px' ry='3px'/></svg>");
+}
+._tab_button_right {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='100%' height='100%'/></svg>");
+}
+.hairlines ._tab_button {
+    background-image: none;
+    border: $border-2x-high;
+}
+@media only screen and (min-width: 412px) {
+    .hairlines ._tab_button {
+        border: $border-3x-high;
+    }
+}
+.hairlines ._tab_button_left {
+    border-right: 0;
+    border-radius: $border-radius 0 0 $border-radius;
+}
+.hairlines ._tab_button_middle {
+    border-right: 0;
+}
+.hairlines ._tab_button_right {
+    border-radius: 0 $border-radius $border-radius 0;
+}
+
+
 ._button_filled {
     color: $text-color-white;
     border: 0;
@@ -70,21 +118,9 @@ button {
     color: $text-color-high;
 }
 
-._tab_button {
-    outline: none;
-    border: none;
-    padding: 0;
-    text-align: center;
-}
 
-._rectanglar_button {
-    outline: none;
-    border: none;
-    padding: 0;
-    border-radius: 0;
-    text-align: center;
-    box-sizing: border-box;
-}
+
+
 
 ._image_button{
     text-align: center;
