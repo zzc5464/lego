@@ -1,20 +1,22 @@
 <template>
-    <button class="_text_button" :style="obj" ><slot></slot></button>
+    <button class='_text_button' :class='classObj' :style='styleObj'><slot></slot></button>
 </template>
 
 <script>
     module.exports = {
-        props: [ 'width', 'height', 'filled'],
+        props: [ 'width', 'height' ],
+
         data: function () {
+            
+            var obj = {}, list = [];
+
+            this.width  && (obj.width  = this.width  + 'rem');
+            this.height && (obj.height = this.height + 'rem');
+
             return {
-                obj: {
-                    size: (this.size || .75) + 'rem' ,
-                    width: (this.width || 4) + 'rem' ,
-                    height: (this.height || 1.5) + 'rem',
-                    color: this.color|| '#666',
-                    lineHeight: (this.height || 1.5) + 'rem'
-                }
-            };
+                styleObj: obj,
+                classObj: list
+            }
         }
     }
 </script>

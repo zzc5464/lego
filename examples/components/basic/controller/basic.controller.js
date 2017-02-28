@@ -4,8 +4,7 @@ var FController = require('fcontroller'),
     VueManager = require('../../../../src/utils/gum.vue.manager'),
     tplIndexView = require('../views/tpl.index'),
     tplWwqView = require('../views/tpl.wangweiqi'),
-    tplBeView = require('../views/tpl.basicexamples'),
-    tplStrView = require('../views/tpl.structure');
+    tplBeView = require('../views/tpl.basicexamples');
 
 function BasicController () {
     this.moduleName = 'components';
@@ -15,8 +14,7 @@ function BasicController () {
     this.routers = {
         'index'     : 'index',
         'wangweiqi' : 'wangweiqi',
-        'basicexample' : 'basicexample',
-        'structure': 'structure'
+        'basicexample' : 'basicexample'
     }
     this.VueManager = VueManager;
 }
@@ -63,20 +61,6 @@ BasicController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplBeView(data), data, 'basic examples', function (app) {
-                
-            });
-        }
-
-        show.call(this, {
-            
-        });
-    },
-
-    structure: function () {
-        var $ = this.$, navigate = this.navigate.bind(this);
-
-        function show (data) {
-            this.renderVUE(tplStrView(data), data, 'structure examples', function (app) {
                 
             });
         }

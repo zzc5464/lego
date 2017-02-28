@@ -1,38 +1,25 @@
 <template>
-    <button class="_tab_button" @click="tapping" :style="obj" ><slot></slot></button>
+    <button class='_tab_button' :class='classObj' :style='styleObj'><slot></slot></button>
 </template>
 
 <script>
     module.exports = {
-        props: [ 'width', 'height', 'filled', 'position'],
+        props: [ 'width', 'height', 'filled', 'position' ],
+
         data: function () {
+            
+            var obj = {}, list = [];
+
+            this.width  && (obj.width  = this.width  + 'rem');
+            this.height && (obj.height = this.height + 'rem');
+
+            this.filled === 'true'  && list.push('_button_filled');
+            this.position           && list.push('_tab_button_' + this.position);
+
             return {
-                obj: {
-                    width: (this.width || 4) + 'rem' ,
-                    height: (this.height || 1.5) + 'rem',
-                    backgroundColor: this.filled || 'transparent',
-                    lineHeight: (this.height || 1.5) + 'rem',
-                    borderTopLeftRadius: (this.position.tl || 0) + 'px',
-                    borderTopRightRadius: (this.position.tr || 0) + 'px',
-                    borderBottomLeftRadius: (this.position.bl || 0) + 'px',
-                    borderBottomRightRadius: (this.position.br || 0) + 'px'
-                }
-            };
-        },
-        methods: { 
-            tapping: function(){
-                console.log(typeof(this.position));
-                
+                styleObj: obj,
+                classObj: list
             }
         }
     }
 </script>
-
-<style scoped>
-    button {
-        outline: none;
-        border: none;
-        padding: 0;
-        text-align: center;
-    }
-</style>

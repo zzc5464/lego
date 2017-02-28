@@ -1,6 +1,6 @@
 <template>
-    <div class="_image_button" @click="tapping">
-        <img class="_image_button_img" :style="obj" :src="src"><br>
+    <div class="share" @click="tapping">
+        <img :style="obj" :src="src"><br>
         <txt :style="tobj" v-show="pos"><slot></slot></txt>
     </div>
 </template>
@@ -25,7 +25,7 @@
                     color: this.color || '#666'
                 }
             };
-        },  
+        },
         methods: {
             tapping: function(){
                 this.pos = !this.pos;
@@ -37,3 +37,18 @@
         }
     }
 </script>
+
+<style scoped>
+    .share{
+        text-align: center;
+    }
+    img {
+        display: inline-block;
+        border: none;
+        padding: 0;
+        text-align: center;
+        border-radius: 4px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+</style>

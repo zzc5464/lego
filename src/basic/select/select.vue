@@ -29,7 +29,7 @@
             'child-icon': childIcon
         }
     }
-</script> 
+</script>
 
 <style scoped>
     ._childtext {

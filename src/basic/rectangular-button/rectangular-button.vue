@@ -1,24 +1,24 @@
 <template>
-    <button class="_rectanglar_button" @click="tapping" :style="obj" ><slot></slot></button>
+    <button class='_rectangluar_button' :class='classObj' :style='styleObj'><slot></slot></button>
 </template>
 
 <script>
     module.exports = {
-        props: [ 'width', 'height', 'filled'],
-        data: function () {
-            return {
-                obj: {
-                    width: (this.width || 4) + 'rem' ,
-                    height: (this.height || 1.5) + 'rem',
-                    backgroundColor: this.filled || 'transparent',
-                    lineHeight: (this.height || 1.5) + 'rem'
-                }
-            };
-        },
-        methods: {
-            tapping: function(){
+        props: [ 'width', 'height', 'filled' ],
 
+        data: function () {
+            
+            var obj = {}, list = [];
+
+            this.width  && (obj.width  = this.width  + 'rem');
+            this.height && (obj.height = this.height + 'rem');
+
+            this.filled === 'true' && list.push('_button_filled');
+
+            return {
+                styleObj: obj,
+                classObj: list
             }
         }
-    } 
+    }
 </script>
