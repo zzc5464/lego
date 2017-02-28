@@ -8,9 +8,15 @@
     module.exports = {
         props: [ 'align' ],
         data: function() {
+            var justifyContent = {
+                left    : 'flex-start',
+                right   : 'flex-end',
+                center  : 'center'
+            }
+
             return {
                 styleObj: {
-                    textAlign: this.align || 'left'
+                    justifyContent  : justifyContent[this.align] || 'flex-start'
                 }
             };
         }

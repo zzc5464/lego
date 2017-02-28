@@ -9,10 +9,16 @@
         props: [ 'width', 'align' ],
 
         data: function() {
+            var justifyContent = {
+                left    : 'flex-start',
+                right   : 'flex-end',
+                center  : 'center'
+            }
+
             return {
                 styleObj: {
-                    width       : this.width + 'rem', 
-                    textAlign   : this.align || 'left'
+                    width           : this.width + 'rem', 
+                    justifyContent  : justifyContent[this.align] || 'flex-start'
                 }
             };
         }
