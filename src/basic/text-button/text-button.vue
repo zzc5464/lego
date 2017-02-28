@@ -4,7 +4,7 @@
 
 <script>
     module.exports = {
-        props: [ 'width', 'height' ],
+        props: [ 'width', 'height', 'size' ],
 
         data: function () {
             
@@ -12,6 +12,8 @@
 
             this.width  && (obj.width  = this.width  + 'rem');
             this.height && (obj.height = this.height + 'rem');
+
+            this.size && list.push('_text_size_' + this.size + 'px');
 
             return {
                 styleObj: obj,

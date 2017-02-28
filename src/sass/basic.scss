@@ -99,7 +99,7 @@ button {
     border-radius: 0 $border-radius $border-radius 0;
 }
 
-
+// filled = 'true'
 ._button_filled {
     color: $text-color-white;
     border: 0;
@@ -107,15 +107,12 @@ button {
     background-color: $bgcolor-high;
 }
 
+// <b-text-button/>
 ._text_button {
-    outline: none;
-    border: none;
-    padding: 0;
-    border-radius: none;
-    text-align: center;
     background-color: $bgcolor-transparent;
-    font-size: $text-size-30px;
     color: $text-color-high;
+    border: 0;
+    box-sizing: border-box;
 }
 
 
