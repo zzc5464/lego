@@ -99,7 +99,7 @@ button {
     border-radius: 0 $border-radius $border-radius 0;
 }
 
-
+// filled = 'true'
 ._button_filled {
     color: $text-color-white;
     border: 0;
@@ -107,32 +107,23 @@ button {
     background-color: $bgcolor-high;
 }
 
+// <b-text-button/>
 ._text_button {
-    outline: none;
-    border: none;
-    padding: 0;
-    border-radius: none;
-    text-align: center;
     background-color: $bgcolor-transparent;
-    font-size: $text-size-30px;
     color: $text-color-high;
+    border: 0;
+    box-sizing: border-box;
 }
 
 
-
-
-
-._image_button{
-    text-align: center;
-}
- ._image_button_img {
-    display: inline-block;
-    border: none;
+// 输入控件
+input {
+    font-size: $text-size-30px;
+    color: $text-color-black;
+    border: 0;
+    display: block;
+    width: 100%;
     padding: 0;
-    text-align: center;
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 0 auto;
 }
 
 ._checkbox {
@@ -220,15 +211,4 @@ button {
 
 ._childtext {
     vertical-align: 2px;
-}
-
-//input style
-._input {
-    font-size: $text-size-30px;
-    color: $text-color-black;
-    text-align: right;
-    outline: none;
-    width: 100%;
-    margin: 0;
-    padding: 0;
 }

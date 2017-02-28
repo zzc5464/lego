@@ -1,13 +1,19 @@
 <template>
-    <input class="_input" :class="classObj" type="number" name="" :placeholder="placeholder" :max="6" :required="required" >
+    <input class='_number_field' :class='classObj' :style='styleObj' type='tel' :name='name' :placeholder='placeholder' :maxlength='max' :required='required' >
 </template>
 
 <script>
     module.exports = {
-        props: ['size', 'placeholder', 'required'],
+        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required' ],
+
         data: function() {
             var obj = {}, list = [];
-            this.size && list.push('_text_size_' + this.size + 'px');
+
+            this.align 
+            && (obj.textAlign = this.align);
+
+            this.size 
+            && list.push('_text_size_' + this.size + 'px');
 
             return {
                 classObj: list,
