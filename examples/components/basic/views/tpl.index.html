@@ -1,3 +1,29 @@
-<b-email-field c='red' size=16></b-email-field>
-<b-tel-field c='red' size=16 value='hello'></b-tel-field>
-<b-button width="8" height="2" filled="#f30"><b-text size="1" color="white">确认</b-text></b-button>
+<p-main>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">手机号码</b-text>
+        </s-column>
+        <s-column width="12" align="right">
+            <b-tel-field size="30" max="11" required="true" placeholder="请输入银行预留电话" ></b-tel-field>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">动态密码</b-text>
+        </s-column>
+        <s-column width="8" align="right">
+            <b-number-field size="30" required="true" ></b-number-field>
+        </s-column>
+        <s-column width="4" align="right">
+            <b-button filled='true'>获取验证码</b-button>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+</p-main>
