@@ -1,14 +1,18 @@
 <template>
-    <input class="_input" type="email" name="" value="email name field" :style="{ fontSize: size + 'px' ,color:c}" placeholder="请输入电子邮箱">
+    <input class="_input" :class="classObj" type="email" name="" :placeholder="placeholder" maxlength="max" :required="required" >
 </template>
 
 <script>
     module.exports = {
-        props:['size','c'],
+        props: ['size', 'max', 'placeholder', 'required'],
         data: function() {
+            var obj = {}, list = [];
+            this.size && list.push('_text_size_' + this.size + 'px');
+
             return {
-                
-            };
+                classObj: list,
+                styleObj: obj
+            }
         }
     }
 </script>

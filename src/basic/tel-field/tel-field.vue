@@ -1,11 +1,11 @@
 <template>
-    <input class='_input' :class='styleObj' type='tel' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='phone' maxlength='max' required='required' >
+    <input class='_input' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='phone' maxlength='11' :required='required' >
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props:['size','c', 'max', 'placeholder', 'required'],
+        props:['size', 'max', 'placeholder', 'required'],
         data: function() {
             var obj = {}, list = [];
 
@@ -13,7 +13,8 @@
 
             return {
                 classObj: list,
-                styleObj: obj
+                styleObj: obj,
+                phone: ''
             }
         },
         methods: {
