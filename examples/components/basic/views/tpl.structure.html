@@ -8,7 +8,10 @@
         <s-column width="5" align="left">
             <b-text size="34" color="black">联系方式</b-text>
         </s-column>
-        <s-column width="13" align="right">
+        <s-column width="10" align="right">
+           
+        </s-column>
+        <s-column width="3" align="right">
             <b-text-button>修改</b-text-button>
         </s-column>
         <s-flex-column>
@@ -71,7 +74,9 @@
         <s-column width="5" align="left">
             <b-text size="34" color="black">联系方式</b-text>
         </s-column>
-        <s-column width="13" align="right">
+        <s-column width="10" align="right">
+        </s-column>
+        <s-column width="3" align="right">
             <b-text-button size="28">保存</b-text-button>
         </s-column>
         <s-flex-column>
@@ -173,9 +178,60 @@
             <b-text size="30" color="grey">证件类型</b-text>
         </s-column>
         <s-column width="13" align="right">
-            <b-select size="30" >身份证</b-select>
+            <b-select size=".75" >身份证</b-select>
         </s-column>
         <s-flex-column>
         </s-flex-column>
     </s-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">证件号码</b-text>
+        </s-column>
+        <s-column width="13" align="right">
+            <b-text-field size="30" placeholder="请输入"></b-text-field>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+
+    <s-single-cell height="2" border="true" bgcolor="#f0f0f0">
+        <b-text size="28" color="grey">两种情况的验证码</b-text>
+    </s-single-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">动态密码</b-text>
+        </s-column>
+        <s-column width="6" align="right">
+            <b-text-field size="30" placeholder="验证码"></b-text-field>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="6" align="right">
+            <b-button size="30" filled="true" height="2.105263">获取验证码</b-button>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">动态密码</b-text>
+        </s-column>
+        <s-column width="6" align="right">
+            <b-text-field size="30" color="grey" placeholder="">888888</b-text-field>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="6" align="right">
+            <b-button size="30" filled="true" height="2.105263">(120s)重新获取</b-button>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+    
 </p-main>
