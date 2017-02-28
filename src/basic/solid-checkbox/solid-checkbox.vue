@@ -1,5 +1,5 @@
 <template>
-    <span @click="tap" :checked="isChecked" :class="{active: isChecked}">
+    <span @click="tap" :checked="isChecked" class="_solid_checkbox" :class="{_solid_checkbox_active: isChecked}">
     </span>
 </template>
 
@@ -19,20 +19,3 @@
         }
     }
 </script>
-
-<style scoped>
-    span {
-        display: inline-block;
-        width: 32px;
-        height: 32px;
-        border: 1px solid #dcdcdc;
-        background-color: transparent;
-        box-sizing: border-box;
-        text-align: center;
-        overflow: hidden;
-    }
-    span.active {
-        border-color: #d7ac62;
-        background-color: #d7ac62;
-    }
-</style>

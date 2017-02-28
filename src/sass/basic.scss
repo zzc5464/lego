@@ -128,8 +128,8 @@ input {
 
 ._checkbox {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: .820513rem;
+    height: .820513rem;
     border: 1px solid #dcdcdc;
     background-color: $bgcolor-transparent;
     box-sizing: border-box;
@@ -143,8 +143,8 @@ input {
 
 ._solid_checkbox {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: .820513rem;
+    height: .820513rem;
     border: 1px solid #dcdcdc;
     background-color: $bgcolor-transparent;
     box-sizing: border-box;
@@ -170,10 +170,10 @@ input {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -14px;
-    margin-left: -14px;
-    width: 28px;
-    height: 28px;
+    margin-top: -.358974rem;
+    margin-left: -.358974rem;
+    width: .717947rem;
+    height: .717947rem;
     border: none;
     background-color: $bgcolor-high;
     border-radius: 50%;
@@ -181,11 +181,11 @@ input {
 
 ._toggle {
     display: inline-block;
-    width: 96px;
-    height: 56px;
+    width: 2.461538rem;
+    height: 1.435898rem;
     background-color: #fff;
     border: 1.5px solid #e5e5e5;
-    border-radius: 28px;
+    border-radius: .965517rem;
     position: relative;
 }
 ._toggle:after{
@@ -194,8 +194,8 @@ input {
     top: 0;
     left: 0;
     right: auto;
-    width: 56px;
-    height: 56px;
+    width: 1.435898rem;
+    height: 1.435898rem;
     border-radius: 50%;
     background-color: #fff;
     box-shadow: 0px 2px 9px #e5e5e5 ;
