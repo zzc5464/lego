@@ -1,5 +1,5 @@
 <template>
-    <input class='_number_field' :class='classObj' :style='styleObj' type='tel' :name='name' :placeholder='placeholder' :maxlength='max' :required='required' >
+    <input class='_number_field' :class='classObj' :style='styleObj' type='tel' :name='name' :placeholder='placeholder' :maxlength='max' :required='required' />
 </template>
 
 <script>

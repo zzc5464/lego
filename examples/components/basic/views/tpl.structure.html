@@ -12,7 +12,7 @@
            
         </s-column>
         <s-column width="3" align="right">
-            <b-text-button>修改</b-text-button>
+            <b-text-button size="30">修改</b-text-button>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -223,7 +223,7 @@
             <b-text size="30" color="grey">动态密码</b-text>
         </s-column>
         <s-column width="6" align="right">
-            <b-text-field size="30" color="grey" placeholder="">888888</b-text-field>
+            <b-tel-field size="30" color="grey" placeholder="">888888</b-tel-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -232,6 +232,41 @@
         </s-column>
         <s-flex-column>
         </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">图片验证码</b-text>
+        </s-column>
+        <s-column width="6" align="right">
+            <b-text-field size="28" color="grey" placeholder="图片验证码"></b-text-field>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="6" align="right">
+            <b-image src="#" height="2.105263"></b-mage>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+
+    <s-single-cell height="2" border="true" bgcolor="#f0f0f0">
+        <b-text size="28" color="grey">一个页面中的操作进度展示</b-text>
+    </s-single-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="28" color="grey">您已完成 1/5</b-text>
+        </s-column>
+        <s-column width="13" align="left">
+            <b-solid-checkbox ></b-solid-checkbox>
+            <b-solid-checkbox ></b-solid-checkbox>
+            <b-solid-checkbox ></b-solid-checkbox>
+            <b-solid-checkbox ></b-solid-checkbox>
+            <b-solid-checkbox ></b-solid-checkbox>
+        </s-column>
     </s-cell>
     
 </p-main>

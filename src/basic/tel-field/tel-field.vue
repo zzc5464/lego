@@ -5,11 +5,15 @@
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props:['size', 'max', 'placeholder', 'required'],
+        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required' ],
         data: function() {
             var obj = {}, list = [];
 
-            this.size && list.push('_text_size_' + this.size + 'px');
+            this.align 
+            && (obj.textAlign = this.align);
+
+            this.size 
+            && list.push('_text_size_' + this.size + 'px');
 
             return {
                 classObj: list,
