@@ -1,5 +1,5 @@
 <template>
-    <input class='_tel_field' :class='classObj' :style='styleObj' type='tel' :name='name' :placeholder='placeholder' :maxlength='max' :required='required' v-on:blur='sendMsg' v-model='phone' />
+    <input class='_input' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:input='sendMsg' v-model='phone' :maxlength= 'max' required='required' >
 </template>
 
 <script>
@@ -18,34 +18,11 @@
             return {
                 classObj: list,
                 styleObj: obj,
-                phone: ''
+                phone:''
+
             }
         },
         methods: {
-            // validatePhonePrefix :function(number){
-            //     if (number.indexOf("13") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("14") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("15") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("16") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("17") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("18") === 0){
-            //         return true;
-            //     }
-            //     if (number.indexOf("19") === 0){
-            //         return true;
-            //     }
-            //     return false;
-            // },
             validate:function(){
                 var errorMsg = '';
                 if(this.phone.length !== 11){
@@ -58,7 +35,7 @@
                 return errorMsg;
             },
             sendMsg: function(){
-                valMsg = this.validate();
+                var valMsg = this.validate();
                 bus.$emit('phoneNum',valMsg);
             }
         }
