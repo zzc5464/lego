@@ -11,3 +11,5 @@ webroot/css/iconfont
 docs/*
 !docs/index.html
 !docs/docs.css
+!docs/docs.json
+!docs/jquery.min.js
