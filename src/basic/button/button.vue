@@ -25,6 +25,9 @@
                 classObj: list
             }
         },
+        amounted:function(){
+            
+        },
         methods:{
             timeKeep:function(){
                 if(this.validate){
