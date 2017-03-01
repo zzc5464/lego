@@ -1,0 +1,28 @@
+{
+    "welcome":"./basic/text/text.md.html",
+    "content":
+    [
+        {
+            "name":"视图容器",
+            "isFolder":true,
+            "children":
+            [
+                {
+                    "name":"视图(view)",
+                    "isFolder":false,
+                    "link":"./basic/text/text.md.html"
+                },
+                {
+                    "name":"滚动(scroll)",
+                    "isFolder":false,
+                    "link":"./basic/address-field/address-field.md.html"
+                }
+            ]
+        },
+        {
+            "name":"滚动(scroll)",
+            "isFolder":false,
+            "link":"./basic/address-field/address-field.md.html"
+        }
+    ]
+}
