@@ -27,7 +27,10 @@ BasicController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplIndexView(data), data, '购买成功', function (app) {
-                
+                $('#btn').tap(function(){
+                    var phoneErr = $('#btn').attr('phone-err');
+                    phoneErr && alert(phoneErr);
+                })
             });
         }
         show.call(this, {
