@@ -8,4 +8,6 @@ lego.css
 lego.css.map
 package.json
 webroot/css/iconfont
-docs/
+docs/*
+!docs/index.html
+!docs/docs.css

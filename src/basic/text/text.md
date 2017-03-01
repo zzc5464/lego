@@ -10,7 +10,7 @@
  属性 | 说明 | 备注 
 --- | --- | ---
  size | 文字大小 | 单位为视觉稿中的 px 像素 
- color | 文字颜色	| 不可填写颜色值，目前可选的颜色有：lightgrey、grey、black、highlight 等
+ color | 文字颜色 | 不可填写颜色值，目前可选的颜色有：lightgrey、grey、black、highlight 等
 
 ### 子节点
 > 纯文本内容
