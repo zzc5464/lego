@@ -4,7 +4,7 @@
 
 <script>
     module.exports = {
-        props: [ 'width', 'height', 'size', 'filled' ],
+        props: [ 'width', 'height', 'size', 'filled' , 'msg'],
 
         data: function () {
             

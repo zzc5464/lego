@@ -143,8 +143,8 @@ input {
 
 ._solid_checkbox {
     display: inline-block;
-    width: .820513rem;
-    height: .820513rem;
+    width: .526316rem;
+    height: .526316rem;
     border: 1px solid #dcdcdc;
     background-color: $bgcolor-transparent;
     box-sizing: border-box;
@@ -181,11 +181,12 @@ input {
 
 ._toggle {
     display: inline-block;
-    width: 2.461538rem;
-    height: 1.435898rem;
+    width: 2.684211rem;
+    height: 1.631579rem;
     background-color: #fff;
     border: 1.5px solid #e5e5e5;
-    border-radius: .965517rem;
+    border-radius: .815789rem;
+    box-sizing: border-box;
     position: relative;
 }
 ._toggle:after{
@@ -194,9 +195,10 @@ input {
     top: 0;
     left: 0;
     right: auto;
-    width: 1.435898rem;
-    height: 1.435898rem;
+    width: 1.421053rem;
+    height: 1.421053rem;
     border-radius: 50%;
+    border: 1.5px solid rgba(229, 229, 229, .5);
     background-color: #fff;
     box-shadow: 0px 2px 9px #e5e5e5 ;
 }
@@ -209,6 +211,7 @@ input {
     left: auto;
 }
 
-._childtext {
+._select_text {
     vertical-align: 2px;
+    // padding-right: .578947rem;
 }

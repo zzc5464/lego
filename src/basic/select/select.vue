@@ -1,7 +1,7 @@
 <template>
     <span @click="tap">
-        <child-text :style="obj" class="_childtext"><slot></slot></child-text>
-        <child-icon name="angle-right-bold"></child-icon>
+        <child-text :style="obj" class="_select_text"><slot></slot></child-text>
+        <child-icon name="angle-right-bold" color="light" size="28"></child-icon>
     </span>
 </template>
 
