@@ -16,7 +16,7 @@
 
             return {
                 styleObj: {
-                    justifyContent  : justifyContent[this.align] || 'flex-start'
+                    justifyContent  : justifyContent[this.align] || justifyContent['left']
                 }
             };
         }

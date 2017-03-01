@@ -1,7 +1,5 @@
 <template>
-    <div class='_column' :style="styleObj">
-        <slot></slot>
-    </div>
+    <div class='_column' :style="styleObj"><slot></slot></div>
 </template>
 
 <script>
@@ -18,7 +16,7 @@
             return {
                 styleObj: {
                     width           : this.width + 'rem', 
-                    justifyContent  : justifyContent[this.align] || 'flex-start'
+                    justifyContent  : justifyContent[this.align] || justifyContent['left']
                 }
             };
         }
