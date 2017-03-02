@@ -71,6 +71,7 @@
 
             // 点击切换页面
             $(".one").click(function (e){
+                $('.book-body').animate({scrollTop:0}, 'fast');
                 var target = e.target || e.srcElement;
                 if (target.nodeName.toLowerCase() == 'li'){
                     var a = target.getAttribute('data-link');
