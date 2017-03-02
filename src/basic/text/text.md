@@ -2,7 +2,7 @@
 > 用于显示普通文本，可设置文本字体大小和颜色
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+> TODO:
 
 ### 属性列表
 > 注意：文字大小是按 UI 视觉稿上的标注来定的，比如 22px 等

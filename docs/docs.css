@@ -45,6 +45,7 @@
 .book-body{
 	flex: 1;
 	overflow: auto;
+	position: relative;
 }
 .book-body .btn_r{
 	width: 16px;
@@ -451,4 +452,11 @@ body {
 section>p {
 	text-indent: 20px
 }
+@media screen and (max-width: 736px) {
+    .aside{display: none;;}
+  }
+
+
+
+
 
