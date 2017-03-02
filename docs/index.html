@@ -37,7 +37,7 @@
         }
 
         $('#btn').click(function(){
-            $('.aside').fadeToggle();
+            $('.aside').fadeToggle('fast');
         });
 
         // 获取 JSON 文件
@@ -60,7 +60,7 @@
 
             // 页面初始化
             $.ajax({
-                url: './basic/text/text.md.html',
+                url: './doc/welcome.md.html',
                 data: {},
                 type: 'GET',
                 dataType: 'html',
@@ -71,7 +71,7 @@
 
             // 点击切换页面
             $(".one").click(function (e){
-                $('.book-body').animate({scrollTop:0}, 'fast');
+                $('.book-body').animate({scrollTop:0}, 100);
                 var target = e.target || e.srcElement;
                 if (target.nodeName.toLowerCase() == 'li'){
                     var a = target.getAttribute('data-link');
