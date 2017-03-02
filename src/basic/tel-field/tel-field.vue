@@ -19,7 +19,6 @@
                 classObj: list,
                 styleObj: obj,
                 phone:''
-
             }
         },
         methods: {
@@ -36,7 +35,7 @@
             },
             sendMsg: function(){
                 var valMsg = this.validate();
-                bus.$emit('phoneNum',valMsg);
+                bus.$emit('phoneMsg',valMsg);
             }
         }
     }

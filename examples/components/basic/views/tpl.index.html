@@ -21,7 +21,67 @@
             <b-number-field size="30" required="true" ></b-number-field>
         </s-column>
         <s-column width="6" align="right">
-            <b-button height='1.5' filled='true' validate='true' second=30 count='获取验证码'></b-button>
+            <b-button height='1.5' filled='true' validate='true' second=30 count='获取验证码' placeholder='请输入验证码'></b-button>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">电子邮箱</b-text>
+        </s-column>
+        <s-column width="12" align="right">
+            <b-email-field size="30" required="true" placeholder="请输入电子邮箱"></b-email-field>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">身份证号</b-text>
+        </s-column>
+        <s-column width="12" align="right">
+            <b-idcard-field size="30" required="true" placeholder="请输入身份证号"></b-idcard-field>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">地址信息</b-text>
+        </s-column>
+        <s-column width="12" align="right">
+            <b-address-field size="30" required="true" placeholder="请输入地址信息"></b-address-field>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">姓名</b-text>
+        </s-column>
+        <s-column width="12" align="right">
+            <b-text-field size="30" required="true" placeholder="请输入姓名"></b-text-field>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
+    <s-cell height="3" border="true" >
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width="5" align="left">
+            <b-text size="30" color="grey">金额</b-text>
+        </s-column>
+        <s-column width="12" align="right">
+            <b-number-field size="30" required="true" placeholder="请输入金额"></b-number-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -30,7 +90,7 @@
         <s-flex-column>
         </s-flex-column>
         <s-column width="6" align="center">
-            <b-button id='btn' height='1.5' filled='true' validate='true' phoneVali=''>提交</b-button>
+            <b-button id='btn' height='1.5' filled='true' validate='true' phonevali='true' emailvali='true' idcardvali='true' numbervali='true'>提交</b-button>
         </s-column>
         <s-flex-column>
         </s-flex-column>

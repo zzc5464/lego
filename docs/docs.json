@@ -1,28 +1,214 @@
 {
-    "welcome":"./basic/text/text.md.html",
-    "content":
-    [
+    "welcome": "./doc/welcome.md.html",
+
+    "content": [
         {
-            "name":"视图容器",
-            "isFolder":true,
-            "children":
-            [
+            "name"      : "关于 LEGO",
+            "isFolder"  : true,
+            "children"  : [
                 {
-                    "name":"视图(view)",
-                    "isFolder":false,
-                    "link":"./basic/text/text.md.html"
+                    "name"      : "如何使用",
+                    "isFolder"  : false,
+                    "link"      : "./doc/how-to-use.md.html"
                 },
                 {
-                    "name":"滚动(scroll)",
-                    "isFolder":false,
-                    "link":"./basic/address-field/address-field.md.html"
+                    "name"      : "常量列表",
+                    "isFolder"  : false,
+                    "link"      : "./doc/constants.md.html"
                 }
             ]
         },
+
         {
-            "name":"滚动(scroll)",
-            "isFolder":false,
-            "link":"./basic/address-field/address-field.md.html"
+            "name"      : "基本元素 <b-*/>",
+            "isFolder"  : true,
+            "children"  : [
+                {
+                    "name"      : "<b-text/> 普通文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text/text.md.html"
+                },
+                {
+                    "name"      : "<b-highlight/> 高亮文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/highlight/highlight.md.html"
+                },
+                {
+                    "name"      : "<b-skeleton/> 镂空文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/skeleton/skeleton.md.html"
+                },
+                {
+                    "name"      : "<b-icon/> 字体图标",
+                    "isFolder"  : false,
+                    "link"      : "./basic/icon/icon.md.html"
+                },
+                {
+                    "name"      : "<b-image/> 图片",
+                    "isFolder"  : false,
+                    "link"      : "./basic/image/image.md.html"
+                },
+                {
+                    "name"      : "<b-svg/> 矢量图片",
+                    "isFolder"  : false,
+                    "link"      : "./basic/svg/svg.md.html"
+                },
+                {
+                    "name"      : "<b-button/> 圆角按钮",
+                    "isFolder"  : false,
+                    "link"      : "./basic/button/button.md.html"
+                },
+                {
+                    "name"      : "<b-rectangular-button/> 直角按钮",
+                    "isFolder"  : false,
+                    "link"      : "./basic/rectangular-button/rectangular-button.md.html"
+                },
+                {
+                    "name"      : "<b-tab-button/> 标签按钮",
+                    "isFolder"  : false,
+                    "link"      : "./basic/tab-button/tab-button.md.html"
+                },
+                {
+                    "name"      : "<b-text-button/> 文字按钮",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text-button/text-button.md.html"
+                },
+                {
+                    "name"      : "<b-image-button/> 图片按钮",
+                    "isFolder"  : false,
+                    "link"      : "./basic/svg/svg.md.html"
+                },
+                {
+                    "name"      : "<b-text-field/> 文本输入框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text-field/text-field.md.html"
+                },
+                {
+                    "name"      : "<b-number-field/> 数字输入框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/number-field/number-field.md.html"
+                },
+                {
+                    "name"      : "<b-tel-field/> 电话号码输入框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/tel-field/tel-field.md.html"
+                },
+                {
+                    "name"      : "<b-email-field/> 电子邮箱输入框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text-button/text-button.md.html"
+                },
+                {
+                    "name"      : "<b-address-field/> 地址输入框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/address-field/address-field.md.html"
+                },
+                {
+                    "name"      : "<b-select/> 选择框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/select/select.md.html"
+                },
+                {
+                    "name"      : "<b-checkbox/> 普通勾选框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/checkbox/checkbox.md.html"
+                },
+                {
+                    "name"      : "<b-solid-checkbox/> 实心勾选框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/solid-checkbox/solid-checkbox.md.html"
+                },
+                {
+                    "name"      : "<b-radio/> 圆点框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/radio/radio.md.html"
+                },
+                {
+                    "name"      : "<b-toggle/> 开关",
+                    "isFolder"  : false,
+                    "link"      : "./basic/toggle/toggle.md.html"
+                }
+            ]
+        },
+
+        {
+            "name"      : "结构元素 <s-*/>",
+            "isFolder"  : true,
+            "children"  : [
+                {
+                    "name"      : "<s-single-cell/> 单列框",
+                    "isFolder"  : false,
+                    "link"      : "./structure/single-cell/single-cell.md.html"
+                },
+                {
+                    "name"      : "<s-cell/> 多列框",
+                    "isFolder"  : false,
+                    "link"      : "./structure/cell/cell.md.html"
+                },
+                {
+                    "name"      : "<s-column/> 定宽单元",
+                    "isFolder"  : false,
+                    "link"      : "./structure/column/column.md.html"
+                },
+                {
+                    "name"      : "<s-flex-column/> 不定宽单元",
+                    "isFolder"  : false,
+                    "link"      : "./structure/flex-column/flex-column.md.html"
+                },
+                {
+                    "name"      : "<s-sticker/> 漂浮单元",
+                    "isFolder"  : false,
+                    "link"      : "./structure/skeleton/skeleton.md.html"
+                }
+            ]
+        },
+
+        {
+            "name"      : "组合元素 <c-*/>",
+            "isFolder"  : true,
+            "children"  : []
+        },
+
+        {
+            "name"      : "页面元素 <p-*/>",
+            "isFolder"  : true,
+            "children"  : [
+                {
+                    "name"      : "<p-main/> 主体容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/main/main.md.html"
+                },
+                {
+                    "name"      : "<p-footer/> 驻底容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/footer/footer.md.html"
+                },
+                {
+                    "name"      : "<p-header/> 驻顶容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/header/header.md.html"
+                },
+                {
+                    "name"      : "<p-cover/> 漂浮容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/cover/cover.md.html"
+                },
+                {
+                    "name"      : "<p-mask/> 蒙板容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/mask/mask.md.html"
+                },
+                {
+                    "name"      : "<p-presentation/> 上升容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/presentation/presentation.md.html"
+                },
+                {
+                    "name"      : "<p-popup/> 弹出容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/popup/popup.md.html"
+                }
+            ]
         }
     ]
 }
