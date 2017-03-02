@@ -94,7 +94,8 @@
 
             // 颜色切换
             $('#aside li').click(function (){
-                $(this).addClass('active').siblings().removeClass('active');
+                $('#aside li').removeClass('active')
+                $(this).addClass('active');
             });
 
         });
