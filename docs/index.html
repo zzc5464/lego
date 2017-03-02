@@ -7,49 +7,54 @@
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <link rel="stylesheet" href="./docs.css"/>
         <script type="text/javascript" src="./jquery.min.js"></script>
-        <title>LEGO Document</title>
+        <title>LEGO Document</title>   
     </head>
     <body>
-        <div class="book with-summary">
-            <div class="book-summary">
-                <nav role="navigation">
-                    <ul class="summary">
-                        <li class="chapter active open" data-level="1.3.1" data-path="view.html" data-name="视图容器">
-                            <a href="text/text.md.html">
-                                视图容器
-                            </a>
-                            <ul class="articles">
-                                <li class="chapter active " data-level="1.3.1.1" data-path="view.html" data-name="view">
-                                    <a href="view.html">
-                                        view
-                                    </a>
-                                </li>
-                                <li class="chapter  " data-level="1.3.1.2" data-path="scroll-view.html" data-name="scroll-view">
-                                    <a href="scroll-view.html">
-                                        scroll-view
-                                    </a>
-                                </li>
-                                <li class="chapter  " data-level="1.3.1.3" data-path="swiper.html" data-name="swiper">
-                                    <a href="swiper.html">
-                                        swiper
-                                    </a>
-                                </li>      
-                            </ul>
-                        </li>
-                        
-                    </ul>
-                </nav>
+        <div class="book">
+            <div class="aside" id="aside">
+                <div class="btn_l">lego</div>
+                <!--<h1>导航部分点击展开</h1>
+                <ul class="one" style="display: none;">
+                    <li data-link='./basic/text/text.md.html'>链接链接</li>
+                    <li data-link='./basic/address-field/address-field.md.html'>链接链接</li>
+                    <li>链接链接</li>
+                    <li>链接链接</li>
+                </ul>-->
+                
             </div>
             <div class="book-body">
-                <div class="body-inner">
-                    <section class="normal markdown-section" id="introduce">
-                        
-                    </section>
-                </div>
+                <div class="btn_r" id="btn">开</div>
+                <section class="normal markdown-section" id="introduce"></section>
             </div>
         </div>
     </body>
     <script>
+
+        // 动画
+        $('.aside h1').click(function(){
+            $('.aside ul:visible').stop(true,false).slideUp(200);
+            $(this).next().stop(true,false).slideToggle(200);
+        });
+
+        $('#btn').click(function(){
+            $('.aside').fadeToggle();
+        });
+
+        // 获取 JSON 文件
+        $.getJSON('./docs.json',function (data){
+            console.log(data.content);
+            var l = data.content[0].children.length;
+            for (var i = 0; i < data.content.length; i ++ ){
+                for (var j = 0; j < l; j ++ ){
+                    html += "<h1>" + data.content[i].name + "</h1><ul class='one' style='display: none;'><li data-link=" 
+                            + data.content[i].children[j].link + ">" + data.content[i].children[j].name + "</li></ul>";
+                }
+                console.log(html);
+                $('#aside').append(html);
+            }
+        });
+
+        // 页面初始化
         $.ajax({
             url: './basic/text/text.md.html',
             data: {},
@@ -59,6 +64,26 @@
                 $("#introduce").html(resp);
             }
         });
+
+        // 点击切换页面
+        $(".one").click(function (e){
+            var target = e.target || e.srcElement;
+            if (target.nodeName.toLowerCase() == 'li'){
+
+                $.ajax({
+                    url: target.getAttribute('data-link'),
+                    data: {},
+                    type: 'GET',
+                    dataType: 'html',
+                    success: function (resp, status){
+                        // 右边内容页面渲染
+                        $("#introduce").html(resp);
+                    }
+                });                       
+            }
+        });
+        
+        
 
         
     </script>
