@@ -24,9 +24,13 @@
 200px:   5.263158rem;
 202px:   5.315789rem;
 215px:   5.657895rem;
+240px:   6.315789rem;
+260px:   6.842105rem;
 242px:   6.368421rem;
 258px:   6.789474rem;
+340px:   8.947368rem;
 484px:   12.736842rem;
+490px:   12.894736rem;
 510px:   13.421053rem;
 630px:   16.578948rem;
 690px:   18.157895rem;
@@ -615,18 +619,18 @@
         <s-flex-column>
         </s-flex-column>
     </s-cell>
-    <!--<s-cell height="1.578947" >
+    <s-cell height="1.578947" >
         <s-flex-column>
         </s-flex-column>
         <s-column width="5.657895" align="left">
             <b-text size="30" color="light">影像资料：</b-text>
         </s-column>
         <s-column width="12.736842" align="left">
-            <b-text-button size="30" width="5.156785" color="high" algin="left">查看影像</b-text-button>
+            <b-text-button size="30" width="5.156785" color="high" align="left">查看影像</b-text-button>
         </s-column>
         <s-flex-column>
         </s-flex-column>
-    </s-cell>-->
+    </s-cell>
     <!--登录部分的所有list是左测对齐-->
     <s-cell height="2" border="true" bgcolor="#f0f0f0">
         <s-column width=".789474" align="left">
@@ -736,7 +740,7 @@
          <s-flex-column>
         </s-flex-column>
         <s-column width="18.157895" align="center">
-            <b-button size="34f"  color="white" height="2.315789" filled="true">下一步</b-button>
+            <b-button size="34"  color="white" height="2.315789" filled="true">下一步</b-button>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -756,20 +760,81 @@
             <b-text size="28" color="grey">您已完成 1/5</b-text>
         </s-column>
         <s-column width=".789474" align="left">
-            <b-solid-checkbox width=".526316" height=".789474"></b-solid-checkbox>
+            <b-solid-checkbox width=".526316" height=".526316"></b-solid-checkbox>
         </s-column>
         <s-column width=".789474" align="left">
-            <b-solid-checkbox width=".526316" height=".789474"></b-solid-checkbox>
+            <b-solid-checkbox width=".526316" height=".526316"></b-solid-checkbox>
         </s-column>
         <s-column width=".789474" align="left">
-            <b-solid-checkbox width=".526316" height=".789474"></b-solid-checkbox>
+            <b-solid-checkbox width=".526316" height=".526316"></b-solid-checkbox>
         </s-column>
         <s-column width=".789474" align="left">
-            <b-solid-checkbox width=".526316" height=".789474"></b-solid-checkbox>
+            <b-solid-checkbox width=".526316" height=".526316"></b-solid-checkbox>
         </s-column>
         <s-column width=".789474" align="left">
-            <b-solid-checkbox width=".526316" height=".789474"></b-solid-checkbox>
+            <b-solid-checkbox width=".526316" height=".526316"></b-solid-checkbox>
         </s-column>
     </s-cell>
-    
+    <!-- button -->
+    <s-cell height="2" border="true" bgcolor="#f0f0f0">
+        <s-column width=".789474" align="left">
+        </s-column>
+        <s-column width="13" align="left">
+            <b-text size="28" color="grey">button 样式</b-text>
+        </s-column>
+    </s-cell>
+    <s-cell height="3.157895" bgcolor="#ffffff">
+         <s-flex-column>
+        </s-flex-column>
+        <s-column width="18.157895" align="center">
+            <b-button size="34"  color="white" height="2.315789" filled="true">正常状态</b-button>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+     </s-cell>
+     <s-cell height="1" border="true" bgcolor="#f0f0f0">
+    </s-cell>
+     <s-cell height="3.157895" bgcolor="#ffffff">
+         <s-flex-column>
+        </s-flex-column>
+        <s-column width="8.947368" align="center">
+            <b-button size="34"  color="white" height="2.315789" filled="false">镂空按钮</b-button>
+        </s-column>
+        <s-column width=".789474" align="center"></s-column>
+        <s-column width="8.947368" align="center">
+            <b-button size="34"  color="white" height="2.315789" filled="true">确定</b-button>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+     </s-cell>
+     <s-cell height="1" bgcolor="#f0f0f0">
+    </s-cell>
+     <s-cell height="3.157895" bgcolor="#ffffff">
+         <s-flex-column>
+        </s-flex-column>
+        <s-column width="6.315789" align="center">
+            <b-rectangular-button size="34"  color="white" height="3.157895" filled="true">直角button</b-rectangular-button>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+     </s-cell>
+     <s-cell height="1" bgcolor="#f0f0f0">
+    </s-cell>
+     <s-cell height="3.157895" bgcolor="#ffffff">
+         <s-column width="1.578947"></s-column>
+         <s-column width="1.578947">
+             <b-radio></b-radio>
+         </s-column>
+         <s-column width=".526316"></s-column>
+         <s-column width="2.231579">
+             <b-text size="34" color="black">全选</b-text>
+         </s-column>
+         <s-flex-column align="right">
+            <b-text size="24" color="high">合计：</b-text>
+            <b-text size="34" color="high">￥7,008.50</b-text>
+        </s-flex-column>
+        <s-column width="6.842105" align="right">
+            <b-rectangular-button size="34"  color="white" width="6.315789" height="3.157895" filled="true">直角button</b-rectangular-button>
+        </s-column>
+     </s-cell>
 </p-main>
