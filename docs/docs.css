@@ -1,5 +1,6 @@
 *{margin: 0;padding: 0;}
 .book{
+	height: 100%;
 	display: flex;
 	margin-left: 20px;
 }
@@ -11,8 +12,9 @@
 	cursor: pointer;
 }
 .aside{
-	width: 400px;
+	width: 270px;
 	height: auto;
+	overflow: auto;
 	border-right: 1px solid rgba(0,0,0,.07);
 }
 .aside h1{
@@ -36,7 +38,7 @@
 }
 .book-body{
 	flex: 1;
-	transition: all 1s;
+	overflow: auto;
 }
 .book-body .btn_r{
 	width: 30px;

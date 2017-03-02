@@ -20,7 +20,6 @@
                     <li>链接链接</li>
                     <li>链接链接</li>
                 </ul>-->
-                
             </div>
             <div class="book-body">
                 <div class="btn_r" id="btn">开</div>
@@ -37,14 +36,12 @@
             return text;
         }
 
-
         $('#btn').click(function(){
             $('.aside').fadeToggle();
         });
 
         // 获取 JSON 文件
         $.getJSON('./docs.json',function (data){
-            console.log(data.content);
             var html = '<div class="btn_l">lego</div>';
             for (var i = 0; i < data.content.length; i ++ ){
                 html += "<h1>" + text2html(data.content[i].name) + "</h1><ul class='one' style='display: none;'>";
@@ -53,7 +50,6 @@
                     html += "<li data-link=" + data.content[i].children[j].link + ">" + text2html(data.content[i].children[j].name) + "</li>";
                 }
                 html += "</ul>";
-                console.log(html);
             }
             $('#aside').html(html);
 
@@ -77,7 +73,8 @@
             $(".one").click(function (e){
                 var target = e.target || e.srcElement;
                 if (target.nodeName.toLowerCase() == 'li'){
-
+                    var a = target.getAttribute('data-link');
+                    console.log(a);
                     $.ajax({
                         url: target.getAttribute('data-link'),
                         data: {},
