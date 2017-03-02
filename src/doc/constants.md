@@ -34,11 +34,11 @@
 
  颜色名 | 颜色值 | 示例 
 --- | --- | ---
- white | #FFFFFF | TODO 
- black | #333333 | TODO
- grey | #666666 | TODO
- light | #999999 | TODO
- high | #D7AC62 | TODO 
+ white | #FFFFFF | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/fff.png) 
+ black | #333333 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/333.png) 
+ grey | #666666 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/666.png) 
+ light | #999999 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
+ high | #D7AC62 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)  
 
 ## 背景颜色
 > 用于给结构组件添加背景颜色，相当于 background-color 属性
@@ -60,11 +60,11 @@
 
  颜色名 | 颜色值 | 示例 
 --- | --- | ---
- white | #FFFFFF | TODO 
- high | #D7AC62 | TODO
- high-tapping | #B38F47 | TODO
- lightgrey | #DCDCDC | TODO
- transparent | -| TODO 
+ white | #FFFFFF | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/fff.png)  
+ high | #D7AC62 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png) 
+ high-tapping | #B38F47 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/B38F47.png) 
+ lightgrey | #DCDCDC | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/DCDCDC.png) 
+ transparent | - | -
 
 ## 字体图标
 > 使用 iconfont 定义的字体图标
