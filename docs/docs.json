@@ -1,5 +1,5 @@
 {
-    "welcome": "./basic/text/text.md.html",
+    "welcome": "./doc/welcome.md.html",
 
     "content": [
         {
@@ -7,14 +7,14 @@
             "isFolder"  : true,
             "children"  : [
                 {
-                    "name"      : "视图(view)",
+                    "name"      : "如何使用",
                     "isFolder"  : false,
-                    "link"      : "./basic/text/text.md.html"
+                    "link"      : "./doc/how-to-use.md.html"
                 },
                 {
-                    "name"      : "滚动(scroll)",
+                    "name"      : "常量列表",
                     "isFolder"  : false,
-                    "link"      : "./basic/address-field/address-field.md.html"
+                    "link"      : "./doc/contants.md.html"
                 }
             ]
         },
@@ -79,7 +79,7 @@
                     "link"      : "./basic/svg/svg.md.html"
                 },
                 {
-                    "name"      : "<b-text-field/> 文本输入框",
+                    "name"      : "<b-text-field/> 文本输入框",
                     "isFolder"  : false,
                     "link"      : "./basic/text-field/text-field.md.html"
                 },
@@ -124,7 +124,7 @@
                     "link"      : "./basic/radio/radio.md.html"
                 },
                 {
-                    "name"      : "<b-toggle/> 开关",
+                    "name"      : "<b-toggle/> 开关",
                     "isFolder"  : false,
                     "link"      : "./basic/toggle/toggle.md.html"
                 }
@@ -136,19 +136,29 @@
             "isFolder"  : true,
             "children"  : [
                 {
-                    "name"      : "<b-text/> 普通文字",
+                    "name"      : "<s-single-cell/> 单列框",
                     "isFolder"  : false,
-                    "link"      : "./basic/text/text.md.html"
+                    "link"      : "./structure/single-cell/single-cell.md.html"
                 },
                 {
-                    "name"      : "<b-highlight/> 高亮文字",
+                    "name"      : "<s-cell/> 多列框",
                     "isFolder"  : false,
-                    "link"      : "./basic/highlight/highlight.md.html"
+                    "link"      : "./structure/cell/cell.md.html"
                 },
                 {
-                    "name"      : "<b-skeleton/> 镂空文字",
+                    "name"      : "<s-column/> 定宽单元",
                     "isFolder"  : false,
-                    "link"      : "./basic/skeleton/skeleton.md.html"
+                    "link"      : "./structure/column/column.md.html"
+                },
+                {
+                    "name"      : "<s-flex-column/> 不定宽单元",
+                    "isFolder"  : false,
+                    "link"      : "./structure/flex-column/flex-column.md.html"
+                },
+                {
+                    "name"      : "<s-sticker/> 漂浮单元",
+                    "isFolder"  : false,
+                    "link"      : "./structure/skeleton/skeleton.md.html"
                 }
             ]
         },
@@ -156,18 +166,7 @@
         {
             "name"      : "组合元素 <c-*/>",
             "isFolder"  : true,
-            "children"  : [
-                {
-                    "name"      : "视图(view)",
-                    "isFolder"  : false,
-                    "link"      : "./basic/text/text.md.html"
-                },
-                {
-                    "name"      : "滚动(scroll)",
-                    "isFolder"  : false,
-                    "link"      : "./basic/address-field/address-field.md.html"
-                }
-            ]
+            "children"  : []
         },
 
         {
@@ -175,22 +174,41 @@
             "isFolder"  : true,
             "children"  : [
                 {
-                    "name"      : "视图(view)",
+                    "name"      : "<p-main/> 主体容器",
                     "isFolder"  : false,
-                    "link"      : "./basic/text/text.md.html"
+                    "link"      : "./pages/main/main.md.html"
                 },
                 {
-                    "name"      : "滚动(scroll)",
+                    "name"      : "<p-footer/> 驻底容器",
                     "isFolder"  : false,
-                    "link"      : "./basic/address-field/address-field.md.html"
+                    "link"      : "./pages/footer/footer.md.html"
+                },
+                {
+                    "name"      : "<p-header/> 驻顶容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/header/header.md.html"
+                },
+                {
+                    "name"      : "<p-cover/> 漂浮容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/cover/cover.md.html"
+                },
+                {
+                    "name"      : "<p-mask/> 蒙板容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/mask/mask.md.html"
+                },
+                {
+                    "name"      : "<p-presentation/> 上升容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/presentation/presentation.md.html"
+                },
+                {
+                    "name"      : "<p-popup/> 弹出容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/popup/popup.md.html"
                 }
             ]
-        },
-
-        {
-            "name"      : "滚动(scroll)",
-            "isFolder"  : false,
-            "link"      : "./basic/address-field/address-field.md.html"
         }
     ]
 }
