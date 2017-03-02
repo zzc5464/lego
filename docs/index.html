@@ -22,7 +22,7 @@
                 </ul>-->
             </div>
             <div class="book-body">
-                <div class="btn_r" id="btn">开</div>
+                <div class="btn_r" id="btn"></div>
                 <section class="normal markdown-section" id="introduce"></section>
             </div>
         </div>
@@ -75,6 +75,8 @@
                 if (target.nodeName.toLowerCase() == 'li'){
                     var a = target.getAttribute('data-link');
                     console.log(a);
+                    // target.classList.add('active');
+                    // $(this).addClass('active');
                     $.ajax({
                         url: target.getAttribute('data-link'),
                         data: {},
@@ -87,6 +89,12 @@
                     });                       
                 }
             });
+
+            // 颜色切换
+            $('.one li').click(function (){
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+
         });
 
 

@@ -1,4 +1,10 @@
-*{margin: 0;padding: 0;}
+*{
+	margin: 0;
+	padding: 0;
+}
+.active{
+	color: #c0c0c0;
+}
 .book{
 	height: 100%;
 	display: flex;
@@ -41,18 +47,17 @@
 	overflow: auto;
 }
 .book-body .btn_r{
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-	margin-left: 20px;
+	width: 16px;
+	height: 16px;
 	cursor: pointer;
+	padding: 20px 24px;
+	background: url('http://www.wangweiqi.com/c/wangyq/images/button.png') no-repeat center center;
+	background-size: 16px 16px;
 }
-/*.book-body .btn_l::before{
-	content: "号";
-	display: block;
-	width: 10px;
-	height: 10px;
-}*/
+.book-body .btn_r img{
+	width: 100%;
+	height: auto;
+}
 .normal{
 	width: 90%;
 	margin: 0 auto;
