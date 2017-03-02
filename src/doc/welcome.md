@@ -1,21 +1,34 @@
-# b-text 文本块
-> 用于显示普通文本，可设置文本字体大小和颜色
+# LEGO
+A UI components library
 
-### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+### 使用说明
 
-### 属性列表
-> 注意：文字大小是按 UI 视觉稿上的标注来定的，比如 22px 等
-
- 属性 | 说明 | 备注 
---- | --- | ---
- size | 文字大小 | 单位为视觉稿中的 px 像素 
- color | 文字颜色 | 不可填写颜色值，目前可选的颜色有：lightgrey、grey、black、highlight 等
-
-### 子节点
-> 纯文本内容
-
-### 示例
 ```
-<b-text size='34' color='black'>手机号码</b-text>
+  # 安装 Sass
+  sudo npm install –save node-sass grunt-sass
+
+  # 安装依赖
+  npm install
+
+  # 编译命令
+  grunt lego
+```
+
+
+### 文件夹说明
+
+ - **examples** - 基于 GUM 框架的模块开发目录，用于实现 UI 组件的各种示例
+ - **lib** - 库文件，gum.app.js / vuejs / ......
+ - **src** - 源文件，可编译成 JS 库文件，直接用给模块使用；
+ - **webroot** - 网站根目录，将 nginx 配置到此处，可以用于测试 UI 组件的实际效果
+
+
+### 文档说明
+
+```
+  # 安装依赖的库 marked
+  sudo npm install marked
+
+  # 执行文档生成脚本
+  node Createdocs.js 
 ```
