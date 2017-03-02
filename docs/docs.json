@@ -1,28 +1,121 @@
 {
-    "welcome":"./basic/text/text.md.html",
-    "content":
-    [
+    "welcome": "./basic/text/text.md.html",
+
+    "content": [
         {
-            "name":"视图容器",
-            "isFolder":true,
-            "children":
-            [
+            "name"      : "关于 LEGO",
+            "isFolder"  : true,
+            "children"  : [
                 {
-                    "name":"视图(view)",
-                    "isFolder":false,
-                    "link":"./basic/text/text.md.html"
+                    "name"      : "视图(view)",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text/text.md.html"
                 },
                 {
-                    "name":"滚动(scroll)",
-                    "isFolder":false,
-                    "link":"./basic/address-field/address-field.md.html"
+                    "name"      : "滚动(scroll)",
+                    "isFolder"  : false,
+                    "link"      : "./basic/address-field/address-field.md.html"
                 }
             ]
         },
+
         {
-            "name":"滚动(scroll)",
-            "isFolder":false,
-            "link":"./basic/address-field/address-field.md.html"
+            "name"      : "基本元素 <b-*/>",
+            "isFolder"  : true,
+            "children"  : [
+                {
+                    "name"      : "<b-text/> 普通文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text/text.md.html"
+                },
+                {
+                    "name"      : "<b-highlight/> 高亮文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/highlight/highlight.md.html"
+                },
+                {
+                    "name"      : "<b-skeleton/> 镂空文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/skeleton/skeleton.md.html"
+                },
+                {
+                    "name"      : "<b-icon/> 字体图标",
+                    "isFolder"  : false,
+                    "link"      : "./basic/icon/icon.md.html"
+                },
+                {
+                    "name"      : "<b-highlight/> 高亮文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/highlight/highlight.md.html"
+                },
+                {
+                    "name"      : "<b-skeleton/> 镂空文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/skeleton/skeleton.md.html"
+                }
+            ]
+        },
+
+        {
+            "name"      : "结构元素 <s-*/>",
+            "isFolder"  : true,
+            "children"  : [
+                {
+                    "name"      : "<b-text/> 普通文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text/text.md.html"
+                },
+                {
+                    "name"      : "<b-highlight/> 高亮文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/highlight/highlight.md.html"
+                },
+                {
+                    "name"      : "<b-skeleton/> 镂空文字",
+                    "isFolder"  : false,
+                    "link"      : "./basic/skeleton/skeleton.md.html"
+                }
+            ]
+        },
+
+        {
+            "name"      : "组合元素 <c-*/>",
+            "isFolder"  : true,
+            "children"  : [
+                {
+                    "name"      : "视图(view)",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text/text.md.html"
+                },
+                {
+                    "name"      : "滚动(scroll)",
+                    "isFolder"  : false,
+                    "link"      : "./basic/address-field/address-field.md.html"
+                }
+            ]
+        },
+
+        {
+            "name"      : "页面元素 <p-*/>",
+            "isFolder"  : true,
+            "children"  : [
+                {
+                    "name"      : "视图(view)",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text/text.md.html"
+                },
+                {
+                    "name"      : "滚动(scroll)",
+                    "isFolder"  : false,
+                    "link"      : "./basic/address-field/address-field.md.html"
+                }
+            ]
+        },
+
+        {
+            "name"      : "滚动(scroll)",
+            "isFolder"  : false,
+            "link"      : "./basic/address-field/address-field.md.html"
         }
     ]
 }
