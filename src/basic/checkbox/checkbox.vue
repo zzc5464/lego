@@ -1,6 +1,6 @@
 <template>
-    <span @click="tap" :checked="isChecked" :class="{active: isChecked}">
-          <marked class="dot" v-show="isChecked" name="check" size="1.5" color="#fff"></marked>
+    <span @click="tap" :checked="isChecked" class="_checkbox" :class="{_checkbox_active: isChecked}">
+          <marked class="dot" v-show="isChecked" name="check" size="30" color="white"></marked>
     </span>
 </template>
 
@@ -24,20 +24,3 @@
         }
     }
 </script>
-
-<style scoped>
-    span {
-        display: inline-block;
-        width: 32px;
-        height: 32px;
-        border: 1px solid #dcdcdc;
-        background-color: transparent;
-        box-sizing: border-box;
-        text-align: center;
-        overflow: hidden;
-    }
-    span.active {
-        border-color: #d7ac62;
-        background-color: #d7ac62;
-    }
-</style>

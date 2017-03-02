@@ -46,6 +46,9 @@ button, input {
 }
  
 // 所有 color 属性列表
+._text_color_white {
+    color: $text-color-white;
+}
 ._text_color_black {
     color: $text-color-black;
 }
