@@ -44,14 +44,89 @@
                     "link"      : "./basic/icon/icon.md.html"
                 },
                 {
-                    "name"      : "<b-highlight/> 高亮文字",
+                    "name"      : "<b-image/> 图片",
                     "isFolder"  : false,
-                    "link"      : "./basic/highlight/highlight.md.html"
+                    "link"      : "./basic/image/image.md.html"
                 },
                 {
-                    "name"      : "<b-skeleton/> 镂空文字",
+                    "name"      : "<b-svg/> 矢量图片",
                     "isFolder"  : false,
-                    "link"      : "./basic/skeleton/skeleton.md.html"
+                    "link"      : "./basic/svg/svg.md.html"
+                },
+                {
+                    "name"      : "<b-button/> 圆角按钮",
+                    "isFolder"  : false,
+                    "link"      : "./basic/button/button.md.html"
+                },
+                {
+                    "name"      : "<b-rectangular-button/> 直角按钮",
+                    "isFolder"  : false,
+                    "link"      : "./basic/rectangular-button/rectangular-button.md.html"
+                },
+                {
+                    "name"      : "<b-tab-button/> 标签按钮",
+                    "isFolder"  : false,
+                    "link"      : "./basic/tab-button/tab-button.md.html"
+                },
+                {
+                    "name"      : "<b-text-button/> 文字按钮",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text-button/text-button.md.html"
+                },
+                {
+                    "name"      : "<b-image-button/> 图片按钮",
+                    "isFolder"  : false,
+                    "link"      : "./basic/svg/svg.md.html"
+                },
+                {
+                    "name"      : "<b-text-field/> 文本输入框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text-field/text-field.md.html"
+                },
+                {
+                    "name"      : "<b-number-field/> 数字输入框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/number-field/number-field.md.html"
+                },
+                {
+                    "name"      : "<b-tel-field/> 电话号码输入框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/tel-field/tel-field.md.html"
+                },
+                {
+                    "name"      : "<b-email-field/> 电子邮箱输入框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/text-button/text-button.md.html"
+                },
+                {
+                    "name"      : "<b-address-field/> 地址输入框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/address-field/address-field.md.html"
+                },
+                {
+                    "name"      : "<b-select/> 选择框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/select/select.md.html"
+                },
+                {
+                    "name"      : "<b-checkbox/> 普通勾选框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/checkbox/checkbox.md.html"
+                },
+                {
+                    "name"      : "<b-solid-checkbox/> 实心勾选框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/solid-checkbox/solid-checkbox.md.html"
+                },
+                {
+                    "name"      : "<b-radio/> 圆点框",
+                    "isFolder"  : false,
+                    "link"      : "./basic/radio/radio.md.html"
+                },
+                {
+                    "name"      : "<b-toggle/> 开关",
+                    "isFolder"  : false,
+                    "link"      : "./basic/toggle/toggle.md.html"
                 }
             ]
         },
