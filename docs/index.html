@@ -30,11 +30,13 @@
     </body>
     <script>
 
-        // 动画
-        $('.aside h1').click(function(){
-            $('.aside ul:visible').stop(true,false).slideUp(200);
-            $(this).next().stop(true,false).slideToggle(200);
-        });
+        function text2html (text) {
+            text = text || '';
+            text = text.replace(/</g, "&lt;");
+            text = text.replace(/>/g, "&gt;");
+            return text;
+        }
+
 
         $('#btn').click(function(){
             $('.aside').fadeToggle();
@@ -43,45 +45,56 @@
         // 获取 JSON 文件
         $.getJSON('./docs.json',function (data){
             console.log(data.content);
-            var l = data.content[0].children.length;
+            var html = '<div class="btn_l">lego</div>';
             for (var i = 0; i < data.content.length; i ++ ){
+                html += "<h1>" + text2html(data.content[i].name) + "</h1><ul class='one' style='display: none;'>";
+                var l = data.content[i].children.length
                 for (var j = 0; j < l; j ++ ){
-                    html += "<h1>" + data.content[i].name + "</h1><ul class='one' style='display: none;'><li data-link=" 
-                            + data.content[i].children[j].link + ">" + data.content[i].children[j].name + "</li></ul>";
+                    html += "<li data-link=" + data.content[i].children[j].link + ">" + text2html(data.content[i].children[j].name) + "</li>";
                 }
+                html += "</ul>";
                 console.log(html);
-                $('#aside').append(html);
             }
+            $('#aside').html(html);
+
+            // 动画
+            $('.aside h1').click(function(){
+                $(this).next().stop(true,false).slideToggle(200);
+            });
+
+            // 页面初始化
+            $.ajax({
+                url: './basic/text/text.md.html',
+                data: {},
+                type: 'GET',
+                dataType: 'html',
+                success: function (resp, status){
+                    $("#introduce").html(resp);
+                }
+            });
+
+            // 点击切换页面
+            $(".one").click(function (e){
+                var target = e.target || e.srcElement;
+                if (target.nodeName.toLowerCase() == 'li'){
+
+                    $.ajax({
+                        url: target.getAttribute('data-link'),
+                        data: {},
+                        type: 'GET',
+                        dataType: 'html',
+                        success: function (resp, status){
+                            // 右边内容页面渲染
+                            $("#introduce").html(resp);
+                        }
+                    });                       
+                }
+            });
         });
 
-        // 页面初始化
-        $.ajax({
-            url: './basic/text/text.md.html',
-            data: {},
-            type: 'GET',
-            dataType: 'html',
-            success: function (resp, status){
-                $("#introduce").html(resp);
-            }
-        });
 
-        // 点击切换页面
-        $(".one").click(function (e){
-            var target = e.target || e.srcElement;
-            if (target.nodeName.toLowerCase() == 'li'){
 
-                $.ajax({
-                    url: target.getAttribute('data-link'),
-                    data: {},
-                    type: 'GET',
-                    dataType: 'html',
-                    success: function (resp, status){
-                        // 右边内容页面渲染
-                        $("#introduce").html(resp);
-                    }
-                });                       
-            }
-        });
+
         
         
 
