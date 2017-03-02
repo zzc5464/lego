@@ -31,6 +31,7 @@ var components = {
     'b-solid-checkbox'        : require('../basic/solid-checkbox/solid-checkbox.vue.js'),
 
     'b-radio'        : require('../basic/radio/radio.vue.js'),
+    'b-solid-radio'        : require('../basic/solid-radio/solid-radio.vue.js'),
 
     'b-toggle'        : require('../basic/toggle/toggle.vue.js'),
 
