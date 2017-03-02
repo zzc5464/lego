@@ -19,10 +19,11 @@ var components = {
     'b-image-button'        : require('../basic/image-button/image-button.vue.js'),
 
     'b-text-field'        : require('../basic/text-field/text-field.vue.js'),
-    'b-number-field'        : require('../basic/number-field/number-field.vue.js'),
-    'b-tel-field'        : require('../basic/tel-field/tel-field.vue.js'),
-    'b-email-field'        : require('../basic/email-field/email-field.vue.js'),
-    'b-address-field'        : require('../basic/address-field/address-field.vue.js'),
+    'b-number-field'      : require('../basic/number-field/number-field.vue.js'),
+    'b-tel-field'         : require('../basic/tel-field/tel-field.vue.js'),
+    'b-email-field'       : require('../basic/email-field/email-field.vue.js'),
+    'b-address-field'     : require('../basic/address-field/address-field.vue.js'),
+    'b-idcard-field'     : require('../basic/idcard-field/idcard-field.vue.js'),
 
     'b-select'        : require('../basic/select/select.vue.js'),
 
@@ -32,10 +33,6 @@ var components = {
     'b-radio'        : require('../basic/radio/radio.vue.js'),
 
     'b-toggle'        : require('../basic/toggle/toggle.vue.js'),
-
-
-    'test-parent'        : require('../basic/text/parent.vue.js'),
-    'test-child'        : require('../basic/text/child.vue.js'),
 
     's-single-cell' : require('../structure/single-cell/single-cell.vue.js'),
     's-cell'        : require('../structure/cell/cell.vue.js'),
