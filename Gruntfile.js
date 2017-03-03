@@ -62,6 +62,7 @@ function getTModDest(config) {
     var keys = Object.keys(config.tmod);
     return keys.map(function(i) {
         //if(typeof i=="stirng")
+        console.log(config.tmod[i].src);
         return config.tmod[i].src.replace(/\/\*\.\w+$/, "/*.js");
     })
 }

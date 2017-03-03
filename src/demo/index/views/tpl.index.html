@@ -1,0 +1,41 @@
+<p-main>
+    <s-single-cell height='3' border='true'>
+        <b-svg width='5' height='1'>
+            <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#f66b6b' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>
+        </b-svg>
+    </s-single-cell>
+
+    <s-cell height='3' border='true' bgcolor='lightgrey'>
+
+        <s-column width='6'>
+            <b-tab-button size='34' height='2' filled='false' position='left'>购买</b-tab-button>
+        </s-column>
+
+        <s-column width='6'>
+            <b-tab-button size='34' height='2' filled='false' position='middle'>赎回</b-tab-button>
+        </s-column>
+
+        <s-flex-column>
+            <b-tab-button size='34' height='2' filled='false' position='right'>赎回</b-tab-button>
+        </s-flex-column>
+
+    </s-cell>
+
+    <s-cell height='3' border='true'>
+        <s-column width='6' align='left'>
+            <b-text-button size='34' height='2'>银行卡号</b-text-button>
+        </s-column>
+        <s-flex-column align='right'>
+            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
+        </s-flex-column>
+    </s-cell>
+
+    <s-cell height='3' border='true'>
+        <s-column width='6' align='left'>
+            <b-text>手机号码</b-text>
+        </s-column>
+        <s-flex-column align='left'>
+            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
+        </s-flex-column>
+    </s-cell>
+</p-main>
