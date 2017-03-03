@@ -10,25 +10,40 @@ var process = module.exports = {};
 var cachedSetTimeout;
 var cachedClearTimeout;
 
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
 (function () {
     try {
-        cachedSetTimeout = setTimeout;
-    } catch (e) {
-        cachedSetTimeout = function () {
-            throw new Error('setTimeout is not defined');
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
         }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
     }
     try {
-        cachedClearTimeout = clearTimeout;
-    } catch (e) {
-        cachedClearTimeout = function () {
-            throw new Error('clearTimeout is not defined');
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
         }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
     }
 } ())
 function runTimeout(fun) {
     if (cachedSetTimeout === setTimeout) {
         //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
         return setTimeout(fun, 0);
     }
     try {
@@ -49,6 +64,11 @@ function runTimeout(fun) {
 function runClearTimeout(marker) {
     if (cachedClearTimeout === clearTimeout) {
         //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
         return clearTimeout(marker);
     }
     try {
@@ -276,9 +296,10 @@ exports.reload = tryWrap(function (id, options) {
   makeOptionsHot(id, options)
   var record = map[id]
   record.Ctor.extendOptions = options
-  var newCtor = Vue.extend(options)
+  var newCtor = record.Ctor.super.extend(options)
   record.Ctor.options = newCtor.options
   record.Ctor.cid = newCtor.cid
+  record.Ctor.prototype = newCtor.prototype
   if (newCtor.release) {
     // temporary global mixin strategy used in < 2.0.0-alpha.6
     newCtor.release()
@@ -16213,7 +16234,25 @@ IndexController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplIndexView(data), data, '购买成功', function (app) {
-                // TODO: navigate to component demo pages.
+                $('#text').tap(function(){
+                    navigate('demo/basic/text');
+                });
+                $('#button').tap(function(){
+                    navigate('demo/basic/button');
+                });
+                $('#field').tap(function(){
+                    navigate('demo/basic/field');
+                });
+                $('#icon').tap(function(){
+                    navigate('demo/basic/icon');
+                });
+                $('#image').tap(function(){
+                    navigate('demo/basic/image');
+                });
+                $('#list').tap(function(){
+                    navigate('demo/basic/list');
+                });
+         
             });
         }
         show.call(this, {
@@ -16224,8 +16263,8 @@ IndexController.prototype = new FController({
 
 (new IndexController()).initController({});
 },{"../../../utils/gum.vue.manager":45,"../views/tpl.index":30,"fcontroller":"fcontroller"}],30:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"6172bc98c8a10e0b20b89d8992a444d5"}*/
-var template=require("../../../template");module.exports=template("demo/index/views/tpl.index","<p-main> <s-single-cell height='3' border='true'> <b-svg width='5' height='1'> <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#f66b6b' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg> </b-svg> </s-single-cell> <s-cell height='3' border='true' bgcolor='lightgrey'> <s-column width='6'> <b-tab-button size='34' height='2' filled='false' position='left'>\u8d2d\u4e70</b-tab-button> </s-column> <s-column width='6'> <b-tab-button size='34' height='2' filled='false' position='middle'>\u8d4e\u56de</b-tab-button> </s-column> <s-flex-column> <b-tab-button size='34' height='2' filled='false' position='right'>\u8d4e\u56de</b-tab-button> </s-flex-column> </s-cell> <s-cell height='3' border='true'> <s-column width='6' align='left'> <b-text-button size='34' height='2'>\u94f6\u884c\u5361\u53f7</b-text-button> </s-column> <s-flex-column align='right'> <b-text id='done' size='19' color='light'>6222157987454156</b-text> </s-flex-column> </s-cell> <s-cell height='3' border='true'> <s-column width='6' align='left'> <b-text>\u624b\u673a\u53f7\u7801</b-text> </s-column> <s-flex-column align='left'> <b-number-field size='34' placeholder='123' required='true'></b-number-field> </s-flex-column> </s-cell> </p-main>");
+/*TMODJS:{"version":1,"md5":"c20694d18d06c0a3257d7b33a4b0b51f"}*/
+var template=require("../../../template");module.exports=template("demo/index/views/tpl.index",'<p-main> <s-single-cell height=\'2\'> <s-flex-column width="13" align="center"> <b-text size="30" color="black">LEGO UI</b-text> </s-flex-column> </s-single-cell> <s-cell height=\'3\'> <s-column width=".789474" align="left"> </s-column> <s-column width="13" align="left"> <b-text size="24" color="grey">LEGO UI\u662f\u57fa\u4e8evue\u7ec4\u4ef6\u6765\u8bbe\u8ba1\u7684\u57fa\u7840\u7ec4\u4ef6\u5e93</b-text> </s-column> </s-cell> <s-cell height=\'2.5\' bgcolor="#f0f0f0"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="light">\u57fa\u7840\u5143\u7d20</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="ellipses" size="28" color="light"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' id="text" bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u6587\u672c</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' id="button" bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u6309\u94ae</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' id="field" bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u8868\u5355</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' id="icon" bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u56fe\u6807</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' id="image" bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u56fe\u7247</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' id="list" bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u5217\u8868</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-single-cell height=".368421" border="true" bgcolor="#ffffff"> </s-single-cell> <s-cell height=\'2.5\' bgcolor="#f0f0f0"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="light">\u57fa\u7840\u7ec4\u4ef6</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="ellipses" size="28" color="light"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u5f39\u6846</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u6309\u94ae</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u8868\u5355</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u56fe\u6807</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u56fe\u7247</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-cell height=\'2\' bgcolor="#f0f0f0" border="true"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="black">\u5217\u8868</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="angle-right-bold" size="24" color="black"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> <s-single-cell height=".368421" border="true" bgcolor="#ffffff"> </s-single-cell> <s-cell height=\'2.5\' bgcolor="#f0f0f0"> <s-flex-column></s-flex-column> <s-column width="14.3158" align="left"> <b-text size="24" color="light">\u5c42\u7ea7\u89c4\u8303</b-text> </s-column> <s-column width="3.578945" align="right"> <b-icon name="ellipses" size="28" color="light"></b-icon> </s-column> <s-flex-column></s-flex-column> </s-cell> </p-main>');
 },{"../../../template":43}],31:[function(require,module,exports){
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<aside class=\"_cover\">\n    <slot></slot>\n</aside>\n"
 if (module.hot) {(function () {  module.hot.accept()
