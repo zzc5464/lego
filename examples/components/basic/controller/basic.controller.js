@@ -25,12 +25,17 @@ BasicController.prototype = new FController({
     index: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
+        function sendCode (){
+            alert('发送给后台了');
+        }
+
         function show (data) {
             this.renderVUE(tplIndexView(data), data, '购买成功', function (app) {
                 $('#btn').tap(function(){
                     var phoneErr = $('#btn').attr('phone-err');
                     phoneErr && alert(phoneErr);
                 })
+
             });
         }
         show.call(this, {
@@ -38,7 +43,8 @@ BasicController.prototype = new FController({
             text2:'vue content',
             list:[
                1,2,3,4
-            ]
+            ],
+            sendcode:sendCode
         })
     },
 

@@ -5,7 +5,7 @@
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required' ],
+        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
         data: function() {
             var obj = {}, list = [];
 
@@ -18,7 +18,7 @@
             return {
                 classObj: list,
                 styleObj: obj,
-                idcard:''
+                idcard:   this.value
             }
         },
         methods: {
