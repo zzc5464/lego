@@ -13,6 +13,9 @@
             this.color
             && list.push('_text_color_' + this.color);
 
+            this.size
+            && list.push('_text_size_' + this.size + 'px');
+
             return {
                 classObj: list
             };

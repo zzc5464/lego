@@ -84,6 +84,12 @@ button, input {
 ._text_size_40px {
     font-size: $text-size-40px;
 }
+._text_size_60px {
+    font-size: $text-size-60px;
+}
+._text_size_120px {
+    font-size: $text-size-120px;
+}
 
 // 所有 background-color 属性列表
 ._bgcolor_white {
@@ -100,6 +106,10 @@ button, input {
 }
 ._bgcolor_lightgrey {
     background-color: $bgcolor-lightgrey;
+}
+._bgcolor_gradient {
+    background: $bgcolor-gradient;
+    background: $bgcolor-gradient-webkit;
 }
 
 
