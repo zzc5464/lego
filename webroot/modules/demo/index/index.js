@@ -15352,6 +15352,9 @@ module.exports = {
         this.color
         && list.push('_text_color_' + this.color);
 
+        this.size
+        && list.push('_text_size_' + this.size + 'px');
+
         return {
             classObj: list
         };
@@ -16034,11 +16037,11 @@ module.exports = {
     },
     beforeMount:function() {
         var errorMsg = '手机号不能为空！';
-        if(this.phone.length !== 11){
+        if( this.phone && this.phone.length !== 11){
             errorMsg = "长度应为 11 位！";
-        }else if (!this.phone.substr(0,2).match(/[1][3-9]/)){
+        }else if (this.phone && !this.phone.substr(0,2).match(/[1][3-9]/)){
             errorMsg = "格式不正确！";
-        }else if(!this.phone.match(/[0-9]{11}/)){
+        }else if(this.phone && !this.phone.match(/[0-9]{11}/)){
             errorMsg = "只能填写数字！";
         }
         bus.$emit('phoneMsg',errorMsg);
@@ -16366,7 +16369,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 module.exports = {
-    props: [ 'height', 'border', 'bgcolor' ],
+    props: [ 'height', 'border', 'bgcolor' , 'gradient'],
     data: function() {
         return {
             styleObj: {
@@ -16374,7 +16377,8 @@ module.exports = {
                 backgroundColor: this.bgcolor
             },
             classObj: {
-                '_border': this.border === 'true'
+                '_border': this.border === 'true',
+                '_bgcolor_gradient': this.gradient
             }
         };
     }

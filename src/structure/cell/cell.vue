@@ -6,7 +6,7 @@
 
 <script>
     module.exports = {
-        props: [ 'height', 'border', 'bgcolor' ],
+        props: [ 'height', 'border', 'bgcolor' , 'gradient'],
         data: function() {
             return {
                 styleObj: {
@@ -14,7 +14,8 @@
                     backgroundColor: this.bgcolor
                 },
                 classObj: {
-                    '_border': this.border === 'true'
+                    '_border': this.border === 'true',
+                    '_bgcolor_gradient': this.gradient
                 }
             };
         }
