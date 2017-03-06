@@ -8,6 +8,8 @@ var FController = require('fcontroller'),
     insuranceDetailView = require('../views/tpl.insurance.detail'),
     applicantInfoView = require('../views/tpl.applicant.info'),
     insuranceInterestView = require('../views/tpl.insurance.interest'),
+    healthDetailView = require('../views/tpl.health.detail'),
+    financingDetailView = require('../views/tpl.financing.detail'),
     tplBeView = require('../views/tpl.basicexamples');
 
 function BasicController () {
@@ -20,6 +22,8 @@ function BasicController () {
         'index2'    :'index2',
         'index3'    :'index3',
         'index4'    :'index4',
+        'index5'    :'index5',
+        'index6'    :'index6',
         'wangweiqi' : 'wangweiqi',
         'basicexample' : 'basicexample',
         'structure': 'structure'
@@ -79,6 +83,28 @@ BasicController.prototype = new FController({
         var $ = this.$, navigate = this.navigate.bind(this);
         function show (data) {
             this.renderVUE(insuranceInterestView(data), data, '购买成功', function (app) {
+
+            });
+        }
+        show.call(this, {
+           
+        })
+    },
+    index5: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+        function show (data) {
+            this.renderVUE(healthDetailView(data), data, '购买成功', function (app) {
+
+            });
+        }
+        show.call(this, {
+           
+        })
+    },
+    index6: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+        function show (data) {
+            this.renderVUE(financingDetailView(data), data, '购买成功', function (app) {
 
             });
         }
