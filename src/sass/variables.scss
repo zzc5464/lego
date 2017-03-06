@@ -11,6 +11,7 @@ $bgcolor-high           : #d7ac62;
 $bgcolor-high-tapping   : #b38f47;
 $bgcolor-lightgrey      : #dcdcdc;
 $bgcolor-transparent    : transparent;
+$bgcolor-gradient       : -webkit-linear-gradient(left, red, blue);
 
 $border-2x-high         : .5px solid $bgcolor-high;
 $border-3x-high         : .4px solid $bgcolor-high;
@@ -24,5 +25,6 @@ $text-size-30px         : .789474rem;
 $text-size-32px         : .842105rem;
 $text-size-34px         : .894737rem;
 $text-size-36px         : .947368rem;
-$text-size-38px         : .947368rem;
 $text-size-40px         : 1.052632rem;
+$text-size-60px         : 1.578947rem;
+$text-size-120px        : 3.157895rem;

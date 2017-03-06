@@ -15167,7 +15167,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: [ 'id','width', 'height', 'size', 'filled','validate','second','phonevali','count','emailvali','idcardvali','numbervali'],
+    props: [ 'id','width', 'height', 'size', 'filled','validate','second','phonevali','count','emailvali','idcardvali','numbervali','callback'],
 
     data: function () {
         var obj = {}, list = [];
@@ -15197,35 +15197,31 @@ module.exports = {
     mounted:function(){
         var self = this;
         if(self.phonevali){
-            self.phoneErrMsg='手机号不能为空';
             bus.$on('phoneMsg',function(res){
                 self.phoneErrMsg = res;
             })
         }
         if(self.emailvali){
-            self.emailErrMsg='邮箱地址不能为空';
             bus.$on('emailMsg',function(res){
                 self.emailErrMsg = res;
             })
         }
         if(self.idcardvali){
-            self.idcardErrMsg='身份证号不能为空';
             bus.$on('idcardMsg',function(res){
                 self.idcardErrMsg = res;
             })
         }
         if(self.numbervali){
-            self.numberErrMsg='数字不能为空';
             bus.$on('numberMsg',function(res){
                 self.numberErrMsg = res;
             })
         }
-
     },
     methods:{
         timekeeper:function(){
             var self = this;
             if(self.count && self.tapped){
+                self.callback();
                 self.tapped = false;
                 var countdown = setInterval(function(){
                     if(self.seconds == 0){
@@ -15243,7 +15239,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<button :id=\"id\" class=\"_button\" :class=\"classObj\" :style=\"styleObj\" :phone-err=\"phoneErrMsg\" :email-err=\"emailErrMsg\" :idcard-err=\"idcardErrMsg\" :number-err=\"numberErrMsg\" v-on:click=\"timekeeper\"><slot>{{counts}}</slot></button>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<button :id=\"id\" class=\"_button\" :class=\"classObj\" :style=\"styleObj\" :phone-err=\"phoneErrMsg\" :email-err=\"emailErrMsg\" :idcard-err=\"idcardErrMsg\" :number-err=\"numberErrMsg\" v-on:mytap=\"timekeeper\" :istapped=\"tapped\"><slot>{{counts}}</slot></button>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15300,7 +15296,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 var bus = require('../../utils/eventBus');  
 module.exports = {
-    props: [ 'name', 'size', 'align', 'placeholder', 'required' ],
+    props: [ 'name', 'size', 'align', 'placeholder', 'required', 'value'],
     data: function() {
         var obj = {}, list = [];
 
@@ -15313,7 +15309,7 @@ module.exports = {
         return {
             classObj: list,
             styleObj: obj,
-            email:''
+            email:    this.value
         }
     },        
     methods: {
@@ -15422,7 +15418,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required' ],
+    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
     data: function() {
         var obj = {}, list = [];
 
@@ -15435,7 +15431,7 @@ module.exports = {
         return {
             classObj: list,
             styleObj: obj,
-            idcard:''
+            idcard:   this.value
         }
     },
     methods: {
@@ -15654,7 +15650,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required' ],
+    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
 
     data: function() {
         var obj = {}, list = [];
@@ -15668,7 +15664,7 @@ module.exports = {
         return {
             classObj: list,
             styleObj: obj,
-            number:''
+            number:this.value
         }
     },
     methods:{
@@ -16020,7 +16016,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required' ],
+    props: [ 'size', 'align', 'max', 'placeholder', 'required','value' ],
     data: function() {
         var obj = {}, list = [];
 
@@ -16033,16 +16029,28 @@ module.exports = {
         return {
             classObj: list,
             styleObj: obj,
-            phone:''
+            phone:    this.value
         }
     },
+    beforeMount:function() {
+        var errorMsg = '手机号不能为空！';
+        if(this.phone.length !== 11){
+            errorMsg = "长度应为 11 位！";
+        }else if (!this.phone.substr(0,2).match(/[1][3-9]/)){
+            errorMsg = "格式不正确！";
+        }else if(!this.phone.match(/[0-9]{11}/)){
+            errorMsg = "只能填写数字！";
+        }
+        bus.$emit('phoneMsg',errorMsg);
+    },
+
     methods: {
         validate:function(){
             var errorMsg = '';
             if(this.phone.length !== 11){
                 errorMsg = "长度应为 11 位！";
             }else if (!this.phone.substr(0,2).match(/[1][3-9]/)){
-                errorMsg =  "格式不正确！";
+                errorMsg = "格式不正确！";
             }else if(!this.phone.match(/[0-9]{11}/)){
                 errorMsg = "只能填写数字！";
             }
