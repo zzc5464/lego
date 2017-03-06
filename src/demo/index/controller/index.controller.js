@@ -19,7 +19,25 @@ IndexController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplIndexView(data), data, '购买成功', function (app) {
-                // TODO: navigate to component demo pages.
+                $('#text').tap(function(){
+                    navigate('demo/basic/text');
+                });
+                $('#button').tap(function(){
+                    navigate('demo/basic/button');
+                });
+                $('#field').tap(function(){
+                    navigate('demo/basic/field');
+                });
+                $('#icon').tap(function(){
+                    navigate('demo/basic/icon');
+                });
+                $('#image').tap(function(){
+                    navigate('demo/basic/image');
+                });
+                $('#list').tap(function(){
+                    navigate('demo/basic/list');
+                });
+         
             });
         }
         show.call(this, {
