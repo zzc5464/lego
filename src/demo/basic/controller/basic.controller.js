@@ -54,7 +54,9 @@ BasicController.prototype = new FController({
     },
     field: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
-
+        function sendCode (){
+            alert('发送给后台了');
+        }
         function show (data) {
             this.renderVUE(tplFieldView(data), data, '购买成功', function (app) {
                 // TODO: navigate to component demo pages.
@@ -62,7 +64,7 @@ BasicController.prototype = new FController({
         }
 
         show.call(this, {
-            // DATA
+            sendcode:sendCode
         });
     },
     icon: function () {

@@ -5,6 +5,7 @@ var FController = require('fcontroller'),
     tplIndexView = require('../views/tpl.index'),
     tplWwqView = require('../views/tpl.wangweiqi'),
     tplStrqView = require('../views/tpl.structure'),
+    insuranceDetailView = require('../views/tpl.insurance.detail'),
     tplBeView = require('../views/tpl.basicexamples');
 
 function BasicController () {
@@ -14,6 +15,7 @@ function BasicController () {
     this.classList = [ 'basic' ];
     this.routers = {
         'index'     : 'index',
+        'index2'    :'index2',
         'wangweiqi' : 'wangweiqi',
         'basicexample' : 'basicexample',
         'structure': 'structure'
@@ -45,6 +47,17 @@ BasicController.prototype = new FController({
                1,2,3,4
             ],
             sendcode:sendCode
+        })
+    },
+    index2: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+        function show (data) {
+            this.renderVUE(insuranceDetailView(data), data, '购买成功', function (app) {
+
+            });
+        }
+        show.call(this, {
+           
         })
     },
 

@@ -1,11 +1,11 @@
 <template>
-    <input class='_input' :style='styleObj' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:input='sendMsg' v-model='phone' :maxlength= 'max' required='required' >
+    <input class='_input' :style='styleObj' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='phone' :maxlength= 'max' required='required' >
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'size', 'align', 'max', 'placeholder', 'required','value' ],
+        props: [ 'size', 'align', 'max', 'placeholder', 'validate','value' ],
         data: function() {
             var obj = {}, list = [];
 
@@ -34,20 +34,23 @@
         },
 
         methods: {
-            validate:function(){
+            validatePhone:function(){
                 var errorMsg = '';
-                if(this.phone.length !== 11){
+                if(this.phone && this.phone.length !== 11){
                     errorMsg = "长度应为 11 位！";
-                }else if (!this.phone.substr(0,2).match(/[1][3-9]/)){
+                }else if (this.phone && !this.phone.substr(0,2).match(/[1][3-9]/)){
                     errorMsg = "格式不正确！";
-                }else if(!this.phone.match(/[0-9]{11}/)){
+                }else if(this.phone && !this.phone.match(/[0-9]{11}/)){
                     errorMsg = "只能填写数字！";
                 }
                 return errorMsg;
             },
             sendMsg: function(){
-                var valMsg = this.validate();
-                bus.$emit('phoneMsg',valMsg);
+                if(this.validate && this.validate == 'true'){
+                    var valMsg = this.validatePhone();
+                    valMsg && alert(valMsg);
+                    bus.$emit('phoneMsg',valMsg);
+                }
             }
         }
     }

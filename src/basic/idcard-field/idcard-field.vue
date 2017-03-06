@@ -5,7 +5,7 @@
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
+        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'validate','value' ],
         data: function() {
             var obj = {}, list = [];
 
@@ -23,10 +23,13 @@
         },
         methods: {
             sendMsg:function(){
-                var valMsg = this.validate(this.idcard);
-                bus.$emit('idcardMsg',valMsg);
+                if (this.validate && this.validate =='true'){
+                    var valMsg = this.validateIdcard(this.idcard);
+                    valMsg && alert(valMsg);
+                    bus.$emit('idcardMsg',valMsg);
+                }
             },
-            validate:function(idCard){
+            validateIdcard:function(idCard){
                 idCard = (''+idCard).toLocaleUpperCase();
                 var Errors = new Array(
                     "",
