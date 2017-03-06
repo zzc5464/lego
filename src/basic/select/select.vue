@@ -1,6 +1,6 @@
 <template>
     <span @click="tap">
-        <child-text :style="obj" class="_select_text"><slot></slot></child-text>
+        <child-text :style="styleObj" class="_select_text" :class="classObj"><slot></slot></child-text>
         <child-icon name="angle-right-bold" color="light" size="28"></child-icon>
     </span>
 </template>
@@ -11,12 +11,18 @@
     module.exports = {
         props: ['size', 'color','name'],
         data: function() {
+            var list = [], obj = {};
+
+            this.size
+            && list.push('_text_size_' + this.size + 'px');
+
+            this.color
+            && list.push('_text_color_' + this.color);
+
             return {
-                obj: {
-                    fontSize: this.size + 'rem',
-                    color: this.color
-                }
-            }
+                classObj: list,
+                styleObj: obj
+            };
         },
         methods: {
             tap: function(){
@@ -29,9 +35,3 @@
         }
     }
 </script>
-
-<style scoped>
-    ._childtext {
-        vertical-align: 2px;
-    }
-</style>
