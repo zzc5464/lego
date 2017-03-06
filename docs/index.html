@@ -42,7 +42,7 @@
 
         // 获取 JSON 文件
         $.getJSON('./docs.json',function (data){
-            var html = '<div class="btn_l">lego</div>';
+            var html = '<div class="btn_l" style="font-size: 16px;background: url(\'https://ohc0dpsgs.qnssl.com/lego/images/lego.png\') 0 center no-repeat;background-size: 22px 22px;color: #666;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LEGO </div>';
             for (var i = 0; i < data.content.length; i ++ ){
                 html += "<h1>" + text2html(data.content[i].name) + "</h1><ul class='one' style='display: none;'>";
                 var l = data.content[i].children.length
