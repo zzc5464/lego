@@ -1,10 +1,10 @@
 <template>
-    <input class='_email_field' :class='classObj' :style='styleObj' type='email' :name='name'  v-on:blur='sendMsg' v-model='email' :placeholder='placeholder' :required='required' />
+    <input class='_email_field' :class='classObj' :style='styleObj' type='email' :name='name'  v-on:blur='sendMsg' v-model='email' :placeholder='placeholder' />
 </template>
 <script>
     var bus = require('../../utils/eventBus');  
     module.exports = {
-        props: [ 'name', 'size', 'align', 'placeholder', 'required', 'value'],
+        props: [ 'name', 'size', 'align', 'placeholder', 'validate', 'value'],
         data: function() {
             var obj = {}, list = [];
 
@@ -26,8 +26,11 @@
                 return reg.test(str); 
             },
             sendMsg: function(){
-                var valMsg = !this.isEmail(this.email) ? '邮箱地址不正确!' :'' ;
-                bus.$emit('emailMsg',valMsg);
+                if(this.validate && this.validate === 'true'){
+                    var valMsg = !this.isEmail(this.email) ? '邮箱地址不正确!' :'' ;
+                    valMsg && alert(valMsg);
+                    bus.$emit('emailMsg',valMsg);
+                }
             }
         }
     }

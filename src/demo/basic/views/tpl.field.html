@@ -6,7 +6,7 @@
             <b-text size="30" color="grey">手机号码</b-text>
         </s-column>
         <s-column width="12" align="right">
-            <b-tel-field size="30" :max=11 required="true" placeholder="请输入银行预留电话" value='1316251733'></b-tel-field>
+            <b-tel-field size='30' max=11 validate='true' placeholder='请输入银行预留电话' value='1316251733'></b-tel-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -18,7 +18,7 @@
             <b-text size="30" color="grey">动态密码</b-text>
         </s-column>
         <s-column width="6" align="right">
-            <b-number-field size="30" required="true" ></b-number-field>
+            <b-number-field size='30' required="true" ></b-number-field>
         </s-column>
         <s-column width="6" align="right">
             <b-button height='1.5' filled='true' :callback='sendcode' validate='true' second=30 count='获取验证码' placeholder='请输入验证码' id='sendcode'></b-button>
@@ -33,7 +33,7 @@
             <b-text size="30" color="grey">电子邮箱</b-text>
         </s-column>
         <s-column width="12" align="right">
-            <b-email-field size="30" required="true" placeholder="请输入电子邮箱"></b-email-field>
+            <b-email-field size='30' validate='true' placeholder="请输入电子邮箱"></b-email-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -45,7 +45,7 @@
             <b-text size="30" color="grey">身份证号</b-text>
         </s-column>
         <s-column width="12" align="right">
-            <b-idcard-field size="30" required="true" placeholder="请输入身份证号"></b-idcard-field>
+            <b-idcard-field size='30' validate='true' placeholder="请输入身份证号"></b-idcard-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -57,7 +57,7 @@
             <b-text size="30" color="grey">地址信息</b-text>
         </s-column>
         <s-column width="12" align="right">
-            <b-address-field size="30" required="true" placeholder="请输入地址信息"></b-address-field>
+            <b-address-field size='30' placeholder="请输入地址信息"></b-address-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -69,7 +69,7 @@
             <b-text size="30" color="grey">姓名</b-text>
         </s-column>
         <s-column width="12" align="right">
-            <b-text-field size="30" required="true" placeholder="请输入姓名"></b-text-field>
+            <b-text-field size='30' placeholder="请输入姓名"></b-text-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -81,7 +81,7 @@
             <b-text size="30" color="grey">金额</b-text>
         </s-column>
         <s-column width="12" align="right">
-            <b-number-field size="30" required="true" placeholder="请输入金额"></b-number-field>
+            <b-number-field size='30' placeholder="请输入金额"></b-number-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
