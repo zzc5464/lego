@@ -12,14 +12,14 @@
  size        | 文字大小 | 单位为视觉稿中的 px 像素 
  color       | 文字颜色 | 不可填写颜色值，目前可选的颜色有：lightgrey、grey、black、highlight 等
  max         | 输入字段中的字符的最大长度  | 默认为18
- placeholder | 用户填写输入字段的提示
- validate    | 是否做身份证格式验证
- value       | 输入默认值 | 不填写即为空值   
+ placeholder | 用户填写输入字段的提示  |
+ validate    | 是否做身份证格式验证  |
+ value       | 输入默认值 | 不填写即为空值 |   
 
 ### 子节点
->  <input/>
+> 无
 
 ### 示例
 ```
-<b-idcard-field size="30" color='black' :max=18 placeholder="请输入身份证号" value='3213162198710294310' :validate='true'></b-idcard-field>
+<b-idcard-field size='30' color='black' max=18 placeholder='请输入身份证号' value='3213162198710294310' validate='true'></b-idcard-field>
 ```
