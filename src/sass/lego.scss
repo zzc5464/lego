@@ -122,6 +122,16 @@ button, input {
     z-index: 2;
 }
 
+//微信分享
+._share {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: #f5f5f5;
+}
+
 // test LEGO UI 页面层级
 @mixin transform($z: 0px) {
     -webkit-transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ($z);
