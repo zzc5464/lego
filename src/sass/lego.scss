@@ -113,7 +113,14 @@ button, input {
 }
 
 
-
+//底部固定
+._footer_fix {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
 
 // test LEGO UI 页面层级
 @mixin transform($z: 0px) {

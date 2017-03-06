@@ -296,9 +296,10 @@ exports.reload = tryWrap(function (id, options) {
   makeOptionsHot(id, options)
   var record = map[id]
   record.Ctor.extendOptions = options
-  var newCtor = Vue.extend(options)
+  var newCtor = record.Ctor.super.extend(options)
   record.Ctor.options = newCtor.options
   record.Ctor.cid = newCtor.cid
+  record.Ctor.prototype = newCtor.prototype
   if (newCtor.release) {
     // temporary global mixin strategy used in < 2.0.0-alpha.6
     newCtor.release()
@@ -15122,25 +15123,30 @@ exports.insert = function (css) {
 }
 
 },{}],6:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['name', 'size', 'align', 'max', 'placeholder', 'required'],
+    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required' ],
 
-    data: function data() {
-        var obj = {},
-            list = [];
+    data: function() {
+        var obj = {}, list = [];
 
-        this.align && (obj.textAlign = this.align);
+        this.align 
+        && (obj.textAlign = this.align);
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size 
+        && list.push('_text_size_' + this.size + 'px');
 
         return {
             classObj: list,
             styleObj: obj
-        };
+        }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_address_field\" :class=\"classObj\" :style=\"styleObj\" type=\"email\" :name=\"name\" :placeholder=\"placeholder\" :maxlength=\"max\" :required=\"required\">\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15154,79 +15160,84 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],7:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: ['id', 'width', 'height', 'size', 'filled', 'validate', 'second', 'phonevali', 'count', 'emailvali', 'idcardvali', 'numbervali', 'callback'],
+    props: [ 'id','width', 'height', 'size', 'filled','validate','second','phonevali','count','emailvali','idcardvali','numbervali','callback'],
 
-    data: function data() {
-        var obj = {},
-            list = [];
+    data: function () {
+        var obj = {}, list = [];
 
-        this.width && (obj.width = this.width + 'rem');
+        this.width  && (obj.width  = this.width  + 'rem');
         this.height && (obj.height = this.height + 'rem');
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size 
+        && list.push('_text_size_' + this.size + 'px');
 
-        this.filled === 'true' && list.push('_button_filled');
+        this.filled === 'true' 
+        && list.push('_button_filled');
 
         return {
             styleObj: obj,
             classObj: list,
-            phoneErrMsg: '',
-            emailErrMsg: '',
-            idcardErrMsg: '',
-            numberErrMsg: '',
-            counts: this.count,
+            phoneErrMsg:'',
+            emailErrMsg:'',
+            idcardErrMsg:'',
+            numberErrMsg:'',
+            counts:this.count,
             seconds: this.second,
-            tapped: true
-        };
+            tapped:true
+        }
     },
     // mounted函数相当于原生js中的ready函数
-    mounted: function mounted() {
+    mounted:function(){
         var self = this;
-        if (self.phonevali) {
-            bus.$on('phoneMsg', function (res) {
+        if(self.phonevali){
+            bus.$on('phoneMsg',function(res){
                 self.phoneErrMsg = res;
-            });
+            })
         }
-        if (self.emailvali) {
-            bus.$on('emailMsg', function (res) {
+        if(self.emailvali){
+            bus.$on('emailMsg',function(res){
                 self.emailErrMsg = res;
-            });
+            })
         }
-        if (self.idcardvali) {
-            bus.$on('idcardMsg', function (res) {
+        if(self.idcardvali){
+            bus.$on('idcardMsg',function(res){
                 self.idcardErrMsg = res;
-            });
+            })
         }
-        if (self.numbervali) {
-            bus.$on('numberMsg', function (res) {
+        if(self.numbervali){
+            bus.$on('numberMsg',function(res){
                 self.numberErrMsg = res;
-            });
+            })
         }
     },
-    methods: {
-        timekeeper: function timekeeper() {
+    methods:{
+        timekeeper:function(){
             var self = this;
-            if (self.count && self.tapped) {
+            if(self.count && self.tapped){
                 self.callback();
                 self.tapped = false;
-                var countdown = setInterval(function () {
-                    if (self.seconds == 0) {
+                var countdown = setInterval(function(){
+                    if(self.seconds == 0){
                         clearInterval(countdown);
                         self.tapped = true;
                         self.counts = '获取验证码';
-                    } else {
+                    }else{
                         self.seconds--;
                         self.counts = '还剩' + self.seconds + 's';
                     }
-                }, 1000);
+                },1000)
             }
         }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<button :id=\"id\" class=\"_button\" :class=\"classObj\" :style=\"styleObj\" :phone-err=\"phoneErrMsg\" :email-err=\"emailErrMsg\" :idcard-err=\"idcardErrMsg\" :number-err=\"numberErrMsg\" v-on:mytap=\"timekeeper\" :istapped=\"tapped\"><slot>{{counts}}</slot></button>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15240,18 +15251,23 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"../../utils/eventBus":44,"vue":4,"vue-hot-reload-api":2}],8:[function(require,module,exports){
-'use strict';
+
+
+
+
+
+
 
 var child = require('../icon/icon.vue.js');
 module.exports = {
     props: ['checked', 'name', 'size', 'color'],
-    data: function data() {
+    data: function() {
         return {
             isChecked: this.checked
-        };
+        }
     },
     methods: {
-        tap: function tap() {
+        tap: function() {
             // console.log(this.isChecked);
             this.isChecked = !this.isChecked;
         }
@@ -15259,7 +15275,8 @@ module.exports = {
     components: {
         'marked': child
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span @click=\"tap\" :checked=\"isChecked\" class=\"_checkbox\" :class=\"{_checkbox_active: isChecked}\">\n      <marked class=\"dot\" v-show=\"isChecked\" name=\"check\" size=\"30\" color=\"white\"></marked>\n</span>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15273,39 +15290,43 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"../icon/icon.vue.js":11,"vue":4,"vue-hot-reload-api":2}],9:[function(require,module,exports){
-'use strict';
 
-var bus = require('../../utils/eventBus');
+
+
+
+var bus = require('../../utils/eventBus');  
 module.exports = {
-    props: ['name', 'size', 'align', 'placeholder', 'validate', 'value'],
-    data: function data() {
-        var obj = {},
-            list = [];
+    props: [ 'name', 'size', 'align', 'placeholder', 'validate', 'value'],
+    data: function() {
+        var obj = {}, list = [];
 
-        this.align && (obj.textAlign = this.align);
+        this.align 
+        && (obj.textAlign = this.align);
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size 
+        && list.push('_text_size_' + this.size + 'px');
 
         return {
             classObj: list,
             styleObj: obj,
-            email: this.value
-        };
-    },
+            email:    this.value
+        }
+    },        
     methods: {
-        isEmail: function isEmail(str) {
-            var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
-            return reg.test(str);
+        isEmail:function (str){ 
+            var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
+            return reg.test(str); 
         },
-        sendMsg: function sendMsg() {
-            if (this.validate && this.validate === 'true') {
-                var valMsg = !this.isEmail(this.email) ? '邮箱地址不正确!' : '';
+        sendMsg: function(){
+            if(this.validate && this.validate === 'true'){
+                var valMsg = !this.isEmail(this.email) ? '邮箱地址不正确!' :'' ;
                 valMsg && alert(valMsg);
-                bus.$emit('emailMsg', valMsg);
+                bus.$emit('emailMsg',valMsg);
             }
         }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_email_field\" :class=\"classObj\" :style=\"styleObj\" type=\"email\" :name=\"name\" v-on:blur=\"sendMsg\" v-model=\"email\" :placeholder=\"placeholder\">\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15319,24 +15340,30 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"../../utils/eventBus":44,"vue":4,"vue-hot-reload-api":2}],10:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['size'],
+    props: [ 'size' ],
 
-    data: function data() {
+    data: function() {
 
         var list = [];
 
-        this.color && list.push('_text_color_' + this.color);
+        this.color
+        && list.push('_text_color_' + this.color);
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size
+        && list.push('_text_size_' + this.size + 'px');
 
         return {
             classObj: list
         };
     }
-};
+}  
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span class=\"_highlight\" :class=\"classObj\"><slot></slot></span>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15350,26 +15377,33 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],11:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['name', 'size', 'color'],
+    props: [ 'name', 'size', 'color' ],
 
-    data: function data() {
+    data: function () {
 
         var list = [];
 
-        this.name && list.push('i-' + this.name);
+        this.name
+        && list.push('i-' + this.name);
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size
+        && list.push('_text_size_' + this.size + 'px');
 
-        this.color && list.push('_text_color_' + this.color);
+        this.color
+        && list.push('_text_color_' + this.color);
 
         return {
             classObj: list
         };
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<i class=\"pingan\" :class=\"classObj\"></i>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15383,97 +15417,116 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],12:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: ['name', 'size', 'align', 'max', 'placeholder', 'validate', 'value'],
-    data: function data() {
-        var obj = {},
-            list = [];
+    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'validate','value' ],
+    data: function() {
+        var obj = {}, list = [];
 
-        this.align && (obj.textAlign = this.align);
+        this.align 
+        && (obj.textAlign = this.align);
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size 
+        && list.push('_text_size_' + this.size + 'px');
 
         return {
             classObj: list,
             styleObj: obj,
-            idcard: this.value
-        };
+            idcard:   this.value
+        }
     },
     methods: {
-        sendMsg: function sendMsg() {
-            if (this.validate && this.validate == 'true') {
+        sendMsg:function(){
+            if (this.validate && this.validate =='true'){
                 var valMsg = this.validateIdcard(this.idcard);
                 valMsg && alert(valMsg);
-                bus.$emit('idcardMsg', valMsg);
+                bus.$emit('idcardMsg',valMsg);
             }
         },
-        validateIdcard: function validateIdcard(idCard) {
-            idCard = ('' + idCard).toLocaleUpperCase();
-            var Errors = new Array("", "身份证位数不对", "身份证出生日期超出范围", "身份证号不符合规范", "身份证地区非法");
+        validateIdcard:function(idCard){
+            idCard = (''+idCard).toLocaleUpperCase();
+            var Errors = new Array(
+                "",
+                "身份证位数不对",
+                "身份证出生日期超出范围",
+                "身份证号不符合规范",
+                "身份证地区非法"
+            );
 
-            var area = { 11: "北京", 12: "天津", 13: "河北", 14: "山西", 15: "内蒙古", 21: "辽宁", 22: "吉林", 23: "黑龙江", 31: "上海", 32: "江苏", 33: "浙江", 34: "安徽", 35: "福建", 36: "江西", 37: "山东", 41: "河南", 42: "湖北", 43: "湖南", 44: "广东", 45: "广西", 46: "海南", 50: "重庆", 51: "四川", 52: "贵州", 53: "云南", 54: "西藏", 61: "陕西", 62: "甘肃", 63: "青海", 64: "宁夏", 65: "新疆", 71: "台湾", 81: "香港", 82: "澳门", 91: "国外" };
+            var area = {11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江",31:"上海",32:"江苏",33:"浙江",34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北",43:"湖南",44:"广东",45:"广西",46:"海南",50:"重庆",51:"四川",52:"贵州",53:"云南",54:"西藏",61:"陕西",62:"甘肃",63:"青海",64:"宁夏",65:"新疆",71:"台湾",81:"香港",82:"澳门",91:"国外"}
 
             var Y, JYM, S, M;
             var idcard_array = new Array();
             idcard_array = idCard.split('');
 
             //地区检验
-            if (area[parseInt(idCard.substr(0, 2))] === null) {
+            if(area[parseInt(idCard.substr(0,2))] === null) {
                 return Errors[4];
             }
 
             var ereg;
             //身份号码位数及格式检验
-            switch (idCard.length) {
-                case 15:
-                    if ((parseInt(idCard.substr(6, 2)) + 1900) % 4 == 0 || (parseInt(idCard.substr(6, 2)) + 1900) % 100 == 0 && (parseInt(idCard.substr(6, 2)) + 1900) % 4 == 0) {
-                        ereg = /^[1-9][0-9]{5}[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}$/; //测试出生日期的合法性
-                    } else {
-                        ereg = /^[1-9][0-9]{5}[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}$/; //测试出生日期的合法性
+            switch(idCard.length){
+            case 15:
+                if ((parseInt(idCard.substr(6,2))+1900) % 4 == 0 || ((parseInt(idCard.substr(6,2))+1900) % 100 == 0 && (parseInt(idCard.substr(6,2))+1900) % 4 == 0 )){
+                ereg=/^[1-9][0-9]{5}[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}$/;//测试出生日期的合法性
+                } else {
+                ereg=/^[1-9][0-9]{5}[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}$/;//测试出生日期的合法性
+                }
+                if(ereg.test(idCard)) {
+                    return Errors[0];
+                }else{
+                    return Errors[2];
+                }
+                break;
+            case 18:
+                //18位身份号码检测
+                //出生日期的合法性检查
+                //闰年月日:((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))
+                //平年月日:((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))
+                if ( parseInt(idCard.substr(6,4)) % 4 == 0 || (parseInt(idCard.substr(6,4)) % 100 == 0 && parseInt(idCard.substr(6,4))%4 == 0 )){
+                ereg=/^[1-9][0-9]{5}[1-2][0-9]{3}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}[0-9X]$/;//闰年出生日期的合法性正则表达式
+                } else {
+                ereg=/^[1-9][0-9]{5}[1-2][0-9]{3}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}[0-9X]$/;//平年出生日期的合法性正则表达式
+                }
+                if(ereg.test(idCard)){//测试出生日期的合法性
+                    //计算校验位
+                    S = (parseInt(idcard_array[0]) + parseInt(idcard_array[10])) * 7
+                + (parseInt(idcard_array[1]) + parseInt(idcard_array[11])) * 9
+                    + (parseInt(idcard_array[2]) + parseInt(idcard_array[12])) * 10
+                    + (parseInt(idcard_array[3]) + parseInt(idcard_array[13])) * 5
+                    + (parseInt(idcard_array[4]) + parseInt(idcard_array[14])) * 8
+                    + (parseInt(idcard_array[5]) + parseInt(idcard_array[15])) * 4
+                    + (parseInt(idcard_array[6]) + parseInt(idcard_array[16])) * 2
+                    + parseInt(idcard_array[7]) * 1
+                    + parseInt(idcard_array[8]) * 6
+                    + parseInt(idcard_array[9]) * 3 ;
+                    Y = S % 11;
+                    M = "F";
+                    JYM = "10X98765432";
+                    M = JYM.substr(Y,1);//判断校验位
+                    if(M== idcard_array[17]){
+                    return Errors[0]; //检测ID的校验位
+                    }else{
+                    return Errors[3];
                     }
-                    if (ereg.test(idCard)) {
-                        return Errors[0];
-                    } else {
-                        return Errors[2];
-                    }
-                    break;
-                case 18:
-                    //18位身份号码检测
-                    //出生日期的合法性检查
-                    //闰年月日:((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))
-                    //平年月日:((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))
-                    if (parseInt(idCard.substr(6, 4)) % 4 == 0 || parseInt(idCard.substr(6, 4)) % 100 == 0 && parseInt(idCard.substr(6, 4)) % 4 == 0) {
-                        ereg = /^[1-9][0-9]{5}[1-2][0-9]{3}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}[0-9X]$/; //闰年出生日期的合法性正则表达式
-                    } else {
-                        ereg = /^[1-9][0-9]{5}[1-2][0-9]{3}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}[0-9X]$/; //平年出生日期的合法性正则表达式
-                    }
-                    if (ereg.test(idCard)) {
-                        //测试出生日期的合法性
-                        //计算校验位
-                        S = (parseInt(idcard_array[0]) + parseInt(idcard_array[10])) * 7 + (parseInt(idcard_array[1]) + parseInt(idcard_array[11])) * 9 + (parseInt(idcard_array[2]) + parseInt(idcard_array[12])) * 10 + (parseInt(idcard_array[3]) + parseInt(idcard_array[13])) * 5 + (parseInt(idcard_array[4]) + parseInt(idcard_array[14])) * 8 + (parseInt(idcard_array[5]) + parseInt(idcard_array[15])) * 4 + (parseInt(idcard_array[6]) + parseInt(idcard_array[16])) * 2 + parseInt(idcard_array[7]) * 1 + parseInt(idcard_array[8]) * 6 + parseInt(idcard_array[9]) * 3;
-                        Y = S % 11;
-                        M = "F";
-                        JYM = "10X98765432";
-                        M = JYM.substr(Y, 1); //判断校验位
-                        if (M == idcard_array[17]) {
-                            return Errors[0]; //检测ID的校验位
-                        } else {
-                            return Errors[3];
-                        }
-                    } else {
-                        return Errors[2];
-                    }
-                    break;
+                }else {
+                    return Errors[2];
+                }
+                break;
                 default:
                     return Errors[1];
                     break;
+                }
+                }
             }
         }
-    }
-};
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_input\" :class=\"classObj\" type=\"value\" name=\"\" :placeholder=\"placeholder\" v-on:blur=\"sendMsg\" v-model=\"idcard\" :maxlength=\"max\" required=\"required\">\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15489,20 +15542,26 @@ if (module.hot) {(function () {  module.hot.accept()
 },{"../../utils/eventBus":44,"vue":4,"vue-hot-reload-api":2}],13:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n.share[_v-1ffcc264]{\n    text-align: center;\n}\nimg[_v-1ffcc264] {\n    display: inline-block;\n    border: none;\n    padding: 0;\n    text-align: center;\n    border-radius: 4px;\n    overflow: hidden;\n    margin: 0 auto;\n}\n")
-'use strict';
+
+
+
+
+
+
+
 
 var child = require('../text/text.vue.js');
 module.exports = {
-    props: ['width', 'height', 'filled', 'position', 'src', 'size', 'color'],
-    data: function data() {
+    props: [ 'width', 'height', 'filled', 'position', 'src', 'size', 'color'],
+    data: function () {
         return {
             pos: this.position,
             sobj: {
-                width: (this.width || 4) + 'rem',
+                width: (this.width || 4) + 'rem' ,
                 height: (this.height || 4) + 'rem'
             },
             obj: {
-                width: (this.width || 4) + 'rem',
+                width: (this.width || 4) + 'rem' ,
                 height: (this.height || 4) + 'rem'
             },
             tobj: {
@@ -15512,14 +15571,16 @@ module.exports = {
         };
     },
     methods: {
-        tapping: function tapping() {
+        tapping: function(){
             this.pos = !this.pos;
+            
         }
     },
     components: {
         'txt': child
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"share\" @click=\"tapping\" _v-1ffcc264=\"\">\n    <img :style=\"obj\" :src=\"src\" _v-1ffcc264=\"\"><br _v-1ffcc264=\"\">\n    <txt :style=\"tobj\" v-show=\"pos\" _v-1ffcc264=\"\"><slot _v-1ffcc264=\"\"></slot></txt>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15537,42 +15598,47 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"../text/text.vue.js":27,"vue":4,"vue-hot-reload-api":2,"vueify/lib/insert-css":5}],14:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['src', 'preload', 'width', 'height'],
+    props: [ 'src', 'preload', 'width', 'height' ],
 
-    data: function data() {
+    data: function () {
 
         var obj = {};
 
-        this.width && (obj.width = this.width + 'rem');
-        this.height && (obj.height = this.height + 'rem');
+        this.width  && (obj.width   = this.width  + 'rem');
+        this.height && (obj.height  = this.height + 'rem');
 
         return {
             styleObj: obj
-        };
+        }
     },
 
     methods: {
-        load: function load() {
-            this.preload === 'true' && function () {
-
+        load: function() {
+            this.preload === 'true' && (function () {
+                
                 var img = new Image();
                 img.src = this.src;
 
-                if (img.complete) {
+                if(img.complete) {
                     console.log('complete ok');
                     return;
                 }
 
-                img.onload = function () {
+                img.onload = function(){
                     console.log('ok');
-                };
-            }();
+                }
+
+            })();
         }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<img @load=\"load\" class=\"_image\" :style=\"styleObj\" :src=\"src\" :preload=\"preload\">\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15586,35 +15652,39 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],15:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: ['name', 'size', 'align', 'max', 'placeholder', 'validate', 'value'],
+    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'validate','value' ],
 
-    data: function data() {
-        var obj = {},
-            list = [];
+    data: function() {
+        var obj = {}, list = [];
 
-        this.align && (obj.textAlign = this.align);
+        this.align 
+        && (obj.textAlign = this.align);
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size 
+        && list.push('_text_size_' + this.size + 'px');
 
         return {
             classObj: list,
             styleObj: obj,
-            number: this.value
-        };
+            number:this.value
+        }
     },
-    methods: {
-        sendMsg: function sendMsg() {
-            if (this.validate && this.validate == 'true') {
+    methods:{
+        sendMsg:function(){
+            if(this.validate && this.validate == 'true'){
                 var valMsg = this.validateNum(this.number);
                 valMsg && alert(valMsg);
-                bus.$emit('numberMsg', valMsg);
+                bus.$emit('numberMsg',valMsg);
             }
         },
-        validateNum: function validateNum(data) {
+        validateNum: function (data) {
             var reg = /^\d+$/;
             if (!reg.test(data)) {
                 return '只能输入数字！';
@@ -15622,7 +15692,8 @@ module.exports = {
             return '';
         }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_number_field\" :class=\"classObj\" :style=\"styleObj\" type=\"tel\" :name=\"name\" :placeholder=\"placeholder\" :maxlength=\"max\" v-model=\"number\" v-on:blur=\"sendMsg\">\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15636,18 +15707,23 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"../../utils/eventBus":44,"vue":4,"vue-hot-reload-api":2}],16:[function(require,module,exports){
-'use strict';
+
+
+
+
+
+
 
 var child = require('../icon/icon.vue.js');
 module.exports = {
     props: ['checked', 'name', 'size', 'color'],
-    data: function data() {
+    data: function() {
         return {
             isChecked: this.checked
-        };
+        }
     },
     methods: {
-        tap: function tap() {
+        tap: function() {
             // console.log(this.isChecked);
             this.isChecked = !this.isChecked;
         }
@@ -15655,7 +15731,8 @@ module.exports = {
     components: {
         'marked': child
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span @click=\"tap\" class=\"_radio\" :class=\"{_radio_active: isChecked}\" :checked=\"isChecked\">\n    <marked class=\"dot\" v-show=\"isChecked\" name=\"check\" size=\"30\" color=\"white\"></marked>\n</span>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15669,29 +15746,34 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"../icon/icon.vue.js":11,"vue":4,"vue-hot-reload-api":2}],17:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['width', 'height', 'size', 'filled'],
+    props: [ 'width', 'height', 'size', 'filled' ],
 
-    data: function data() {
+    data: function () {
+        
+        var obj = {}, list = [];
 
-        var obj = {},
-            list = [];
-
-        this.width && (obj.width = this.width + 'rem');
+        this.width  && (obj.width  = this.width  + 'rem');
         this.height && (obj.height = this.height + 'rem');
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size
+        && list.push('_text_size_' + this.size + 'px');
 
-        this.filled === 'true' && list.push('_button_filled');
+        this.filled === 'true' 
+        && list.push('_button_filled');
 
         return {
             styleObj: obj,
             classObj: list
-        };
+        }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<button class=\"_rectangular_button\" :class=\"classObj\" :style=\"styleObj\"><slot></slot></button>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15705,67 +15787,80 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],18:[function(require,module,exports){
-var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("\n._childtext[_v-02d50f24] {\n    vertical-align: 2px;\n}\n")
-'use strict';
+
+
+
+
+
+
+
 
 var childText = require('../text/text.vue.js');
 var childIcon = require('../icon/icon.vue.js');
 module.exports = {
-    props: ['size', 'color', 'name'],
-    data: function data() {
+    props: ['size', 'color','name'],
+    data: function() {
+        var list = [], obj = {};
+
+        this.size
+        && list.push('_text_size_' + this.size + 'px');
+
+        this.color
+        && list.push('_text_color_' + this.color);
+
         return {
-            obj: {
-                fontSize: this.size + 'rem',
-                color: this.color
-            }
+            classObj: list,
+            styleObj: obj
         };
     },
     methods: {
-        tap: function tap() {
-            console.log('please !!!');
+        tap: function(){
+            console.log('please !!!')
         }
     },
     components: {
         'child-text': childText,
         'child-icon': childIcon
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span @click=\"tap\" _v-02d50f24=\"\">\n    <child-text :style=\"obj\" class=\"_select_text\" _v-02d50f24=\"\"><slot _v-02d50f24=\"\"></slot></child-text>\n    <child-icon name=\"angle-right-bold\" color=\"light\" size=\"28\" _v-02d50f24=\"\"></child-icon>\n</span>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span @click=\"tap\">\n    <child-text :style=\"styleObj\" class=\"_select_text\" :class=\"classObj\"><slot></slot></child-text>\n    <child-icon name=\"angle-right-bold\" color=\"light\" size=\"28\"></child-icon>\n</span>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  module.hot.dispose(function () {
-    __vueify_insert__.cache["\n._childtext[_v-02d50f24] {\n    vertical-align: 2px;\n}\n"] = false
-    document.head.removeChild(__vueify_style__)
-  })
   if (!module.hot.data) {
     hotAPI.createRecord("_v-02d50f24", module.exports)
   } else {
     hotAPI.update("_v-02d50f24", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../icon/icon.vue.js":11,"../text/text.vue.js":27,"vue":4,"vue-hot-reload-api":2,"vueify/lib/insert-css":5}],19:[function(require,module,exports){
-'use strict';
+},{"../icon/icon.vue.js":11,"../text/text.vue.js":27,"vue":4,"vue-hot-reload-api":2}],19:[function(require,module,exports){
+
+
+
+
 
 module.exports = {
-    props: ['size', 'bgcolor'],
+    props: [ 'size', 'bgcolor' ],
 
-    data: function data() {
-
+    data: function() {
+        
         var list = [];
 
-        this.bgcolor && list.push('_bgcolor_' + this.bgcolor);
+        this.bgcolor 
+        && list.push('_bgcolor_' + this.bgcolor);
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size
+        && list.push('_text_size_' + this.size + 'px');
 
         return {
             classObj: list
         };
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span class=\"_skeleton\" :class=\"classObj\"><slot></slot></span>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15779,11 +15874,15 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],20:[function(require,module,exports){
-'use strict';
+
+
+
+
+
 
 module.exports = {
     props: ['checked', 'name', 'width', 'height'],
-    data: function data() {
+    data: function() {
         var obj = {};
 
         this.width && (obj.width = this.width + 'rem');
@@ -15791,15 +15890,16 @@ module.exports = {
         return {
             styleObj: obj,
             isChecked: this.checked
-        };
+        }
     },
     methods: {
-        tap: function tap() {
+        tap: function() {
             // console.log(this.isChecked);
             this.isChecked = !this.isChecked;
         }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span @click=\"tap\" :checked=\"isChecked\" class=\"_solid_checkbox\" :style=\"styleObj\" :class=\"{_solid_checkbox_active: isChecked}\">\n</span>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15813,22 +15913,28 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],21:[function(require,module,exports){
-'use strict';
+
+
+
+
+
 
 module.exports = {
     props: ['checked'],
-    data: function data() {
+    data: function() {
         return {
             isChecked: this.checked
-        };
+        }
     },
     methods: {
-        tap: function tap() {
+        tap: function() {
             console.log(this.isChecked);
             this.isChecked = !this.isChecked;
+            
         }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span @click=\"tap\" class=\"_solid_radio\" :class=\"{_solid_radio_active: isChecked}\" :checked=\"isChecked\">\n</span>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15842,22 +15948,26 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],22:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['width', 'height'],
+    props: [ 'width', 'height' ],
 
-    data: function data() {
+    data: function () {
         var styleObj = {};
-
-        this.width && (styleObj.width = this.width + 'rem');
+        
+        this.width  && (styleObj.width  = this.width  + 'rem');
         this.height && (styleObj.height = this.height + 'rem');
 
         return {
             styleObj: styleObj
         };
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_svg\" :style=\"styleObj\"><slot></slot></div>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15871,29 +15981,33 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],23:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['width', 'height', 'size', 'filled', 'position'],
+    props: [ 'width', 'height', 'size', 'filled', 'position' ],
 
-    data: function data() {
+    data: function () {
+        
+        var obj = {}, list = [];
 
-        var obj = {},
-            list = [];
-
-        this.width && (obj.width = this.width + 'rem');
+        this.width  && (obj.width  = this.width  + 'rem');
         this.height && (obj.height = this.height + 'rem');
 
-        this.filled === 'true' && list.push('_button_filled');
-        this.size && list.push('_text_size_' + this.size + 'px');
-        this.position && list.push('_tab_button_' + this.position);
+        
+        this.filled === 'true'  && list.push('_button_filled');
+        this.size               && list.push('_text_size_' + this.size + 'px');
+        this.position           && list.push('_tab_button_' + this.position);
 
         return {
             styleObj: obj,
             classObj: list
-        };
+        }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<button class=\"_tab_button\" :class=\"classObj\" :style=\"styleObj\"><slot></slot></button>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15907,58 +16021,63 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],24:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: ['size', 'align', 'max', 'placeholder', 'validate', 'value'],
-    data: function data() {
-        var obj = {},
-            list = [];
+    props: [ 'size', 'align', 'max', 'placeholder', 'validate','value' ],
+    data: function() {
+        var obj = {}, list = [];
 
-        this.align && (obj.textAlign = this.align);
+        this.align 
+        && (obj.textAlign = this.align);
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size 
+        && list.push('_text_size_' + this.size + 'px');
 
         return {
             classObj: list,
             styleObj: obj,
-            phone: this.value
-        };
+            phone:    this.value
+        }
     },
-    beforeMount: function beforeMount() {
+    beforeMount:function() {
         var errorMsg = '手机号不能为空！';
-        if (this.phone && this.phone.length !== 11) {
+        if( this.phone && this.phone.length !== 11){
             errorMsg = "长度应为 11 位！";
-        } else if (this.phone && !this.phone.substr(0, 2).match(/[1][3-9]/)) {
+        }else if (this.phone && !this.phone.substr(0,2).match(/[1][3-9]/)){
             errorMsg = "格式不正确！";
-        } else if (this.phone && !this.phone.match(/[0-9]{11}/)) {
+        }else if(this.phone && !this.phone.match(/[0-9]{11}/)){
             errorMsg = "只能填写数字！";
         }
-        bus.$emit('phoneMsg', errorMsg);
+        bus.$emit('phoneMsg',errorMsg);
     },
 
     methods: {
-        validatePhone: function validatePhone() {
+        validatePhone:function(){
             var errorMsg = '';
-            if (this.phone && this.phone.length !== 11) {
+            if(this.phone && this.phone.length !== 11){
                 errorMsg = "长度应为 11 位！";
-            } else if (this.phone && !this.phone.substr(0, 2).match(/[1][3-9]/)) {
+            }else if (this.phone && !this.phone.substr(0,2).match(/[1][3-9]/)){
                 errorMsg = "格式不正确！";
-            } else if (this.phone && !this.phone.match(/[0-9]{11}/)) {
+            }else if(this.phone && !this.phone.match(/[0-9]{11}/)){
                 errorMsg = "只能填写数字！";
             }
             return errorMsg;
         },
-        sendMsg: function sendMsg() {
-            if (this.validate && this.validate == 'true') {
+        sendMsg: function(){
+            if(this.validate && this.validate == 'true'){
                 var valMsg = this.validatePhone();
                 valMsg && alert(valMsg);
-                bus.$emit('phoneMsg', valMsg);
+                bus.$emit('phoneMsg',valMsg);
             }
         }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_input\" :style=\"styleObj\" :class=\"classObj\" type=\"tel\" name=\"\" :placeholder=\"placeholder\" v-on:blur=\"sendMsg\" v-model=\"phone\" :maxlength=\"max\" required=\"required\">\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -15972,17 +16091,19 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"../../utils/eventBus":44,"vue":4,"vue-hot-reload-api":2}],25:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['width', 'height', 'size', 'color', 'align'],
+    props: [ 'width', 'height', 'size', 'color', 'align' ],
 
-    data: function data() {
+    data: function () {
+        
+        var obj = {}, list = [];
 
-        var obj = {},
-            list = [];
-
-        this.width && (obj.width = this.width + 'rem');
+        this.width  && (obj.width  = this.width  + 'rem');
         this.height && (obj.height = this.height + 'rem');
         this.align && (obj.textAlign = this.align);
 
@@ -15992,9 +16113,10 @@ module.exports = {
         return {
             styleObj: obj,
             classObj: list
-        };
+        }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<button class=\"_text_button\" :class=\"classObj\" :style=\"styleObj\"><slot></slot></button>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -16008,25 +16130,30 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],26:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['name', 'size', 'align', 'max', 'placeholder', 'required'],
+    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required' ],
 
-    data: function data() {
-        var obj = {},
-            list = [];
+    data: function() {
+        var obj = {}, list = [];
 
-        this.align && (obj.textAlign = this.align);
+        this.align 
+        && (obj.textAlign = this.align);
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size 
+        && list.push('_text_size_' + this.size + 'px');
 
         return {
             classObj: list,
             styleObj: obj
-        };
+        }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_text_field\" :class=\"classObj\" :style=\"styleObj\" type=\"text\" name=\"name\" :placeholder=\"placeholder\" :maxlength=\"max\" :required=\"required\">\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -16040,23 +16167,29 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],27:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['size', 'color'],
+    props: [ 'size', 'color' ],
 
-    data: function data() {
+    data: function() {
         var list = [];
 
-        this.color && list.push('_text_color_' + this.color);
+        this.color 
+        && list.push('_text_color_' + this.color);
 
-        this.size && list.push('_text_size_' + this.size + 'px');
+        this.size  
+        && list.push('_text_size_' + this.size + 'px');
 
         return {
             classObj: list
-        };
+        }
     }
-};
+}    
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span class=\"_text\" :class=\"classObj\"><slot></slot></span>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -16070,22 +16203,26 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],28:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
     props: ['checked'],
-    data: function data() {
+    data: function() {
         return {
             isChecked: this.checked
-        };
+        }
     },
     methods: {
-        tap: function tap() {
+        tap: function() {
             console.log(this.isChecked);
             this.isChecked = !this.isChecked;
         }
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span class=\"_toggle\" @click=\"tap\" :class=\"{_toggle_active: !isChecked}\" :checked=\"isChecked\"></span>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -16236,11 +16373,16 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],38:[function(require,module,exports){
-'use strict';
+
+
+
+
+
+
 
 module.exports = {
-    props: ['height', 'border', 'bgcolor', 'gradient'],
-    data: function data() {
+    props: [ 'height', 'border', 'bgcolor' , 'gradient'],
+    data: function() {
         return {
             styleObj: {
                 height: this.height + 'rem',
@@ -16252,7 +16394,8 @@ module.exports = {
             }
         };
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_cell\" :class=\"classObj\" :style=\"styleObj\">\n    <slot></slot>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -16266,26 +16409,30 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],39:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['width', 'align'],
+    props: [ 'width', 'align' ],
 
-    data: function data() {
+    data: function() {
         var justifyContent = {
-            left: 'flex-start',
-            right: 'flex-end',
-            center: 'center'
-        };
+            left    : 'flex-start',
+            right   : 'flex-end',
+            center  : 'center'
+        }
 
         return {
             styleObj: {
-                width: this.width + 'rem',
-                justifyContent: justifyContent[this.align] || justifyContent['left']
+                width           : this.width + 'rem', 
+                justifyContent  : justifyContent[this.align] || justifyContent['left']
             }
         };
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_column\" :style=\"styleObj\"><slot></slot></div>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -16299,24 +16446,30 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],40:[function(require,module,exports){
-'use strict';
+
+
+
+
+
+
 
 module.exports = {
-    props: ['align'],
-    data: function data() {
+    props: [ 'align' ],
+    data: function() {
         var justifyContent = {
-            left: 'flex-start',
-            right: 'flex-end',
-            center: 'center'
-        };
+            left    : 'flex-start',
+            right   : 'flex-end',
+            center  : 'center'
+        }
 
         return {
             styleObj: {
-                justifyContent: justifyContent[this.align] || justifyContent['left']
+                justifyContent  : justifyContent[this.align] || justifyContent['left']
             }
         };
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_flex-column\" :style=\"styleObj\">\n    <slot></slot>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
@@ -16330,11 +16483,14 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],41:[function(require,module,exports){
-'use strict';
+
+
+
+
 
 module.exports = {
-    props: ['height', 'border', 'bgcolor'],
-    data: function data() {
+    props: [ 'height', 'border', 'bgcolor' ],
+    data: function() {
         return {
             styleObj: {
                 height: this.height + 'rem',
@@ -16345,7 +16501,8 @@ module.exports = {
             }
         };
     }
-};
+}
+
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_single-cell\" :class=\"classObj\" :style=\"styleObj\"><slot></slot></div>\n"
 if (module.hot) {(function () {  module.hot.accept()
