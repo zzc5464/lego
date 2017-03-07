@@ -1,0 +1,6 @@
+.gum .lego {
+    @import "lego.scss";
+}
+
+// Patch for gum styles
+@import "patch.scss";
