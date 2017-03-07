@@ -14,3 +14,4 @@ docs/*
 !docs/docs.css
 !docs/docs.json
 !docs/jquery.min.js
+lego.js
