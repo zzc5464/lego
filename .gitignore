@@ -3,6 +3,7 @@ node_modules/
 npm-debug.log
 template.js
 basic.js
+index.js
 .sass-cache/
 lego.css
 lego.css.map
