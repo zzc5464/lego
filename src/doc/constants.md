@@ -64,6 +64,7 @@
  high | #D7AC62 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png) 
  high-tapping | #B38F47 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/B38F47.png) 
  lightgrey | #DCDCDC | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/DCDCDC.png) 
+ gradient | xxxxxx | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/DCDCDC.png) 
  transparent | - | -
 
 ## 字体图标
