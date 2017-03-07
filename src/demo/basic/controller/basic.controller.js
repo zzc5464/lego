@@ -32,6 +32,9 @@ BasicController.prototype = new FController({
         function show (data) {
             this.renderVUE(tplTextView(data), data, '购买成功', function (app) {
                 // TODO: navigate to component demo pages.
+                $('#back').tap(function(){
+                    window.back();
+                });
             });
         }
 
@@ -45,6 +48,9 @@ BasicController.prototype = new FController({
         function show (data) {
             this.renderVUE(tplButtonView(data), data, '购买成功', function (app) {
                 // TODO: navigate to component demo pages.
+                $('#back').tap(function(){
+                    window.back();
+                });
             });
         }
 
@@ -60,6 +66,9 @@ BasicController.prototype = new FController({
         function show (data) {
             this.renderVUE(tplFieldView(data), data, '购买成功', function (app) {
                 // TODO: navigate to component demo pages.
+                $('#back').tap(function(){
+                    window.back();
+                });
             });
         }
 
@@ -73,6 +82,9 @@ BasicController.prototype = new FController({
         function show (data) {
             this.renderVUE(tplIconView(data), data, '购买成功', function (app) {
                 // TODO: navigate to component demo pages.
+                $('#back').tap(function(){
+                    window.back();
+                });
             });
         }
 
@@ -86,6 +98,9 @@ BasicController.prototype = new FController({
         function show (data) {
             this.renderVUE(tplImageView(data), data, '购买成功', function (app) {
                 // TODO: navigate to component demo pages.
+                $('#back').tap(function(){
+                    window.back();
+                });
             });
         }
 
@@ -99,6 +114,9 @@ BasicController.prototype = new FController({
         function show (data) {
             this.renderVUE(tplListView(data), data, '购买成功', function (app) {
                 // TODO: navigate to component demo pages.
+                $('#back').tap(function(){
+                    window.back();
+                });
             });
         }
 

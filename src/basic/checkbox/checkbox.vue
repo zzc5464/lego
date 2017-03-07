@@ -1,6 +1,6 @@
 <template>
     <span @click="tap" :checked="isChecked" class="_checkbox" :class="{_checkbox_active: isChecked}">
-          <marked class="dot" v-show="isChecked" name="check" size="30" color="white"></marked>
+          <marked v-show="isChecked" name="check" size="30" color="white"></marked>
     </span>
 </template>
 
