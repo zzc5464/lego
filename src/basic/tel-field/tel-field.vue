@@ -1,11 +1,11 @@
 <template>
-    <input class='_input' :style='styleObj' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='phone' :maxlength= 'max' required='required' >
+    <input class='_input' :style='styleObj' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='phone' :maxlength= 'max' required='required'>
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'size', 'align', 'max', 'placeholder', 'validate','value' ],
+        props: [ 'size', 'align', 'max', 'placeholder', 'validate','value','toast' ],
         data: function() {
             var obj = {}, list = [];
 
@@ -21,16 +21,18 @@
                 phone:    this.value
             }
         },
-        beforeMount:function() {
-            var errorMsg = '手机号不能为空！';
-            if( this.phone && this.phone.length !== 11){
-                errorMsg = "长度应为 11 位！";
-            }else if (this.phone && !this.phone.substr(0,2).match(/[1][3-9]/)){
-                errorMsg = "格式不正确！";
-            }else if(this.phone && !this.phone.match(/[0-9]{11}/)){
-                errorMsg = "只能填写数字！";
+        mounted:function() {
+            if (this.validate && this.validate =='true'){
+                var errorMsg = '手机号不能为空！';
+                if( this.phone && this.phone.length !== 11){
+                    errorMsg = "长度应为 11 位！";
+                }else if (this.phone && !this.phone.substr(0,2).match(/[1][3-9]/)){
+                    errorMsg = "格式不正确！";
+                }else if(this.phone && !this.phone.match(/[0-9]{11}/)){
+                    errorMsg = "只能填写数字！";
+                }
+                bus.$emit('phoneMsg',errorMsg);
             }
-            bus.$emit('phoneMsg',errorMsg);
         },
 
         methods: {
@@ -48,8 +50,11 @@
             sendMsg: function(){
                 if(this.validate && this.validate == 'true'){
                     var valMsg = this.validatePhone();
-                    valMsg && alert(valMsg);
+                    if(valMsg){
+                        this.toast.showToast(valMsg);
+                    }
                     bus.$emit('phoneMsg',valMsg);
+
                 }
             }
         }

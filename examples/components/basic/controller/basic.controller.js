@@ -10,6 +10,7 @@ var FController = require('fcontroller'),
     insuranceInterestView = require('../views/tpl.insurance.interest'),
     healthDetailView = require('../views/tpl.health.detail'),
     financingDetailView = require('../views/tpl.financing.detail'),
+    cancelResultView = require('../views/tpl.cancel.result'),
     tplBeView = require('../views/tpl.basicexamples');
 
 function BasicController () {
@@ -24,6 +25,7 @@ function BasicController () {
         'index4'    :'index4',
         'index5'    :'index5',
         'index6'    :'index6',
+        'index7'    :'index7',
         'wangweiqi' : 'wangweiqi',
         'basicexample' : 'basicexample',
         'structure': 'structure'
@@ -54,7 +56,8 @@ BasicController.prototype = new FController({
             list:[
                1,2,3,4
             ],
-            sendcode:sendCode
+            sendcode:sendCode,
+            toast:this.toast
         })
     },
     index2: function () {
@@ -105,6 +108,17 @@ BasicController.prototype = new FController({
         var $ = this.$, navigate = this.navigate.bind(this);
         function show (data) {
             this.renderVUE(financingDetailView(data), data, '购买成功', function (app) {
+
+            });
+        }
+        show.call(this, {
+           
+        })
+    },
+    index7: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+        function show (data) {
+            this.renderVUE(cancelResultView(data), data, '购买成功', function (app) {
 
             });
         }
