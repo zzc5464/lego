@@ -10,25 +10,40 @@ var process = module.exports = {};
 var cachedSetTimeout;
 var cachedClearTimeout;
 
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
 (function () {
     try {
-        cachedSetTimeout = setTimeout;
-    } catch (e) {
-        cachedSetTimeout = function () {
-            throw new Error('setTimeout is not defined');
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
         }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
     }
     try {
-        cachedClearTimeout = clearTimeout;
-    } catch (e) {
-        cachedClearTimeout = function () {
-            throw new Error('clearTimeout is not defined');
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
         }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
     }
 } ())
 function runTimeout(fun) {
     if (cachedSetTimeout === setTimeout) {
         //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
         return setTimeout(fun, 0);
     }
     try {
@@ -49,6 +64,11 @@ function runTimeout(fun) {
 function runClearTimeout(marker) {
     if (cachedClearTimeout === clearTimeout) {
         //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
         return clearTimeout(marker);
     }
     try {
@@ -276,9 +296,10 @@ exports.reload = tryWrap(function (id, options) {
   makeOptionsHot(id, options)
   var record = map[id]
   record.Ctor.extendOptions = options
-  var newCtor = Vue.extend(options)
+  var newCtor = record.Ctor.super.extend(options)
   record.Ctor.options = newCtor.options
   record.Ctor.cid = newCtor.cid
+  record.Ctor.prototype = newCtor.prototype
   if (newCtor.release) {
     // temporary global mixin strategy used in < 2.0.0-alpha.6
     newCtor.release()
@@ -15108,7 +15129,7 @@ exports.insert = function (css) {
 
 
 module.exports = {
-    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required' ],
+    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
 
     data: function() {
         var obj = {}, list = [];
@@ -15121,13 +15142,32 @@ module.exports = {
 
         return {
             classObj: list,
-            styleObj: obj
+            styleObj: obj,
+            address: this.value
+        }
+    },
+    mounted:function() {
+        if (this.required && this.required == 'true'){
+            var valMsg = !this.address ? '文本不能为空':'';
+            bus.$emit('textMsg',valMsg);
+        }
+    },
+    methods: {
+        validateText:function(){
+            if (this.required && this.required == 'true'){
+                var errorMsg = '';
+                if(!this.text){
+                    errorMsg = "本文不能为空";
+                    console.log(errorMsg);
+                }
+                bus.$emit('textMsg',errorMsg);
+            }
         }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_address_field\" :class=\"classObj\" :style=\"styleObj\" type=\"email\" :name=\"name\" :placeholder=\"placeholder\" :maxlength=\"max\" :required=\"required\">\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_address_field\" :class=\"classObj\" :style=\"styleObj\" type=\"email\" :name=\"name\" :placeholder=\"placeholder\" :maxlength=\"max\" :required=\"required\" v-model=\"address\">\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15275,7 +15315,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 var bus = require('../../utils/eventBus');  
 module.exports = {
-    props: [ 'name', 'size', 'align', 'placeholder', 'validate', 'value'],
+    props: [ 'name', 'size', 'align', 'placeholder', 'value','required'],
     data: function() {
         var obj = {}, list = [];
 
@@ -15292,7 +15332,7 @@ module.exports = {
         }
     },    
     mounted:function() {
-        if (this.validate && this.validate == 'true'){
+        if (this.required && this.required == 'true'){
             var valMsg = '邮箱地址不能为空';
             valMsg = !this.isEmail(this.email) ? '邮箱地址不正确!' :'' ;
             bus.$emit('emailMsg',valMsg);
@@ -15304,7 +15344,7 @@ module.exports = {
             return reg.test(str); 
         },
         sendMsg: function(){
-            if(this.validate && this.validate === 'true'){
+            if(this.required && this.required === 'true'){
                 var valMsg = !this.isEmail(this.email) ? '邮箱地址不正确!' :'' ;
                 if(valMsg){
                     alert(valMsg);
@@ -15412,7 +15452,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'validate','value' ],
+    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
     data: function() {
         var obj = {}, list = [];
 
@@ -15429,7 +15469,7 @@ module.exports = {
         }
     },
     mounted:function() {
-        if (this.validate && this.validate == 'true'){
+        if (this.required && this.required == 'true'){
             var valMsg = '身份证号不能为空';
             valMsg = this.validateIdcard(this.idcard);
             bus.$emit('idcardMsg',valMsg);
@@ -15437,10 +15477,10 @@ module.exports = {
     },
     methods: {
         sendMsg:function(){
-            if (this.validate && this.validate =='true'){
+            if (this.required && this.required =='true'){
                 var valMsg = this.validateIdcard(this.idcard);
                 if(valMsg){
-                    alert(valMsg);
+                    console.log(valMsg);
                 }
                 bus.$emit('idcardMsg',valMsg);
             }
@@ -15525,7 +15565,7 @@ module.exports = {
         }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_input\" :class=\"classObj\" type=\"value\" name=\"\" :placeholder=\"placeholder\" v-on:blur=\"sendMsg\" v-model=\"idcard\" :maxlength=\"max\" required=\"required\">\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_input\" :class=\"classObj\" type=\"value\" name=\"\" :placeholder=\"placeholder\" v-on:blur=\"sendMsg\" v-model=\"idcard\" :maxlength=\"max\">\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15656,7 +15696,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'validate','value' ],
+    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
 
     data: function() {
         var obj = {}, list = [];
@@ -15673,17 +15713,25 @@ module.exports = {
             number:this.value
         }
     },
+    mounted:function() {
+        if (this.required && this.required == 'true'){
+            var valMsg = validateNum(this.value)
+            bus.$emit('numberMsg',valMsg);
+        }
+    },
     methods:{
         sendMsg:function(){
-            if(this.validate && this.validate == 'true'){
+            if(this.required && this.required == 'true'){
                 var valMsg = this.validateNum(this.number);
-                valMsg && alert(valMsg);
+                valMsg && console.log(valMsg);
                 bus.$emit('numberMsg',valMsg);
             }
         },
         validateNum: function (data) {
             var reg = /^\d+$/;
-            if (!reg.test(data)) {
+            if(!data){
+                return '金额不能为空！'
+            }else if (!reg.test(data)) {
                 return '只能输入数字！';
             }
             return '';
@@ -16025,7 +16073,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 var bus = require('../../utils/eventBus');
 module.exports = {
-    props: [ 'size', 'align', 'max', 'placeholder', 'validate','value','toast' ],
+    props: [ 'size', 'align', 'max', 'placeholder','value','required'],
     data: function() {
         var obj = {}, list = [];
 
@@ -16042,7 +16090,7 @@ module.exports = {
         }
     },
     mounted:function() {
-        if (this.validate && this.validate =='true'){
+        if (this.required && this.required =='true'){
             var errorMsg = '手机号不能为空！';
             if( this.phone && this.phone.length !== 11){
                 errorMsg = "长度应为 11 位！";
@@ -16059,29 +16107,28 @@ module.exports = {
         validatePhone:function(){
             var errorMsg = '';
             if(this.phone && this.phone.length !== 11){
-                errorMsg = "长度应为 11 位！";
+                errorMsg = "手机号长度应为 11 位！";
             }else if (this.phone && !this.phone.substr(0,2).match(/[1][3-9]/)){
-                errorMsg = "格式不正确！";
+                errorMsg = "手机号格式不正确！";
             }else if(this.phone && !this.phone.match(/[0-9]{11}/)){
-                errorMsg = "只能填写数字！";
+                errorMsg = "手机号只能填写数字！";
             }
             return errorMsg;
         },
         sendMsg: function(){
-            if(this.validate && this.validate == 'true'){
+            if(this.required && this.required == 'true'){
                 var valMsg = this.validatePhone();
                 if(valMsg){
-                    this.toast.showToast(valMsg);
+                    console.log(valMsg);
                 }
                 bus.$emit('phoneMsg',valMsg);
-
             }
         }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_input\" :style=\"styleObj\" :class=\"classObj\" type=\"tel\" name=\"\" :placeholder=\"placeholder\" v-on:blur=\"sendMsg\" v-model=\"phone\" :maxlength=\"max\" required=\"required\">\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_input\" :style=\"styleObj\" :class=\"classObj\" type=\"tel\" name=\"\" :placeholder=\"placeholder\" v-on:blur=\"sendMsg\" v-model=\"phone\" :maxlength=\"max\">\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16137,8 +16184,9 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+var bus = require('../../utils/eventBus');
 module.exports = {
-    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required' ],
+    props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value'],
 
     data: function() {
         var obj = {}, list = [];
@@ -16151,13 +16199,32 @@ module.exports = {
 
         return {
             classObj: list,
-            styleObj: obj
+            styleObj: obj,
+            text: this.value
+        }
+    },
+    mounted:function() {
+        if (this.required && this.required == 'true'){
+            var valMsg = !this.text ? '文本不能为空':'';
+            bus.$emit('textMsg',valMsg);
+        }
+    },
+    methods: {
+        validateText:function(){
+            if (this.required && this.required == 'true'){
+                var errorMsg = '';
+                if(!this.text){
+                    errorMsg = "本文不能为空";
+                    console.log(errorMsg);
+                }
+                bus.$emit('textMsg',errorMsg);
+            }
         }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_text_field\" :class=\"classObj\" :style=\"styleObj\" type=\"text\" name=\"name\" :placeholder=\"placeholder\" :maxlength=\"max\" :required=\"required\">\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<input class=\"_text_field\" :class=\"classObj\" :style=\"styleObj\" type=\"text\" name=\"name\" :placeholder=\"placeholder\" :maxlength=\"max\" v-on:blur=\"validateText\" v-model=\"text\">\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16168,7 +16235,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-00ed29e4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],27:[function(require,module,exports){
+},{"../../utils/eventBus":41,"vue":4,"vue-hot-reload-api":2}],27:[function(require,module,exports){
 
 
 
@@ -16469,14 +16536,15 @@ if (module.hot) {(function () {  module.hot.accept()
 module.exports = {
     props: [ 'height', 'border', 'bgcolor' ],
     data: function() {
+        var list = [];
+
+        this.border === 'true' && list.push('_border');
+        this.bgcolor && list.push('_bgcolor_' + this.bgcolor);
         return {
             styleObj: {
-                height: this.height + 'rem',
-                backgroundColor: this.bgcolor
+                height: this.height + 'rem'
             },
-            classObj: {
-                '_border': this.border === 'true'
-            }
+            classObj: list
         };
     }
 }
