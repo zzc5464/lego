@@ -30,11 +30,26 @@ module.exports = {
                         debug: false
                     },
                     external: [
-                        'fcontroller'
+                        'fcontroller', 'lego'
                     ]
                 },
                 src: ['./examples/components/basic/controller/basic.controller.js'],
                 dest: './webroot/modules/components/basic/basic.js'
+            },
+            legolib: {
+                options: {
+                    browserifyOptions: {
+                        debug: false
+                    },
+                    alias: {
+                        "lego": "./src/utils/gum.vue.manager.js"
+                    },
+                    external: [
+                        'fcontroller'
+                    ]
+                },
+                src: [],
+                dest: './webroot/js/lego.js'
             }
         },
         copy: {
@@ -85,5 +100,5 @@ module.exports = {
             }
         }
     },
-    taskList: ["vueify:lego", "tmod:lego", "browserify:lego", "sass:lego", "copy:lego", "copy:iconfont", "clean:lego"]
+    taskList: ["vueify:lego", "tmod:lego", "browserify:lego", "browserify:legolib", "sass:lego", "copy:lego", "copy:iconfont", "clean:lego"]
 }

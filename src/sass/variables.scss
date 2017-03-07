@@ -5,7 +5,7 @@ $text-color-grey        : #666;
 $text-color-light       : #999;
 $text-color-high        : #d7ac62;
 $text-color-green       : #50b15b;
-$text-color-blue        : blue;
+$text-color-blue        : #4370b1;
 $text-color-placeholder : #c1c1c1;
 
 $bgcolor-white          : #fff;
@@ -24,7 +24,7 @@ $bgcolor-gradient       : linear-gradient(45deg, #423620, #5c4e27);
 $border-2x-high         : .5px solid $bgcolor-high;
 $border-3x-high         : .4px solid $bgcolor-high;
 
-$border-radius          : 4px;
+$border-radius          : 3px;
 
 // 以下为文字大小的对应关系，左侧为视觉标准单位，右侧为 rem 值
 $text-size-22px         : .578947rem;
@@ -37,4 +37,4 @@ $text-size-40px         : 1.052632rem;
 $text-size-60px         : 1.578947rem;
 $text-size-112px        : 2.947368rem;
 $text-size-120px        : 3.157895rem;
-$text-size-200px        : 5.263158rem;
+$text-size-224px        : 5.894739rem;

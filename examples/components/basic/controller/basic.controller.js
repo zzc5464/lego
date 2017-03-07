@@ -1,7 +1,7 @@
 'use strict';
 
 var FController = require('fcontroller'),
-    VueManager = require('../../../../src/utils/gum.vue.manager'),
+    VueManager = require('lego'),
     tplIndexView = require('../views/tpl.index'),
     tplWwqView = require('../views/tpl.wangweiqi'),
     tplStrqView = require('../views/tpl.structure'),

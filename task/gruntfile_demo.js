@@ -43,13 +43,28 @@ module.exports = {
             }
         },
         browserify: {
+            legolib: {
+                options: {
+                    browserifyOptions: {
+                        debug: false
+                    },
+                    alias: {
+                        "lego": "./src/utils/gum.vue.manager.js"
+                    },
+                    external: [
+                        'fcontroller'
+                    ]
+                },
+                src: [],
+                dest: './webroot/js/lego.js'
+            },
             'demo-index': {
                 options: {
                     browserifyOptions: {
                         debug: false
                     },
                     external: [
-                        'fcontroller'
+                        'fcontroller', 'lego'
                     ]
                 },
                 src: ['./src/demo/index/controller/index.controller.js'],
@@ -61,7 +76,7 @@ module.exports = {
                         debug: false
                     },
                     external: [
-                        'fcontroller'
+                        'fcontroller', 'lego'
                     ]
                 },
                 src: ['./src/demo/basic/controller/basic.controller.js'],
@@ -128,6 +143,8 @@ module.exports = {
         "vueify:lego", 
         "sass:lego", 
         "copy:iconfont", 
+
+        "browserify:legolib", 
 
         "tmod:demo-index", 
         "browserify:demo-index", 
