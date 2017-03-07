@@ -24,7 +24,7 @@
         },
         mounted:function() {
             if (this.required && this.required == 'true'){
-                var valMsg = validateNum(this.value)
+                var valMsg = this.validateNum(this.value)
                 bus.$emit('numberMsg',valMsg);
             }
         },
