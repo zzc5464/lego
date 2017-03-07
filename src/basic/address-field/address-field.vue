@@ -3,6 +3,7 @@
 </template>
 
 <script>
+    var bus = require('../../utils/eventBus');
     module.exports = {
         props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
 
