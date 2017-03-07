@@ -83,9 +83,14 @@ module.exports = {
             }
         },
         sass: {
-            lego: {
+            'lego': {
                 files: {
                     './webroot/css/lego.css': './src/sass/lego.scss'
+                }
+            },
+            'gum-lego': {
+                files: {
+                    './webroot/css/gum-lego.css': './src/sass/gum-lego.scss'
                 }
             }
         },
@@ -100,5 +105,15 @@ module.exports = {
             }
         }
     },
-    taskList: ["vueify:lego", "tmod:lego", "browserify:lego", "browserify:legolib", "sass:lego", "copy:lego", "copy:iconfont", "clean:lego"]
+    taskList: [
+        "vueify:lego", 
+        "tmod:lego", 
+        "browserify:lego", 
+        "browserify:legolib", 
+        "sass:lego", 
+        "sass:gum-lego", 
+        "copy:lego", 
+        "copy:iconfont", 
+        "clean:lego"
+    ]
 }
