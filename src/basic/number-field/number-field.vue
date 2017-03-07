@@ -5,7 +5,7 @@
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'validate','value' ],
+        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
 
         data: function() {
             var obj = {}, list = [];
@@ -22,17 +22,25 @@
                 number:this.value
             }
         },
+        mounted:function() {
+            if (this.required && this.required == 'true'){
+                var valMsg = validateNum(this.value)
+                bus.$emit('numberMsg',valMsg);
+            }
+        },
         methods:{
             sendMsg:function(){
-                if(this.validate && this.validate == 'true'){
+                if(this.required && this.required == 'true'){
                     var valMsg = this.validateNum(this.number);
-                    valMsg && alert(valMsg);
+                    valMsg && console.log(valMsg);
                     bus.$emit('numberMsg',valMsg);
                 }
             },
             validateNum: function (data) {
                 var reg = /^\d+$/;
-                if (!reg.test(data)) {
+                if(!data){
+                    return '金额不能为空！'
+                }else if (!reg.test(data)) {
                     return '只能输入数字！';
                 }
                 return '';

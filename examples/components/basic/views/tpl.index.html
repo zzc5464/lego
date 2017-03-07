@@ -6,7 +6,7 @@
             <b-text size="30" color="grey">手机号码</b-text>
         </s-column>
         <s-column width="12" align="right">
-            <b-tel-field size="30" :max=11 validate='true' placeholder='请输入银行预留电话' value='1316251733' :toast='toast'></b-tel-field>
+            <b-tel-field size="30" :max=11 reqiured='false' placeholder='请输入银行预留电话' value='1316251733' :toast='toast'></b-tel-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -33,7 +33,7 @@
             <b-text size="30" color="grey">电子邮箱</b-text>
         </s-column>
         <s-column width="12" align="right">
-            <b-email-field size="30" placeholder="请输入电子邮箱" validate='true'></b-email-field>
+            <b-email-field size="30" placeholder="请输入电子邮箱" required='true'></b-email-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -45,7 +45,7 @@
             <b-text size="30" color="grey">身份证号</b-text>
         </s-column>
         <s-column width="12" align="right">
-            <b-idcard-field size="30" validate='true' placeholder="请输入身份证号"></b-idcard-field>
+            <b-idcard-field size="30" required='true' placeholder="请输入身份证号"></b-idcard-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
