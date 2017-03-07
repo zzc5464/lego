@@ -13,7 +13,7 @@
  color       | 文字颜色           | 不可填写颜色值，目前可选的颜色有：lightgrey、grey、black、highlight 等
  max         | 输入字段中的字符的最大长度 |
  placeholder | 用户填写输入字段的提示    |
- validate    | 是否做纯数字验证         |
+ required    | 是否做纯数字验证         |
  value       | 输入默认值 | 不填写即为空值   |
 
 ### 子节点
@@ -21,5 +21,5 @@
 
 ### 示例
 ```
-<b-number-field size='30' color='black' max=6 placeholder="请输入金额" value='300' validate='true'></b-number-field>
+<b-number-field size='30' color='black' max=6 placeholder="请输入金额" value='300' required='true'></b-number-field>
 ```

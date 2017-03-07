@@ -1,11 +1,11 @@
 <template>
-    <input class='_input' :style='styleObj' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='phone' :maxlength= 'max' required='required'>
+    <input class='_input' :style='styleObj' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='phone' :maxlength= 'max'>
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'size', 'align', 'max', 'placeholder', 'validate','value','toast' ],
+        props: [ 'size', 'align', 'max', 'placeholder','value','required'],
         data: function() {
             var obj = {}, list = [];
 
@@ -22,7 +22,7 @@
             }
         },
         mounted:function() {
-            if (this.validate && this.validate =='true'){
+            if (this.required && this.required =='true'){
                 var errorMsg = '手机号不能为空！';
                 if( this.phone && this.phone.length !== 11){
                     errorMsg = "长度应为 11 位！";
@@ -39,22 +39,21 @@
             validatePhone:function(){
                 var errorMsg = '';
                 if(this.phone && this.phone.length !== 11){
-                    errorMsg = "长度应为 11 位！";
+                    errorMsg = "手机号长度应为 11 位！";
                 }else if (this.phone && !this.phone.substr(0,2).match(/[1][3-9]/)){
-                    errorMsg = "格式不正确！";
+                    errorMsg = "手机号格式不正确！";
                 }else if(this.phone && !this.phone.match(/[0-9]{11}/)){
-                    errorMsg = "只能填写数字！";
+                    errorMsg = "手机号只能填写数字！";
                 }
                 return errorMsg;
             },
             sendMsg: function(){
-                if(this.validate && this.validate == 'true'){
+                if(this.required && this.required == 'true'){
                     var valMsg = this.validatePhone();
                     if(valMsg){
-                        this.toast.showToast(valMsg);
+                        console.log(valMsg);
                     }
                     bus.$emit('phoneMsg',valMsg);
-
                 }
             }
         }
