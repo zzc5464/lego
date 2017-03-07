@@ -187,3 +187,18 @@ button, input {
 ._layers_c_transform {
     @include transform(0px);
 }
+// 成功失败页面icon
+._success_icon {
+    width: 3.947368rem;
+    height: 3.947368rem;
+    border-radius: 50%;
+    background-color: #50b15b;
+    line-height: 4.247368rem;
+}
+._failure_icon {
+    width: 3.947368rem;
+    height: 3.947368rem;
+    border-radius: 50%;
+    background-color: darkblue;
+    line-height: 4.247368rem;
+}

@@ -21,11 +21,20 @@
                 idcard:   this.value
             }
         },
+        mounted:function() {
+            if (this.validate && this.validate == 'true'){
+                var valMsg = '身份证号不能为空';
+                valMsg = this.validateIdcard(this.idcard);
+                bus.$emit('idcardMsg',valMsg);
+            }
+        },
         methods: {
             sendMsg:function(){
                 if (this.validate && this.validate =='true'){
                     var valMsg = this.validateIdcard(this.idcard);
-                    valMsg && alert(valMsg);
+                    if(valMsg){
+                        alert(valMsg);
+                    }
                     bus.$emit('idcardMsg',valMsg);
                 }
             },

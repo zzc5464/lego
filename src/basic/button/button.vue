@@ -31,8 +31,8 @@
                 tapped:true
             }
         },
-        // mounted函数相当于原生js中的ready函数
-        mounted:function(){
+        
+        beforeMount:function(){
             var self = this;
             if(self.phonevali){
                 bus.$on('phoneMsg',function(res){
