@@ -6,14 +6,15 @@
     module.exports = {
         props: [ 'height', 'border', 'bgcolor' ],
         data: function() {
+            var list = [];
+
+            this.border === 'true' && list.push('_border');
+            this.bgcolor && list.push('_bgcolor_' + this.bgcolor);
             return {
                 styleObj: {
-                    height: this.height + 'rem',
-                    backgroundColor: this.bgcolor
+                    height: this.height + 'rem'
                 },
-                classObj: {
-                    '_border': this.border === 'true'
-                }
+                classObj: list
             };
         }
     }

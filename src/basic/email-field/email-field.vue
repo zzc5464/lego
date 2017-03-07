@@ -4,7 +4,7 @@
 <script>
     var bus = require('../../utils/eventBus');  
     module.exports = {
-        props: [ 'name', 'size', 'align', 'placeholder', 'validate', 'value'],
+        props: [ 'name', 'size', 'align', 'placeholder', 'value','required'],
         data: function() {
             var obj = {}, list = [];
 
@@ -21,7 +21,7 @@
             }
         },    
         mounted:function() {
-            if (this.validate && this.validate == 'true'){
+            if (this.required && this.required == 'true'){
                 var valMsg = '邮箱地址不能为空';
                 valMsg = !this.isEmail(this.email) ? '邮箱地址不正确!' :'' ;
                 bus.$emit('emailMsg',valMsg);
@@ -33,7 +33,7 @@
                 return reg.test(str); 
             },
             sendMsg: function(){
-                if(this.validate && this.validate === 'true'){
+                if(this.required && this.required === 'true'){
                     var valMsg = !this.isEmail(this.email) ? '邮箱地址不正确!' :'' ;
                     if(valMsg){
                         alert(valMsg);

@@ -4,12 +4,19 @@ $text-color-black       : #333;
 $text-color-grey        : #666;
 $text-color-light       : #999;
 $text-color-high        : #d7ac62;
+$text-color-green       : #50b15b;
+$text-color-blue        : #4370b1;
 $text-color-placeholder : #c1c1c1;
 
 $bgcolor-white          : #fff;
 $bgcolor-high           : #d7ac62;
 $bgcolor-high-tapping   : #b38f47;
 $bgcolor-lightgrey      : #dcdcdc;
+$bgcolor-offwhite       :   #efefef;
+// 背景 #efefef     导航栏 #f6f6f7
+
+//辅色 1 #e6654c      辅色 2 #2e2516
+
 $bgcolor-transparent    : transparent;
 $bgcolor-gradient-webkit: -webkit-linear-gradient(45deg, #423620, #5c4e27);
 $bgcolor-gradient       : linear-gradient(45deg, #423620, #5c4e27);
@@ -28,4 +35,6 @@ $text-size-34px         : .894737rem;
 $text-size-36px         : .947368rem;
 $text-size-40px         : 1.052632rem;
 $text-size-60px         : 1.578947rem;
+$text-size-112px        : 2.947368rem;
 $text-size-120px        : 3.157895rem;
+$text-size-224px        : 5.894739rem;

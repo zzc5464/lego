@@ -1,11 +1,11 @@
 <template>
-    <input class='_input' :class='classObj' type='value' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='idcard' :maxlength= 'max' required='required' >
+    <input class='_input' :class='classObj' type='value' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='idcard' :maxlength= 'max'>
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'validate','value' ],
+        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
         data: function() {
             var obj = {}, list = [];
 
@@ -22,7 +22,7 @@
             }
         },
         mounted:function() {
-            if (this.validate && this.validate == 'true'){
+            if (this.required && this.required == 'true'){
                 var valMsg = '身份证号不能为空';
                 valMsg = this.validateIdcard(this.idcard);
                 bus.$emit('idcardMsg',valMsg);
@@ -30,10 +30,10 @@
         },
         methods: {
             sendMsg:function(){
-                if (this.validate && this.validate =='true'){
+                if (this.required && this.required =='true'){
                     var valMsg = this.validateIdcard(this.idcard);
                     if(valMsg){
-                        alert(valMsg);
+                        console.log(valMsg);
                     }
                     bus.$emit('idcardMsg',valMsg);
                 }
