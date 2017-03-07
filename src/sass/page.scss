@@ -7,3 +7,9 @@
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
+
+._footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
