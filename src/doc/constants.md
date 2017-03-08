@@ -23,6 +23,8 @@
  40px | 20px | 1.052632
  60px | 30px | 1.578947
  120px | 60px | 3.157895
+ 224px | 112px | 5.894739
+ 300px | 150px | 7.894737
 
 ## 文本颜色
 > 用于给文本添加渲染颜色，相当于 color 属性
@@ -42,6 +44,8 @@
  grey | #666666 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/666.png) 
  light | #999999 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
  high | #D7AC62 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
+ green | #58AF51 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
+ blue | #4475AC | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
  placeholder | #C1C1C1 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)   
 
 ## 背景颜色
@@ -68,7 +72,8 @@
  high | #D7AC62 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png) 
  high-tapping | #B38F47 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/B38F47.png) 
  lightgrey | #DCDCDC | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/DCDCDC.png) 
- offwhite | #EFEFEF | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/fff.png)
+ offwhite | #EFEFEF | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/fff.png) 
+ cream | #F6F6F7 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/fff.png)
  gradient | xxxxxx | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/DCDCDC.png) 
  transparent | - | -
 

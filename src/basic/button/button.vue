@@ -5,7 +5,7 @@
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'id','width', 'height', 'size', 'filled','validate','second','phonevali','count','emailvali','idcardvali','numbervali','callback'],
+        props: [ 'id','width', 'height', 'size', 'filled', 'tapcolor','validate','second','phonevali','count','emailvali','idcardvali','numbervali','callback'],
 
         data: function () {
             var obj = {}, list = [];
@@ -17,7 +17,7 @@
             && list.push('_text_size_' + this.size + 'px');
 
             this.filled === 'true' 
-            && list.push('_button_filled');
+            && list.push('_button_filled');           
 
             return {
                 styleObj: obj,
@@ -58,6 +58,7 @@
         methods:{
             timekeeper:function(){
                 var self = this;
+                self.tapcolor && self.classObj.push('_bgcolor_' + self.tapcolor);
                 if(self.count && self.tapped){
                     self.callback();
                     self.tapped = false;
