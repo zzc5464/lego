@@ -79,17 +79,16 @@ module.exports = {
         },
         clean: {
             lego: {
-                src: ['./src/**/*.vue.js']
+                src: [ './src/**/*.vue.js', './webroot/css/*.map' ]
             }
         },
         sass: {
             'lego': {
+                options: {
+                    sourcemap: false
+                },
                 files: {
-                    './webroot/css/lego.css': './src/sass/lego.scss'
-                }
-            },
-            'gum-lego': {
-                files: {
+                    './webroot/css/lego.css': './src/sass/lego.scss',
                     './webroot/css/gum-lego.css': './src/sass/gum-lego.scss'
                 }
             }
@@ -111,7 +110,6 @@ module.exports = {
         "browserify:lego", 
         "browserify:legolib", 
         "sass:lego", 
-        "sass:gum-lego", 
         "copy:lego", 
         "copy:iconfont", 
         "clean:lego"

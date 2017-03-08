@@ -77,7 +77,7 @@ function getCommonConfig() {
                 /* sass0.9版本不再支持 banner : "<%= banner %>", */
                 style: "expanded",
                 unixNewlines: true,
-                sourcemap: 'inline'
+                sourcemap: 'none'
             },
             dist: {
                 files: {

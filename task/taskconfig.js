@@ -1,21 +1,8 @@
 /*
  * 名称或别名可作为grunt命令的参数，例如：
  * grunt home
- * grunt fp
- *
- * grunt index
- * grunt presents
- * grunt integration
- * grunt policy
- * grunt familyrisk
- * grunt orders
- * grunt financialProducts
- * grunt autorenewal
- * grunt communication
- * grunt quicklogin
- * grunt gumui
- * grunt wxClaim
  */
+
 module.exports = function(name) {
     /* 任务别名 */
     var alias = {
