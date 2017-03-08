@@ -75,12 +75,29 @@ button {
     border: 0;
     box-sizing: border-box;
 }
-._tab_button_left {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
+// ._tab_button_left {
+//     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
+// }
+// ._tab_button_right {
+//     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='100%' height='100%'/></svg>");
+// }
+
+// 标签 button 安卓下统一 1px 边框
+._tab_button_left{
+    background-image: none;
+    border: 1px solid #d7ac62;
+    border-right: none; 
 }
-._tab_button_right {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='100%' height='100%'/></svg>");
+._tab_button_middle{
+    background-image: none;
+    border: 1px solid #d7ac62;
+    border-right: none;
 }
+._tab_button_right{
+    background-image: none;
+    border: 1px solid #d7ac62;
+}
+
 .hairlines ._tab_button {
     background-image: none;
     border: $border-2x-high;
