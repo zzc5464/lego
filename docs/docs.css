@@ -8,20 +8,32 @@
 .book{
 	height: 100%;
 	display: flex;
-	margin-left: 20px;
-}
-.book .btn_l{
-	height: 45px;
-	line-height: 45px;
-	width: 100%;
-	border-bottom: 1px solid rgba(0,0,0,.07);
-	cursor: pointer;
 }
 .aside{
 	width: 270px;
 	height: auto;
 	overflow: auto;
 	border-right: 1px solid rgba(0,0,0,.07);
+	margin-left: 20px;
+	position: relative;
+}
+.aside::-webkit-scrollbar,
+.book-body::-webkit-scrollbar{
+  	display: none;
+ 	/* 隐藏滚动条，但依旧具备可以滚动的功能 */
+}
+.aside .btn_l{
+	height: 40px;
+	line-height: 40px;
+	width: 270px;
+	background-color: #fff !important;
+	border-bottom: 1px solid rgba(0,0,0,.07);
+	border-right: 1px solid rgba(0,0,0,.07);
+	cursor: pointer;
+	position: fixed;
+}
+.aside h1:first-of-type{
+	margin-top: 40px;
 }
 .aside h1{
 	height: 35px;
@@ -47,6 +59,13 @@
 	overflow: auto;
 	position: relative;
 }
+.book-body .right_head{
+	position: fixed;
+	width: 100%;
+	height: 40px;
+	border-bottom: 1px solid rgba(0,0,0,.07);
+	background: #fff;
+}
 .book-body .btn_r{
 	width: 16px;
 	height: 16px;
@@ -59,9 +78,10 @@
 	width: 100%;
 	height: auto;
 }
-.normal{
+.book-body .normal{
 	width: 90%;
 	margin: 0 auto;
+	margin-top: 40px;
 }
 .markdown-section {
 	display: block;
