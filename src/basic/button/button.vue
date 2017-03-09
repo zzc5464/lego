@@ -58,6 +58,7 @@
         methods:{
             timekeeper:function(){
                 var self = this;
+                self.classObj.indexOf('_bgcolor_' + self.tapcolor)<0 &&
                 self.tapcolor && self.classObj.push('_bgcolor_' + self.tapcolor);
                 if(self.count && self.tapped){
                     self.callback();

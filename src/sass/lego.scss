@@ -63,6 +63,9 @@ button, input {
 ._text_color_high {
     color: $text-color-high;
 }
+._text_color_tapped {
+    color: $text-color-tapped;
+}
 ._text_color_green {
     color: $text-color-green;
 }
@@ -121,8 +124,13 @@ button, input {
 ._bgcolor_high {
     background-color: $bgcolor-high;
 }
-._bgcolor_high_tapping {
-    background-color: $bgcolor-high-tapping; 
+._bgcolor_tapping {
+    background-color: $bgcolor-high-tapping;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#b38f47' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
+}
+._bgcolor_tapped {
+    color: $text-color-tapped;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d0c89d' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
 }
 ._bgcolor_transparent {
     background-color: $bgcolor-transparent;

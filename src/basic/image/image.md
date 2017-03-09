@@ -1,21 +1,23 @@
-# b-text 文本块
-> 用于显示普通文本，可设置文本字体大小和颜色
+# b-image 图片
+> 用于设置图片的显示，可设置图片的大小，图片路径，是否预先加载
 
 ### DEMO
 ![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
 
 ### 属性列表
-> 注意：文字大小是按 UI 视觉稿上的标注来定的，比如 22px 等
+> 注意：需要设置宽高，和图片路径
 
  属性 | 说明 | 备注 
 --- | --- | ---
- size | 文字大小 | 单位为视觉稿中的 px 像素 
- color | 文字颜色 | 不可填写颜色值，目前可选的颜色有：lightgrey、grey、black、highlight 等
+ width | 宽度 | 单位为视觉稿中的 px/38 rem
+ height | 高度 | 单位为视觉稿中的 px/38 rem
+ preload | 是否预先加载 | 布尔值，true 预先加载，false不加载
+ src | 图片路径
 
 ### 子节点
 > 纯文本内容
 
 ### 示例
 ```
-<b-text size='34' color='black'>手机号码</b-text>
+<b-image src="https://ohc0dpsgs.qnssl.com/lego/images/wx_hy.png" width="4.131579" height="4.131579" ></b-image>
 ```

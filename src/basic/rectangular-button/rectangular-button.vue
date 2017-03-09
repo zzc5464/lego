@@ -1,10 +1,10 @@
 <template>
-    <button class='_rectangular_button' :class='classObj' :style='styleObj'><slot></slot></button>
+    <button class='_rectangular_button' :class='classObj' :style='styleObj' v-on:mytap = 'tapped' ><slot></slot></button>
 </template>
 
 <script>
     module.exports = {
-        props: [ 'width', 'height', 'size', 'filled' ],
+        props: [ 'width', 'height', 'size', 'filled', 'tapcolor' ],
 
         data: function () {
             
@@ -22,6 +22,13 @@
             return {
                 styleObj: obj,
                 classObj: list
+            }
+        },
+        methods: {
+            tapped: function(){
+                var self = this;
+                self.classObj.indexOf('_bgcolor_' + self.tapcolor)<0 &&
+                self.tapcolor && self.classObj.push('_bgcolor_' + self.tapcolor);
             }
         }
     }

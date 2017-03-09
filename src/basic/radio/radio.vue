@@ -1,5 +1,5 @@
 <template>
-    <span @click="tap" class="_radio" :class="{_radio_active: isChecked}" :checked="isChecked">
+    <span v-on:mytap = "tapped" class="_radio" :class="{_radio_active: isChecked}" :checked="isChecked">
         <marked class="dot" v-show="isChecked" name="check" size="30" color="white"></marked>
     </span>
 </template>
@@ -14,7 +14,7 @@
             }
         },
         methods: {
-            tap: function() {
+            tapped: function() {
                 // console.log(this.isChecked);
                 this.isChecked = !this.isChecked;
             }

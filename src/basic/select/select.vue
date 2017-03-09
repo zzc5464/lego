@@ -1,5 +1,5 @@
 <template>
-    <span @click="tap">
+    <span v-on:mytap = 'tapped'>
         <child-text :style="styleObj" class="_select_text" :class="classObj"><slot></slot></child-text>
         <child-icon name="angle-right-bold" color="light" size="28"></child-icon>
     </span>
@@ -9,7 +9,7 @@
     var childText = require('../text/text.vue.js');
     var childIcon = require('../icon/icon.vue.js');
     module.exports = {
-        props: ['size', 'color','name'],
+        props: ['size', 'color'],
         data: function() {
             var list = [], obj = {};
 
@@ -25,7 +25,7 @@
             };
         },
         methods: {
-            tap: function(){
+            tapped: function(){
                 console.log('please !!!')
             }
         },

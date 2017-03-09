@@ -60,7 +60,7 @@
             <b-number-field size='30' required="true" ></b-number-field>
         </s-column>
         <s-column width="6.368421" align="right">
-            <b-button width="5.26316" height="1.578947" size="24" tapcolor="lightgrey" filled='true' :callback='sendcode' validate='true' second=30 count='获取验证码' placeholder='请输入验证码' id='sendcode'></b-button>
+            <b-button width="5.26316" height="1.578947" size="24" tapcolor="tapping" filled='true' :callback='sendcode' validate='true' second=30 count='获取验证码' placeholder='请输入验证码' id='sendcode'></b-button>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -131,7 +131,7 @@
         <s-flex-column>
         </s-flex-column>
         <s-column width="12.8947" align="center">
-            <b-button id='btn' size="34" color="white" tapcolor="high_tapping" height="2.105263" filled='true' validate='true' :phonevali=true :emailvali='true' idcardvali='true' numbervali='true'>提交</b-button>
+            <b-button id='btn' size="34" color="white" tapcolor="tapping" height="2.105263" filled='true' validate='true' :phonevali=true :emailvali='true' idcardvali='true' numbervali='true'>提交</b-button>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -403,8 +403,8 @@
              <b-text size="34" color="black">全选</b-text>
          </s-column>
          <s-flex-column align="right">
-            <b-text size="24" color="high">合计：</b-text>
-            <b-text size="34" color="high">￥7,008.50</b-text>
+            <b-highlight size="24" >合计：</b-highlight>
+            <b-highlight size="34" >￥7,008.50</b-highlight>
         </s-flex-column>
         <s-column width="6.842105" align="right">
             <b-rectangular-button size="34"  color="white" width="6.315789" height="3.157895" filled="true">直角button</b-rectangular-button>

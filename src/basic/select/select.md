@@ -1,11 +1,11 @@
-# b-text 文本块
-> 用于显示普通文本，可设置文本字体大小和颜色
+# b-select 选择框
+> 用于进行选择某一项
 
 ### DEMO
 ![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
 
 ### 属性列表
-> 注意：文字大小是按 UI 视觉稿上的标注来定的，比如 22px 等
+> 注意：
 
  属性 | 说明 | 备注 
 --- | --- | ---
@@ -17,5 +17,5 @@
 
 ### 示例
 ```
-<b-text size='34' color='black'>手机号码</b-text>
+<b-select size=".75" >身份证</b-select>
 ```
