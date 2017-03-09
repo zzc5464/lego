@@ -1,270 +1,134 @@
-<p-main bgcolor='lightgrey'>
-    <s-single-cell height='3' border='true'>
-        <b-svg width='5' height='1'>
-            <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#f66b6b' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>
-        </b-svg>
-    </s-single-cell>
-
-    <s-cell height='3' border='true' bgcolor='lightgrey'>
-
-        <s-column width='6'>
-            <b-tab-button size='34' height='2' filled='false' position='left'>购买</b-tab-button>
+<p-main bgcolor='offwhite'>
+    <!--展示信息且支持修改的 保存-->
+    <s-cell height='2' border='true'>
+        <s-column width='.789474' align='left'>
         </s-column>
-
-        <s-column width='6'>
-            <b-tab-button size='34' height='2' filled='false' position='middle'>赎回</b-tab-button>
+        <s-column width='13' align='left'>
+            <b-text size='28' color='grey'>展示信息且支持修改的</b-text>
         </s-column>
-
+    </s-cell>
+    <s-cell border='true' bgcolor='white'>
         <s-flex-column>
-            <b-tab-button size='34' height='2' filled='false' position='right'>赎回</b-tab-button>
         </s-flex-column>
-
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
+        <s-column width='14.315789' align='left'>
+            <b-text size='34' color='black'>联系方式</b-text>
         </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
+        <s-column width='3.578945' align='right'>
+            <b-text-button  size='30' align='right'>保存</b-text-button>
+        </s-column>
+        <s-flex-column>
         </s-flex-column>
     </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
+    <s-cell border='true' bgcolor='white'>
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width='5' align='left'>
+            <b-text size='30' color='grey'>手机号码</b-text>
         </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
+        <s-column width='13' align='right'>
+            <b-tel-field size='30' max='11' align='right' required='true' placeholder='请输入银行预留电话' ></b-tel-field>
+        </s-column>
+        <s-flex-column>
         </s-flex-column>
     </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
+    <s-cell border='true' bgcolor='white'>
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width='5' align='left'>
+            <b-text size='30' color='grey'>联系地址</b-text>
         </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
+        <s-column width='13' align='right'>
+            <b-address-field size='30' align='right' placeholder='请输入地址' ></b-address-field>
+        </s-column>
+        <s-flex-column>
         </s-flex-column>
     </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
+    <s-cell border='true' bgcolor='white'>
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width='5' align='left'>
+            <b-text size='30' align='right' color='grey'>邮政编码</b-text>
         </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
+        <s-column width='13' align='right'>
+            <b-number-field size='30' align='right' placeholder='请输入邮编' >200120</b-number-field>
+        </s-column>
+        <s-flex-column>
         </s-flex-column>
     </s-cell>
-
-        <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
+    <s-cell border='true' bgcolor='white'>
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width='5' align='left'>
+            <b-text size='30' color='grey'>电子邮箱</b-text>
         </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
+        <s-column width='13' align='right'>
+            <b-email-field size='30' align='right' placeholder='请输入电子邮箱'  value='ssssss@gmail.com'></b-email-field>
+        </s-column>
+        <s-flex-column>
         </s-flex-column>
     </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
+    <!--个人信息展示-->
+    <s-cell height='2' border='true'>
+        <s-column width='.789474' align='left'>
         </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
+        <s-column width='13' align='left'>
+            <b-text size='28' color='grey'>个人信息展示</b-text>
+        </s-column>
+    </s-cell>
+    <s-cell height='2.263158' border='true' bgcolor='white'>
+        <s-flex-column>
         </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
+        <s-column width='16.315789' align='left'>
+            <b-text size='34' color='black'>个人信息展示</b-text>
         </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
+        <s-column width='1.578945' align='right'>
+        </s-column>
+        <s-flex-column>
         </s-flex-column>
     </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
+    <s-cell height='2.473684' border='true' bgcolor='white'>
+        <s-flex-column>
+        </s-flex-column>
+        <s-column width='4.871795' align='left'>
+            <b-text size='30' color='light'>姓名</b-text>
         </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
+        <s-column width='13.157895' align='left'>
+            <b-text size='30'>李乐乐</b-text>
+        </s-column>
+        <s-flex-column>
         </s-flex-column>
     </s-cell>
-        <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
-        </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
+    <s-cell height='2.473684' border='true' bgcolor='white'>
+        <s-flex-column>
         </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
+        <s-column width='4.871795' align='left'>
+            <b-text size='30' color='light'>证件类型</b-text>
         </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
-        </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
+        <s-column width='13.157895' align='left'>
+            <b-text size='30'>234567890987654345</b-text>
         </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
-        </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
-        </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
-        </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
-        </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
-        </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
-        </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
-        </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
-        </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
-        </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
-        </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
-        </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
-        </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
-        </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
-        </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
-        </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
-        </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
-        </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
-        </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
-        </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
-        </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
-        </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
-        </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
-        </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
-        </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
-        </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
-        </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
-        </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
-        </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
-        </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
-        </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
-        </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
-        </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
-        </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
-        </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
-        </s-flex-column>
-    </s-cell>    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text-button size='34' height='2'>银行卡号</b-text-button>
-        </s-column>
-        <s-flex-column align='right'>
-            <b-text id='done' size='19' color='light'>6222157987454156</b-text>
-        </s-flex-column>
-    </s-cell>
-
-    <s-cell height='3' border='true'>
-        <s-column width='6' align='left'>
-            <b-text>手机号码</b-text>
-        </s-column>
-        <s-flex-column align='left'>
-            <b-number-field size='34' placeholder='123' required='true'></b-number-field>
+        <s-flex-column>
         </s-flex-column>
     </s-cell>
 </p-main>
+
+
+<p-footer>
+    <s-cell height='3.157895' bgcolor='white'>
+
+        <s-flex-column></s-flex-column>
+
+        <s-column width='8.947368' align='center'>
+            <b-button size='30' color='high' height='2.105263' filled='false'>取消</b-button>
+        </s-column>
+
+        <s-column width='.789474'></s-column>
+
+        <s-column width='8.947368' align='center'>
+            <b-button size='30' color='high' height='2.105263' filled='true'>付款</b-button>
+        </s-column>
+
+        <s-flex-column></s-flex-column>
+
+    </s-cell>
+</p-footer>
