@@ -7,7 +7,8 @@ var FController     = require('fcontroller'),
     tplFieldView   = require('../views/tpl.field'),
     tplIconView   = require('../views/tpl.icon'),
     tplImageView   = require('../views/tpl.image'),
-    tplListView   = require('../views/tpl.list');
+    tplListView   = require('../views/tpl.list'),
+    tplFoldingView   = require('../views/tpl.folding');
 
 function BasicController () {
     this.moduleName = 'demo';
@@ -20,7 +21,8 @@ function BasicController () {
         'field' : 'field',
         'icon' : 'icon',
         'image' : 'image',
-        'list' : 'list'
+        'list' : 'list',
+        'folding' : 'folding'
     }
     this.VueManager = VueManager;
 }
@@ -113,6 +115,22 @@ BasicController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplListView(data), data, '购买成功', function (app) {
+                // TODO: navigate to component demo pages.
+                $('#back').tap(function(){
+                    window.back();
+                });
+            });
+        }
+
+        show.call(this, {
+            // DATA
+        });
+    },
+    folding: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplFoldingView(data), data, '购买成功', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#back').tap(function(){
                     window.back();
