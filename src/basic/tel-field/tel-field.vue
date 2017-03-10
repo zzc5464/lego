@@ -1,5 +1,15 @@
 <template>
-    <input class='_input' :style='styleObj' :class='classObj' type='tel' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='phone' :maxlength= 'max'>
+    <div class='_tel_field' :class='status'>
+        <input  class='_input' 
+                :style='styleObj' :class='classObj' 
+                type='tel' name='' 
+                :placeholder= 'placeholder' 
+                v-on:blur   = 'sendMsg' 
+                v-on:input  = 'onInputEvent'
+                v-model     = 'phone' 
+                :maxlength  = 'max' />
+        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey"></i>
+    </div>
 </template>
 
 <script>
@@ -18,7 +28,8 @@
             return {
                 classObj: list,
                 styleObj: obj,
-                phone:    this.value
+                phone   : this.value,
+                status  : this.value.length === 0 ? '' : 'entering'
             }
         },
         mounted:function() {
@@ -55,6 +66,15 @@
                     }
                     bus.$emit('phoneMsg',valMsg);
                 }
+            },
+
+            onClearClicked: function () {
+                this.phone  = '';
+                this.status = '';
+            },
+
+            onInputEvent: function () {
+                this.status = this.phone.length === 0 ? '' : 'entering';
             }
         }
     }
