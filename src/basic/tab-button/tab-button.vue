@@ -1,5 +1,5 @@
 <template>
-    <button class='_tab_button' :class='classObj' :style='styleObj'><slot></slot></button>
+    <button class='_tab_button' :class='classObj' :style='styleObj' v-on:mytap='tapped'><slot></slot></button>
 </template>
 
 <script>
@@ -21,6 +21,11 @@
             return {
                 styleObj: obj,
                 classObj: list
+            }
+        },
+        methods: {
+            tapped: function(){
+                
             }
         }
     }
