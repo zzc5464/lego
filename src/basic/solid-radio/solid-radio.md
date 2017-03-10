@@ -1,11 +1,11 @@
-# b-image 图片
-> 用于设置图片的显示，可设置图片的大小，图片路径，是否预先加载
+# b-solid-radio 实心单选
+> 用于单选框中
 
 ### DEMO
 ![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
 
 ### 属性列表
-> 注意：需要设置宽高，和图片路径
+> 注意：
 
  属性 | 说明 | 备注 
 --- | --- | ---

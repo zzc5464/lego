@@ -97,17 +97,17 @@ button {
 // 标签 button 安卓下统一 1px 边框
 ._tab_button_left{
     background-image: none;
-    border: 1px solid #d7ac62;
+    border: 1px solid $bgcolor-high;
     border-right: none; 
 }
 ._tab_button_middle{
     background-image: none;
-    border: 1px solid #d7ac62;
+    border: 1px solid $bgcolor-high;
     border-right: none;
 }
 ._tab_button_right{
     background-image: none;
-    border: 1px solid #d7ac62;
+    border: 1px solid $bgcolor-high;
 }
 
 .hairlines ._tab_button {
@@ -167,7 +167,7 @@ input {
 }
 
 input::-webkit-input-placeholder {
-    color: #c1c1c1;
+    color: $text-color-stonegrey;
 }
 
 ._checkbox,
@@ -176,7 +176,7 @@ input::-webkit-input-placeholder {
     width: .820513rem;
     height: .820513rem;
     line-height: .789474rem;
-    border: 1px solid #dcdcdc;
+    border: 1px solid $bgcolor-lightgrey;
     background-color: $bgcolor-transparent;
     box-sizing: border-box;
     text-align: center;
@@ -195,7 +195,7 @@ input::-webkit-input-placeholder {
     width: 1.052632rem;
     height: 1.052632rem;
     line-height: 1rem;
-    border: 1px solid #dcdcdc;
+    border: 1px solid $bgcolor-lightgrey;
     border-radius: 50%;
     background-color: $bgcolor-transparent;
     box-sizing: border-box;
@@ -225,8 +225,8 @@ input::-webkit-input-placeholder {
     display: inline-block;
     width: 2.684211rem;
     height: 1.631579rem;
-    background-color: #fff;
-    border: 1.5px solid #e5e5e5;
+    background-color: $bgcolor-white;
+    border: 1.5px solid $bgcolor-smokegray;
     border-radius: .815789rem;
     box-sizing: border-box;
     position: relative;
@@ -241,8 +241,8 @@ input::-webkit-input-placeholder {
     height: 1.421053rem;
     border-radius: 50%;
     border: 1.5px solid rgba(229, 229, 229, .5);
-    background-color: #fff;
-    box-shadow: 0px 2px 9px #e5e5e5 ;
+    background-color: $bgcolor-white;
+    box-shadow: 0px 2px 9px $bgcolor-smokegray;
 }
 ._toggle._toggle_active {
     background-color: $bgcolor-high;

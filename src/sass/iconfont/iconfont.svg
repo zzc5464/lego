@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>
-Created by FontForge 20120731 at Mon Feb 27 18:15:32 2017
+Created by FontForge 20120731 at Fri Mar 10 09:19:22 2017
  By admin
 </metadata>
 <defs>
@@ -189,5 +189,8 @@ d="M512 503l302 -302q8 -9 20.5 -9t21.5 9t9 21.5t-9 21.5l-321 320q-4 6 -10 9q-2 5
     <glyph glyph-name="quote" unicode="&#xe657;" 
 d="M443 627q-190 -118 -202 -310q9 4 38 4q65 0 106 -38q41 -36 41 -101.5t-41 -106.5q-45 -38 -106 -38q-173 0 -173 234q0 318 272 460zM918 627q-188 -118 -202 -310q9 4 38 4q65 0 106 -38q41 -36 41 -101.5t-41 -106.5q-45 -38 -103 -38q-176 0 -176 234q0 315 274 460
 z" />
+    <glyph glyph-name="round-cross" unicode="&#xe65a;" 
+d="M526.5 53q-93.5 0 -173 46.5t-126 126t-46.5 173t46.5 173t126 125.5t173 46t173 -46t125.5 -125.5t46 -173t-46 -173t-125.5 -126t-173 -46.5zM690 528q19 18 0.5 37t-37.5 0l-129 -129l-127 126q-19 19 -37.5 0.5t0.5 -37.5l129 -129l-127 -127q-18 -19 0.5 -37.5
+t37.5 0.5l129 129l130 -129q18 -19 37 -0.5t0 37.5l-129 129zM690 528z" />
   </font>
 </defs></svg>
