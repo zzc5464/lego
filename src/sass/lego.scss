@@ -39,6 +39,7 @@ button, input {
     outline: none;
 }
 
+
 ._font-light {
     font-family: PingFangSC-Light, sans-serif;
 }
@@ -139,6 +140,15 @@ button, input {
 }
 ._bgcolor_lightgrey {
     background-color: $bgcolor-lightgrey;
+}
+._bgcolor_stonegrey {
+    background-color: $bgcolor-stonegrey;
+}
+._bgcolor_cream  {
+    background-color: $bgcolor-cream;
+}
+._bgcolor_smokegray {
+    background-color: $bgcolor-smokegray;
 }
 ._bgcolor_offwhite {
     background-color: $bgcolor-offwhite;
