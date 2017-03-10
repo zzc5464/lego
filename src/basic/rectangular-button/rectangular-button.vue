@@ -1,5 +1,5 @@
 <template>
-    <button class='_rectangular_button' :class='classObj' :style='styleObj' v-on:mytap = 'tapped' ><slot></slot></button>
+    <button data-tappable class='_rectangular_button' :class='classObj' :style='styleObj' v-on:mytap='tapped'><slot></slot></button>
 </template>
 
 <script>
@@ -27,8 +27,6 @@
         methods: {
             tapped: function(){
                 var self = this;
-                self.classObj.indexOf('_bgcolor_' + self.tapcolor)<0 &&
-                self.tapcolor && self.classObj.push('_bgcolor_' + self.tapcolor);
             }
         }
     }

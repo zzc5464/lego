@@ -1,5 +1,18 @@
 <template>
-    <button :id='id' class='_button' :class='classObj' :style='styleObj' :phone-err='phoneErrMsg' :email-err='emailErrMsg' :idcard-err='idcardErrMsg' :number-err='numberErrMsg' v-on:mytap = 'timekeeper' :istapped='tapped'><slot>{{counts}}</slot></button>
+    <button :id='id' 
+        class='_button' 
+        :class='classObj' 
+        :style='styleObj' 
+        :phone-err='phoneErrMsg' 
+        email-err='emailErrMsg' 
+        :idcard-err='idcardErrMsg' 
+        :number-err='numberErrMsg' 
+        v-on:mytap = 'timekeeper' 
+        :istapped='tapped'
+        data-tappable
+    >
+        <slot>{{counts}}</slot>
+    </button>
 </template>
 
 <script>
@@ -58,8 +71,7 @@
         methods:{
             timekeeper:function(){
                 var self = this;
-                self.classObj.indexOf('_bgcolor_' + self.tapcolor)<0 &&
-                self.tapcolor && self.classObj.push('_bgcolor_' + self.tapcolor);
+
                 if(self.count && self.tapped){
                     self.callback();
                     self.tapped = false;
