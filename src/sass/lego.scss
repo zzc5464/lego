@@ -8,6 +8,8 @@
 
 html, body, #wrapper {
     height: 100%;
+    -webkit-user-select: none !important;
+    user-select: none !important;
 }
 
 html {
