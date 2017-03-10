@@ -15,7 +15,7 @@
     font-size: 18px;
     text-align: center;
     text-decoration: none;
-    color: #FFFFFF;
+    color: #d7ac62;
     line-height: 3.157895rem;
     border-radius: 5px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -28,7 +28,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    border: 1px solid #f00;
+    border: 1px solid #d7ac62;
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     -webkit-transform-origin: 0 0;
