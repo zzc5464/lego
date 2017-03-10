@@ -1,5 +1,15 @@
 <template>
-    <input class='_input' :class='classObj' type='value' name='' :placeholder='placeholder' v-on:blur='sendMsg' v-model='idcard' :maxlength= 'max'>
+    <div class='_field' :class='status' >
+        <input  class='_input' 
+                :class='classObj' 
+                type='value' 
+                name='' 
+                :placeholder='placeholder' 
+                v-on:blur='sendMsg' 
+                v-model='idcard' 
+                :maxlength= 'max'>
+        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey"></i>
+    </div>
 </template>
 
 <script>
@@ -18,7 +28,8 @@
             return {
                 classObj: list,
                 styleObj: obj,
-                idcard:   this.value
+                idcard:   this.value,
+                status  : this.value && (this.value.length === 0 ? '' : 'entering')
             }
         },
         mounted:function() {
@@ -112,8 +123,16 @@
                     default:
                         return Errors[1];
                         break;
-                    }
-                    }
                 }
+            },
+            onClearClicked: function(){
+                this.idcard = '';
+                this.status = '';
+            },
+
+            onInputEvent: function(){
+                this.status = this.idcard.length === 0 ? '': 'entering';
             }
+        }
+    }
 </script>

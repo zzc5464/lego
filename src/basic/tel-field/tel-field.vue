@@ -1,5 +1,5 @@
 <template>
-    <div class='_tel_field' :class='status'>
+    <div class='_field' :class='status'>
         <input  class='_input' 
                 :style='styleObj' :class='classObj' 
                 type='tel' name='' 
@@ -29,7 +29,7 @@
                 classObj: list,
                 styleObj: obj,
                 phone   : this.value,
-                status  : this.value.length === 0 ? '' : 'entering'
+                status  : this.value && (this.value.length === 0 ? '' : 'entering')
             }
         },
         mounted:function() {

@@ -1,5 +1,16 @@
 <template>
-    <input class='_number_field' :class='classObj' :style='styleObj' type='tel' :name='name' :placeholder='placeholder' :maxlength='max' v-model='number' v-on:blur='sendMsg' />
+    <div class='_field' :class='status' >
+        <input  class='_number_field' 
+                :class='classObj' 
+                :style='styleObj' 
+                type='tel' 
+                :name='name' 
+                :placeholder='placeholder' 
+                :maxlength='max' 
+                v-model='number' 
+                v-on:blur='sendMsg' />
+        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey"></i>
+    </div>
 </template>
 
 <script>
@@ -19,7 +30,8 @@
             return {
                 classObj: list,
                 styleObj: obj,
-                number:this.value
+                number:this.value,
+                status  : this.value && (this.value.length === 0 ? '' : 'entering')
             }
         },
         mounted:function() {
@@ -44,6 +56,14 @@
                     return '只能输入数字！';
                 }
                 return '';
+            },
+            onClearClicked: function(){
+                this.number = '';
+                this.status = '';
+            },
+
+            onInputEvent: function(){
+                this.status = this.number.length === 0 ? '': 'entering';
             }
         }
     }

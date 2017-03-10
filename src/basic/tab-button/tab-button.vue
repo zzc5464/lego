@@ -8,7 +8,8 @@
 
         data: function () {
             
-            var obj = {}, list = [];
+            var obj = {}, 
+            list = [];
 
             this.width  && (obj.width  = this.width  + 'rem');
             this.height && (obj.height = this.height + 'rem');
@@ -17,6 +18,7 @@
             this.filled === 'true'  && list.push('_button_filled');
             this.size               && list.push('_text_size_' + this.size + 'px');
             this.position           && list.push('_tab_button_' + this.position);
+            
 
             return {
                 styleObj: obj,
@@ -25,7 +27,8 @@
         },
         methods: {
             tapped: function(){
-                
+                // var self = this;
+                // !(self.classObj.indexOf('_button_filled') < 0) ? self.classObj.splice(0,1) : self.classObj.push('_button_filled') ;
             }
         }
     }

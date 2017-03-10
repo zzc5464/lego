@@ -175,6 +175,17 @@ input::-webkit-input-placeholder {
     color: $text-color-stonegrey;
 }
 
+._field {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 100%;
+}
+
 ._checkbox,
 ._solid_checkbox{
     display: inline-block;

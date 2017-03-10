@@ -1,5 +1,16 @@
 <template>
-    <input class='_text_field' :class='classObj' :style='styleObj' type='text' name='name' :placeholder='placeholder' :maxlength='max' v-on:blur='validateText' v-model='text'/>
+    <div class='_field' :class='status' >
+        <input  class='_text_field' 
+                :class='classObj' 
+                :style='styleObj' 
+                type='text' 
+                name='name' 
+                :placeholder='placeholder' 
+                :maxlength='max' 
+                v-on:blur='validateText' 
+                v-model='text'/>
+        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey"></i>
+    </div>
 </template>
 
 <script>
@@ -19,7 +30,8 @@
             return {
                 classObj: list,
                 styleObj: obj,
-                text: this.value
+                text: this.value,
+                status  : this.value && (this.value.length === 0 ? '' : 'entering')
             }
         },
         mounted:function() {
@@ -38,6 +50,14 @@
                     }
                     bus.$emit('textMsg',errorMsg);
                 }
+            },
+            onClearClicked: function(){
+                this.text = '';
+                this.status = '';
+            },
+
+            onInputEvent: function(){
+                this.status = this.text.length === 0 ? '': 'entering';
             }
         }
     }
