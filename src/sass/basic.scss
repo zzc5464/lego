@@ -115,6 +115,7 @@ button {
 @media only screen and (min-width: 412px) {
     .hairlines ._tab_button {
         border: $border-3x-high;
+        margin-left: 0.1px;
     }
 }
 .hairlines ._tab_button_left {
