@@ -97,6 +97,7 @@ button {
     background-image: none;
     border: 1px solid $bgcolor-high;
     border-right: none; 
+    border-radius: $border-radius 0 0 $border-radius;
 }
 ._tab_button_middle{
     background-image: none;
@@ -107,6 +108,7 @@ button {
     background-image: none;
     border: 1px solid $bgcolor-high;
     border-left: none;
+    border-radius: 0 $border-radius $border-radius 0;
 }
 
 .hairlines ._tab_button {
@@ -116,6 +118,7 @@ button {
 @media only screen and (min-width: 412px) {
     .hairlines ._tab_button {
         border: $border-3x-high;
+        margin-left: 0.1px;
     }
 }
 .hairlines ._tab_button_left {
