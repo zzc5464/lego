@@ -22,6 +22,7 @@ $bgcolor-cream          : #f6f6f7;    // 导航栏 #f6f6f7
 $bgcolor-transparent    : transparent;
 $bgcolor-gradient-webkit: -webkit-linear-gradient(45deg, #423620, #5c4e27);
 $bgcolor-gradient       : linear-gradient(45deg, #423620, #5c4e27);
+$bgcolor-alpha          : rgba(255,255,255,.9);
 
 $border-2x-high         : .5px solid $bgcolor-high;
 $border-3x-high         : .4px solid $bgcolor-high;
