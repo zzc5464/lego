@@ -2,7 +2,7 @@
     transform: rotate(90deg);
 }
 
-.button-scale {
+/*.button-scale {
     position: relative;
     display: block;
     margin-left: auto;
@@ -35,4 +35,4 @@
     transform-origin: 0 0;
     box-sizing: border-box;
     border-radius: 10px;
-}
+}*/
