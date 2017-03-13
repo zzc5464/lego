@@ -9,17 +9,19 @@
                 :maxlength='max' 
                 v-on:blur='validateText' 
                 v-model='text'/>
-        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey"></i>
+        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey" v-show="close"></i>
     </div>
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value'],
+        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value', 'close'],
 
         data: function() {
             var obj = {}, list = [];
+
+            var closed = this.close;
 
             this.align 
             && (obj.textAlign = this.align);
@@ -30,7 +32,7 @@
             return {
                 classObj: list,
                 styleObj: obj,
-                text: this.value,
+                text    : this.value,
                 status  : this.value && (this.value.length === 0 ? '' : 'entering')
             }
         },
@@ -58,6 +60,7 @@
 
             onInputEvent: function(){
                 this.status = this.text.length === 0 ? '': 'entering';
+                console.log(this.closed);
             }
         }
     }

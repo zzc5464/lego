@@ -8,13 +8,13 @@
                 v-on:blur='sendMsg' 
                 v-model='email' 
                 :placeholder='placeholder' />
-        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey"></i>
+        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey" v-show="close"></i>
     </div>
 </template>
 <script>
     var bus = require('../../utils/eventBus');  
     module.exports = {
-        props: [ 'name', 'size', 'align', 'placeholder', 'value','required'],
+        props: [ 'name', 'size', 'align', 'placeholder', 'value','required', 'close'],
         data: function() {
             var obj = {}, list = [];
 
@@ -27,7 +27,7 @@
             return {
                 classObj: list,
                 styleObj: obj,
-                email:    this.value,
+                email   : this.value,
                 status  : this.value && (this.value.length === 0 ? '' : 'entering')
             }
         },    

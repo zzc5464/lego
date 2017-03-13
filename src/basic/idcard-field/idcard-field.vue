@@ -8,14 +8,14 @@
                 v-on:blur='sendMsg' 
                 v-model='idcard' 
                 :maxlength= 'max'>
-        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey"></i>
+        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey" v-show="close"></i>
     </div>
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value' ],
+        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value', 'close' ],
         data: function() {
             var obj = {}, list = [];
 
@@ -28,7 +28,7 @@
             return {
                 classObj: list,
                 styleObj: obj,
-                idcard:   this.value,
+                idcard  : this.value,
                 status  : this.value && (this.value.length === 0 ? '' : 'entering')
             }
         },

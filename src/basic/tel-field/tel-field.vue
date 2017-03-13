@@ -8,14 +8,14 @@
                 v-on:input  = 'onInputEvent'
                 v-model     = 'phone' 
                 :maxlength  = 'max' />
-        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey"></i>
+        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey" v-show="close"></i>
     </div>
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
     module.exports = {
-        props: [ 'size', 'align', 'max', 'placeholder','value','required'],
+        props: [ 'size', 'align', 'max', 'placeholder','value','required', 'close'],
         data: function() {
             var obj = {}, list = [];
 
