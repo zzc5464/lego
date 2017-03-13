@@ -1,80 +1,85 @@
 <template>
     <div class='_field' :class='status'>
-        <input  class='_input' 
-                :style='styleObj' :class='classObj' 
-                type='tel' name='' 
-                :placeholder= 'placeholder' 
-                v-on:blur   = 'sendMsg' 
-                v-on:input  = 'onInputEvent'
-                v-model     = 'phone' 
-                :maxlength  = 'max' />
-        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey" v-show="close"></i>
+        <input :id='id' :name='name' class='_input' :class='classObj' :style='styleObj' type='tel' maxlength='11' :placeholder='placeholder' v-on:blur='blur' v-on:input='input' v-model='phone'/>
+        <i class='pingan i-round-cross _text_size_34px _text_color_stonegrey' v-on:mytap='clear'></i>
     </div>
 </template>
 
 <script>
     var bus = require('../../utils/eventBus');
+
+    var validate = require('../../utils/validate');
+
+    var validators = {
+        tel: require('../../validator/tel.validator'),
+        req: require('../../validator/require.validator')
+    }
+
+    function update () {
+        return (this.phone.length > 0 && this.clearall === 'true') ? 'entering' : '';
+    }
+
     module.exports = {
-        props: [ 'size', 'align', 'max', 'placeholder','value','required', 'close'],
+        props: [ 
+            'align',    'size',     'close',    'placeholder', 
+            'id',       'name',     'value',    'required',
+            'clearall'
+        ],
+
         data: function() {
             var obj = {}, list = [];
 
-            this.align 
-            && (obj.textAlign = this.align);
+            // 根据参数，计算该控件的文字对齐方向
+            this.align && (obj.textAlign = this.align);
 
-            this.size 
-            && list.push('_text_size_' + this.size + 'px');
+            // 根据参数，计算该控件的文字大小
+            this.size && list.push(
+                '_text_size_' + this.size + 'px');
 
             return {
                 classObj: list,
                 styleObj: obj,
                 phone   : this.value,
-                status  : this.value && (this.value.length === 0 ? '' : 'entering')
+                status  : this.init()
             }
         },
-        mounted:function() {
-            if (this.required && this.required =='true'){
-                var errorMsg = '手机号不能为空！';
-                if( this.phone && this.phone.length !== 11){
-                    errorMsg = "长度应为 11 位！";
-                }else if (this.phone && !this.phone.substr(0,2).match(/[1][3-9]/)){
-                    errorMsg = "格式不正确！";
-                }else if(this.phone && !this.phone.match(/[0-9]{11}/)){
-                    errorMsg = "只能填写数字！";
-                }
-                bus.$emit('phoneMsg',errorMsg);
-            }
+
+        mounted: function () {
+            this.phone = this.value;
         },
 
         methods: {
-            validatePhone:function(){
-                var errorMsg = '';
-                if(this.phone && this.phone.length !== 11){
-                    errorMsg = "手机号长度应为 11 位！";
-                }else if (this.phone && !this.phone.substr(0,2).match(/[1][3-9]/)){
-                    errorMsg = "手机号格式不正确！";
-                }else if(this.phone && !this.phone.match(/[0-9]{11}/)){
-                    errorMsg = "手机号只能填写数字！";
-                }
-                return errorMsg;
-            },
-            sendMsg: function(){
-                if(this.required && this.required == 'true'){
-                    var valMsg = this.validatePhone();
-                    if(valMsg){
-                        console.log(valMsg);
-                    }
-                    bus.$emit('phoneMsg',valMsg);
+            blur: function() {
+                var rules = [], errors;
+
+                this.required === 'true' 
+                && rules.push(validators.req);
+
+                rules.push(validators.tel);
+
+                errors = validate(this.phone, rules, '手机号码');
+
+                if (errors.length > 0) {
+                    console.log(errors);
+                    bus.$emit('phoneMsg', errors[0]);
                 }
             },
 
-            onClearClicked: function () {
+            clear: function () {
                 this.phone  = '';
-                this.status = '';
+                this.status = this.update();
             },
 
-            onInputEvent: function () {
-                this.status = this.phone.length === 0 ? '' : 'entering';
+            input: function () {
+                this.status = this.update();
+            },
+
+            init: function () {
+                return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            },
+
+            update: function () {
+                return (this.phone.length > 0 && this.clearall === 'true') ? 'entering' : '';
             }
         }
     }
