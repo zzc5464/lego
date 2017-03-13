@@ -2,6 +2,19 @@
     transform: rotate(90deg);
 }
 
+._addicon {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+._box {
+    border: 1px dashed #c1c1c1;
+    height: 3.894737rem;
+    box-sizing: border-box;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
 /*.button-scale {
     position: relative;
     display: block;
