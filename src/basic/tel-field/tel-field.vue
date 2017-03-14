@@ -1,7 +1,7 @@
 <template>
     <div class='_field' :class='status'>
         <input :id='id' :name='name' class='_input' :class='classObj' :style='styleObj' type='tel' maxlength='11' :placeholder='placeholder' @blur='blur' @input='input' v-model='phone'/>
-        <i @:mytap='clear'></i>
+        <i @mytap='clear'></i>
     </div>
 </template>
 

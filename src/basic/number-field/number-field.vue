@@ -1,22 +1,20 @@
 <template>
-    <div class='_field' :class='status' >
-        <input  class='_number_field' 
-                :class='classObj' 
-                :style='styleObj' 
-                type='tel' 
-                :name='name' 
-                :placeholder='placeholder' 
-                :maxlength='max' 
-                v-model='number' 
-                v-on:blur='sendMsg' />
-        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey" v-show="close"></i>
+    <div class='_field' :class='status'>
+        <input class='_number_field' :id='id' :name='name' :class='classObj' :style='styleObj' type='tel' :placeholder='placeholder' :maxlength='max' v-model='number' @blur='blur' @input='input'/>
+        <i @mytap='clear'></i>
     </div>
 </template>
 
 <script>
-    var bus = require('../../utils/eventBus');
+    var Validate = require('../../utils/validate'),
+        events   = require('../../utils/gum.vue.events');
+
     module.exports = {
-        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required','value', 'close' ],
+        props: [ 
+            'align',    'size',     'clearall', 'placeholder', 
+            'id',       'name',     'value',    'required',
+            'label',    'max'
+        ],
 
         data: function() {
             var obj = {}, list = [];
@@ -31,39 +29,42 @@
                 classObj: list,
                 styleObj: obj,
                 number  : this.value,
-                status  : this.value && (this.value.length === 0 ? '' : 'entering')
+                status  : this.init()
             }
         },
-        mounted:function() {
-            if (this.required && this.required == 'true'){
-                var valMsg = this.validateNum(this.value)
-                bus.$emit('numberMsg',valMsg);
-            }
+
+        mounted: function() {
+
         },
-        methods:{
-            sendMsg:function(){
-                if(this.required && this.required == 'true'){
-                    var valMsg = this.validateNum(this.number);
-                    valMsg && console.log(valMsg);
-                    bus.$emit('numberMsg',valMsg);
-                }
-            },
-            validateNum: function (data) {
-                var reg = /^\d+$/;
-                if(!data){
-                    return '金额不能为空！'
-                }else if (!reg.test(data)) {
-                    return '只能输入数字！';
-                }
-                return '';
-            },
-            onClearClicked: function(){
-                this.number = '';
-                this.status = '';
+
+        methods: {
+            blur: function () {
+                var v = new Validate({
+                    label    : this.label,
+                    rules    : [ 'num' ],
+                    required : this.required === 'true'
+                });
+
+                !v.validate(this.number) && (function () {
+                    events.emit('fielderror', v.errors());
+                })();
             },
 
-            onInputEvent: function(){
-                this.status = this.number.length === 0 ? '': 'entering';
+            input: function () {
+                this.status = this.update();
+            },
+
+            clear: function () {
+                this.number = '';
+                this.status = this.update();
+            },
+
+            init: function () {
+                return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            },
+
+            update: function () {
+                return (this.number.length > 0 && this.clearall === 'true') ? 'entering' : '';
             }
         }
     }
