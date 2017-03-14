@@ -1,5 +1,5 @@
 <template>
-    <div class='_main_wrp_toast' style='width: 100%; height: 100%;'>
+    <div class='_main_wrp_toast'>
         <div class='_main_wrp' :class='classObj'>
             <main class='_main'>
                 <div class='_cell_group' v-for='slotNames in slotNames' :class='slotNames.className'>

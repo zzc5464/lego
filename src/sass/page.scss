@@ -14,18 +14,25 @@
     bottom: 0;
 }
 
+._main_wrp_toast {
+    width: 100%;
+    height: 100%;
+}
 ._toast {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     text-align: center;
-    width: calRem(570);
     margin-top: -#{calRem(47)};
+    width: calRem(570); 
     margin-left: -#{calRem(285)};
     padding: calRem(30);
     border-radius: 10px;
     background: rgba(0,0,0,0.5);
     box-sizing: border-box;
+    @extend ._text_color_white;
+    @extend ._text_size_34px;   
 }
 
 ._toast_fade_off {
