@@ -1,12 +1,13 @@
 <template>
     <div class='_field' :class='status'>
-        <input :id='id' :name='name' class='_input' :class='classObj' :style='styleObj' type='tel' maxlength='11' :placeholder='placeholder' v-on:blur='blur' v-on:input='input' v-model='phone'/>
-        <i v-on:mytap='clear'></i>
+        <input :id='id' :name='name' class='_input' :class='classObj' :style='styleObj' type='tel' maxlength='11' :placeholder='placeholder' @blur='blur' @input='input' v-model='phone'/>
+        <i @:mytap='clear'></i>
     </div>
 </template>
 
 <script>
-    var Validate = require('../../utils/validate');
+    var Validate = require('../../utils/validate'),
+        events   = require('../../utils/gum.vue.events');
 
     module.exports = {
         props: [ 
@@ -43,11 +44,10 @@
                     label    : this.label,
                     rules    : [ 'tel' ],
                     required : this.required === 'true'
-                }), emit = this.$emit.bind(this);
+                });
 
                 !v.validate(this.phone) && (function () {
-                    console.log(v.errors());
-                    emit('phoneMsg', v.errors()[0]);
+                    events.emit('fielderror', v.errors());
                 })();
             },
 

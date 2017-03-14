@@ -9,10 +9,16 @@
 </template>
 
 <script>
+    var events = require('../../utils/gum.vue.events');
+
     module.exports = {
-        props: [ 
-            'bgcolor'
-        ],
+        props: [ 'bgcolor' ],
+
+        mounted: function () {
+            events.on('fielderror', function (errors) {
+                console.log(errors);
+            });
+        },
 
         data: function () {
             var list = [];
