@@ -17,17 +17,17 @@
 ._toast {
     position: fixed;
     top: 50%;
-    left: 0;
-    right: 0;
+    left: 50%;
     text-align: center;
-}
-._toast_container {
-    display: inline-block;
+    width: calRem(570);
     margin-top: -#{calRem(47)};
+    margin-left: -#{calRem(285)};
     padding: calRem(30);
     border-radius: 10px;
     background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
 }
+
 ._toast_fade_off {
     display: none;
 }
