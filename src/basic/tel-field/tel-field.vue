@@ -1,29 +1,19 @@
 <template>
     <div class='_field' :class='status'>
-        <input :id='id' :name='name' class='_input' :class='classObj' :style='styleObj' type='tel' maxlength='11' :placeholder='placeholder' v-on:blur='blur' v-on:input='input' v-model='phone'/>
-        <i class='pingan i-round-cross _text_size_34px _text_color_stonegrey' v-on:mytap='clear'></i>
+        <input :id='id' :name='name' class='_input' :class='classObj' :style='styleObj' type='tel' maxlength='11' :placeholder='placeholder' @blur='blur' @input='input' v-model='phone'/>
+        <i @:mytap='clear'></i>
     </div>
 </template>
 
 <script>
-    var bus = require('../../utils/eventBus');
-
-    var validate = require('../../utils/validate');
-
-    var validators = {
-        tel: require('../../validator/tel.validator'),
-        req: require('../../validator/require.validator')
-    }
-
-    function update () {
-        return (this.phone.length > 0 && this.clearall === 'true') ? 'entering' : '';
-    }
+    var Validate = require('../../utils/validate'),
+        events   = require('../../utils/gum.vue.events');
 
     module.exports = {
         props: [ 
-            'align',    'size',     'close',    'placeholder', 
+            'align',    'size',     'clearall', 'placeholder', 
             'id',       'name',     'value',    'required',
-            'clearall'
+            'label'
         ],
 
         data: function() {
@@ -50,19 +40,15 @@
 
         methods: {
             blur: function() {
-                var rules = [], errors;
+                var v = new Validate({
+                    label    : this.label,
+                    rules    : [ 'tel' ],
+                    required : this.required === 'true'
+                });
 
-                this.required === 'true' 
-                && rules.push(validators.req);
-
-                rules.push(validators.tel);
-
-                errors = validate(this.phone, rules, '手机号码');
-
-                if (errors.length > 0) {
-                    console.log(errors);
-                    bus.$emit('phoneMsg', errors[0]);
-                }
+                !v.validate(this.phone) && (function () {
+                    events.emit('fielderror', v.errors());
+                })();
             },
 
             clear: function () {
@@ -83,4 +69,5 @@
             }
         }
     }
+
 </script>
