@@ -57,7 +57,7 @@
             <b-text size="30" color="grey">动态密码</b-text>
         </s-column>
         <s-column width="6.789474" align="right">
-            <b-number-field size='30' required="true"></b-number-field>
+            <b-number-field size='30' clearall="true" label="动态密码" required="true"></b-number-field>
         </s-column>
         <s-column width="6.368421" align="right">
             <b-button width="5.26316" height="1.578947" size="24" filled='true' :callback='sendcode' validate='true' second=30 count='获取验证码' placeholder='请输入验证码' id='sendcode'></b-button>
@@ -87,7 +87,7 @@
             <b-text size="30" color="grey">身份证号</b-text>
         </s-column>
         <s-column width="13.157895" align="right">
-            <b-idcard-field size='30' validate='true' close="true" placeholder="请输入身份证号"></b-idcard-field>
+            <b-idcard-field size='30' label='身份证号码' clearall="true" placeholder="请输入身份证号" required="true"></b-idcard-field>
         </s-column>
         <!--<s-column width="3" align="right">
             <b-icon name="round-cross" size="34" color="stonegrey" ></b-icon>
@@ -117,7 +117,7 @@
             <b-text size="30" color="grey">姓名</b-text>
         </s-column>
         <s-column width="13.157895" align="right">
-            <b-text-field size='30' close="true" placeholder="请输入姓名" ></b-text-field>
+            <b-text-field size='30' clearall="true" placeholder="请输入姓名" label="姓名" required="true"></b-text-field>
         </s-column>
         <!--<s-column width="3" align="right">
             <b-icon name="round-cross" size="34" color="stonegrey" ></b-icon>
@@ -168,7 +168,7 @@
             <b-text size="30" color="grey">手机号</b-text>
         </s-column>
         <s-column width="13.157895" align="right">
-            <b-tel-field size="30" color="grey" close="true" placeholder="请输入手机号" value="12345678987" ></b-tel-field>
+            <b-tel-field size="30" color="grey" clearall="true" placeholder="请输入手机号" value="12345678987" ></b-tel-field>
         </s-column>
         <!--<s-column width="3" align="right">
             <b-icon name="round-cross" size="34" color="stonegrey" ></b-icon>
@@ -234,7 +234,7 @@
             <b-text size="30" color="grey">姓名</b-text>
         </s-column>
         <s-column width="13.157895" align="left">
-            <b-text-field size="30" color="grey" close="true" placeholder="请输入姓名" ></b-text-field>
+            <b-text-field size="30" color="grey" clearall="true" placeholder="请输入姓名" ></b-text-field>
         </s-column>
         <!--<s-column width="3" align="right">
             <b-icon name="round-cross" size="34" color="stonegrey" ></b-icon>
