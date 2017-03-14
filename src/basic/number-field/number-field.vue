@@ -41,7 +41,7 @@
             blur: function () {
                 var v = new Validate({
                     label    : this.label,
-                    rules    : [ 'num' ],
+                    rules    : [ 'number' ],
                     required : this.required === 'true'
                 });
 

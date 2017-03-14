@@ -2,9 +2,10 @@
 
 var required    = require('../validator/require.validator'),
     validators  = {
-        tel: require('../validator/tel.validator'),
-        num: require('../validator/number.validator'),
-        id : require('../validator/idcard.validator')
+        tel     : require('../validator/tel.validator'),
+        number  : require('../validator/number.validator'),
+        idcard  : require('../validator/idcard.validator'),
+        email   : require('../validator/email.validator')
     };
 
 

@@ -37,7 +37,7 @@
             blur: function () {
                 var v = new Validate({
                     label    : this.label,
-                    rules    : [ 'id' ],
+                    rules    : [ 'idcard' ],
                     required : this.required === 'true'
                 });
 
