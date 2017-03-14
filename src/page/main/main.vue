@@ -8,7 +8,7 @@
             </main>
         </div>
         <div class='_toast' :class='toastClass'>
-            {{ toastMsg }}
+                {{ toastMsg }}
         </div>
     </div>
 </template>

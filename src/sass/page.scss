@@ -32,9 +32,8 @@
     background: rgba(0,0,0,0.5);
     box-sizing: border-box;
     @extend ._text_color_white;
-    @extend ._text_size_34px;   
+    @extend ._text_size_34px; 
 }
-
 ._toast_fade_off {
     display: none;
 }
