@@ -1,22 +1,20 @@
 <template>
-    <div class='_field' :class='status' >
-        <input  class='_address_field' 
-                :class='classObj' 
-                :style='styleObj' 
-                type='email' 
-                :name='name' 
-                :placeholder='placeholder' 
-                :maxlength='max' 
-                :required='required' 
-                v-model='address'/>
-        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey" v-show="close"></i>
+    <div class='_field' :class='status'>
+        <input class='_address_field' :id='id' :name='name' :class='classObj' :style='styleObj' type='email' :placeholder='placeholder' :maxlength='max' v-model='address' @input='input' @blur='blur'/>
+        <i @mytap="clear"></i>
     </div>
 </template>
 
 <script>
-    var bus = require('../../utils/eventBus');
+    var Validate = require('../../utils/validate'),
+        events   = require('../../utils/gum.vue.events');
+
     module.exports = {
-        props: [ 'name', 'size', 'align', 'max', 'placeholder', 'required', 'value', 'close' ],
+        props: [ 
+            'align',    'size',     'clearall', 'placeholder', 
+            'id',       'name',     'value',    'required',
+            'label',    'max'
+        ],
 
         data: function() {
             var obj = {}, list = [];
@@ -31,34 +29,38 @@
                 classObj: list,
                 styleObj: obj,
                 address : this.value,
-                status  : this.value && (this.value.length === 0 ? '' : 'entering')
+                status  : this.init()
             }
         },
-        mounted:function() {
-            if (this.required && this.required == 'true'){
-                var valMsg = !this.address ? '文本不能为空':'';
-                bus.$emit('textMsg',valMsg);
-            }
-        },
+
         methods: {
-            validateText:function(){
-                if (this.required && this.required == 'true'){
-                    var errorMsg = '';
-                    if(!this.text){
-                        errorMsg = "本文不能为空";
-                        console.log(errorMsg);
-                    }
-                    bus.$emit('textMsg',errorMsg);
-                }
+            blur: function () {
+                var v = new Validate({
+                    label    : this.label,
+                    rules    : [ ],
+                    required : this.required === 'true'
+                });
+
+                !v.validate(this.address) && (function () {
+                    events.emit('fielderror', v.errors());
+                })();
             },
 
-            onClearClicked: function(){
+            input: function () {
+                this.status = this.update();
+            },
+
+            clear: function () {
                 this.address = '';
-                this.status = '';
+                this.status = this.update();
             },
 
-            onInputEvent: function(){
-                this.status = this.address.length === 0 ? '': 'entering';
+            init: function () {
+                return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            },
+
+            update: function () {
+                return (this.address.length > 0 && this.clearall === 'true') ? 'entering' : '';
             }
         }
     }
