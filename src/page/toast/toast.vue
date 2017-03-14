@@ -1,7 +1,7 @@
 <template>
     <aside class="_toast">
-        <div>
-            {{ message }}
+        <div class="_toast_container">
+            <slot></slot>
         </div>
     </aside>
 </template>

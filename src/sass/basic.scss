@@ -1,12 +1,12 @@
 // 文本类型控件的样式
 ._text {
     font-weight: normal;
-    color: $text-color-grey;
+    color: $c-grey;
     font-size: $text-size-24px;
 }
 ._highlight {
     font-weight: normal;
-    color: $text-color-high;
+    color: $c-high;
     font-size: $text-size-24px;
 }
 ._skeleton {
@@ -14,13 +14,13 @@
     padding: 4px;
     color: #fff;
     border-radius: 4px;
-    background-color: $bgcolor-high;
+    background-color: $c-high;
     font-size: $text-size-24px;
 }
 
 // 图片与图标类型控件的样式
 ._icon {
-    color: $text-color-grey;
+    color: $c-grey;
 }
 ._image {
     display: block;
@@ -35,40 +35,40 @@ button {
 }
 // <b-button/>
 ._button {
-    background-color: $bgcolor-white;
+    background-color: $c-white;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
-    color: $text-color-high;
+    color: $c-high;
     border: 0;
     border-radius: $border-radius;
     box-sizing: border-box;
 }
 ._button.tapping, ._button.demo_tapping {
-    color: $text-color-tapped;
+    color: $c-yellowish;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#e0c89d' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
 }
 ._button:disabled {
-    color: $text-color-stonegrey;
+    color: $c-lightgrey;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#c1c1c1' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
 }
 ._text_button:disabled {
-    color: $text-color-light;
+    color: $c-light;
 }
 ._text_button.tapping:disabled {
-    color: $text-color-light;
+    color: $c-light;
 }
 .hairlines ._button {
     background-image: none;
     border: $border-2x-high;
-    border-color: $text-color-high;
+    border-color: $c-high;
 }
 .hairlines ._button.tapping {
-    border-color: $text-color-tapped;
+    border-color: $c-yellowish;
 }
 .hairlines ._button:disabled, .hairlines ._button:disabled.tapping {
-    border-color: $text-color-stonegrey;
+    border-color: $c-lightgrey;
 } 
 @media only screen and (min-width: 412px) {
     .hairlines ._button {
@@ -78,8 +78,8 @@ button {
 
 // <b-rectangular-button/>
 ._rectangular_button {
-    background-color: $bgcolor-white;
-    color: $text-color-high;
+    background-color: $c-white;
+    color: $c-high;
     border: 0;
     border-radius: 0;
     box-sizing: border-box;
@@ -91,8 +91,8 @@ button {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
-    background-color: $bgcolor-white;
-    color: $text-color-high;
+    background-color: $c-white;
+    color: $c-high;
     border: 0;
     box-sizing: border-box;
 }
@@ -100,18 +100,18 @@ button {
 // 标签 button 安卓下统一 1px 边框
 ._tab_button_left{
     background-image: none;
-    border: 1px solid $bgcolor-high;
+    border: 1px solid $c-high;
     border-right: none; 
     border-radius: $border-radius 0 0 $border-radius;
 }
 ._tab_button_middle{
     background-image: none;
-    border: 1px solid $bgcolor-high;
+    border: 1px solid $c-high;
     border-right: none;
 }
 ._tab_button_right{
     background-image: none;
-    border: 1px solid $bgcolor-high;
+    border: 1px solid $c-high;
     border-left: none;
     border-radius: 0 $border-radius $border-radius 0;
 }
@@ -139,37 +139,37 @@ button {
 
 // filled = 'true'
 ._button_filled {
-    color: $text-color-white;
+    color: $c-white;
     border: 0;
     background-image: none;
-    background-color: $bgcolor-high;
+    background-color: $c-high;
 }
 ._button_filled.tapping, ._button_filled.demo_tapping {
-    color: $text-color-white;
-    background-color: $bgcolor-high-tapping;
+    color: $c-white;
+    background-color: $c-tapping;
 }
 ._button_filled:disabled, ._button_filled:disabled.tapping {
-    color: $text-color-white;
+    color: $c-white;
     border: none;
     background-image: none;
-    background-color: $bgcolor-stonegrey;
+    background-color: $c-stonegrey;
 }
 // <b-text-button/>
 ._text_button {
-    background-color: $bgcolor-transparent;
-    color: $text-color-high;
+    background-color: $c-transparent;
+    color: $c-high;
     border: 0;
     box-sizing: border-box;
 }
 ._text_button.tapping {
-    color: $text-color-tapped;
+    color: $c-yellowish;
 }
 
 
 // 输入控件
 input {
     font-size: $text-size-30px;
-    color: $text-color-black;
+    color: $c-black;
     border: 0;
     display: block;
     width: 100%;
@@ -177,7 +177,7 @@ input {
 }
 
 input::-webkit-input-placeholder {
-    color: $text-color-stonegrey;
+    color: $c-lightgrey;
 }
 
 ._field {
@@ -195,7 +195,7 @@ input::-webkit-input-placeholder {
     @extend .pingan;
     @extend .i-round-cross;
     font-size: $text-size-34px;
-    color: $text-color-stonegrey;
+    color: $c-lightgrey;
 }
 .entering i {
     display: block;
@@ -207,16 +207,16 @@ input::-webkit-input-placeholder {
     width: .820513rem;
     height: .820513rem;
     line-height: .789474rem;
-    border: 1px solid $bgcolor-lightgrey;
-    background-color: $bgcolor-transparent;
+    border: 1px solid $c-lightgrey;
+    background-color: $c-transparent;
     box-sizing: border-box;
     text-align: center;
     overflow: hidden;
 }
 ._checkbox._checkbox_active,
 ._solid_checkbox._solid_checkbox_active{
-    border-color: $bgcolor-high;
-    background-color: $bgcolor-high;
+    border-color: $c-high;
+    background-color: $c-high;
 }
 
 ._solid_radio,
@@ -226,9 +226,9 @@ input::-webkit-input-placeholder {
     width: 1.052632rem;
     height: 1.052632rem;
     line-height: 1rem;
-    border: 1px solid $bgcolor-lightgrey;
+    border: 1px solid $c-lightgrey;
     border-radius: 50%;
-    background-color: $bgcolor-transparent;
+    background-color: $c-transparent;
     box-sizing: border-box;
     text-align: center;
     overflow: hidden;
@@ -243,21 +243,21 @@ input::-webkit-input-placeholder {
     width: .717947rem;
     height: .717947rem;
     border: none;
-    background-color: $bgcolor-high;
+    background-color: $c-high;
     border-radius: 50%;
 }
 
 ._radio_active {
-    border-color: $bgcolor-high;
-    background-color: $bgcolor-high;
+    border-color: $c-high;
+    background-color: $c-high;
 }
 
 ._toggle {
     display: inline-block;
     width: 2.684211rem;
     height: 1.631579rem;
-    background-color: $bgcolor-white;
-    border: 1.5px solid $bgcolor-smokegray;
+    background-color: $c-white;
+    border: 1.5px solid $c-stonegrey;
     border-radius: .815789rem;
     box-sizing: border-box;
     position: relative;
@@ -272,12 +272,12 @@ input::-webkit-input-placeholder {
     height: 1.421053rem;
     border-radius: 50%;
     border: 1.5px solid rgba(229, 229, 229, .5);
-    background-color: $bgcolor-white;
-    box-shadow: 0px 2px 9px $bgcolor-smokegray;
+    background-color: $c-white;
+    box-shadow: 0px 2px 9px $c-stonegrey;
 }
 ._toggle._toggle_active {
-    background-color: $bgcolor-high;
-    border-color: $bgcolor-high;
+    background-color: $c-high;
+    border-color: $c-high;
 }
 ._toggle._toggle_active:after{
     right: 0;
