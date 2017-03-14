@@ -5,18 +5,24 @@
                 <slot :name='slotNames.name'></slot>
             </div>
         </main>
+        <div class='_toast' :class='toastClass'>
+            {{ toastMsg }}
+        </div>
     </div>
 </template>
 
 <script>
-    var events = require('../../utils/gum.vue.events');
+    var events = require('../../utils/gum.vue.events'),
+        toasts = [];
 
     module.exports = {
         props: [ 'bgcolor' ],
 
         mounted: function () {
+            var toast = this.toast.bind(this);
+
             events.on('fielderror', function (errors) {
-                console.log(errors);
+                toast(errors[0]);
             });
         },
 
@@ -69,7 +75,58 @@
 
             return {
                 classObj: list,
-                slotNames: slotNames
+                slotNames: slotNames,
+
+                toastMsg: '',
+                toastOpened: false,
+                toastQueue: [],
+                toastClass: ''
+            }
+        },
+
+        methods: {
+            toast: function (message) {
+
+                this.toastQueue.push(message);
+                showToast.call(this);
+
+                function showToast () {
+                    if (this.toastQueue.length === 0 || this.toastOpened) return;
+
+                    // get the first message in queue;
+                    this.toastMsg = this.toastQueue[0];
+
+                    // show toast;
+                    this.toastOpened = true;
+                    this.toastFadeIn();
+                    console.log('open');
+
+                    setTimeout((function () {
+                        // hide toast;
+                        this.toastOpened = false;
+                        this.toastFadeOut((function () {
+                            console.log('close');
+
+                            // remove the first message in queue;
+                            this.toastQueue.splice(0, 1);
+
+                            // execute show() again;
+                            showToast.call(this);
+
+                        }).bind(this));
+                    }).bind(this), 2000);
+                }
+            },
+
+            toastFadeIn: function () {
+                this.toastClass = '_toast_fade_in';
+            },
+
+            toastFadeOut: function (callback) {
+                this.toastClass = '_toast_fade_off';
+                setTimeout(function () {
+                    callback();
+                }, 300);
             }
         }
     }
