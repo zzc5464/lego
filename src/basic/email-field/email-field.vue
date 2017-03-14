@@ -1,20 +1,20 @@
 <template>
-    <div class='_field' :class='status' >
-        <input  class='_email_field' 
-                :class='classObj' 
-                :style='styleObj' 
-                type='email' 
-                :name='name'  
-                v-on:blur='sendMsg' 
-                v-model='email' 
-                :placeholder='placeholder' />
-        <i v-on:mytap="onClearClicked" class="pingan i-round-cross _text_size_34px _text_color_stonegrey" v-show="close"></i>
+    <div class='_field' :class='status'>
+        <input class='_email_field' :id='id' :class='classObj' :style='styleObj' type='email' :name='name' @blur='blur' @input='input' v-model='email' :placeholder='placeholder' :maxlength='max'/>
+        <i @mytap="clear"></i>
     </div>
 </template>
 <script>
-    var bus = require('../../utils/eventBus');  
+    var Validate = require('../../utils/validate'),
+        events   = require('../../utils/gum.vue.events');
+
     module.exports = {
-        props: [ 'name', 'size', 'align', 'placeholder', 'value','required', 'close'],
+        props: [ 
+            'align',    'size',     'clearall', 'placeholder', 
+            'id',       'name',     'value',    'required',
+            'label',    'max'
+        ],
+
         data: function() {
             var obj = {}, list = [];
 
@@ -28,37 +28,38 @@
                 classObj: list,
                 styleObj: obj,
                 email   : this.value,
-                status  : this.value && (this.value.length === 0 ? '' : 'entering')
+                status  : this.init()
             }
         },    
-        mounted:function() {
-            if (this.required && this.required == 'true'){
-                var valMsg = '邮箱地址不能为空';
-                valMsg = !this.isEmail(this.email) ? '邮箱地址不正确!' :'' ;
-                bus.$emit('emailMsg',valMsg);
-            }
-        },    
+
         methods: {
-            isEmail:function (str){ 
-                var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
-                return reg.test(str); 
-            },
-            sendMsg: function(){
-                if(this.required && this.required === 'true'){
-                    var valMsg = !this.isEmail(this.email) ? '邮箱地址不正确!' :'' ;
-                    if(valMsg){
-                        alert(valMsg);
-                    }
-                    bus.$emit('emailMsg',valMsg);
-                }
-            },
-            onClearClicked: function(){
-                this.email = '';
-                this.status = '';
+            blur: function () {
+                var v = new Validate({
+                    label    : this.label,
+                    rules    : [ 'email' ],
+                    required : this.required === 'true'
+                });
+
+                !v.validate(this.email) && (function () {
+                    events.emit('fielderror', v.errors());
+                })();
             },
 
-            onInputEvent: function(){
-                this.status = this.email.length === 0 ? '': 'entering';
+            input: function () {
+                this.status = this.update();
+            },
+
+            clear: function () {
+                this.email = '';
+                this.status = this.update();
+            },
+
+            init: function () {
+                return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            },
+
+            update: function () {
+                return (this.email.length > 0 && this.clearall === 'true') ? 'entering' : '';
             }
         }
     }
