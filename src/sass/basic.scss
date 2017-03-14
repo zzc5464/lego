@@ -192,6 +192,10 @@ input::-webkit-input-placeholder {
 }
 ._field i {
     display: none;
+    @extend .pingan;
+    @extend .i-round-cross;
+    font-size: $text-size-34px;
+    color: $text-color-stonegrey;
 }
 .entering i {
     display: block;

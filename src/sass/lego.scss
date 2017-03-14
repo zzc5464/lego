@@ -49,51 +49,57 @@ button, input {
  
 // 所有 color 属性列表
 ._text_color_white {
-    color: $text-color-white;
+    color: $c-white;
 }
 ._text_color_black {
-    color: $text-color-black;
+    color: $c-black;
 }
 ._text_color_grey {
-    color: $text-color-grey;
+    color: $c-grey;
 }
 ._text_color_stonegrey {
-    color: $text-color-stonegrey;
+    color: $c-lightgrey;
 }
 ._text_color_light {
-    color: $text-color-light;
+    color: $c-light;
 }
 ._text_color_high {
-    color: $text-color-high;
+    color: $c-high;
 }
 ._text_color_tapped {
-    color: $text-color-tapped;
+    color: $c-yellowish;
 }
 ._text_color_green {
-    color: $text-color-green;
+    color: $c-grass;
 }
 ._text_color_blue {
-    color: $text-color-blue;
+    color: $c-lightblue;
 }
 
 // 所有字体大小
 ._text_size_22px {
-    font-size: $text-size-22px;
+    // font-size: $text-size-22px;
+    @include textSize(22, rem);
 }
 ._text_size_24px {
-    font-size: $text-size-24px;
+    // font-size: $text-size-24px;
+    @include textSize(24, rem);
 }
 ._text_size_28px {
-    font-size: $text-size-28px;
+    // font-size: $text-size-28px;
+    @include textSize(28, rem);
 }
 ._text_size_30px {
-    font-size: $text-size-30px;
+    // font-size: $text-size-30px;
+    @include textSize(30, rem);
 }
 ._text_size_32px {
-    font-size: $text-size-32px;
+    // font-size: $text-size-32px;
+    @include textSize(32, rem);
 }
 ._text_size_34px {
-    font-size: $text-size-34px;
+    // font-size: $text-size-34px;
+    @include textSize(34, rem);
 }
 ._text_size_36px {
     font-size: $text-size-36px;
@@ -122,54 +128,36 @@ button, input {
 
 // 所有 background-color 属性列表
 ._bgcolor_white {
-    background-color: $bgcolor-white;
+    background-color: $c-white;
 }
 ._bgcolor_high {
-    background-color: $bgcolor-high;
+    background-color: $c-high;
 }
-// ._bgcolor_tapping {
-//     background-color: $bgcolor-high-tapping;
-//     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#b38f47' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
-// }
-// ._bgcolor_tapped {
-//     color: $text-color-tapped;
-//     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d0c89d' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
-// }
 ._bgcolor_transparent {
-    background-color: $bgcolor-transparent;
+    background-color: $c-transparent;
 }
 ._bgcolor_lightgrey {
-    background-color: $bgcolor-lightgrey;
+    background-color: $c-lightgrey;
 }
 ._bgcolor_stonegrey {
-    background-color: $bgcolor-stonegrey;
+    background-color: $c-stonegrey;
 }
 ._bgcolor_cream  {
-    background-color: $bgcolor-cream;
+    background-color: $c-cream;
 }
 ._bgcolor_smokegray {
-    background-color: $bgcolor-smokegray;
+    background-color: $c-smokegrey;
 }
 ._bgcolor_offwhite {
-    background-color: $bgcolor-offwhite;
+    background-color: $c-offwhite;
 }
 ._bgcolor_gradient {
-    background: $bgcolor-gradient;
-    background: $bgcolor-gradient-webkit;
+    background: $c-land-webkit;
+    background: $c-land;
 }
 ._bgcolor_alpha {
-    background: $bgcolor-alpha;
+    background: $c-paper;
 }
-
-// //微信分享
-// ._share {
-//     position: fixed;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//     z-index: 3;
-//     background-color: #f5f5f5;
-// }
 
 // test LEGO UI 页面层级
 @mixin transform($z: 0px) {
@@ -188,7 +176,8 @@ button, input {
     margin-left: -75px;
     box-sizing: border-box;
     color: #000;
-    font-size: $text-size-30px;
+    // font-size: $text-size-30px;
+    @include textSize(30, rem);
     -webkit-transition: .5s;
     transition: .5s;
     border: 1px solid #dcdcdc;
