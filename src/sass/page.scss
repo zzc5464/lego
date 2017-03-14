@@ -13,3 +13,25 @@
     position: fixed;
     bottom: 0;
 }
+
+._toast {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+._toast_container {
+    display: inline-block;
+    margin-top: -#{calRem(47)};
+    padding: calRem(30);
+    border-radius: 10px;
+    background: rgba(0,0,0,0.5);
+}
+._toast_fade_off {
+    display: none;
+}
+
+._toast_fade_in {
+    display: block;
+}

@@ -46,6 +46,7 @@ var components = {
     'p-header'          : require('../page/header/header.vue.js'),
     'p-cover'           : require('../page/cover/cover.vue.js'),
     'p-mask'            : require('../page/mask/mask.vue.js'),
+    'p-toast'            : require('../page/toast/toast.vue.js'),
     'p-presentation'    : require('../page/presentation/presentation.vue.js'),
     'p-popup'           : require('../page/popup/popup.vue.js')
 };

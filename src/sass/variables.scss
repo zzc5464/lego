@@ -26,7 +26,7 @@ $c-land             : linear-gradient(45deg, #423620, #5c4e27);
 
 $c-paper            : rgba(255,255,255,.9);
 
-// /*******
+/*******
 
 $text-color-white       : #fff;
 $text-color-black       : #333;
@@ -54,36 +54,23 @@ $bgcolor-gradient-webkit: -webkit-linear-gradient(45deg, #423620, #5c4e27);
 $bgcolor-gradient       : linear-gradient(45deg, #423620, #5c4e27);
 $bgcolor-alpha          : rgba(255,255,255,.9);
 
-// *******/
+*******/
 
 $border-2x-high         : .5px solid $c-high;
 $border-3x-high         : .4px solid $c-high;
 
 $border-radius          : 3px;
 
-// @function calRem($n) {
-//     @return $n/38#{rem}; 
-// }
-@mixin textSize($px, $unit:rem) {
-    %ts-#{$px}{
-        font-size: #{$px / 38}#{$unit};
-    }
+@function calRem($n) {
+    @return $n/38#{rem}; 
 }
+// @mixin textSize($px, $unit:rem) {
+//     %ts-#{$px}{
+//         font-size: #{$px / 38}#{$unit};
+//     }
+// }
+
 // 以下为文字大小的对应关系，左侧为视觉标准单位，右侧为 rem 值
-// $text-size-22px         : calRem(22);
-// $text-size-24px         : calRem(24);
-// $text-size-28px         : calRem(28);
-// $text-size-30px         : calRem(30);
-// $text-size-32px         : calRem(32);
-// $text-size-34px         : calRem(34);
-// $text-size-36px         : calRem(36);
-// $text-size-38px         : calRem(38);
-// $text-size-40px         : calRem(40);
-// $text-size-60px         : calRem(60);
-// $text-size-112px        : calRem(112);
-// $text-size-120px        : calRem(120);
-// $text-size-224px        : calRem(224);
-// $text-size-300px        : calRem(300);
 $text-size-22px         : calRem(22);
 $text-size-24px         : calRem(24);
 $text-size-28px         : calRem(28);

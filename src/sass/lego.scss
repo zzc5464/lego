@@ -78,28 +78,22 @@ button, input {
 
 // 所有字体大小
 ._text_size_22px {
-    // font-size: $text-size-22px;
-    @include textSize(22, rem);
+    font-size: $text-size-22px;
 }
 ._text_size_24px {
-    // font-size: $text-size-24px;
-    @include textSize(24, rem);
+    font-size: $text-size-24px;
 }
 ._text_size_28px {
-    // font-size: $text-size-28px;
-    @include textSize(28, rem);
+    font-size: $text-size-28px;
 }
 ._text_size_30px {
-    // font-size: $text-size-30px;
-    @include textSize(30, rem);
+    font-size: $text-size-30px;
 }
 ._text_size_32px {
-    // font-size: $text-size-32px;
-    @include textSize(32, rem);
+    font-size: $text-size-32px;
 }
 ._text_size_34px {
-    // font-size: $text-size-34px;
-    @include textSize(34, rem);
+    font-size: $text-size-34px;
 }
 ._text_size_36px {
     font-size: $text-size-36px;
@@ -176,8 +170,7 @@ button, input {
     margin-left: -75px;
     box-sizing: border-box;
     color: #000;
-    // font-size: $text-size-30px;
-    @include textSize(30, rem);
+    font-size: $text-size-30px;
     -webkit-transition: .5s;
     transition: .5s;
     border: 1px solid #dcdcdc;
