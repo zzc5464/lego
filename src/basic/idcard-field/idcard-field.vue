@@ -35,6 +35,9 @@
 
         methods: {
             blur: function () {
+                // 转换小写字母为大写
+                this.idcard = this.idcard.toLocaleUpperCase();
+
                 var v = new Validate({
                     label    : this.label,
                     rules    : [ 'idcard' ],
