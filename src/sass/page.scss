@@ -19,25 +19,36 @@
     height: 100%;
 }
 ._toast {
-    display: none;
+    // display: none;
+    //不用动画效果的时候  删除下面三行 启用上面一行
+    opacity: 0;
+    -webkit-transition: opacity .5s ease-in;
+    transition: opacity .5s ease-in;
+
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 0;
+    right: 0;
     text-align: center;
     margin-top: -#{calRem(47)};
-    width: calRem(570); 
-    margin-left: -#{calRem(285)};
+    height: calRem(94);
+}
+._toast_container {
+    display: inline-block;
     padding: calRem(30);
-    border-radius: 10px;
+    border-radius: 5px;
     background: rgba(0,0,0,0.5);
     box-sizing: border-box;
     @extend ._text_color_white;
-    @extend ._text_size_34px; 
+    @extend ._text_size_34px;
+    
 }
 ._toast_fade_off {
-    display: none;
+    // display: none;
+    opacity: 0;
 }
 
 ._toast_fade_in {
-    display: block;
+    // display: block;
+    opacity: 1;
 }

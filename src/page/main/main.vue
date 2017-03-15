@@ -8,7 +8,9 @@
             </main>
         </div>
         <div class='_toast' :class='toastClass'>
+            <div class="_toast_container">
                 {{ toastMsg }}
+            </div>
         </div>
     </div>
 </template>
