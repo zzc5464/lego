@@ -19,11 +19,11 @@
     height: 100%;
 }
 ._toast {
-    // display: none;
+    display: none;
     //不用动画效果的时候  删除下面三行 启用上面一行
-    opacity: 0;
-    -webkit-transition: opacity .5s ease-in;
-    transition: opacity .5s ease-in;
+    // opacity: 0;
+    // -webkit-transition: opacity .5s ease-in;
+    // transition: opacity .5s ease-in;
 
     position: fixed;
     top: 50%;
@@ -44,11 +44,11 @@
     
 }
 ._toast_fade_off {
-    // display: none;
-    opacity: 0;
+    display: none;
+    // opacity: 0;
 }
 
 ._toast_fade_in {
-    // display: block;
-    opacity: 1;
+    display: block;
+    // opacity: 1;
 }
