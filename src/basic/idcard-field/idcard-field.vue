@@ -36,12 +36,7 @@
         methods: {
             blur: function () {
                 // 转换小写字母为大写
-                var len = this.idcard && this.idcard.length;
-                if (len && len == 18) {
-                    if (this.idcard.substr(-1).charCodeAt() == 120) {
-                        this.idcard = this.idcard.toLocaleUpperCase();
-                    }
-                }
+                this.idcard = this.idcard.toLocaleUpperCase();
 
                 var v = new Validate({
                     label    : this.label,
