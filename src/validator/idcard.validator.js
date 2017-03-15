@@ -5,6 +5,13 @@ function IdCardValidator () {
 }
 
 IdCardValidator.prototype.validate = function (value) {
+    // 身份证位数不对
+    // return '身份证位数不对';
+
+    // 身份证出生日期超出范围
+    // return '身份证出生日期超出范围';
+
+    // Pass the validation.
     return '';
 }
 
