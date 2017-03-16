@@ -1,6 +1,6 @@
 <template>
     <span v-on:mytap = "tapped" class="_radio" :class="{_radio_active: isChecked}" :checked="isChecked">
-        <marked class="dot" v-show="isChecked" name="check" size="30" color="white"></marked>
+        <marked v-show="isChecked" name="check" color="white"></marked>
     </span>
 </template>
 
