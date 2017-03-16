@@ -15,8 +15,7 @@
 
             return {
                 styleObj: {
-                    // height: (this.height || '2.473684') + 'rem'
-                    height: this.height + 'rem'
+                    height: (this.height || '2.473684') + 'rem'
                 },
                 classObj: list
             };
