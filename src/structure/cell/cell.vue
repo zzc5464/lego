@@ -1,6 +1,6 @@
 <template>
     <div class='_cell' :class='classObj' :style='styleObj'>
-        <slot text='abc'></slot>
+        <slot></slot>
     </div>
 </template>
 
