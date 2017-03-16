@@ -1,5 +1,8 @@
 <template>
-    <button class='_tab_button' :class='classObj' :style='styleObj' v-on:mytap='tapped'><slot></slot></button>
+    <div class='_tab' >
+        <button :class='classObj' :style='styleObj' v-on:mytap='tapped'><slot></slot></button>
+        <button :class='classObj' :style='styleObj' v-on:mytap='tapped'><slot></slot></button>
+    </div>
 </template>
 
 <script>

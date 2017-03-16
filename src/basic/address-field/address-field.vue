@@ -1,6 +1,7 @@
 <template>
     <div class='_field' :class='status'>
-        <input class='_address_field' :id='id' :name='name' :class='classObj' :style='styleObj' type='email' :placeholder='placeholder' :maxlength='max' v-model='address' @input='input' @blur='blur'/>
+        <!--<input class='_address_field' :id='id' :name='name' :class='classObj' :style='styleObj' type='email' :placeholder='placeholder' :maxlength='max' v-model='address' @input='input' @blur='blur'/>-->
+        <textarea class='_address_field' :id='id' :name='name' :class='classObj' :style='styleObj' :placeholder='placeholder' :maxlength='max' v-model='address' @input='input' @blur='blur'></textarea>
         <i @mytap="clear"></i>
     </div>
 </template>

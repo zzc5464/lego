@@ -167,7 +167,7 @@ button {
 
 
 // 输入控件
-input {
+input,textarea {
     font-size: $text-size-30px;
     color: $c-black;
     border: 0;
@@ -199,6 +199,14 @@ input::-webkit-input-placeholder {
 }
 .entering i {
     display: block;
+}
+
+._address_field {
+    resize: none;
+    overflow: hidden;
+    height: 2.5rem;
+    box-sizing: border-box;
+    outline: none;
 }
 
 ._checkbox,
