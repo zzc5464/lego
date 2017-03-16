@@ -36,22 +36,18 @@ button {
 // <b-button/>
 ._button {
     background-color: $c-white;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100% 100%;
     color: $c-high;
-    border: 0;
+    border: 1px solid $c-high;
     border-radius: $border-radius;
     box-sizing: border-box;
 }
 ._button.tapping, ._button.demo_tapping {
     color: $c-yellowish;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#e0c89d' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
+    border-color: $c-yellowish;
 }
 ._button:disabled {
     color: $c-lightgrey;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#c1c1c1' stroke-width='1px' x='0' y='0' width='100%' height='100%' rx='3px' ry='3px'/></svg>");
+    border-color: $c-lightgrey;
 }
 ._text_button:disabled {
     color: $c-light;
@@ -59,17 +55,10 @@ button {
 ._text_button.tapping:disabled {
     color: $c-light;
 }
+
 .hairlines ._button {
-    background-image: none;
     border: $border-2x-high;
-    border-color: $c-high;
 }
-.hairlines ._button.tapping {
-    border-color: $c-yellowish;
-}
-.hairlines ._button:disabled, .hairlines ._button:disabled.tapping {
-    border-color: $c-lightgrey;
-} 
 @media only screen and (min-width: 412px) {
     .hairlines ._button {
         border: $border-3x-high;
@@ -87,71 +76,46 @@ button {
 
 // <b-tab-button/>
 ._tab_button {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='none' stroke='#d7ac62' stroke-width='1px' x='0' y='0' width='100%' height='100%'/></svg>");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100% 100%;
     background-color: $c-white;
     color: $c-high;
-    border: 0;
+    border: 1px solid $c-high;
     box-sizing: border-box;
 }
 
 // 标签 button 安卓下统一 1px 边框
-._tab_button_left{
-    background-image: none;
-    border: 1px solid $c-high;
+._tab_button_left {
     border-right: none; 
     border-radius: $border-radius 0 0 $border-radius;
 }
-._tab_button_middle{
-    background-image: none;
-    border: 1px solid $c-high;
+._tab_button_middle {
     border-right: none;
 }
 ._tab_button_right{
-    background-image: none;
-    border: 1px solid $c-high;
-    border-left: none;
     border-radius: 0 $border-radius $border-radius 0;
 }
-
 .hairlines ._tab_button {
-    background-image: none;
     border: $border-2x-high;
 }
 @media only screen and (min-width: 412px) {
     .hairlines ._tab_button {
         border: $border-3x-high;
-        margin-left: 0.1px;
     }
-}
-.hairlines ._tab_button_left {
-    border-right: 0;
-    border-radius: $border-radius 0 0 $border-radius;
-}
-.hairlines ._tab_button_middle {
-    border-right: 0;
-}
-.hairlines ._tab_button_right {
-    border-radius: 0 $border-radius $border-radius 0;
 }
 
 // filled = 'true'
 ._button_filled {
     color: $c-white;
-    border: 0;
-    background-image: none;
+    border-color: $c-high;
     background-color: $c-high;
 }
 ._button_filled.tapping, ._button_filled.demo_tapping {
     color: $c-white;
+    border-color: $c-tapping;
     background-color: $c-tapping;
 }
 ._button_filled:disabled, ._button_filled:disabled.tapping {
     color: $c-white;
-    border: none;
-    background-image: none;
+    border-color: $c-stonegrey;
     background-color: $c-stonegrey;
 }
 // <b-text-button/>
