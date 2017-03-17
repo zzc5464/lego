@@ -56,14 +56,14 @@ button {
     color: $c-light;
 }
 
-.hairlines ._button {
-    border: $border-2x-high;
-}
-@media only screen and (min-width: 412px) {
-    .hairlines ._button {
-        border: $border-3x-high;
-    }
-}
+// .hairlines .lego ._button {
+//     border: $border-2x-high;
+// }
+// @media only screen and (min-width: 412px) {
+//     .hairlines .lego ._button {
+//         border: $border-3x-high;
+//     }
+// }
 
 // <b-rectangular-button/>
 ._rectangular_button {
@@ -184,6 +184,7 @@ input::-webkit-input-placeholder {
     box-sizing: border-box;
     text-align: center;
     overflow: hidden;
+    vertical-align: middle;
 }
 ._checkbox._checkbox_active,
 ._solid_checkbox._solid_checkbox_active{
