@@ -40,6 +40,25 @@ module.exports = {
                     "cache": false,
                     "alias": '../../../template'
                 }
+            },
+            'demo-assemble': {
+                src: './src/demo/assemble/views/*.html',
+                dest: './src/',
+                options: {
+                    "base": './src/',
+                    "output": "./dest",
+                    "charset": "utf-8",
+                    "syntax": "native",
+                    "helpers": null,
+                    "escape": true,
+                    "compress": true,
+                    "type": "commonjs",
+                    "runtime": "template.js",
+                    "combo": true,
+                    "minify": true,
+                    "cache": false,
+                    "alias": '../../../template'
+                }
             }
         },
         browserify: {
@@ -81,6 +100,18 @@ module.exports = {
                 },
                 src: ['./src/demo/basic/controller/basic.controller.js'],
                 dest: './webroot/modules/demo/basic/basic.js'
+            },
+            'demo-assemble': {
+                options: {
+                    browserifyOptions: {
+                        debug: false
+                    },
+                    external: [
+                        'fcontroller', 'lego'
+                    ]
+                },
+                src: ['./src/demo/assemble/controller/assemble.controller.js'],
+                dest: './webroot/modules/demo/assemble/assemble.js'
             }
         },
         copy: {
@@ -97,6 +128,14 @@ module.exports = {
                     {
                         src: "./src/demo/basic/css/demo.basic.css",
                         dest: "./webroot/css/demo.basic.css"
+                    }
+                ]
+            },
+            'demo-assemble': {
+                files: [
+                    {
+                        src: "./src/demo/assemble/css/demo.assemble.css",
+                        dest: "./webroot/css/demo.assemble.css"
                     }
                 ]
             },
@@ -153,6 +192,10 @@ module.exports = {
         "tmod:demo-basic", 
         "browserify:demo-basic", 
         "copy:demo-basic", 
+
+        "tmod:demo-assemble", 
+        "browserify:demo-assemble", 
+        "copy:demo-assemble", 
 
         "clean:lego" 
     ]
