@@ -1,11 +1,10 @@
 <template>
     <span v-on:mytap = "tapped" :checked="isChecked" class="_checkbox" :class="{_checkbox_active: isChecked}">
-          <marked v-show="isChecked" name="check"color="white"></marked>
+          <b-icon v-show="isChecked" name="check"color="white"></b-icon>
     </span>
 </template>
 
 <script>
-    var child = require('../icon/icon.vue.js');
     module.exports = {
         props: ['checked'],
         data: function() {
@@ -17,9 +16,6 @@
             tapped: function() {
                 this.isChecked = !this.isChecked;
             }
-        },
-        components: {
-            'marked': child
         }
     }
 </script>

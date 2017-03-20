@@ -1,0 +1,18 @@
+._flype {
+    padding: 15px;
+    font-size: $text-size-24px;
+    color: $c-light;
+    background-color: $c-lightyellow;
+    height: 37px;
+    line-height: 2;
+    box-sizing: border-box;
+    background-image: $img-border-btm;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    -webkit-transition: height 1s ease;
+    transition: height 1s ease;
+}
+._flype_slid_down {
+    height: auto;
+}

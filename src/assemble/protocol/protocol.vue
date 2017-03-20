@@ -1,12 +1,11 @@
 <template>
     <div class='_protocol'>
-        <a-checkbox :checked="isChecked"></a-checkbox>
+        <b-checkbox :checked="isChecked"></b-checkbox>
         <slot></slot>
     </div>
 </template>
 
 <script>
-    var checkbox    = require('../../basic/checkbox/checkbox.vue.js');
 
     module.exports = {
         props: [ 'checked'],
@@ -15,9 +14,6 @@
             return {
                 isChecked: this.checked
             };
-        },
-        components: {
-            'a-checkbox'  : checkbox  
         }
     }
 </script>
