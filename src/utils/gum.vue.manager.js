@@ -47,6 +47,10 @@ var components = [
     [ 'p-popup'                 , require('../page/popup/popup.vue.js')                             ],
 
     [ 'flype'                   , require('../assemble/flype/flype.vue.js')                         ],
+    [ 'a-progress'                , require('../assemble/progress/progress.vue.js')                   ],
+    [ 'stepwise'                , require('../assemble/stepwise/stepwise.vue.js')                   ],
+    [ 'timeline'                , require('../assemble/timeline/timeline.vue.js')                   ],
+    [ 'password'                , require('../assemble/password/password.vue.js')                   ],
     [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ]
 ];
 

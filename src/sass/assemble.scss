@@ -1,9 +1,9 @@
 ._flype {
-    padding: 15px;
+    padding: calRem(15);
     font-size: $text-size-24px;
     color: $c-light;
     background-color: $c-lightyellow;
-    height: 37px;
+    height: calRem(74);
     line-height: 2;
     box-sizing: border-box;
     background-image: $img-border-btm;
@@ -12,7 +12,40 @@
     overflow: hidden;
     -webkit-transition: height 1s ease;
     transition: height 1s ease;
+
+    & i{
+        float: right;
+        padding-left: calRem(12);
+    }
 }
 ._flype_slid_down {
     height: auto;
+}
+
+._pwd {
+    list-style: none;
+    padding: 0;
+    margin: 30px auto;
+    background-color: $c-white;
+    width: calRem(688);
+    height: calRem(114);
+    border: 1px solid $c-stonegrey;
+    box-sizing: border-box;
+    border-radius: calRem(5);
+
+    & li {
+        float: left;
+        color: $c-black;
+        height: calRem(114);
+        width: calRem(114);
+        line-height: calRem(110);
+        font-size: calRem(26);
+        box-sizing: border-box;
+        text-align: center;
+        border-right: 1px solid $c-stonegrey;
+    }
+    & li:last-child {
+        width: calRem(113);
+        border: none;
+    }
 }
