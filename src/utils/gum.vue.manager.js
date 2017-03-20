@@ -51,7 +51,18 @@ var components = [
     [ 'stepwise'                , require('../assemble/stepwise/stepwise.vue.js')                   ],
     [ 'timeline'                , require('../assemble/timeline/timeline.vue.js')                   ],
     [ 'password'                , require('../assemble/password/password.vue.js')                   ],
-    [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ]
+    [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ],
+    
+    [ 'stub'                    , require('../assemble/stub/stub.vue.js')                           ],
+    [ 'a-table'                 , require('../assemble/table/table.vue.js')                         ],
+    [ 'text-row'                , require('../assemble/text-row/text-row.vue.js')                   ],
+    [ 'select-row'              , require('../assemble/select-row/select-row.vue.js')               ],
+    [ 'text-field-row'          , require('../assemble/text-field-row/text-field-row.vue.js')       ],
+    [ 'tel-field-row'           , require('../assemble/tel-field-row/tel-field-row.vue.js')         ],
+    [ 'id-field-row'            , require('../assemble/id-field-row/id-field-row.vue.js')           ],
+    [ 'otp-field-row'           , require('../assemble/otp-field-row/otp-field-row.vue.js')         ],
+    [ 'dock'                    , require('../assemble/dock/dock.vue.js')                           ],
+    [ 'a-button'                , require('../assemble/button/button.vue.js')                       ]
 ];
 
 components.forEach(function (component) {

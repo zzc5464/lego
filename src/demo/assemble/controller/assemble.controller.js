@@ -4,11 +4,13 @@ var FController         = require('fcontroller'),
     VueManager          = require('lego'),
     
     tplFlypeView        = require('../views/tpl.flype'),
-    tplPasswordView          = require('../views/tpl.password'),
+    tplPasswordView     = require('../views/tpl.password'),
     tplProgressView     = require('../views/tpl.progress'),
-    tplStepwiseView        = require('../views/tpl.stepwise'),
-    tplTimelineView        = require('../views/tpl.timeline'),
-    tplProtocolView     = require('../views/tpl.protocol');
+    tplStepwiseView     = require('../views/tpl.stepwise'),
+    tplTimelineView     = require('../views/tpl.timeline'),
+    tplProtocolView     = require('../views/tpl.protocol'),
+    tplTableView        = require('../views/tpl.table'),
+    tplDockView         = require('../views/tpl.dock');
 
 function AssembleController () {
     this.moduleName = 'demo';
@@ -16,12 +18,14 @@ function AssembleController () {
     this.cssFile    = 'demo.assemble.css';
     this.classList  = [ 'lego-demo' ];
     this.routers    = {
-        flype: 'flype',
-        password: 'password',
-        progress: 'progress',
-        stepwise: 'stepwise',
-        timeline: 'timeline',
-        protocol: 'protocol'
+        flype       : 'flype',
+        password    : 'password',
+        progress    : 'progress',
+        stepwise    : 'stepwise',
+        timeline    : 'timeline',
+        protocol    : 'protocol',
+        table       : 'table',
+        dock        : 'dock'
     }
 
     this.VueManager = VueManager;
@@ -121,6 +125,26 @@ AssembleController.prototype = new FController({
         show.call(this, {
             // DATA
         });
+    },
+
+    table: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplTableView(data), data, '表格示例', function (app) {});
+        }
+
+        show.call(this, {});
+    },
+
+    dock: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplDockView(data), data, '按钮组件', function (app) {});
+        }
+
+        show.call(this, {});
     }
 });
 

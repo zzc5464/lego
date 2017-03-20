@@ -18,7 +18,14 @@ IndexController.prototype = new FController({
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplIndexView(data), data, '购买成功', function (app) {
+            this.renderVUE(tplIndexView(data), data, 'LEGO', function (app) {
+                $('#a-table').tap(function(){
+                    navigate('demo/assemble/table');
+                });
+                $('#a-dock').tap(function(){
+                    navigate('demo/assemble/dock');
+                });
+
                 $('#text').tap(function(){
                     navigate('demo/basic/text');
                 });
