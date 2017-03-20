@@ -47,7 +47,15 @@ var components = [
     [ 'p-popup'                 , require('../page/popup/popup.vue.js')                             ],
 
     [ 'flype'                   , require('../assemble/flype/flype.vue.js')                         ],
-    [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ]
+    [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ],
+    [ 'stub'                    , require('../assemble/stub/stub.vue.js')                           ],
+    [ 'a-table'                 , require('../assemble/table/table.vue.js')                         ],
+    [ 'text-row'                , require('../assemble/text-row/text-row.vue.js')                   ],
+    [ 'select-row'              , require('../assemble/select-row/select-row.vue.js')               ],
+    [ 'text-field-row'          , require('../assemble/text-field-row/text-field-row.vue.js')       ],
+    [ 'tel-field-row'           , require('../assemble/tel-field-row/tel-field-row.vue.js')         ],
+    [ 'id-field-row'            , require('../assemble/id-field-row/id-field-row.vue.js')           ],
+    [ 'otp-field-row'           , require('../assemble/otp-field-row/otp-field-row.vue.js')         ]
 ];
 
 components.forEach(function (component) {
