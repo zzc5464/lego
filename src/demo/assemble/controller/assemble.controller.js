@@ -4,7 +4,8 @@ var FController         = require('fcontroller'),
     VueManager          = require('lego'),
     
     tplFlypeView        = require('../views/tpl.flype'),
-    tplProtocolView     = require('../views/tpl.protocol');
+    tplProtocolView     = require('../views/tpl.protocol'),
+    tplTableView        = require('../views/tpl.table');
 
 function AssembleController () {
     this.moduleName = 'demo';
@@ -12,8 +13,9 @@ function AssembleController () {
     this.cssFile    = 'demo.assemble.css';
     this.classList  = [ 'lego-demo' ];
     this.routers    = {
-        flype: 'flype',
-        protocol: 'protocol'
+        flype       : 'flype',
+        protocol    : 'protocol',
+        table       : 'table'
     }
 
     this.VueManager = VueManager;
@@ -51,6 +53,15 @@ AssembleController.prototype = new FController({
         show.call(this, {
             // DATA
         });
+    },
+    table: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplTableView(data), data, '表格示例', function (app) {});
+        }
+
+        show.call(this, {});
     }
 });
 
