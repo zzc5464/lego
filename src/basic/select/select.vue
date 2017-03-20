@@ -1,7 +1,7 @@
 <template>
     <span v-on:mytap = 'tapped'>
-        <child-text :style="styleObj" class="_select_text" :class="classObj"><slot></slot></child-text>
-        <child-icon name="angle-right-bold" color="light" size="28"></child-icon>
+        <b-text :style="styleObj" class="_select_text" :class="classObj"><slot></slot></b-text>
+        <b-icon name="angle-right-bold" color="light" size="28"></b-icon>
     </span>
 </template>
 
