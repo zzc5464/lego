@@ -32,3 +32,32 @@ A UI components library
   # 执行文档生成脚本
   node Createdocs.js 
 ```
+
+
+安装过程记录：
+
+1. 安装 Homebrew
+ - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+2. 安装 nginx
+ - brew install nginx
+
+3. 安装 NodeJS
+ - Visit https://nodejs.org/en/download/releases/
+ - Find "node-v4.8.0.pkg" package, download and install it
+
+4. 安装 Grunt 及相应组件
+ - npm install grunt --save-dev
+ - npm install -g grunt-cli
+ - npm install
+ - npm install vueify --save-dev
+ - npm install --save-dev grunt-vueify
+
+5. 修改 nginx 配置文件
+ - vi /usr/local/etc/nginx/nginx.conf
+ - 指定 lego 项目地址
+    location / {
+        root  /Users/wangweiqi/Documents/workspace/lego-project;
+        index  index.html index.htm;
+    }
+- nginx -s reload

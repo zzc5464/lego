@@ -6,7 +6,7 @@
         "**/docs": true,
         "**/examples": true,
         "**/template.js": true,
-        "**/webroot": true,
+        "**/webroot": false,
         "**/lib": true
     }
 }

@@ -70,15 +70,15 @@
         <s-flex-column>
         </s-flex-column>
     </s-cell>
-    <s-cell height="2.473684" border="true" >
+    <s-cell min-height="2.473684" border="true" >
         <s-flex-column>
         </s-flex-column>
         <s-column width="5" align="left">
             <b-text size="30" color="grey">电子邮箱</b-text>
         </s-column>
-        <s-column width="13" align="right">
+        <s-multiline width="13" align="right">
             <b-email-field size="30" align="right" placeholder="请输入电子邮箱"  value="ssssss@gmail.com"></b-email-field>
-        </s-column>
+        </s-multiline>
         <s-flex-column>
         </s-flex-column>
     </s-cell>
@@ -187,9 +187,6 @@
         <s-column width="13.157895" align="right">
             <b-tel-field size="30" close="true" color="grey" placeholder="请输入手机号" value="12345678987"></b-tel-field>
         </s-column>
-        <!--<s-column width="3" align="right">
-            <b-icon name="round-cross" size="34" color="stonegrey" ></b-icon>
-        </s-column>-->
         <s-flex-column>
         </s-flex-column>
     </s-cell>
@@ -253,9 +250,6 @@
         <s-column width="13.157895" align="left">
             <b-text-field size="30" close="true" color="grey" placeholder="请输入姓名" ></b-text-field>
         </s-column>
-        <!--<s-column width="3" align="right">
-            <b-icon name="round-cross" size="34" color="stonegrey" ></b-icon>
-        </s-column>-->
         <s-flex-column>
         </s-flex-column>
     </s-cell>
@@ -285,9 +279,6 @@
         <s-column width="13.157895" align="right">
             <b-idcard-field size="30" close="true" color="black"  placeholder="请输入证件号" ></b-idcard-field>
         </s-column>
-        <!--<s-column width="3" align="right">
-            <b-icon name="round-cross" size="34" color="stonegrey" ></b-icon>
-        </s-column>-->
         <s-flex-column>
         </s-flex-column>
     </s-cell>
@@ -500,15 +491,15 @@
         <s-flex-column>
         </s-flex-column>
     </s-cell>
-    <s-cell height="1.578947" >
+    <s-cell min-height="1.578947" >
         <s-flex-column>
         </s-flex-column>
-        <s-column width="5.657895" align="left">
-            <b-text size="30" color="light">受理网点：<br>&nbsp;</b-text>
-        </s-column>
-        <s-column width="12.47368" align="left">
+        <s-multiline width="5.657895" align="left">
+            <b-text size="30" color="light">受理网点：</b-text>
+        </s-multiline>
+        <s-multiline width="12.47368" align="left">
             <b-text size="30" color="black">上海市徐汇区南宁路西城区金融街23号平安大厦9层</b-text>
-        </s-column>
+        </s-multiline>
         <s-flex-column>
         </s-flex-column>
     </s-cell>
