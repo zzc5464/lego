@@ -5,8 +5,16 @@
             <b-text size='34' color='black'>{{ label }}</b-text>
         </s-column>
         <s-column width='1.578945' align='right'>
-            <slot></slot>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>
 </template>
+
+<script>
+    module.exports = {
+        props: [ 'label' ],
+        data: function() {
+            return {};
+        }
+    }
+</script>

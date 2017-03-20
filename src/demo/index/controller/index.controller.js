@@ -25,6 +25,9 @@ IndexController.prototype = new FController({
                 $('#a-dock').tap(function(){
                     navigate('demo/assemble/dock');
                 });
+                $('#a-panel').tap(function(){
+                    navigate('demo/assemble/panel');
+                });
 
                 $('#text').tap(function(){
                     navigate('demo/basic/text');
