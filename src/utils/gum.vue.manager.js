@@ -55,7 +55,9 @@ var components = [
     [ 'text-field-row'          , require('../assemble/text-field-row/text-field-row.vue.js')       ],
     [ 'tel-field-row'           , require('../assemble/tel-field-row/tel-field-row.vue.js')         ],
     [ 'id-field-row'            , require('../assemble/id-field-row/id-field-row.vue.js')           ],
-    [ 'otp-field-row'           , require('../assemble/otp-field-row/otp-field-row.vue.js')         ]
+    [ 'otp-field-row'           , require('../assemble/otp-field-row/otp-field-row.vue.js')         ],
+    [ 'dock'                    , require('../assemble/dock/dock.vue.js')                           ],
+    [ 'a-button'                , require('../assemble/button/button.vue.js')                       ]
 ];
 
 components.forEach(function (component) {

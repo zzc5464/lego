@@ -5,7 +5,8 @@ var FController         = require('fcontroller'),
     
     tplFlypeView        = require('../views/tpl.flype'),
     tplProtocolView     = require('../views/tpl.protocol'),
-    tplTableView        = require('../views/tpl.table');
+    tplTableView        = require('../views/tpl.table'),
+    tplDockView         = require('../views/tpl.dock');
 
 function AssembleController () {
     this.moduleName = 'demo';
@@ -15,7 +16,8 @@ function AssembleController () {
     this.routers    = {
         flype       : 'flype',
         protocol    : 'protocol',
-        table       : 'table'
+        table       : 'table',
+        dock        : 'dock'
     }
 
     this.VueManager = VueManager;
@@ -38,6 +40,7 @@ AssembleController.prototype = new FController({
             // DATA
         });
     },
+
     protocol: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
@@ -54,11 +57,22 @@ AssembleController.prototype = new FController({
             // DATA
         });
     },
+
     table: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
             this.renderVUE(tplTableView(data), data, '表格示例', function (app) {});
+        }
+
+        show.call(this, {});
+    },
+
+    dock: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplDockView(data), data, '按钮组件', function (app) {});
         }
 
         show.call(this, {});
