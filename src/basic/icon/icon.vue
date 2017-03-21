@@ -1,5 +1,5 @@
 <template>
-    <i class='pingan' :class='classObj'></i>
+    <i class='pingan' v-on:mytap='tapped' :class='classObj'></i>
 </template>
 
 <script>
@@ -22,6 +22,11 @@
             return {
                 classObj: list
             };
+        },
+        methods: {
+            tapped: function(){
+                this.$emit('tapped');
+            }
         }
     }
 </script> 

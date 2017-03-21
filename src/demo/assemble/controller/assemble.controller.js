@@ -4,11 +4,13 @@ var FController         = require('fcontroller'),
     VueManager          = require('lego'),
     
     tplFlypeView        = require('../views/tpl.flype'),
+    tplNotetipsView     = require('../views/tpl.notetips'),
     tplPasswordView     = require('../views/tpl.password'),
     tplProgressView     = require('../views/tpl.progress'),
     tplStepwiseView     = require('../views/tpl.stepwise'),
     tplTimelineView     = require('../views/tpl.timeline'),
     tplProtocolView     = require('../views/tpl.protocol'),
+
     tplTableView        = require('../views/tpl.table'),
     tplDockView         = require('../views/tpl.dock');
 
@@ -19,6 +21,7 @@ function AssembleController () {
     this.classList  = [ 'lego-demo' ];
     this.routers    = {
         flype       : 'flype',
+        notetips    : 'notetips',
         password    : 'password',
         progress    : 'progress',
         stepwise    : 'stepwise',
@@ -48,18 +51,54 @@ AssembleController.prototype = new FController({
             // DATA
         });
     },
-    password: function () {
+    notetips: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplPasswordView(data), data, '购买成功', function (app) {
-                
-                
+            this.renderVUE(tplNotetipsView(data), data, '购买成功', function (app) {
+                // TODO: navigate to component demo pages.
+                $('#back').tap(function(){
+                    window.back();
+                });
             });
         }
 
         show.call(this, {
             // DATA
+        });
+    },
+    password: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplPasswordView(data), data, '购买成功', function (app) {
+                var pwd = document.getElementById('pwd');
+                var minus = document.getElementById('minus');
+                var plus = document.getElementById('plus');
+                var len = pwd.getAttribute('length');
+
+                decreaseTotal();
+                incrementTotal();
+
+                function decreaseTotal(){
+                    $('#minus').mytap(function(){
+                        len--;
+                        pwd.setAttribute('length',len);
+                    });
+                }
+                
+                function incrementTotal(){
+                    $('#plus').mytap(function(){
+                        len++;
+                        pwd.setAttribute('length',len);
+                    });
+                }
+            
+            });
+        }
+
+        show.call(this, {
+            len: 4
         });
     },
     progress: function () {

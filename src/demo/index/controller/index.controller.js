@@ -26,6 +26,16 @@ IndexController.prototype = new FController({
                     navigate('demo/assemble/dock');
                 });
 
+                $('#a-flype').tap(function(){
+                    navigate('demo/assemble/flype');
+                });
+                $('#a-notetips').tap(function(){
+                    navigate('demo/assemble/notetips');
+                });
+                $('#a-protocol').tap(function(){
+                    navigate('demo/assemble/protocol');
+                });
+
                 $('#text').tap(function(){
                     navigate('demo/basic/text');
                 });

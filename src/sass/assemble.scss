@@ -1,26 +1,40 @@
-._flype {
-    padding: calRem(15);
+
+._none {
+    display: none;
+}
+
+._flype,._notetips {
+    padding: 0 calRem(30);
     font-size: $text-size-24px;
     color: $c-light;
     background-color: $c-lightyellow;
     height: calRem(74);
-    line-height: 2;
+    line-height: calRem(72);
     box-sizing: border-box;
     background-image: $img-border-btm;
     background-position: 0 100%;
     background-repeat: no-repeat;
     overflow: hidden;
+    & i{
+        float: right;
+        padding-left: calRem(12);
+        font-weight: bold;
+    }
+}
+._flype {
+    padding: calRem(15) calRem(30) calRem(30);
+    line-height: 2.2;
     -webkit-transition: height 1s ease;
     transition: height 1s ease;
 
     & i{
-        float: right;
-        padding-left: calRem(12);
+        margin-top: -#{calRem(6)};
     }
 }
 ._flype_slid_down {
     height: auto;
 }
+
 
 ._pwd {
     list-style: none;
