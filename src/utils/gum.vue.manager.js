@@ -49,8 +49,10 @@ var components = [
     [ 'flype'                   , require('../assemble/flype/flype.vue.js')                         ],
     [ 'notetips'                , require('../assemble/notetips/notetips.vue.js')                   ],
     [ 'a-progress'              , require('../assemble/progress/progress.vue.js')                   ],
+    [ 'stage'                   , require('../assemble/stage/stage.vue.js')                         ],
     [ 'stepwise'                , require('../assemble/stepwise/stepwise.vue.js')                   ],
     [ 'timeline'                , require('../assemble/timeline/timeline.vue.js')                   ],
+    [ 'timepoint'               , require('../assemble/timepoint/timepoint.vue.js')                 ],
     [ 'password'                , require('../assemble/password/password.vue.js')                   ],
     [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ],
 
@@ -63,7 +65,9 @@ var components = [
     [ 'id-field-row'            , require('../assemble/id-field-row/id-field-row.vue.js')           ],
     [ 'otp-field-row'           , require('../assemble/otp-field-row/otp-field-row.vue.js')         ],
     [ 'dock'                    , require('../assemble/dock/dock.vue.js')                           ],
-    [ 'a-button'                , require('../assemble/button/button.vue.js')                       ]
+    [ 'a-button'                , require('../assemble/button/button.vue.js')                       ],
+    [ 'panel'                   , require('../assemble/panel/panel.vue.js')                         ],
+    [ 'a-title'                 , require('../assemble/title/title.vue.js')                         ]
 ];
 
 components.forEach(function (component) {

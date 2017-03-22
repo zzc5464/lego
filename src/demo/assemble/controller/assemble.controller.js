@@ -7,12 +7,15 @@ var FController         = require('fcontroller'),
     tplNotetipsView     = require('../views/tpl.notetips'),
     tplPasswordView     = require('../views/tpl.password'),
     tplProgressView     = require('../views/tpl.progress'),
+    tplStageView        = require('../views/tpl.stage'),
     tplStepwiseView     = require('../views/tpl.stepwise'),
     tplTimelineView     = require('../views/tpl.timeline'),
+    tplTimepointView    = require('../views/tpl.timepoint'),
     tplProtocolView     = require('../views/tpl.protocol'),
 
     tplTableView        = require('../views/tpl.table'),
-    tplDockView         = require('../views/tpl.dock');
+    tplDockView         = require('../views/tpl.dock'),
+    tplPanelView        = require('../views/tpl.panel');
 
 function AssembleController () {
     this.moduleName = 'demo';
@@ -24,11 +27,14 @@ function AssembleController () {
         notetips    : 'notetips',
         password    : 'password',
         progress    : 'progress',
+        stage       : 'stage',
         stepwise    : 'stepwise',
         timeline    : 'timeline',
+        timepoint   : 'timepoint',
         protocol    : 'protocol',
         table       : 'table',
-        dock        : 'dock'
+        dock        : 'dock',
+        panel       : 'panel'
     }
 
     this.VueManager = VueManager;
@@ -39,7 +45,7 @@ AssembleController.prototype = new FController({
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplFlypeView(data), data, '购买成功', function (app) {
+            this.renderVUE(tplFlypeView(data), data, '可折叠信息', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#back').tap(function(){
                     window.back();
@@ -55,7 +61,7 @@ AssembleController.prototype = new FController({
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplNotetipsView(data), data, '购买成功', function (app) {
+            this.renderVUE(tplNotetipsView(data), data, '小提示展示', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#back').tap(function(){
                     window.back();
@@ -71,28 +77,7 @@ AssembleController.prototype = new FController({
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplPasswordView(data), data, '购买成功', function (app) {
-                var pwd = document.getElementById('pwd');
-                var minus = document.getElementById('minus');
-                var plus = document.getElementById('plus');
-                var len = pwd.getAttribute('length');
-
-                decreaseTotal();
-                incrementTotal();
-
-                function decreaseTotal(){
-                    $('#minus').mytap(function(){
-                        len--;
-                        pwd.setAttribute('length',len);
-                    });
-                }
-                
-                function incrementTotal(){
-                    $('#plus').mytap(function(){
-                        len++;
-                        pwd.setAttribute('length',len);
-                    });
-                }
+            this.renderVUE(tplPasswordView(data), data, '密码展示', function (app) {
             
             });
         }
@@ -105,7 +90,23 @@ AssembleController.prototype = new FController({
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplProtocolView(data), data, '购买成功', function (app) {
+            this.renderVUE(tplProtocolView(data), data, '流程进度展示', function (app) {
+                // TODO: navigate to component demo pages.
+                $('#link').tap(function(){
+                    alert('333')
+                });
+            });
+        }
+
+        show.call(this, {
+            // DATA
+        });
+    },
+    stage: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplStageView(data), data, '流程进度展示', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#link').tap(function(){
                     alert('333')
@@ -121,7 +122,7 @@ AssembleController.prototype = new FController({
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplStepwiseView(data), data, '购买成功', function (app) {
+            this.renderVUE(tplStepwiseView(data), data, '进度展示', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#link').tap(function(){
                     alert('333')
@@ -137,7 +138,23 @@ AssembleController.prototype = new FController({
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplTimelineView(data), data, '购买成功', function (app) {
+            this.renderVUE(tplTimelineView(data), data, '时间段', function (app) {
+                // TODO: navigate to component demo pages.
+                $('#link').tap(function(){
+                    alert('333')
+                });
+            });
+        }
+
+        show.call(this, {
+            // DATA
+        });
+    },
+    timepoint: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplTimepointView(data), data, '时间段', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#link').tap(function(){
                     alert('333')
@@ -153,7 +170,7 @@ AssembleController.prototype = new FController({
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplProtocolView(data), data, '购买成功', function (app) {
+            this.renderVUE(tplProtocolView(data), data, '协议同意', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#link').tap(function(){
                     alert('333')
@@ -181,6 +198,16 @@ AssembleController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplDockView(data), data, '按钮组件', function (app) {});
+        }
+
+        show.call(this, {});
+    },
+
+    panel: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplPanelView(data), data, '文字面板', function (app) {});
         }
 
         show.call(this, {});

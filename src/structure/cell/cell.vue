@@ -1,5 +1,5 @@
 <template>
-    <div class='_cell' :class='classObj' :style='styleObj'>
+    <div class='_cell' :class='classObj' :style='styleObj' v-on:mytap='tapped'>
         <slot></slot>
     </div>
 </template>
@@ -21,6 +21,11 @@
                 },
                 classObj: list
             };
+        },
+        methods: {
+            tapped: function(){
+                this.$emit('tapped');
+            }
         }
     }
 </script>

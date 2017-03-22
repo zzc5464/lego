@@ -1,5 +1,9 @@
 <template>
-    <span @click="tap" :checked="isChecked" class="_solid_checkbox" :style="styleObj" :class="{_solid_checkbox_active: isChecked}">
+    <span  
+    :checked="isChecked" 
+    class="_solid_checkbox" 
+    :style="styleObj" 
+    :class="{_solid_checkbox_active: isChecked}">
     </span>
 </template>
 
