@@ -10,16 +10,18 @@
 </template>
 
 <script>
+    var events = require('../../utils/gum.vue.events');
+
     module.exports = {
         props: [ 'length'],
+        mounted: function(){
+            
+        },
         data: function() {
             
             return {
                 num: this.length
             };
-        },
-        watch: {
-            
         },
         methods: {
             tapped: function(){

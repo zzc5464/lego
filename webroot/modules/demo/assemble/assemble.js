@@ -84,14 +84,14 @@ AssembleController.prototype = new FController({
         }
 
         show.call(this, {
-            len: 4
+            len: 2
         });
     },
     progress: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplProtocolView(data), data, '流程进度展示', function (app) {
+            this.renderVUE(tplProgressView(data), data, '流程进度展示', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#link').tap(function(){
                     alert('333')
@@ -100,7 +100,17 @@ AssembleController.prototype = new FController({
         }
 
         show.call(this, {
-            // DATA
+            ele: {
+                    desc1: '领取信息1',
+                    desc2: '领取信息2',
+                    desc3: '领取信息3',
+                    desc4: '领取信息4'
+                },
+                ele2: {
+                    desc1: '领取信息1',
+                    desc2: '领取信息2',
+                    desc3: '领取信息3'
+                }
         });
     },
     stage: function () {
@@ -148,7 +158,38 @@ AssembleController.prototype = new FController({
         }
 
         show.call(this, {
-            // DATA
+           ele: [
+                {
+                    time: '2016-04-19',
+                    desc: '提交申购'
+                },
+                {
+                    time: '2016-04-20',
+                    desc: '审核成功'
+                },
+                {
+                    time: '2016-04-21',
+                    desc: '等待结果'
+                },
+                {
+                    time: '2016-04-22',
+                    desc: '等待收益'
+                }
+            ],
+            ele2: [
+                {
+                    time: '2016-04-19',
+                    desc: '提交申购'
+                },
+                {
+                    time: '2016-04-20',
+                    desc: '审核成功'
+                },
+                {
+                    time: '2016-04-21',
+                    desc: '等待结果'
+                }
+            ]
         });
     },
     timepoint: function () {
@@ -229,11 +270,11 @@ var template=require("../../../template");module.exports=template("demo/assemble
 /*TMODJS:{"version":1,"md5":"cff69a6b68e2fb138017ac30e7fc75b5"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.panel","<p-main bgcolor='offwhite'> <stub></stub> <panel edit='false' bgcolor='white' border='false'> <a-title id='save' label='\u8054\u7cfb\u65b9\u5f0f'>\u4fdd\u5b58</a-title> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\u8bc1\u4ef6\u7c7b\u578b'>21234567989456462</text-row> <text-row label='\u51fa\u751f\u65e5\u671f'>1995-02-05</text-row> <text-row label='\u6027\u522b'>\u7537</text-row> <text-field-row label='\u6027\u522b' placeholder='\u8bf7\u8f93\u5165'>\u7537</text-field-row> </panel> </p-main>");
 },{"../../../template":14}],6:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"5ca8fcad59d40a42b6370bac32bf772b"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.password","<password length='3' ></password> ");
+/*TMODJS:{"version":1,"md5":"67cde2d7e7156ec9ea7c0daf3e493139"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.password","<password :length='len' ></password> ");
 },{"../../../template":14}],7:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"8a4742761633f2756d99ae0409d35e58"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.progress","");
+/*TMODJS:{"version":1,"md5":"0112af4aee3f1afacc109e3199fde8b0"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.progress"," <a-progress :ele='ele2' :length='3' s='_p_step1' > </a-progress> <a-progress :ele='ele2' :length='3' step='_p3_step2' > </a-progress> <a-progress :ele='ele2' :length='3' step='_p3_step3' > </a-progress>  <a-progress :ele='ele' step='_p_step1' > </a-progress> <a-progress :ele='ele' step='_p_step2' > </a-progress> <a-progress :ele='ele' step='_p_step3' > </a-progress> <a-progress :ele='ele' step='_p_step4' > </a-progress>");
 },{"../../../template":14}],8:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"85eb952bebdb765c2679b4ca65fc4502"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.protocol",'<protocol checked=\'true\'> <b-text size="24" color="light"> \u6211\u5df2\u9605\u8bfb\u5e76\u540c\u610f </b-text> <b-highlight id="link" size="24"> \u300a\u5e73\u5b89\u76f4\u901a\u94f6\u884c\u8d26\u6237\u670d\u52a1\u534f\u8bae\u300b </b-highlight> </protocol>');
@@ -241,17 +282,17 @@ var template=require("../../../template");module.exports=template("demo/assemble
 /*TMODJS:{"version":1,"md5":"8a4742761633f2756d99ae0409d35e58"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.stage","");
 },{"../../../template":14}],10:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"bfba42208c6bfeb7999ad834ae5386d3"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.stepwise","<stepwise label='\u5df2\u5b8c\u6210 ' rate='3' total='5'> </stepwise>");
+/*TMODJS:{"version":1,"md5":"814b68ec56f09ba053e2b233c2573079"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.stepwise","<stepwise label='\u5df2\u5b8c\u6210 ' :rate='3' :total='5'> </stepwise>");
 },{"../../../template":14}],11:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"72b3342e8d71795a6897a54a44953bc1"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.table","<p-main bgcolor='offwhite'> <stub></stub> <a-table bgcolor='white'> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\b\u516c\u53f8\u540d\u79f0'>\u5e73\u5b89\u517b\u8001\u4fdd\u9669\u80a1\u4efd\u6709\u9650\u516c\u53f8\u5e73\u5b89\u517b\u8001\u4fdd\u9669\u80a1\u4efd\u6709\u9650\u516c\u53f8\u5e73\u5b89\u517b\u8001\u4fdd\u9669\u80a1\u4efd\u6709\u9650\u516c\u53f8</text-row> <select-row label='\u5f00\u6237\u7701\u4efd'>\u8bf7\u9009\u62e9</select-row> </a-table> <stub></stub> <a-table bgcolor='white'> <text-field-row label='\u59d3\u540d' placeholder='\u8bf7\u8f93\u5165\u59d3\u540d' required='true'></text-field-row> <text-field-row label='\u59d3\u540d' placeholder='\u8bf7\u8f93\u5165\u59d3\u540d' value='\u9ed8\u8ba4\u503c' required='true'></text-field-row> <tel-field-row label='\u624b\u673a\u53f7\u7801' placeholder='\u8bf7\u8f93\u5165\u624b\u673a\u53f7\u7801' required='true'></tel-field-row> <id-field-row label='\u8eab\u4efd\u8bc1\u53f7' placeholder='\u8bf7\u8f93\u5165\u8eab\u4efd\u8bc1\u53f7' required='true'></id-field-row> <otp-field-row label='\u9a8c\u8bc1\u7801' placeholder='\u77ed\u4fe1\u9a8c\u8bc1\u7801' required='true'></otp-field-row> </a-table> </p-main>");
 },{"../../../template":14}],12:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"bf5fec13f467d6980cf2fd4208e72300"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.timeline","<timeline >  </timeline>");
+/*TMODJS:{"version":1,"md5":"1af5f06b081cc507c4421f2d09ce6001"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.timeline","<timeline :elements='ele'></timeline>  <timeline :elements='ele2'></timeline>");
 },{"../../../template":14}],13:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"29dacdfd9bcaba2bb321027101567065"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.timepoint"," <s-cell height='4'> <s-column width=\".789474\" align=\"left\"> </s-column> <s-flex-column> <timepoint :active='true'> <b-text slot='header'>\u63d0\u4ea4\u7533\u8d2d</b-text> <b-text slot='datatime'>2017-01-01</b-text> </timepoint> </s-flex-column> <s-flex-column> <timepoint> <b-text slot='header'>\u63d0\u4ea4\u7533\u8d2d</b-text> <b-text slot='datatime'>2017-01-02</b-text> </timepoint> </s-flex-column><s-flex-column> <timepoint> <b-text slot='header'>\u63d0\u4ea4\u7533\u8d2d</b-text> <b-text slot='datatime'>2017-01-02</b-text> </timepoint> </s-flex-column> <s-column width=\".789474\" align=\"left\"> </s-column> </s-cell>");
+/*TMODJS:{"version":1,"md5":"c6d6b81ef8719ad49198dc382f162992"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.timepoint"," <s-cell height='4'> <s-column width=\".789474\" align=\"left\"> </s-column> <s-flex-column> <timepoint :active='true'> <b-text slot='header'>\u63d0\u4ea4\u7533\u8d2d</b-text> <b-text slot='datatime'>2017-01-01</b-text> </timepoint> </s-flex-column> <s-flex-column> <timepoint> <b-text slot='header'>\u63d0\u4ea4\u7533\u8d2d</b-text> <b-text slot='datatime'>2017-01-02</b-text> </timepoint> </s-flex-column><s-flex-column> <timepoint> <b-text slot='header'>\u63d0\u4ea4\u7533\u8d2d</b-text> <b-text slot='datatime'>2017-01-02</b-text> </timepoint> </s-flex-column> <s-column width=\".789474\" align=\"left\"> </s-column> </s-cell> ");
 },{"../../../template":14}],14:[function(require,module,exports){
 /*TMODJS:{}*/
 !function(){function a(a,b){return(/string|function/.test(typeof b)?h:g)(a,b)}function b(a,c){return"string"!=typeof a&&(c=typeof a,"number"===c?a+="":a="function"===c?b(a.call(a)):""),a}function c(a){return l[a]}function d(a){return b(a).replace(/&(?![\w#]+;)|[<>"']/g,c)}function e(a,b){if(m(a))for(var c=0,d=a.length;d>c;c++)b.call(a,a[c],c,a);else for(c in a)b.call(a,a[c],c)}function f(a,b){var c=/(\/)[^\/]+\1\.\.\1/,d=("./"+a).replace(/[^\/]+$/,""),e=d+b;for(e=e.replace(/\/\.\//g,"/");e.match(c);)e=e.replace(c,"/");return e}function g(b,c){var d=a.get(b)||i({filename:b,name:"Render Error",message:"Template not found"});return c?d(c):d}function h(a,b){if("string"==typeof b){var c=b;b=function(){return new k(c)}}var d=j[a]=function(c){try{return new b(c,a)+""}catch(d){return i(d)()}};return d.prototype=b.prototype=n,d.toString=function(){return b+""},d}function i(a){var b="{Template Error}",c=a.stack||"";if(c)c=c.split("\n").slice(0,2).join("\n");else for(var d in a)c+="<"+d+">\n"+a[d]+"\n\n";return function(){return"object"==typeof console&&console.error(b+"\n\n"+c),b}}var j=a.cache={},k=this.String,l={"<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","&":"&#38;"},m=Array.isArray||function(a){return"[object Array]"==={}.toString.call(a)},n=a.utils={$helpers:{},$include:function(a,b,c){return a=f(c,a),g(a,b)},$string:b,$escape:d,$each:e},o=a.helpers=n.$helpers;a.get=function(a){return j[a.replace(/^\.\//,"")]},a.helper=function(a,b){o[a]=b},module.exports=a}();

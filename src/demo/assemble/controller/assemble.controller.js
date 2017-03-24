@@ -83,14 +83,14 @@ AssembleController.prototype = new FController({
         }
 
         show.call(this, {
-            len: 4
+            len: 2
         });
     },
     progress: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplProtocolView(data), data, '流程进度展示', function (app) {
+            this.renderVUE(tplProgressView(data), data, '流程进度展示', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#link').tap(function(){
                     alert('333')
@@ -99,7 +99,17 @@ AssembleController.prototype = new FController({
         }
 
         show.call(this, {
-            // DATA
+            ele: {
+                    desc1: '领取信息1',
+                    desc2: '领取信息2',
+                    desc3: '领取信息3',
+                    desc4: '领取信息4'
+                },
+                ele2: {
+                    desc1: '领取信息1',
+                    desc2: '领取信息2',
+                    desc3: '领取信息3'
+                }
         });
     },
     stage: function () {
@@ -147,7 +157,38 @@ AssembleController.prototype = new FController({
         }
 
         show.call(this, {
-            // DATA
+           ele: [
+                {
+                    time: '2016-04-19',
+                    desc: '提交申购'
+                },
+                {
+                    time: '2016-04-20',
+                    desc: '审核成功'
+                },
+                {
+                    time: '2016-04-21',
+                    desc: '等待结果'
+                },
+                {
+                    time: '2016-04-22',
+                    desc: '等待收益'
+                }
+            ],
+            ele2: [
+                {
+                    time: '2016-04-19',
+                    desc: '提交申购'
+                },
+                {
+                    time: '2016-04-20',
+                    desc: '审核成功'
+                },
+                {
+                    time: '2016-04-21',
+                    desc: '等待结果'
+                }
+            ]
         });
     },
     timepoint: function () {

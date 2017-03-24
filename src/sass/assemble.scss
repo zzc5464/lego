@@ -94,9 +94,105 @@ ul {
 }    
 
 ._timeline {
-    height: 4.4rem;
-    // background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#d7ac62' x='15%' y='19' width='23%' height='0.5'/><rect fill='#c1c1c1' x='38%' y='19' width='50%' height='0.5'/></svg>");
-    // background-repeat: no-repeat;
-    // background-position: 0 11px;
+    height: 6rem;
     
+}
+
+._progress {
+    width: 16.5rem;
+    height: calRem(120);
+    margin: calRem(18) auto;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#47b2ac' x='7%' y='0' width='11.5%' height='1'/><rect fill='#d2d2d2' x='18.5%' y='0' width='75.5%' height='1'/></svg>");
+    background-position: 0 calRem(22);
+    background-repeat: no-repeat;
+    
+    ._stage {
+        width: calRem(196);
+        text-align: center;
+        float: left;
+    }
+    ._stage:first-child,
+    ._stage:last-child {
+        width: calRem(117);
+    }
+    ._stage div {
+        display: block;
+        width: calRem(44);
+        height: calRem(44);
+        margin: 0 auto;
+        color: #d2d2d2;
+        font-size: calRem(24);
+        font-weight: bold;
+        line-height: calRem(42);
+        box-sizing: border-box;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid #d2d2d2;
+        border-radius: 50%;
+    }
+    ._stage:last-child div {
+        margin: 0 0 0 calRem(76);
+    }
+    ._stage:first-child div {
+        margin: 0 calRem(76) 0 0 ;
+    }
+    ._stage:first-child span {
+        margin-left: -#{calRem(60)};
+    }
+    ._stage:last-child span {
+        margin-right: -#{calRem(60)};
+    }
+}
+
+%stageActive {
+    color: #47b2ac;
+    border-color: #47b2ac;
+}
+ 
+// 只有三步的时候
+._progress3 {
+    width: 11.5rem;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#47b2ac' x='10%' y='0' width='17.25%' height='1'/><rect fill='#d2d2d2' x='27.25%' y='0' width='62%' height='1'/></svg>");
+    
+}
+._p_step1 {
+    ._stage:nth-of-type(1) div{
+        @extend %stageActive;
+    }
+}
+
+._p_step2 {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#d2d2d2' x='7%' y='0' width='11.5%' height='1'/><rect fill='#47b1af' x='18.5%' y='0' width='30%' height='1'/><rect fill='#d2d2d2' x='48.5%' y='0' width='44.5%' height='1'/></svg>");
+
+    ._stage:nth-of-type(2) div{
+        @extend %stageActive;
+    }
+}
+._p_step3 {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#d2d2d2' x='7%' y='0' width='41.5%' height='1'/><rect fill='#47b1af' x='48.5%' y='0' width='33%' height='1'/><rect fill='#d2d2d2' x='81.5%' y='0' width='11.5%' height='1'/></svg>");
+
+    ._stage:nth-of-type(3) div{
+        @extend %stageActive;
+    }
+}
+._p_step4 {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#47b2ac' x='81.5%' y='0' width='11.5%' height='1'/><rect fill='#d2d2d2' x='7%' y='0' width='74.5%' height='1'/></svg>");
+
+    ._stage:nth-of-type(4) div{
+        @extend %stageActive;
+    }
+}
+._p3_step2 {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#d2d2d2' x='10%' y='0' width='17.25%' height='1'/><rect fill='#47b1af' x='27.25%' y='0' width='44.5%' height='1'/><rect fill='#d2d2d2' x='71.75%' y='0' width='17.25%' height='1'/></svg>");
+
+    ._stage:nth-of-type(2) div{
+        @extend %stageActive;
+    }
+}
+._p3_step3 {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#47b2ac' x='72%' y='0' width='17.25%' height='1'/><rect fill='#d2d2d2' x='10%' y='0' width='62%' height='1'/></svg>");
+
+    ._stage:nth-of-type(3) div{
+        @extend %stageActive;
+    }
 }

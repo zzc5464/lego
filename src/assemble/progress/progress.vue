@@ -1,37 +1,26 @@
 <template>
-    <ul class='_pwd' id='pwd' v-on:mytap='tapped' >
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+    <div class='_progress' :class='classObj' >
+        <stage v-for='(value, key, index) in object'>
+            {{ index+1 }}
+            <b-text slot='desc'>{{ value }}</b-text>
+        </stage>
+    </div>
 </template>
 
 <script>
     module.exports = {
-        props: [ 'length'],
+        props: [ 'ele', 'length', 'step'],
         data: function() {
+            var list = [];
+            this.length && this.length == '3' && list.push('_progress3');
+            this.step && list.push(this.step);
+
             
             return {
-                num: this.length
+                num: this.length,
+                classObj: list,
+                object: this.ele
             };
-        },
-        watch: {
-            
-        },
-        methods: {
-            tapped: function(){
-                console.log(this.num);
-                var children = document.querySelectorAll('li');
-                (parseInt(this.num) > children.length) &&  (this.num = 6);
-                (parseInt(this.num) < 0) &&  (this.num = 0);
-                for(i=0;i<=(this.num-1);i++){
-                    children[i].innerHTML = '&#9679;';
-                }
-               
-            }
         }
     }
 </script>
