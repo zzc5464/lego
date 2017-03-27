@@ -5,6 +5,7 @@ var FController         = require('fcontroller'),
     
     tplFlypeView        = require('../views/tpl.flype'),
     tplNotetipsView     = require('../views/tpl.notetips'),
+    tplHammertipsView   = require('../views/tpl.hammertips'),
     tplPasswordView     = require('../views/tpl.password'),
     tplProgressView     = require('../views/tpl.progress'),
     tplStageView        = require('../views/tpl.stage'),
@@ -25,6 +26,7 @@ function AssembleController () {
     this.routers    = {
         flype       : 'flype',
         notetips    : 'notetips',
+        hammertips  : 'hammertips',
         password    : 'password',
         progress    : 'progress',
         stage       : 'stage',
@@ -62,6 +64,22 @@ AssembleController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplNotetipsView(data), data, '小提示展示', function (app) {
+                // TODO: navigate to component demo pages.
+                $('#back').tap(function(){
+                    window.back();
+                });
+            });
+        }
+
+        show.call(this, {
+            // DATA
+        });
+    },
+    hammertips: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplHammertipsView(data), data, '小提示展示', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#back').tap(function(){
                     window.back();
