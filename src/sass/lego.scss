@@ -33,7 +33,7 @@ body {
     padding: 0;
 }
 
-button, input {
+button, input, span {
     font-family: PingFangSC-Regular, sans-serif;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -158,13 +158,24 @@ button, input {
 ._bgcolor_offwhite {
     background-color: $c-offwhite;
 }
-._bgcolor_gradient {
+//背景渐变色
+._bgcolor_deepbrown {
     background: $c-land-webkit;
     background: $c-land;
 }
 ._bgcolor_alpha {
     background: $c-paper;
 }
+
+
+
+//公用样式 %placeholder
+// 弹性布局 垂直居中
+._setflex {
+    @extend %setflex;
+}
+
+
 
 // test LEGO UI 页面层级
 @mixin transform($z: 0px) {

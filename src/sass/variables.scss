@@ -62,8 +62,8 @@ $border-3x-high         : .4px solid $c-high;
 
 $border-radius          : 3px;
 
-@function calRem($n) {
-    @return $n/38#{rem}; 
+@function calRem($px) {
+    @return $px/38 + rem; 
 }
 // @mixin textSize($px, $unit:rem) {
 //     %ts-#{$px}{
@@ -86,3 +86,17 @@ $text-size-112px        : calRem(112);
 $text-size-120px        : calRem(120);
 $text-size-224px        : calRem(224);
 $text-size-300px        : calRem(300);
+
+
+
+//公用样式 %placeholder
+// 弹性布局 垂直居中 父级 设定
+%setflex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}

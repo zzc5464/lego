@@ -1,13 +1,11 @@
 <template>
-    <span v-on:mytap = 'tapped'>
-        <b-text :style="styleObj" class="_select_text" :class="classObj"><slot></slot></b-text>
+    <span class='_select' v-on:mytap = 'tapped'>
+        <b-text :style="styleObj" class="_select_text" :class="classObj" ><slot></slot></b-text>
         <b-icon name="angle-right-bold" color="light" size="28"></b-icon>
     </span>
 </template>
 
 <script>
-    var childText = require('../text/text.vue.js');
-    var childIcon = require('../icon/icon.vue.js');
     module.exports = {
         props: ['size', 'color'],
         data: function() {
@@ -26,12 +24,8 @@
         },
         methods: {
             tapped: function(){
-                console.log('please !!!')
+                // console.log('please !!!')
             }
-        },
-        components: {
-            'child-text': childText,
-            'child-icon': childIcon
         }
     }
 </script>

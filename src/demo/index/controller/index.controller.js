@@ -35,8 +35,23 @@ IndexController.prototype = new FController({
                 $('#a-notetips').tap(function(){
                     navigate('demo/assemble/notetips');
                 });
+                $('#a-hammertips').tap(function(){
+                    navigate('demo/assemble/hammertips');
+                });
                 $('#a-protocol').tap(function(){
                     navigate('demo/assemble/protocol');
+                });
+                $('#a-progress').tap(function(){
+                    navigate('demo/assemble/progress');
+                });
+                $('#a-password').tap(function(){
+                    navigate('demo/assemble/password');
+                });
+                $('#a-stepwise').tap(function(){
+                    navigate('demo/assemble/stepwise');
+                });
+                $('#a-timeline').tap(function(){
+                    navigate('demo/assemble/timeline');
                 });
 
                 $('#text').tap(function(){

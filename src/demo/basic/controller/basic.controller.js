@@ -73,6 +73,8 @@ BasicController.prototype = new FController({
                 $('#back').tap(function(){
                     window.back();
                 });
+                var ss = $('#ck')[0].getAttribute('check');
+                console.log(ss);
             });
         }
 

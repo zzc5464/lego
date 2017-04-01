@@ -56,6 +56,7 @@ var components = [
     [ 'timepoint'               , require('../assemble/timepoint/timepoint.vue.js')                 ],
     [ 'password'                , require('../assemble/password/password.vue.js')                   ],
     [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ],
+    [ 'assetheader'             , require('../assemble/assetheader/assetheader.vue.js')             ],
 
     [ 'stub'                    , require('../assemble/stub/stub.vue.js')                           ],
     [ 'a-table'                 , require('../assemble/table/table.vue.js')                         ],

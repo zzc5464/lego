@@ -25,7 +25,7 @@
             <b-solid-radio :checked=true></b-solid-radio>
         </s-column>
         <s-column width="2" align="left">
-            <b-checkbox :checked=true></b-checkbox>
+            <b-checkbox id="ck" :checked=true></b-checkbox>
         </s-column>
         <s-column width="2" align="left">
             <b-solid-checkbox :checked=true></b-solid-checkbox>
@@ -80,7 +80,7 @@
         <s-flex-column>
         </s-flex-column>
     </s-cell>
-    <s-cell  border="true" >
+    <s-cell height="2.473684" border="true" >
         <s-flex-column>
         </s-flex-column>
         <s-column width="5" align="left">
@@ -89,9 +89,6 @@
         <s-column width="13.157895" align="right">
             <b-idcard-field size='30' label='身份证号码' clearall="true" placeholder="请输入身份证号" required="true"></b-idcard-field>
         </s-column>
-        <!--<s-column width="3" align="right">
-            <b-icon name="round-cross" size="34" color="stonegrey" ></b-icon>
-        </s-column>-->
         <s-flex-column>
         </s-flex-column>
     </s-cell>
@@ -99,10 +96,10 @@
         <s-flex-column>
         </s-flex-column>
         <s-column width="5" align="left">
-            <b-text size="30" color="grey">地址信息<br>&nbsp;</b-text>
+            <b-text size="30" color="grey">地址信息</b-text>
         </s-column>
         <s-column width="13.157895" align="right">
-            <b-address-field size='30' label='地址信息' clearall='true' placeholder="请输入地址信息" value='请输入地址信息请输入地址信息请输入地址信息请输入地址信息请输入地址信息请输入地址信息请输入地址信息' required='true'></b-address-field>
+            <b-address-field :size='30' label='地址信息' :clearall=true placeholder="请输入地址信息" value='请输入地址信息请输入地址信息请输入地址信息请输入地址信息请输入地址信息请输入地址信息请输入地址信息' :required=true></b-address-field>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -116,9 +113,6 @@
         <s-column width="13.157895" align="right">
             <b-text-field size='30' clearall="true" placeholder="请输入姓名" label="姓名" required="true"></b-text-field>
         </s-column>
-        <!--<s-column width="3" align="right">
-            <b-icon name="round-cross" size="34" color="stonegrey" ></b-icon>
-        </s-column>-->
         <s-flex-column>
         </s-flex-column>
     </s-cell>
@@ -341,10 +335,10 @@
     <s-cell height="2.947368" bgcolor="offwhite">
         <s-column width=".789474" align="left">
         </s-column>
-        <s-column width=".789474" align="left">
-            <b-checkbox :checked="true"></b-checkbox>
+        <s-column width=".894738" align="left">
+            <b-checkbox :checked="false"></b-checkbox>
         </s-column>
-        <s-column width=".526316" align="left">
+        <s-column width=".426316" align="left">
         </s-column>
         <s-column width="16.3" align="left">
             <b-text size="24" color="light">我已阅读并同意 </b-text>
@@ -354,10 +348,10 @@
     <s-cell height=".842105" bgcolor="offwhite">
         <s-column width=".789474" align="left">
         </s-column>
-        <s-column width=".789474" align="left">
+        <s-column width=".894738" align="left">
             <b-checkbox :checked="false"></b-checkbox>
         </s-column>
-        <s-column width=".526316" align="left">
+        <s-column width=".426316" align="left">
         </s-column>
         <s-column width="13" align="left">
             <b-text size="24" color="light">将该账户作为您的默认理赔账户 </b-text>

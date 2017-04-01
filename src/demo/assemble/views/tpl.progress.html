@@ -1,16 +1,30 @@
+<!--两个步骤的-->
+<a-progress :ele='ele1' :length='2' step='_p2_step1' >
+</a-progress>
+<a-progress :ele='ele1' :length='2' step='_p2_step2' >
+</a-progress>
 <!--三个步骤的-->
-<a-progress :ele='ele2' :length='3' s='_p_step1' >
+<a-progress :ele='ele2' :length='3' step='_p_step1' >
 </a-progress>
 <a-progress :ele='ele2' :length='3' step='_p3_step2' >
 </a-progress>
 <a-progress :ele='ele2' :length='3' step='_p3_step3' >
 </a-progress>
 <!--四个步骤的-->
-<a-progress :ele='ele' step='_p_step1' >
+<a-progress :ele='ele' :length='4' step='_p_step1' >
 </a-progress>
-<a-progress :ele='ele' step='_p_step2' >
+<a-progress :ele='ele' :length='4' step='_p_step2' >
 </a-progress>
-<a-progress :ele='ele' step='_p_step3' >
+<a-progress :ele='ele' :length='4' step='_p_step3' >
 </a-progress>
-<a-progress :ele='ele' step='_p_step4' >
+<a-progress :ele='ele' :length='4' step='_p_step4' >
+</a-progress>
+<!--没有文字介绍的-->
+<a-progress :ele='ele3' :length='4' step='_p_step1' desc='true' >
+</a-progress>
+<a-progress :ele='ele3' :length='4' step='_p_step2' desc='true'>
+</a-progress>
+<a-progress :ele='ele3' :length='4' step='_p_step3' desc='true'>
+</a-progress>
+<a-progress :ele='ele3' :length='4' step='_p_step4' desc='true'>
 </a-progress>

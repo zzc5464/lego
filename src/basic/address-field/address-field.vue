@@ -1,7 +1,6 @@
 <template>
     <div class='_field' :class='status'>
         <input class='_address_field' :id='id' :name='name' :class='classObj' :style='styleObj' type='email' :placeholder='placeholder' :maxlength='max' v-model='address' @input='input' @blur='blur'/>
-        <!--<textarea class='_address_field' :id='id' :name='name' :class='classObj' :style='styleObj' :placeholder='placeholder' :maxlength='max' v-model='address' @input='input' @blur='blur'></textarea>-->
         <i @mytap="clear"></i>
     </div>
 </template>
@@ -11,11 +10,46 @@
         events   = require('../../utils/gum.vue.events');
 
     module.exports = {
-        props: [ 
-            'align',    'size',     'clearall', 'placeholder', 
-            'id',       'name',     'value',    'required',
-            'label',    'max'
-        ],
+        // props: [ 
+        //     'align',    'size',     'clearall', 'placeholder', 
+        //     'id',       'name',     'value',    'required',
+        //     'label',    'max'
+        // ],
+        props: {
+            id: {
+                type: String
+            },
+            align: {
+                type: String,
+                default: 'left'
+            },
+            size: {
+                type: Number
+            },
+            clearall: {
+                type: Boolean,
+                default: false
+            },
+            placeholder: {
+                type: String
+            },
+            name: {
+                type: String
+            },
+            value: {
+                type: String
+            },
+            required: {
+                type: Boolean,
+                default: true
+            },
+            max: {
+                type: Number
+            },
+            label: {
+                type: String
+            }
+        },
 
         data: function() {
             var obj = {}, list = [];

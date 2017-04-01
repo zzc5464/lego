@@ -1,7 +1,7 @@
 <template>
     <div class='_stage' >
-        <div><slot></slot></div>
-        <slot name='desc' ></slot>
+        <div class='_stageheader'><slot></slot></div>
+        <slot name='desc'></slot>
     </div>
 </template>
 

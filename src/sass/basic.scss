@@ -166,10 +166,10 @@ input::-webkit-input-placeholder {
 }
 
 ._address_field {
-    resize: none;
-    overflow: hidden;
-    height: 2.5rem;
-    box-sizing: border-box;
+    // resize: none;
+    // overflow: hidden;
+    // height: 2.5rem;
+    // box-sizing: border-box;
     outline: none;
 }
 
@@ -284,28 +284,10 @@ input::-webkit-input-placeholder {
     }
     
 }
-// ._toggle:after{
-//     content: '';
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     right: auto;
-//     width: 1.421053rem;
-//     height: 1.421053rem;
-//     border-radius: 50%;
-//     border: 1.5px solid rgba(229, 229, 229, .5);
-//     background-color: $c-white;
-//     box-shadow: 0px 2px 9px $c-stonegrey;
-// }
-// ._toggle._toggle_active {
-//     background-color: $c-high;
-//     border-color: $c-high;
-// }
-// ._toggle._toggle_active:after{
-//     right: 0;
-//     left: auto;
-// }
 
+._select {
+    margin-right: -2px;
+}
 ._select_text {
-    vertical-align: 2px;
+    vertical-align: 1px;
 }

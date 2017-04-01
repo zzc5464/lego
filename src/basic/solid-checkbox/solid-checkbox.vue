@@ -1,7 +1,8 @@
 <template>
     <span  
-    :checked="isChecked" 
     class="_solid_checkbox" 
+    :id="id"
+    :checked="isChecked" 
     :style="styleObj" 
     :class="{_solid_checkbox_active: isChecked}">
     </span>
@@ -9,7 +10,7 @@
 
 <script>
     module.exports = {
-        props: ['checked', 'name', 'width', 'height'],
+        props: ['id','checked', 'name', 'width', 'height'],
         data: function() {
             var obj = {};
 

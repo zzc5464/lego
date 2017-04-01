@@ -13,6 +13,7 @@ var FController         = require('fcontroller'),
     tplTimelineView     = require('../views/tpl.timeline'),
     tplTimepointView    = require('../views/tpl.timepoint'),
     tplProtocolView     = require('../views/tpl.protocol'),
+    tplAssetheaderView     = require('../views/tpl.assetheader'),
 
     tplTableView        = require('../views/tpl.table'),
     tplDockView         = require('../views/tpl.dock'),
@@ -36,7 +37,8 @@ function AssembleController () {
         protocol    : 'protocol',
         table       : 'table',
         dock        : 'dock',
-        panel       : 'panel'
+        panel       : 'panel',
+        assetheader : 'assetheader'
     }
 
     this.VueManager = VueManager;
@@ -96,7 +98,8 @@ AssembleController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplPasswordView(data), data, '密码展示', function (app) {
-            
+                var ss = $('#pwd')[0].getAttribute('check');
+                console.log(ss);
             });
         }
 
@@ -118,32 +121,26 @@ AssembleController.prototype = new FController({
 
         show.call(this, {
             ele: {
-                    desc1: '领取信息1',
-                    desc2: '领取信息2',
-                    desc3: '领取信息3',
-                    desc4: '领取信息4'
-                },
-                ele2: {
-                    desc1: '领取信息1',
-                    desc2: '领取信息2',
-                    desc3: '领取信息3'
-                }
-        });
-    },
-    stage: function () {
-        var $ = this.$, navigate = this.navigate.bind(this);
-
-        function show (data) {
-            this.renderVUE(tplStageView(data), data, '流程进度展示', function (app) {
-                // TODO: navigate to component demo pages.
-                $('#link').tap(function(){
-                    alert('333')
-                });
-            });
-        }
-
-        show.call(this, {
-            // DATA
+                desc1: '领取信息1',
+                desc2: '领取信息2',
+                desc3: '领取信息3',
+                desc4: '领取信息4'
+            },
+            ele1: {
+                desc1: '交易密码验证',
+                desc2: '手机号码验证'
+            },
+            ele2: {
+                desc1: '领取信息1',
+                desc2: '领取信息2',
+                desc3: '领取信息3'
+            },
+            ele3: {
+                desc1: '',
+                desc2: '',
+                desc3: '',
+                desc4: ''
+            }
         });
     },
     stepwise: function () {
@@ -267,6 +264,16 @@ AssembleController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplPanelView(data), data, '文字面板', function (app) {});
+        }
+
+        show.call(this, {});
+    },
+
+    assetheader: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplAssetheaderView(data), data, '文字面板', function (app) {});
         }
 
         show.call(this, {});

@@ -1,21 +1,23 @@
 <template>
-    <div class="_assetheader">
-        <h2 name="boldtitle"></h2>
-        <h6 name="h6"></h6>
-        <h2 name="thintitle"></h2>
+    <div class="_assetheader" :class="classObj" :style="styleObj" >
+        <h3><slot name="thintitle"></slot></h3>
+        <h6><slot name="minidesc"></slot></h6>
+        <h2><slot name="boldtitle"></slot></h2>  
     </div>
 </template>
 
 <script>
     module.exports = {
-        props: [ ],
+        props: ['height' ,'oneline'],
         data: function() {
-            
+            var list = [];
+            var obj = {};
+            this.height && (obj.paddingTop = '1.052632rem');
+            this.oneline && (obj.height = '3.684211rem');
+            this.oneline && list.push('_setflex');
             return {
-                desc: this.label,
-                numerator: parseInt(this.rate),
-                denominator: parseInt(this.total)
-               
+                classObj: list,
+                styleObj: obj
             };
         },
         methods: {
