@@ -7,6 +7,10 @@
     -webkit-align-items: center;
     align-items: center;
 }
+._cell._cell_next.tapping,
+._single-cell._cell_next.tapping {
+    background-color: $c-offwhite;
+}
 ._column {
     display: -webkit-box;
     display: -webkit-flex;
@@ -39,6 +43,19 @@
     word-break: break-all;
     line-height: 1.5;
 }
+._justify-start{
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+._justify-center{
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+._justify-end{
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
 ._cell._border, ._single-cell._border {
     background-image: $img-border-btm;
     background-position: 0 100%;

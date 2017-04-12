@@ -145,18 +145,22 @@ AssembleController.prototype = new FController({
     },
     stepwise: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
+        var dataRate = 3;
+        var dataTotal = 5;
 
         function show (data) {
             this.renderVUE(tplStepwiseView(data), data, '进度展示', function (app) {
                 // TODO: navigate to component demo pages.
-                $('#link').tap(function(){
-                    alert('333')
+                $('#tick').tap(function(){
+                    dataRate++;
+                    alert(1);
                 });
             });
         }
 
         show.call(this, {
-            // DATA
+            rate: dataRate,
+            total: dataTotal
         });
     },
     timeline: function () {
@@ -212,9 +216,7 @@ AssembleController.prototype = new FController({
         function show (data) {
             this.renderVUE(tplTimepointView(data), data, '时间段', function (app) {
                 // TODO: navigate to component demo pages.
-                $('#link').tap(function(){
-                    alert('333')
-                });
+                
             });
         }
 

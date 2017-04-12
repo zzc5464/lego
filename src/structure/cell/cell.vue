@@ -1,5 +1,5 @@
 <template>
-    <div class='_cell' :class='classObj' :style='styleObj' v-on:mytap='tapped'>
+    <div class='_cell' :class='classObj' :style='styleObj' v-on:mytap='tapped' data-tappable >
         <slot></slot>
     </div>
 </template>

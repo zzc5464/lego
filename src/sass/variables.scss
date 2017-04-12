@@ -22,10 +22,16 @@ $c-coral            : #e6654c;
 
 $c-transparent      : transparent;
 
+// 渐变背景色
 $c-land-webkit      : -webkit-linear-gradient(-135deg, #5c4e27, #423620 );
 $c-land             : linear-gradient(-135deg, #5c4e27, #423620);
 
+// 白色0.9的透明
 $c-paper            : rgba(255,255,255,.9);
+
+// modal mask
+$zindex-mask: 99;
+$zindex-modal: 100;
 
 /*******
 

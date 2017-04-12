@@ -58,6 +58,9 @@ var components = [
     [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ],
     [ 'assetheader'             , require('../assemble/assetheader/assetheader.vue.js')             ],
 
+    [ 'modal'                   , require('../assemble/modal/modal.vue.js')                         ],
+    [ 'card-invest'             , require('../assemble/card-invest/card-invest.vue.js')             ],
+
     [ 'stub'                    , require('../assemble/stub/stub.vue.js')                           ],
     [ 'a-table'                 , require('../assemble/table/table.vue.js')                         ],
     [ 'text-row'                , require('../assemble/text-row/text-row.vue.js')                   ],

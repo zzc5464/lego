@@ -2,6 +2,10 @@
     background-image: none;
 }
 
+.gum.rwd .lego input {
+    margin: 0;
+}
+
 $c-high             : #d7ac62;
 $border-2x-high     : .5px solid $c-high;
 $border-3x-high     : .4px solid $c-high;

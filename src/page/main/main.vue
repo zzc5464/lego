@@ -10,7 +10,9 @@
         </div>
         <div class='_toast' :class='toastClass'>
             <div class="_toast_container">
-                {{ toastMsg }}
+                <div class="_toast_message">
+                    {{ toastMsg }}
+                </div>
             </div>
         </div>
     </div>

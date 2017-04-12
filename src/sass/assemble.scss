@@ -39,9 +39,6 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    & li{
-        float: left;
-    }
 }
 
 ._protocol {
@@ -264,4 +261,36 @@ h1,h2,h3,h4,h5,h6 {
         line-height: calRem(50);
     }
 
+    div {
+        position: relative;
+        margin: 5px 0 6px;
+
+        & ._select {
+            position: absolute;
+            bottom: -1px;
+            right: 0;
+        }
+    }
+}
+
+
+
+
+// modal
+._mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: $zindex-mask;
+}
+._madal-wrap {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left: -#{calRem(612)};
+    width: calRem(612);
+    background: $c-white ;
 }

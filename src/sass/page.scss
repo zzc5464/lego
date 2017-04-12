@@ -26,14 +26,24 @@
     // transition: opacity .5s ease-in;
 
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0,0,0,0);
+}
+._toast_container {
+    position: fixed;
     top: 50%;
     left: 0;
     right: 0;
     text-align: center;
     margin-top: -#{calRem(47)};
     height: calRem(94);
+    width: 100%;
 }
-._toast_container {
+._toast_message {
     display: inline-block;
     padding: calRem(30);
     border-radius: 5px;

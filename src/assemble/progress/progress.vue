@@ -9,7 +9,22 @@
 
 <script>
     module.exports = {
-        props: [ 'ele', 'length', 'step', 'desc'],
+        // props: [ 'ele', 'length', 'step', 'desc'],
+        props: {
+            ele: Object,
+            length: {
+                type: [String, Number],
+                default: 3
+            },
+            step: {
+                type: String,
+                default: '_p3'
+            },
+            desc: {
+                type: Boolean,
+                default: false
+            }
+        },
         data: function() {
             var list = [],
                 obj = {};

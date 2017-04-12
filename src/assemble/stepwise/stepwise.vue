@@ -6,7 +6,7 @@
             <b-text size="28" color="grey">{{desc}} {{numerator}}/{{denominator}}</b-text>
         </s-column>
         <s-column width=".789474" align="left" v-for="item in denominator">
-            <b-solid-checkbox width=".526316" height=".526316" :checked=false></b-solid-checkbox>
+            <b-solid-checkbox width=".526316" height=".526316" :checked="false" ></b-solid-checkbox>
         </s-column>
     </s-cell>
 </template>
