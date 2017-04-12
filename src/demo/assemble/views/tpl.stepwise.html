@@ -1,4 +1,36 @@
 <stepwise label='已完成 ' :rate='rate' :total='total'> 
 </stepwise>
 
-<button id="tick">点击</button>
+<card-invest :rate="0" >
+    <!--<slot name="labelname"></slot>-->
+    <span slot="title">组合1</span>
+    <span slot="labelname">高风险</span>
+    <span slot="currentrate">当前比例</span>
+    <span slot="changerate">变更比例</span>
+    <span slot="currentshare">100</span>
+</card-invest>
+
+<card-invest :rate="100">
+    <span slot="title">组合2</span>
+    <span slot="labelname">中低风险</span>
+    <span slot="currentrate">当前比例</span>
+    <span slot="changerate">变更比例</span>
+    <span slot="currentshare">0</span>
+</card-invest>
+
+<card-invest :type="true">
+    <span slot="title">组合1</span>
+    <span slot="labelname">高风险</span>
+    <span slot="currentrate">当前份额</span>
+    <span slot="changerate">当前市值</span>
+    <span slot="currentshare">1866.7183</span>
+    <span slot="currentvalue">13104.55</span>
+</card-invest>
+
+<card-invest :type="true" :nolabel="true">
+    <span slot="title">组合2</span>
+    <span slot="currentrate">当前份额</span>
+    <span slot="changerate">当前市值</span>
+    <span slot="currentshare">0</span>
+    <span slot="currentvalue">0</span>
+</card-invest>

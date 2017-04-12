@@ -1,13 +1,31 @@
 <template>
-    <div>
-        <div class="_mask" v-show="visible" @click="mask" ></div>
-        <div class="_modal-wrap">
-            <div class="_modal-content">
-                <slot></slot>
+    <div class="_card-invest">
+        <div class="_card-title" >
+            <b-solid-radio v-if="type"></b-solid-radio>
+            <b-text color="black" size="28" ><slot name="title"></slot></b-text>
+            <label v-show="!nolabel"><slot name="labelname"></slot></label>
+        </div>
+        <div class="_card-wrap">
+            <div class="_wrap-title">
+                <b-text><slot name="currentrate"></slot></b-text>
+                <i></i>
+                <b-text><slot name="changerate"></slot></b-text>
             </div>
-            <div class="_modal-footer">
-                <b-text-button size="34" color="black">去意已决</b-text-button>
-                <b-text-button size="34" color="high">在想想</b-text-button>
+            <div class="_wrap-content">
+                <b-text color="black" size="30">
+                    <slot name="currentshare"></slot>
+                    <b-text color="black" v-show="!type" size="24">%</b-text>
+                </b-text>
+
+                <b-text 
+                    color="black" 
+                    size="30" 
+                    v-if="type">
+                    <slot name="currentvalue"></slot></b-text>
+                <span v-else>
+                    <input :value="rate" />
+                    <b-text color="black" size="24"> %</b-text>
+                </span>
             </div>
         </div>
     </div>
@@ -17,7 +35,20 @@
     var events = require('../../utils/gum.vue.events');
 
     module.exports = {
-        props: [ 'length'],
+        props: {
+            type: {
+                Boolean,
+                default: false
+            },
+            rate: {
+                Number,
+                default: 0
+            },
+            nolabel: {
+                Boolean,
+                default: false
+            }
+        },
         mounted: function(){
             
         },

@@ -286,11 +286,92 @@ h1,h2,h3,h4,h5,h6 {
     background: rgba(0,0,0,0.3);
     z-index: $zindex-mask;
 }
-._madal-wrap {
+._modal-wrap {
     position: absolute;
     top: 30%;
     left: 50%;
-    margin-left: -#{calRem(612)};
+    margin-left: -#{calRem(306)};
     width: calRem(612);
     background: $c-white ;
+    border-radius: 4px;
+    z-index: $zindex-modal;
+}
+._modal-content{
+    text-align: center;
+    padding: 30px;
+
+}
+._modal-footer{
+    border-top: 1px solid $c-lightgrey;
+    height: 80px;
+}
+
+// card-invest
+._card-invest {
+    padding: 15px;
+
+}
+._card-title {
+    margin-bottom: calRem(15);
+    & ._solid_radio {
+        margin-bottom: -#{calRem(8)};
+    }
+    & label{
+        display: inline-block;
+        color: $c-white;
+        background: $c-high;
+        font-size: calRem(20);
+        padding: 2px calRem(14);
+        text-align: center;
+        border-radius: 2px;
+        margin-left: calRem(16);
+    }
+}
+._card-wrap {
+    border: 1px solid $c-stonegrey;
+    border-radius: 3px;
+    box-shadow: 1px 0 2px rgba(241,241,241,.9);
+    ._wrap-title {
+        position: relative;
+        height: calRem(64);
+        line-height: calRem(66);
+        border-bottom: 1px solid $c-stonegrey;
+        font-size: 0;
+
+        & i{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -#{calRem(17)};
+            margin-left: -0.5px;
+            display: inline-block;
+            width: 1px;
+            height: calRem(34);
+            background: $c-stonegrey;
+        } 
+    }
+    ._wrap-content {
+        font-size: 0;
+    }
+    ._wrap-title > span,
+    ._wrap-content > span
+     {
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+    }
+    ._wrap-content > span {
+        height: calRem(111);
+        line-height: calRem(111);
+        & input {
+            display: inline-block;
+            width: calRem(162);
+            height: calRem(50);
+            text-align: center;
+            color: $c-black;
+            font-size: calRem(30);
+            border: 1px solid $c-stonegrey;
+            margin-right: 2px;
+        }
+    }
 }
