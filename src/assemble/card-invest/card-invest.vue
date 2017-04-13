@@ -23,7 +23,7 @@
                     v-if="type">
                     <slot name="currentvalue"></slot></b-text>
                 <span v-else>
-                    <input :value="rate" />
+                    <input :value="rate" placeholder="请输入百分比" />
                     <b-text color="black" size="24"> %</b-text>
                 </span>
             </div>
