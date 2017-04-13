@@ -1,0 +1,793 @@
+@charset "UTF-8";
+.gum .lego {
+  /*******
+  
+  $text-color-white       : #fff;
+  $text-color-black       : #333;
+  $text-color-grey        : #666;
+  $text-color-light       : #999;
+  $text-color-high        : #d7ac62;
+  $text-color-tapped      : #e0c89d;    //点击状态
+  $text-color-green       : #58af51;    //成功
+  $text-color-blue        : #4475ac;    //失败
+  $text-color-stonegrey   : #c1c1c1;    // placeholder
+  
+  $bgcolor-white          : #fff;
+  $bgcolor-high           : #d7ac62;
+  $bgcolor-high-tapping   : #b38f47;
+  $bgcolor-lightgrey      : #c1c1c1;    //灰色按钮
+  $bgcolor-stonegrey      : #dcdcdc;    // 分割线，边框
+  $bgcolor-offwhite       : #efefef;
+  $bgcolor-cream          : #f6f6f7;    // 导航栏 #f6f6f7
+  $bgcolor-smokegray      : #e5e5e5;
+  $bgcolor-coral          : #e6654c;   //辅色 1 #e6654c
+  $bgcolor-browm          : #2e2516;   //辅色 2 #2e2516
+  
+  $bgcolor-transparent    : transparent;
+  $bgcolor-gradient-webkit: -webkit-linear-gradient(45deg, #423620, #5c4e27);
+  $bgcolor-gradient       : linear-gradient(45deg, #423620, #5c4e27);
+  $bgcolor-alpha          : rgba(255,255,255,.9);
+  
+  *******/
+}
+@font-face {
+  .gum .lego {
+    font-family: "pingan";
+    src: url("iconfont/iconfont.eot?t=1487923650635");
+    /* IE9*/
+    src: url("iconfont/iconfont.eot?t=1487923650635#iefix") format("embedded-opentype"), url("iconfont/iconfont.woff?t=1487923650635") format("woff"), url("iconfont/iconfont.ttf?t=1487923650635") format("truetype"), url("iconfont/iconfont.svg?t=1487923650635#pingan") format("svg");
+    /* iOS 4.1- */
+  }
+}
+.gum .lego .pingan, .gum .lego ._field i {
+  font-family: "pingan" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.gum .lego .i-flag:before {
+  content: "\e612";
+}
+.gum .lego .i-cross:before {
+  content: "\e60e";
+}
+.gum .lego .i-gear:before {
+  content: "\e620";
+}
+.gum .lego .i-ellipses:before {
+  content: "\e60d";
+}
+.gum .lego .i-plane:before {
+  content: "\e610";
+}
+.gum .lego .i-angle-left:before {
+  content: "\e614";
+}
+.gum .lego .i-calendar:before {
+  content: "\e600";
+}
+.gum .lego .i-share:before {
+  content: "\e606";
+}
+.gum .lego .i-check:before {
+  content: "\e607";
+}
+.gum .lego .i-lightning:before {
+  content: "\e608";
+}
+.gum .lego .i-arrow-up:before {
+  content: "\e609";
+}
+.gum .lego .i-plus:before {
+  content: "\e617";
+}
+.gum .lego .i-minus:before {
+  content: "\e618";
+}
+.gum .lego .i-clock:before {
+  content: "\e601";
+}
+.gum .lego .i-check-hand-written:before {
+  content: "\e611";
+}
+.gum .lego .i-indicator:before {
+  content: "\e613";
+}
+.gum .lego .i-bell-solid:before {
+  content: "\e60b";
+}
+.gum .lego .i-check-solid:before {
+  content: "\e60a";
+}
+.gum .lego .i-check-bold:before {
+  content: "\e602";
+}
+.gum .lego .i-bell:before {
+  content: "\e603";
+}
+.gum .lego .i-lightning-solid:before {
+  content: "\e604";
+}
+.gum .lego .i-i-hollow:before {
+  content: "\e605";
+}
+.gum .lego .i-hourglass-solid:before {
+  content: "\e60c";
+}
+.gum .lego .i-eye:before {
+  content: "\e689";
+}
+.gum .lego .i-cash-hollow:before {
+  content: "\e61b";
+}
+.gum .lego .i-check-hollow:before {
+  content: "\e61c";
+}
+.gum .lego .i-start-hollow:before {
+  content: "\e61d";
+}
+.gum .lego .i-flag-hollow:before {
+  content: "\e61e";
+}
+.gum .lego .i-angle-left-light:before {
+  content: "\e615";
+}
+.gum .lego .i-cross-light:before {
+  content: "\e616";
+}
+.gum .lego .i-angle-right-bold:before {
+  content: "\e61a";
+}
+.gum .lego .i-magnifier:before {
+  content: "\e619";
+}
+.gum .lego .i-eye-closed:before {
+  content: "\e630";
+}
+.gum .lego .i-bean:before {
+  content: "\e61f";
+}
+.gum .lego .i-plus-light:before {
+  content: "\e621";
+}
+.gum .lego .i-minus-light:before {
+  content: "\e622";
+}
+.gum .lego .i-number-zero:before {
+  content: "\e623";
+}
+.gum .lego .i-number-one:before {
+  content: "\e624";
+}
+.gum .lego .i-number-two:before {
+  content: "\e625";
+}
+.gum .lego .i-number-three:before {
+  content: "\e626";
+}
+.gum .lego .i-number-five:before {
+  content: "\e627";
+}
+.gum .lego .i-number-six:before {
+  content: "\e628";
+}
+.gum .lego .i-number-seven:before {
+  content: "\e629";
+}
+.gum .lego .i-number-nine:before {
+  content: "\e62b";
+}
+.gum .lego .i-percent:before {
+  content: "\e62c";
+}
+.gum .lego .i-point:before {
+  content: "\e62d";
+}
+.gum .lego .i-number-four:before {
+  content: "\e62f";
+}
+.gum .lego .i-number-eight:before {
+  content: "\e62a";
+}
+.gum .lego .i-warning:before {
+  content: "\e652";
+}
+.gum .lego .i-hammer:before {
+  content: "\e653";
+}
+.gum .lego .i-angle-down:before {
+  content: "\e654";
+}
+.gum .lego .i-angle-up:before {
+  content: "\e656";
+}
+.gum .lego .i-quote:before {
+  content: "\e657";
+}
+.gum .lego .i-round-cross:before, .gum .lego ._field i:before {
+  content: "\e65a";
+}
+.gum .lego ._text {
+  font-weight: normal;
+  color: #666;
+  font-size: 0.63158rem;
+}
+.gum .lego ._highlight {
+  font-weight: normal;
+  color: #d7ac62;
+  font-size: 0.63158rem;
+}
+.gum .lego ._skeleton {
+  display: inline-block;
+  padding: 4px;
+  color: #fff;
+  border-radius: 4px;
+  background-color: #d7ac62;
+  font-size: 0.63158rem;
+}
+.gum .lego ._icon {
+  color: #666;
+}
+.gum .lego ._image {
+  display: block;
+  border: none;
+}
+.gum .lego button {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+.gum .lego ._button {
+  background-color: #fff;
+  color: #d7ac62;
+  border: 1px solid #d7ac62;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+.gum .lego ._button.tapping, .gum .lego ._button.demo_tapping {
+  color: #e0c89d;
+  border-color: #e0c89d;
+}
+.gum .lego ._button:disabled {
+  color: #c1c1c1;
+  border-color: #c1c1c1;
+}
+.gum .lego ._text_button:disabled {
+  color: #999;
+}
+.gum .lego ._text_button.tapping:disabled {
+  color: #999;
+}
+.gum .lego ._rectangular_button {
+  background-color: #fff;
+  color: #d7ac62;
+  border: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+.gum .lego ._tab_button {
+  background-color: #fff;
+  color: #d7ac62;
+  border: 1px solid #d7ac62;
+  box-sizing: border-box;
+}
+.gum .lego ._tab_button_left {
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+}
+.gum .lego ._tab_button_middle {
+  border-right: none;
+}
+.gum .lego ._tab_button_right {
+  border-radius: 0 3px 3px 0;
+}
+.gum .lego .hairlines ._tab_button {
+  border: 0.5px solid #d7ac62;
+}
+@media only screen and (min-width: 412px) {
+  .gum .lego .hairlines ._tab_button {
+    border: 0.4px solid #d7ac62;
+  }
+}
+.gum .lego ._button_filled {
+  color: #fff;
+  border-color: #d7ac62;
+  background-color: #d7ac62;
+}
+.gum .lego ._button_filled.tapping, .gum .lego ._button_filled.demo_tapping {
+  color: #fff;
+  border-color: #b38f47;
+  background-color: #b38f47;
+}
+.gum .lego ._button_filled:disabled, .gum .lego ._button_filled:disabled.tapping {
+  color: #fff;
+  border-color: #dcdcdc;
+  background-color: #dcdcdc;
+}
+.gum .lego ._text_button {
+  background-color: transparent;
+  color: #d7ac62;
+  border: 0;
+  box-sizing: border-box;
+}
+.gum .lego ._text_button.tapping {
+  color: #e0c89d;
+}
+.gum .lego input, .gum .lego textarea {
+  font-size: 0.78947rem;
+  color: #333;
+  border: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+.gum .lego input::-webkit-input-placeholder {
+  color: #c1c1c1;
+}
+.gum .lego ._field {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+.gum .lego ._field i {
+  display: none;
+  font-size: 0.89474rem;
+  color: #c1c1c1;
+}
+.gum .lego .entering i {
+  display: block;
+}
+.gum .lego ._address_field {
+  resize: none;
+  overflow: hidden;
+  height: 2.5rem;
+  box-sizing: border-box;
+  outline: none;
+}
+.gum .lego ._checkbox,
+.gum .lego ._solid_checkbox {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 13px;
+  border: 1px solid #c1c1c1;
+  background-color: transparent;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.gum .lego ._checkbox._checkbox_active,
+.gum .lego ._solid_checkbox._solid_checkbox_active {
+  border-color: #d7ac62;
+  background-color: #d7ac62;
+}
+.gum .lego ._solid_radio,
+.gum .lego ._radio {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  border: 1px solid #c1c1c1;
+  border-radius: 50%;
+  background-color: transparent;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+}
+.gum .lego ._radio i,
+.gum .lego ._checkbox i {
+  font-size: 16px;
+  font-weight: bold;
+}
+.gum .lego ._solid_radio_active:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -7px;
+  margin-left: -7px;
+  width: 14px;
+  height: 14px;
+  border: none;
+  background-color: #d7ac62;
+  border-radius: 50%;
+}
+.gum .lego ._radio_active {
+  border-color: #d7ac62;
+  background-color: #d7ac62;
+}
+.gum .lego ._toggle {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 34px;
+  background-color: #efefef;
+  border: 2px solid #dcdcdc;
+  border-radius: 17px;
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.1s,border 0.1s;
+  transition: background-color 0.1s,border 0.1s;
+}
+.gum .lego ._toggle:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #efefef;
+  -webkit-transition: -webkit-transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out;
+}
+.gum .lego ._toggle:after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1px solid rgba(229, 229, 229, 0.5);
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  -webkit-transition: -webkit-transform 0.35s ease-in-out;
+  transition: transform 0.35s ease-in-out;
+}
+.gum .lego ._toggle._toggle_active {
+  background-color: #d7ac62;
+  border-color: #d7ac62;
+}
+.gum .lego ._toggle._toggle_active:before {
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+.gum .lego ._toggle._toggle_active:after {
+  -webkit-transform: translateX(20px);
+  transform: translateX(20px);
+}
+.gum .lego ._select_text {
+  vertical-align: 2px;
+}
+.gum .lego ._cell, .gum .lego ._single-cell {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.gum .lego ._column {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.gum .lego ._flex-column {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.gum .lego ._multiline {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+  word-break: break-all;
+  line-height: 1.5;
+}
+.gum .lego ._cell._border, .gum .lego ._single-cell._border {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}
+.gum .lego ._flype {
+  padding: 15px;
+  font-size: 0.63158rem;
+  color: #999;
+  background-color: #fffce8;
+  height: 37px;
+  line-height: 2;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  -webkit-transition: height 1s ease;
+  transition: height 1s ease;
+}
+.gum .lego ._flype_slid_down {
+  height: auto;
+}
+.gum .lego ._main {
+  min-height: 100.1%;
+}
+.gum .lego ._main_wrp {
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.gum .lego ._footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+.gum .lego ._main_wrp_toast {
+  width: 100%;
+  height: 100%;
+}
+.gum .lego ._toast {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin-top: -1.23684rem;
+  height: 2.47368rem;
+}
+.gum .lego ._toast_container {
+  display: inline-block;
+  padding: 0.78947rem;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+.gum .lego ._toast_fade_off {
+  display: none;
+}
+.gum .lego ._toast_fade_in {
+  display: block;
+}
+.gum .lego html, .gum .lego body, .gum .lego #wrapper {
+  height: 100%;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+.gum .lego html {
+  font-size: 16px;
+}
+@media only screen and (min-width: 360px) {
+  .gum .lego html {
+    font-size: 18px;
+  }
+}
+@media only screen and (min-width: 375px) {
+  .gum .lego html {
+    font-size: 19px;
+  }
+}
+@media only screen and (min-width: 412px) {
+  .gum .lego html {
+    font-size: 21px;
+  }
+}
+.gum .lego body {
+  font-family: PingFangSC-Regular, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+}
+.gum .lego button, .gum .lego input {
+  font-family: PingFangSC-Regular, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+.gum .lego ._font-light {
+  font-family: PingFangSC-Light, sans-serif;
+}
+.gum .lego ._font-medium {
+  font-family: PingFangSC-Medium, sans-serif;
+}
+.gum .lego ._text_color_white, .gum .lego ._toast_container {
+  color: #fff;
+}
+.gum .lego ._text_color_black {
+  color: #333;
+}
+.gum .lego ._text_color_grey {
+  color: #666;
+}
+.gum .lego ._text_color_stonegrey {
+  color: #c1c1c1;
+}
+.gum .lego ._text_color_light {
+  color: #999;
+}
+.gum .lego ._text_color_high {
+  color: #d7ac62;
+}
+.gum .lego ._text_color_tapped {
+  color: #e0c89d;
+}
+.gum .lego ._text_color_green {
+  color: #58af51;
+}
+.gum .lego ._text_color_blue {
+  color: #4475ac;
+}
+.gum .lego ._text_color_powderblue {
+  color: #50b1ab;
+}
+.gum .lego ._text_color_coral {
+  color: #e6654c;
+}
+.gum .lego ._text_color_blackblue {
+  color: #2e2516;
+}
+.gum .lego .text_color_coral {
+  color: #e6654c;
+}
+.gum .lego ._text_size_22px {
+  font-size: 0.57895rem;
+}
+.gum .lego ._text_size_24px {
+  font-size: 0.63158rem;
+}
+.gum .lego ._text_size_28px {
+  font-size: 0.73684rem;
+}
+.gum .lego ._text_size_30px {
+  font-size: 0.78947rem;
+}
+.gum .lego ._text_size_32px {
+  font-size: 0.84211rem;
+}
+.gum .lego ._text_size_34px, .gum .lego ._toast_container {
+  font-size: 0.89474rem;
+}
+.gum .lego ._text_size_36px {
+  font-size: 0.94737rem;
+}
+.gum .lego ._text_size_38px {
+  font-size: 1rem;
+}
+.gum .lego ._text_size_40px {
+  font-size: 1.05263rem;
+}
+.gum .lego ._text_size_60px {
+  font-size: 1.57895rem;
+}
+.gum .lego ._text_size_112px {
+  font-size: 2.94737rem;
+}
+.gum .lego ._text_size_120px {
+  font-size: 3.15789rem;
+}
+.gum .lego ._text_size_224px {
+  font-size: 5.89474rem;
+}
+.gum .lego ._text_size_300px {
+  font-size: 7.89474rem;
+}
+.gum .lego ._bgcolor_white {
+  background-color: #fff;
+}
+.gum .lego ._bgcolor_high {
+  background-color: #d7ac62;
+}
+.gum .lego ._bgcolor_transparent {
+  background-color: transparent;
+}
+.gum .lego ._bgcolor_lightgrey {
+  background-color: #c1c1c1;
+}
+.gum .lego ._bgcolor_stonegrey {
+  background-color: #dcdcdc;
+}
+.gum .lego ._bgcolor_cream {
+  background-color: #f6f6f7;
+}
+.gum .lego ._bgcolor_smokegray {
+  background-color: #e5e5e5;
+}
+.gum .lego ._bgcolor_offwhite {
+  background-color: #efefef;
+}
+.gum .lego ._bgcolor_gradient {
+  background: -webkit-linear-gradient(45deg, #423620, #5c4e27);
+  background: linear-gradient(45deg, #423620, #5c4e27);
+}
+.gum .lego ._bgcolor_alpha {
+  background: rgba(255, 255, 255, 0.9);
+}
+.gum .lego ._layers {
+  position: relative;
+  height: 300px;
+}
+.gum .lego ._layers_common {
+  position: absolute;
+  left: 50%;
+  width: 150px;
+  height: 200px;
+  margin-left: -75px;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 0.78947rem;
+  -webkit-transition: .5s;
+  transition: .5s;
+  border: 1px solid #dcdcdc;
+}
+.gum .lego ._layers_popout {
+  z-index: 10;
+  background-color: transparent;
+}
+.gum .lego ._layers_p_transform {
+  -webkit-transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(150px);
+  transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(150px);
+}
+.gum .lego ._layers_mask {
+  z-index: 8;
+  border-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.gum .lego ._layers_m_transform {
+  -webkit-transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(100px);
+  transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(100px);
+}
+.gum .lego ._layers_absolute {
+  z-index: 5;
+  border-color: rgba(40, 187, 102, 0.6);
+  background-color: rgba(40, 187, 102, 0.6);
+}
+.gum .lego ._layers_a_transform {
+  -webkit-transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(50px);
+  transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(50px);
+}
+.gum .lego ._layers_content {
+  border-color: #f40;
+  background-color: #f40;
+}
+.gum .lego ._layers_c_transform {
+  -webkit-transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(0px);
+  transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(0px);
+}
+.gum .lego ._success_icon {
+  width: 3.947368rem;
+  height: 3.947368rem;
+  border-radius: 50%;
+  background-color: #50b15b;
+  line-height: 4.247368rem;
+}
+.gum .lego ._failure_icon {
+  width: 3.947368rem;
+  height: 3.947368rem;
+  border-radius: 50%;
+  background-color: darkblue;
+  line-height: 4.247368rem;
+}
+
+.gum.rwd .lego button {
+  background-image: none;
+}
+
+.hairlines .lego ._button {
+  border: 0.5px solid #d7ac62;
+}
+
+@media only screen and (min-width: 412px) {
+  .hairlines .lego ._button {
+    border: 0.4px solid #d7ac62;
+  }
+}
+
+/*# sourceMappingURL=gum-lego.css.map */

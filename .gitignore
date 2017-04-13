@@ -6,8 +6,10 @@ basic.js
 index.js
 .sass-cache/
 lego.css
+!dist/css/lego.css
 lego.css.map
 gum-lego.css
+!dist/css/gum-lego.css
 gum-lego.css.map
 package.json
 webroot/css/iconfont
@@ -17,3 +19,4 @@ docs/*
 !docs/docs.json
 !docs/jquery.min.js
 lego.js
+!dist/js/lego.js
