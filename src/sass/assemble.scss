@@ -308,7 +308,7 @@ h1,h2,h3,h4,h5,h6 {
 
 // card-invest
 ._card-invest {
-    padding: 15px;
+    padding: 15px 15px 0;
 
 }
 ._card-title {
@@ -327,10 +327,14 @@ h1,h2,h3,h4,h5,h6 {
         margin-left: calRem(16);
     }
 }
-._card-wrap {
+._card-wrap,
+._card-group {
     border: 1px solid $c-stonegrey;
     border-radius: 3px;
-    box-shadow: 1px 0 2px rgba(241,241,241,.9);
+    box-shadow: 1px 1px 2px rgba(241,241,241,.9);
+}
+._card-wrap {
+    
     ._wrap-title {
         position: relative;
         height: calRem(64);
@@ -372,6 +376,38 @@ h1,h2,h3,h4,h5,h6 {
             font-size: calRem(30);
             border: 1px solid $c-stonegrey;
             margin-right: 2px;
+        }
+    }
+
+}
+
+._card-group {
+    padding: calRem(18);
+    background: $c-white;
+    &._active {
+        background: $c-cream;
+    }
+    & p{
+        font-size: calRem(24);
+        color: $c-grey;
+        margin: 0;
+        padding: 0;
+    }
+    & ._card-amount {
+        position: relative;
+        padding: calRem(16) 0 calRem(20);
+
+        & span {
+            display: inline-block;
+            width: calRem(210);
+            color: $c-black;
+            font-size: calRem(30);
+            text-align: center;
+        }
+        & i{
+            position: absolute;
+            top: calRem(30);
+            right: calRem(10);
         }
     }
 }

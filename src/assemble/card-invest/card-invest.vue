@@ -1,6 +1,6 @@
 <template>
-    <div class="_card-invest">
-        <div class="_card-title" >
+    <div class="_card-invest" v-if="card==1">
+        <div class="_card-title">
             <b-solid-radio v-if="type"></b-solid-radio>
             <b-text color="black" size="28" ><slot name="title"></slot></b-text>
             <label v-show="!nolabel"><slot name="labelname"></slot></label>
@@ -29,6 +29,17 @@
             </div>
         </div>
     </div>
+    <div class="_card-invest" v-else-if="card==2">
+        <div class="_card-group" :class="classObj">
+            <p><slot name="title"></slot></P>
+            <div class="_card-amount">
+                <slot name="company"></slot>
+                <slot name="private"></slot>
+                <slot name="netvalue"></slot>
+                <b-icon name="angle-right-bold" color="light" size="28">
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -47,15 +58,25 @@
             nolabel: {
                 Boolean,
                 default: false
+            },
+            card: {
+                String,
+                default: "1"
+            },
+            active: {
+                Boolean,
+                default: false
             }
         },
         mounted: function(){
             
         },
         data: function() {
+            var list = [];
+            this.active && list.push('_active');
             
             return {
-                num: this.length
+                classObj: list
             };
         },
         methods: {

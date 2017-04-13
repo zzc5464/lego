@@ -34,3 +34,38 @@
     <span slot="currentshare">0</span>
     <span slot="currentvalue">0</span>
 </card-invest>
+
+<s-cell height="2.789474" border="true" bgcolor="white" >
+    <s-flex-column>
+    </s-flex-column>
+    <s-column width="5.5263" align="center">
+        <b-text size="30" color="grey">公司账户</b-text>
+    </s-column>
+    <s-column width="5.5263" align="center">
+        <b-text size="30" color="grey">个人账户</b-text>
+    </s-column>
+    <s-column width="5.5263" align="center">
+        <b-text size="30" color="grey">单位净值</b-text>
+    </s-column>
+    <s-flex-column>
+    </s-flex-column>
+</s-cell>
+<card-invest :active="true" :type="true" :nolabel="true" :card="2">
+    <span slot="title">组合1</span>
+    <span slot="company">0</span>
+    <span slot="private">13104.55</span>
+    <span slot="netvalue">7.0201</span>
+</card-invest>
+<card-invest :type="true" :nolabel="true" :card="2">
+    <span slot="title">组合2</span>
+    <span slot="company">9189.97</span>
+    <span slot="private">0</span>
+    <span slot="netvalue">3.9699</span>
+</card-invest>
+<card-invest :type="true" :nolabel="true" :card="2">
+    <span slot="title">组合3</span>
+    <span slot="company">0</span>
+    <span slot="private">0</span>
+    <span slot="netvalue">2.2515</span>
+</card-invest>
+<br><br><br><br><br><br><br>
