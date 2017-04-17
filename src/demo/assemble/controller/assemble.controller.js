@@ -8,12 +8,10 @@ var FController         = require('fcontroller'),
     tplHammertipsView   = require('../views/tpl.hammertips'),
     tplPasswordView     = require('../views/tpl.password'),
     tplStagesView       = require('../views/tpl.stages'),
-    tplStageView        = require('../views/tpl.stage'),
     tplStepwiseView     = require('../views/tpl.stepwise'),
     tplTimelineView     = require('../views/tpl.timeline'),
-    tplTimepointView    = require('../views/tpl.timepoint'),
     tplProtocolView     = require('../views/tpl.protocol'),
-    tplAssetheaderView     = require('../views/tpl.assetheader'),
+    tplAssetheaderView  = require('../views/tpl.assetheader'),
 
     tplTableView        = require('../views/tpl.table'),
     tplDockView         = require('../views/tpl.dock'),
@@ -30,10 +28,8 @@ function AssembleController () {
         hammertips  : 'hammertips',
         password    : 'password',
         stages      : 'stages',
-        stage       : 'stage',
         stepwise    : 'stepwise',
         timeline    : 'timeline',
-        timepoint   : 'timepoint',
         protocol    : 'protocol',
         table       : 'table',
         dock        : 'dock',
@@ -177,67 +173,18 @@ AssembleController.prototype = new FController({
             total: dataTotal
         });
     },
+
     timeline: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
             this.renderVUE(tplTimelineView(data), data, '时间段', function (app) {
-                // TODO: navigate to component demo pages.
-                $('#link').tap(function(){
-                    alert('333')
-                });
             });
         }
 
-        show.call(this, {
-           ele: [
-                {
-                    time: '2016-04-19',
-                    desc: '提交申购'
-                },
-                {
-                    time: '2016-04-20',
-                    desc: '审核成功'
-                },
-                {
-                    time: '2016-04-21',
-                    desc: '等待结果'
-                },
-                {
-                    time: '2016-04-22',
-                    desc: '等待收益'
-                }
-            ],
-            ele2: [
-                {
-                    time: '2016-04-19',
-                    desc: '提交申购'
-                },
-                {
-                    time: '2016-04-20',
-                    desc: '审核成功'
-                },
-                {
-                    time: '2016-04-21',
-                    desc: '等待结果'
-                }
-            ]
-        });
+        show.call(this, {});
     },
-    timepoint: function () {
-        var $ = this.$, navigate = this.navigate.bind(this);
 
-        function show (data) {
-            this.renderVUE(tplTimepointView(data), data, '时间段', function (app) {
-                // TODO: navigate to component demo pages.
-                
-            });
-        }
-
-        show.call(this, {
-            // DATA
-        });
-    },
     protocol: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 

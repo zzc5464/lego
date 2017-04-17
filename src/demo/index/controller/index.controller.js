@@ -41,7 +41,7 @@ IndexController.prototype = new FController({
                 $('#a-protocol').tap(function(){
                     navigate('demo/assemble/protocol');
                 });
-                $('#a-progress').tap(function(){
+                $('#a-stages').tap(function(){
                     navigate('demo/assemble/stages');
                 });
                 $('#a-password').tap(function(){
