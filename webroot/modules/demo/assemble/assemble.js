@@ -47,15 +47,11 @@ AssembleController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplFlypeView(data), data, '可折叠信息', function (app) {
-                // TODO: navigate to component demo pages.
-                $('#back').tap(function(){
-                    window.back();
-                });
             });
         }
 
         show.call(this, {
-            // DATA
+            folded: true
         });
     },
     notetips: function () {
@@ -97,7 +93,7 @@ AssembleController.prototype = new FController({
             this.renderVUE(tplPasswordView(data), data, '密码展示', function (app) {
             });
         }
-        
+
         show.call(this, {});
     },
     stages: function () {
