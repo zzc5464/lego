@@ -94,14 +94,10 @@ AssembleController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplPasswordView(data), data, '密码展示', function (app) {
-                var ss = $('#pwd')[0].getAttribute('check');
-                console.log(ss);
             });
         }
-
-        show.call(this, {
-            len: 2
-        });
+        
+        show.call(this, {});
     },
     stages: function () {
         var $ = this.$, navigate = this.navigate.bind(this);

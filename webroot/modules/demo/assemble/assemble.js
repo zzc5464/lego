@@ -95,14 +95,10 @@ AssembleController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplPasswordView(data), data, '密码展示', function (app) {
-                var ss = $('#pwd')[0].getAttribute('check');
-                console.log(ss);
             });
         }
-
-        show.call(this, {
-            len: 2
-        });
+        
+        show.call(this, {});
     },
     stages: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
@@ -264,8 +260,8 @@ var template=require("../../../template");module.exports=template("demo/assemble
 /*TMODJS:{"version":1,"md5":"c5973c20a038c2be255c14dd7d0acee4"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.panel","<p-main bgcolor='offwhite'> <stub></stub> <panel edit='false' bgcolor='white' border='false'> <a-title id='save' label='\u8054\u7cfb\u65b9\u5f0f'>\u4fdd\u5b58</a-title> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\u8bc1\u4ef6\u7c7b\u578b'>21234567989456462</text-row> <text-row label='\u51fa\u751f\u65e5\u671f'>1995-02-05</text-row> <text-row label='\u6027\u522b'>\u7537</text-row> <text-field-row label='\u6027\u522b' placeholder='\u8bf7\u8f93\u5165'>\u7537</text-field-row> </panel> </p-main>");
 },{"../../../template":14}],8:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"335a8d974fa6bef40ce18288ec7b1015"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.password","<password :length='len' ></password> ");
+/*TMODJS:{"version":1,"md5":"bee0d266358f53004502dc653e8e18aa"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.password",'<password length="3"></password>');
 },{"../../../template":14}],9:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"b9a391e2d8b601d4cd2136ce3676a81a"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.protocol",'<protocol checked=\'true\'> <b-text size="24" color="light">\u6211\u5df2\u9605\u8bfb\u5e76\u540c\u610f</b-text> <b-highlight id="link" size="24">\u300a\u5e73\u5b89\u76f4\u901a\u94f6\u884c\u8d26\u6237\u670d\u52a1\u534f\u8bae\u300b</b-highlight> <b-highlight id="link" size="24">\u300a\u5e73\u5b89\u76f4\u901a\u94f6\u884c\u8d26\u6237\u670d\u52a1\u534f\u8bae\u300b</b-highlight> <b-text size="24" color="light">\u6211\u5df2\u9605\u8bfb\u5e76\u540c\u610f</b-text> </protocol>');

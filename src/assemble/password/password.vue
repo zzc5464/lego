@@ -1,38 +1,23 @@
 <template>
-    <ul class='_pwd' id='pwd' v-on:mytap='tapped' >
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+    <ul class='_pwd' v-html='html'></ul>
 </template>
 
 <script>
-    var events = require('../../utils/gum.vue.events');
-
     module.exports = {
-        props: [ 'length'],
-        mounted: function(){
-            
-        },
-        data: function() {
-            
+        props   : [ 'length'],
+        data    : function() {
             return {
-                num: this.length
+                html: createHtml(parseInt(this.length))
             };
-        },
-        methods: {
-            tapped: function(){
-                console.log(this.num);
-                var children = document.querySelectorAll('li');
-                (parseInt(this.num) > children.length) &&  (this.num = 6);
-                (parseInt(this.num) < 0) &&  (this.num = 0);
-                for(i=0;i<=(this.num-1);i++){
-                    children[i].innerHTML = '&#9679;';
+
+            function createHtml (length) {
+                var html = '';
+
+                for (var i=0; i<6; i++) {
+                    html += i < length ? '<li>&#9679;</li>' : '<li></li>';
                 }
-               
+
+                return html;
             }
         }
     }
