@@ -42,7 +42,7 @@ IndexController.prototype = new FController({
                     navigate('demo/assemble/protocol');
                 });
                 $('#a-progress').tap(function(){
-                    navigate('demo/assemble/progress');
+                    navigate('demo/assemble/stages');
                 });
                 $('#a-password').tap(function(){
                     navigate('demo/assemble/password');

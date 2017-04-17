@@ -49,7 +49,6 @@ var components = [
     [ 'flype'                   , require('../assemble/flype/flype.vue.js')                         ],
     [ 'notetips'                , require('../assemble/notetips/notetips.vue.js')                   ],
     [ 'hammertips'              , require('../assemble/hammertips/hammertips.vue.js')               ],
-    [ 'a-progress'              , require('../assemble/progress/progress.vue.js')                   ],
     [ 'stages'                  , require('../assemble/stages/stages.vue.js')                       ],
     [ 'stage'                   , require('../assemble/stage/stage.vue.js')                         ],
     [ 'stepwise'                , require('../assemble/stepwise/stepwise.vue.js')                   ],
@@ -59,7 +58,6 @@ var components = [
     [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ],
     [ 'assetheader'             , require('../assemble/assetheader/assetheader.vue.js')             ],
 
-    [ 'modal'                   , require('../assemble/modal/modal.vue.js')                         ],
     [ 'card-invest'             , require('../assemble/card-invest/card-invest.vue.js')             ],
 
     [ 'stub'                    , require('../assemble/stub/stub.vue.js')                           ],
