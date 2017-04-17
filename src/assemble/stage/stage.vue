@@ -1,18 +1,13 @@
 <template>
-    <div class='_stage' >
-        <div class='_stageheader'><slot></slot></div>
-        <slot name='desc'></slot>
+    <div class='_stage'>
+        <div class='_stageheader'>{{ number }}</div>
+        <span class='_text'><slot></slot></span>
     </div>
 </template>
 
 <script>
     module.exports = {
-        props: [],
-        data: function() {
-            
-            return {
-                
-            };
-        }
+        props : [ 'number' ],
+        data  : function() { return {}; }
     }
 </script>

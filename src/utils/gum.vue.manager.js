@@ -50,6 +50,7 @@ var components = [
     [ 'notetips'                , require('../assemble/notetips/notetips.vue.js')                   ],
     [ 'hammertips'              , require('../assemble/hammertips/hammertips.vue.js')               ],
     [ 'a-progress'              , require('../assemble/progress/progress.vue.js')                   ],
+    [ 'stages'                  , require('../assemble/stages/stages.vue.js')                       ],
     [ 'stage'                   , require('../assemble/stage/stage.vue.js')                         ],
     [ 'stepwise'                , require('../assemble/stepwise/stepwise.vue.js')                   ],
     [ 'timeline'                , require('../assemble/timeline/timeline.vue.js')                   ],

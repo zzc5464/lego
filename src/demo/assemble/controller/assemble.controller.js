@@ -8,6 +8,7 @@ var FController         = require('fcontroller'),
     tplHammertipsView   = require('../views/tpl.hammertips'),
     tplPasswordView     = require('../views/tpl.password'),
     tplProgressView     = require('../views/tpl.progress'),
+    tplStagesView        = require('../views/tpl.stages'),
     tplStageView        = require('../views/tpl.stage'),
     tplStepwiseView     = require('../views/tpl.stepwise'),
     tplTimelineView     = require('../views/tpl.timeline'),
@@ -29,6 +30,7 @@ function AssembleController () {
         notetips    : 'notetips',
         hammertips  : 'hammertips',
         password    : 'password',
+        stages    : 'stages',
         progress    : 'progress',
         stage       : 'stage',
         stepwise    : 'stepwise',
@@ -106,6 +108,20 @@ AssembleController.prototype = new FController({
         show.call(this, {
             len: 2
         });
+    },
+    stages: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplStagesView(data), data, '流程进度展示', function (app) {
+                // TODO: navigate to component demo pages.
+                $('#link').tap(function(){
+                    alert('333')
+                });
+            });
+        }
+
+        show.call(this, {});
     },
     progress: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
