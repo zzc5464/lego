@@ -8,7 +8,6 @@ var FController     = require('fcontroller'),
     tplIconView   = require('../views/tpl.icon'),
     tplImageView   = require('../views/tpl.image'),
     tplListView   = require('../views/tpl.list'),
-    tplFoldingView   = require('../views/tpl.folding'),
     tplUploadingView   = require('../views/tpl.uploading');
 
 function BasicController () {
@@ -23,7 +22,6 @@ function BasicController () {
         'icon' : 'icon',
         'image' : 'image',
         'list' : 'list',
-        'folding' : 'folding',
         'uploading': 'uploading'
     }
     this.VueManager = VueManager;
@@ -119,22 +117,6 @@ BasicController.prototype = new FController({
 
         function show (data) {
             this.renderVUE(tplListView(data), data, '购买成功', function (app) {
-                // TODO: navigate to component demo pages.
-                $('#back').tap(function(){
-                    window.back();
-                });
-            });
-        }
-
-        show.call(this, {
-            // DATA
-        });
-    },
-    folding: function () {
-        var $ = this.$, navigate = this.navigate.bind(this);
-
-        function show (data) {
-            this.renderVUE(tplFoldingView(data), data, '购买成功', function (app) {
                 // TODO: navigate to component demo pages.
                 $('#back').tap(function(){
                     window.back();

@@ -15778,7 +15778,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_notetips\" v-show=\"showTips\">\n    <b-text><slot></slot></b-text>\n    <b-icon color=\"coral\" size=\"30\" name=\"cross\" v-on:tapped=\"close\" v-show=\"showCloseIcon\"></b-icon>    \n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_notetips\" v-show=\"showTips\">\n    <b-text size=\"22\"><slot></slot></b-text>\n    <b-icon color=\"coral\" size=\"30\" name=\"cross\" v-on:tapped=\"close\" v-show=\"showCloseIcon\"></b-icon>    \n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

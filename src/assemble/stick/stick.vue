@@ -1,6 +1,6 @@
 <template>
     <div class='_notetips' v-show='showTips'>
-        <b-text><slot></slot></b-text>
+        <b-text size='22'><slot></slot></b-text>
         <b-icon color='coral' size='30' name='cross' v-on:tapped='close' v-show='showCloseIcon'></b-icon>    
     </div>
 </template>
