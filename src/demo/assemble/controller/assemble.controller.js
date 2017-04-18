@@ -124,7 +124,7 @@ AssembleController.prototype = new FController({
 
         this.renderVUE(tpl(data), data, title, function () {
             
-            if (navigator.userAgent.indexOf('micromessenger') > -1) {
+            if (navigator.userAgent.toLowerCase().indexOf('micromessenger') > -1) {
                 updatePageTitleIniOS(title);
             }
 
