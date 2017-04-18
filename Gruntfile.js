@@ -169,6 +169,10 @@ module.exports = function(grunt) {
                     {
                         src: "./dist/css/lego.css",
                         dest: "./webroot/css/lego.css"
+                    },
+                    {
+                        src: "./dist/js/lego.js",
+                        dest: "./webroot/js/lego.js"
                     }
                 ]
             },
