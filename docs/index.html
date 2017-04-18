@@ -100,9 +100,10 @@
                 $('#aside li').removeClass('active');
                 $(this).addClass('active');
 
-                $("#introduce").fadeToggle('fast',function (){
-                    $("#introduce").fadeToggle('normal');
-                });
+                $("#introduce:visible").fadeOut(0);
+                setTimeout(function(){
+                    $("#introduce").fadeIn(800);
+                },0);
             });
 
         });

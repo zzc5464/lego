@@ -164,9 +164,49 @@
         },
 
         {
-            "name"      : "组合元素 <c-*/>",
+            "name"      : "组合元素",
             "isFolder"  : true,
-            "children"  : []
+            "children"  : [{
+                "name"      : "<dock/> 按钮",
+                "isFolder"  : false,
+                "link"      : "./assemble/dock/dock.md.html"
+            }, {
+                "name"      : "<a-button/> 按钮节点",
+                "isFolder"  : false,
+                "link"      : "./assemble/button/button.md.html"
+            }, {
+                "name"      : "<stub/> 空行",
+                "isFolder"  : false,
+                "link"      : "./assemble/stub/stub.md.html"
+            }, {
+                "name"      : "<a-table/> 表格",
+                "isFolder"  : false,
+                "link"      : "./assemble/table/table.md.html"
+            }, {
+                "name"      : "<text-row/> 纯文本行",
+                "isFolder"  : false,
+                "link"      : "./assemble/text-row/text-row.md.html"
+            }, {
+                "name"      : "<select-row/> 文本链接行",
+                "isFolder"  : false,
+                "link"      : "./assemble/select-row/select-row.md.html"
+            }, {
+                "name"      : "<text-field-row/> 文本输入行",
+                "isFolder"  : false,
+                "link"      : "./assemble/text-field-row/text-field-row.md.html"
+            }, {
+                "name"      : "<tel-field-row/> 手机输入行",
+                "isFolder"  : false,
+                "link"      : "./assemble/tel-field-row/tel-field-row.md.html"
+            }, {
+                "name"      : "<id-field-row/> 身份证输入行",
+                "isFolder"  : false,
+                "link"      : "./assemble/id-field-row/id-field-row.md.html"
+            }, {
+                "name"      : "<otp-field-row/> 短信验证码",
+                "isFolder"  : false,
+                "link"      : "./assemble/otp-field-row/otp-field-row.md.html"
+            }]
         },
 
         {
