@@ -11,7 +11,6 @@
         <b-text size='21' color='high'>{{ header }}</b-text>
         <div>
             <b-text size='36' color='white'><slot></slot></b-text>
-            <b-select size='24' color='high'>{{ link }}</b-select>
         </div>
         <b-text size='22' color='high'>{{ footer }}</b-text>
     </div>
@@ -19,7 +18,7 @@
         <b-text size='21' color='high'>{{ header }}</b-text>
         <div>
             <b-text size='36' color='white'><slot></slot></b-text>
-            <b-select size='24' color='high'>{{ link }}</b-select>
+            <b-select :id='linkId' size='24' color='high'>{{ link }}</b-select>
         </div>
         <b-text size='22' color='high'>{{ footer }}</b-text>
     </div>
@@ -42,32 +41,48 @@
             link: {
                 type: String,
                 default: ''
+            },
+
+            linkId: {
+                type: String,
+                default: ''
             }
         },
         data: function() {
-            var obj = {};
+            var obj = {}, list = [], t = 0;
 
             if (this.header === '' && this.footer === '') {
                 obj.height = '3.684211rem';
                 list.push('_setflex');
+                t = 0;
             }
 
             if (this.header !== '' && this.footer === '') {
                 obj.paddingTop = '1.052632rem';
+                t = 1;
             }
 
             if (this.header === '' && this.footer !== '') {
-
+                t = 0;
             }
 
-            var list = [];
-            var obj = {};
-            this.height && (obj.paddingTop = '1.052632rem');
-            this.oneline && (obj.height = '3.684211rem');
-            this.oneline && list.push('_setflex');
+            if (this.header !== '' && this.footer !== '' && this.link === '') {
+                t = 2;
+            }
+
+            if (this.header !== '' && this.footer !== '' && this.link !== '') {
+                t = 3;
+            }
+
+            // var list = [];
+            // var obj = {};
+            // this.height && (obj.paddingTop = '1.052632rem');
+            // this.oneline && (obj.height = '3.684211rem');
+            // this.oneline && list.push('_setflex');
             return {
                 classObj: list,
-                styleObj: obj
+                styleObj: obj,
+                type: t
             };
         },
         methods: {

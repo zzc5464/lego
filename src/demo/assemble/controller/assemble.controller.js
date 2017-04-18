@@ -11,7 +11,7 @@ var FController         = require('fcontroller'),
     tplStepwiseView     = require('../views/tpl.stepwise'),
     tplTimelineView     = require('../views/tpl.timeline'),
     tplProtocolView     = require('../views/tpl.protocol'),
-    tplAssetheaderView  = require('../views/tpl.assetheader'),
+    tplLeadView         = require('../views/tpl.lead'),
 
     tplTableView        = require('../views/tpl.table'),
     tplDockView         = require('../views/tpl.dock'),
@@ -34,7 +34,7 @@ function AssembleController () {
         table       : 'table',
         dock        : 'dock',
         panel       : 'panel',
-        assetheader : 'assetheader'
+        lead        : 'lead'
     }
 
     this.VueManager = VueManager;
@@ -224,11 +224,11 @@ AssembleController.prototype = new FController({
         show.call(this, {});
     },
 
-    assetheader: function () {
+    lead: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplAssetheaderView(data), data, '文字面板', function (app) {});
+            this.renderVUE(tplLeadView(data), data, '头条', function (app) {});
         }
 
         show.call(this, {});

@@ -12,7 +12,7 @@ var FController         = require('fcontroller'),
     tplStepwiseView     = require('../views/tpl.stepwise'),
     tplTimelineView     = require('../views/tpl.timeline'),
     tplProtocolView     = require('../views/tpl.protocol'),
-    tplAssetheaderView  = require('../views/tpl.assetheader'),
+    tplLeadView         = require('../views/tpl.lead'),
 
     tplTableView        = require('../views/tpl.table'),
     tplDockView         = require('../views/tpl.dock'),
@@ -35,7 +35,7 @@ function AssembleController () {
         table       : 'table',
         dock        : 'dock',
         panel       : 'panel',
-        assetheader : 'assetheader'
+        lead        : 'lead'
     }
 
     this.VueManager = VueManager;
@@ -225,11 +225,11 @@ AssembleController.prototype = new FController({
         show.call(this, {});
     },
 
-    assetheader: function () {
+    lead: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplAssetheaderView(data), data, '文字面板', function (app) {});
+            this.renderVUE(tplLeadView(data), data, '头条', function (app) {});
         }
 
         show.call(this, {});
@@ -237,18 +237,18 @@ AssembleController.prototype = new FController({
 });
 
 (new AssembleController()).initController({});
-},{"../views/tpl.assetheader":2,"../views/tpl.dock":3,"../views/tpl.flype":4,"../views/tpl.hammertips":5,"../views/tpl.notetips":6,"../views/tpl.panel":7,"../views/tpl.password":8,"../views/tpl.protocol":9,"../views/tpl.stages":10,"../views/tpl.stepwise":11,"../views/tpl.table":12,"../views/tpl.timeline":13,"fcontroller":"fcontroller","lego":"lego"}],2:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"932d0a057688ecf15f7fd1cf771ae257"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.assetheader",'<s-cell height="1" bgcolor="white" > </s-cell> <assetheader > <span slot="thintitle">\u4ea4\u6613\u6210\u529f</span> <span slot="minidesc">\u7533\u8d2d\u6210\u529f </span> </assetheader> <s-cell height="1" bgcolor="white" > </s-cell> <assetheader :oneline=\'true\' > <span slot="thintitle">\u652f\u4ed8\u4e2d</span> </assetheader> <s-cell height="1" bgcolor="white" > </s-cell> <assetheader height=\'true\'> <span slot="minidesc">\u6301\u6709\u8d44\u4ea7 </span> <span slot="boldtitle">1110.00</span> </assetheader> <s-cell height="1" bgcolor="white" > </s-cell> <assetheader height=\'true\' :type=\'true\' > <span slot="ge-title">GE***\u9879\u76ee</span> <span slot="ge-name">\u674e\u4e50\u4e50</span> <span slot="ge-select">\u8ba1\u5212\u8be6\u60c5</span> <span slot="ge-time">\u8ba1\u5212\u521b\u5efa\u65f6\u95f4\uff1a2005-07-01</span> </assetheader>');
-},{"../../../template":14}],3:[function(require,module,exports){
+},{"../views/tpl.dock":2,"../views/tpl.flype":3,"../views/tpl.hammertips":4,"../views/tpl.lead":5,"../views/tpl.notetips":6,"../views/tpl.panel":7,"../views/tpl.password":8,"../views/tpl.protocol":9,"../views/tpl.stages":10,"../views/tpl.stepwise":11,"../views/tpl.table":12,"../views/tpl.timeline":13,"fcontroller":"fcontroller","lego":"lego"}],2:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"f6bd7d3df8cc4fba7e95d3880a7afeb2"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.dock","<p-main bgcolor='offwhite'> <stub></stub> <dock filled='true' bgcolor='white'> <a-button id='button1'>\u786e\u5b9a</a-button> </dock> <stub></stub> <dock filled='false' bgcolor='white'> <a-button id='button2'>\u786e\u5b9a</a-button> </dock> <stub></stub> <dock bgcolor='white'> <a-button id='cancel'>\u53d6\u6d88</a-button> <a-button id='ok'>\u786e\u5b9a</a-button> </dock> </p-main> <p-footer> <dock bgcolor='white'> <a-button id='f-cancel'>\u53d6\u6d88</a-button> <a-button id='f-ok'>\u786e\u5b9a</a-button> </dock> </p-footer>");
-},{"../../../template":14}],4:[function(require,module,exports){
+},{"../../../template":14}],3:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"91e9d1f7c054a38b4651e28701224092"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.flype",'<flype folded="true"> <b-text>\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002<br> \u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002<br>\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002<br>\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002<br>\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002 </b-text> </flype>');
-},{"../../../template":14}],5:[function(require,module,exports){
+},{"../../../template":14}],4:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"d03ccc922e05137d85f710fbd4ac1d15"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.hammertips","<hammertips> <b-text color='lightgrey' size='24' >\u60a8\u53ef\u5728<b-text color='coral'>2017-09-10 15:00</b-text> \u524d\u5728\u8d44\u4ea7\u660e\u7ec6\u4e2d\u9884\u7ea6\u8d4e\u56de\u8be5\u4ea7\u54c1</b-text> </hammertips>");
+},{"../../../template":14}],5:[function(require,module,exports){
+/*TMODJS:{"version":1,"md5":"047d4bdf48a5ca30bc180d07a16e375c"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.lead",'<s-cell height="1" bgcolor="white"></s-cell> <lead footer="\u7533\u8d2d\u6210\u529f"> \u4ea4\u6613\u6210\u529f </lead> <s-cell height="1" bgcolor="white"></s-cell> <lead>\u652f\u4ed8\u4e2d</lead> <s-cell height="1" bgcolor="white"></s-cell> <lead header="\u6301\u6709\u8d44\u4ea7"> 1110.00 </lead> <s-cell height="1" bgcolor="white"></s-cell> <lead header="GE***\u9879\u76ee" footer="\u8ba1\u5212\u521b\u5efa\u65f6\u95f4\uff1a2005-07-01"> \u674e\u4e50\u4e50 </lead> <s-cell height="1" bgcolor="white"></s-cell> <lead header="GE***\u9879\u76ee" footer="\u8ba1\u5212\u521b\u5efa\u65f6\u95f4\uff1a2005-07-01" link="\u8ba1\u5212\u8be6\u60c5" link-id="detail-btn"> \u674e\u4e50\u4e50 </lead> <s-cell height="1" bgcolor="white"></s-cell>');
 },{"../../../template":14}],6:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"4a5a81aa0b20848662a2921d6d763f62"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.notetips","<notetips cross='true'> <b-text>\u4ea7\u54c1\u8fc7\u5f80\u4e1a\u7ee9\u4ec5\u4f9b\u53c2\u8003\uff0c\u4e0d\u4ee3\u8868\u7ba1\u7406\u4eba\u5bf9\u672a\u6765\u6536\u76ca\u7684\u627f\u8bfa</b-text> </notetips> <s-cell height='2' bgcolor=\"offwhite\" > </s-cell> <notetips> <b-text>\u4ea7\u54c1\u8fc7\u5f80\u4e1a\u7ee9\u4ec5\u4f9b\u53c2\u8003\uff0c\u4e0d\u4ee3\u8868\u7ba1\u7406\u4eba\u5bf9\u672a\u6765\u6536\u76ca\u7684\u627f\u8bfa</b-text> </notetips>");

@@ -1,5 +1,5 @@
 <template>
-    <span class='_select' v-on:mytap = 'tapped'>
+    <span :id='identity' class='_select'>
         <b-text :style="styleObj" class="_select_text" :class="classObj" ><slot></slot></b-text>
         <b-icon name="angle-right-bold" color="light" size="28"></b-icon>
     </span>
@@ -7,7 +7,7 @@
 
 <script>
     module.exports = {
-        props: ['size', 'color'],
+        props: ['id', 'size', 'color'],
         data: function() {
             var list = [], obj = {};
 
@@ -17,15 +17,12 @@
             this.color
             && list.push('_text_color_' + this.color);
 
+
             return {
                 classObj: list,
-                styleObj: obj
+                styleObj: obj,
+                identity: this.id ? this.id : undefined
             };
-        },
-        methods: {
-            tapped: function(){
-                // console.log('please !!!')
-            }
         }
     }
 </script>

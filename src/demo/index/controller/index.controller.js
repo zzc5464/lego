@@ -53,8 +53,8 @@ IndexController.prototype = new FController({
                 $('#a-timeline').tap(function(){
                     navigate('demo/assemble/timeline');
                 });
-                $('#a-assetheader').tap(function(){
-                    navigate('demo/assemble/assetheader');
+                $('#a-lead').tap(function(){
+                    navigate('demo/assemble/lead');
                 });
 
                 $('#text').tap(function(){
