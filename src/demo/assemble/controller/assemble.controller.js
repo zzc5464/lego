@@ -40,6 +40,32 @@ function AssembleController () {
     this.VueManager = VueManager;
 }
 
+function updatePageTitleIniOS (title) {
+    document.title = title;
+
+	//iframe 加载后的回调函数
+	function unloadHandler() {
+		ifrm.removeEventListener('load', unloadHandler, false);
+		setTimeout(function(){
+			document.body.removeChild(ifrm);
+		}, 100);
+	};
+	
+	//创建 iframe
+	var ifrm = document.createElement('iframe');
+	//iframe 指向图标文件
+	//ifrm.src = '/favicon.ico';
+	ifrm.src = 'assets/images/logo.png';
+	ifrm.style.position = 'absolute';
+	ifrm.style.top = '-1000px';
+	
+	//绑定回调函数
+	ifrm.addEventListener('load', unloadHandler, false);
+	
+	//添加 iframe 至文档中
+	document.body.appendChild(ifrm);
+}
+
 AssembleController.prototype = new FController({
 
     flype: function () {
@@ -97,6 +123,11 @@ AssembleController.prototype = new FController({
         callback = callback || function () {};
 
         this.renderVUE(tpl(data), data, title, function () {
+            
+            if (navigator.userAgent.indexOf('micromessenger') > -1) {
+                updatePageTitleIniOS(title);
+            }
+
             callback();
         });
     }
