@@ -6,7 +6,7 @@ var FController         = require('fcontroller'),
     
     tplFlypeView        = require('../views/tpl.flype'),
     tplStickView        = require('../views/tpl.stick'),
-    tplHammertipsView   = require('../views/tpl.hammertips'),
+    tplRemarksView      = require('../views/tpl.remarks'),
     tplPasswordView     = require('../views/tpl.password'),
     tplStagesView       = require('../views/tpl.stages'),
     tplStepwiseView     = require('../views/tpl.stepwise'),
@@ -26,7 +26,7 @@ function AssembleController () {
     this.routers    = {
         flype       : 'flype',
         stick       : 'stick',
-        hammertips  : 'hammertips',
+        remarks     : 'remarks',
         password    : 'password',
         stages      : 'stages',
         stepwise    : 'stepwise',
@@ -65,22 +65,19 @@ AssembleController.prototype = new FController({
         show.call(this, {
         });
     },
-    hammertips: function () {
+
+    remarks: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplHammertipsView(data), data, '小提示展示', function (app) {
-                // TODO: navigate to component demo pages.
-                $('#back').tap(function(){
-                    window.back();
-                });
+            this.renderVUE(tplRemarksView(data), data, '小提示展示', function (app) {
             });
         }
 
         show.call(this, {
-            // DATA
         });
     },
+    
     password: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
@@ -232,27 +229,27 @@ AssembleController.prototype = new FController({
 });
 
 (new AssembleController()).initController({});
-},{"../views/tpl.dock":2,"../views/tpl.flype":3,"../views/tpl.hammertips":4,"../views/tpl.lead":5,"../views/tpl.panel":6,"../views/tpl.password":7,"../views/tpl.protocol":8,"../views/tpl.stages":9,"../views/tpl.stepwise":10,"../views/tpl.stick":11,"../views/tpl.table":12,"../views/tpl.timeline":13,"fcontroller":"fcontroller","lego":"lego"}],2:[function(require,module,exports){
+},{"../views/tpl.dock":2,"../views/tpl.flype":3,"../views/tpl.lead":4,"../views/tpl.panel":5,"../views/tpl.password":6,"../views/tpl.protocol":7,"../views/tpl.remarks":8,"../views/tpl.stages":9,"../views/tpl.stepwise":10,"../views/tpl.stick":11,"../views/tpl.table":12,"../views/tpl.timeline":13,"fcontroller":"fcontroller","lego":"lego"}],2:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"f6bd7d3df8cc4fba7e95d3880a7afeb2"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.dock","<p-main bgcolor='offwhite'> <stub></stub> <dock filled='true' bgcolor='white'> <a-button id='button1'>\u786e\u5b9a</a-button> </dock> <stub></stub> <dock filled='false' bgcolor='white'> <a-button id='button2'>\u786e\u5b9a</a-button> </dock> <stub></stub> <dock bgcolor='white'> <a-button id='cancel'>\u53d6\u6d88</a-button> <a-button id='ok'>\u786e\u5b9a</a-button> </dock> </p-main> <p-footer> <dock bgcolor='white'> <a-button id='f-cancel'>\u53d6\u6d88</a-button> <a-button id='f-ok'>\u786e\u5b9a</a-button> </dock> </p-footer>");
 },{"../../../template":14}],3:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"91e9d1f7c054a38b4651e28701224092"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.flype",'<flype folded="true"> <b-text>\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002<br> \u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002<br>\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002<br>\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002<br>\u672c\u6848\u9700\u60a8\u8865\u5145\u7406\u8d54\u7533\u8bf7\u6750\u6599\u539f\u4ef6\u540e\u652f\u4ed8\u8d54\u6b3e\u3002 </b-text> </flype>');
 },{"../../../template":14}],4:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"d03ccc922e05137d85f710fbd4ac1d15"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.hammertips","<hammertips> <b-text color='lightgrey' size='24' >\u60a8\u53ef\u5728<b-text color='coral'>2017-09-10 15:00</b-text> \u524d\u5728\u8d44\u4ea7\u660e\u7ec6\u4e2d\u9884\u7ea6\u8d4e\u56de\u8be5\u4ea7\u54c1</b-text> </hammertips>");
-},{"../../../template":14}],5:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"047d4bdf48a5ca30bc180d07a16e375c"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.lead",'<s-cell height="1" bgcolor="white"></s-cell> <lead footer="\u7533\u8d2d\u6210\u529f"> \u4ea4\u6613\u6210\u529f </lead> <s-cell height="1" bgcolor="white"></s-cell> <lead>\u652f\u4ed8\u4e2d</lead> <s-cell height="1" bgcolor="white"></s-cell> <lead header="\u6301\u6709\u8d44\u4ea7"> 1110.00 </lead> <s-cell height="1" bgcolor="white"></s-cell> <lead header="GE***\u9879\u76ee" footer="\u8ba1\u5212\u521b\u5efa\u65f6\u95f4\uff1a2005-07-01"> \u674e\u4e50\u4e50 </lead> <s-cell height="1" bgcolor="white"></s-cell> <lead header="GE***\u9879\u76ee" footer="\u8ba1\u5212\u521b\u5efa\u65f6\u95f4\uff1a2005-07-01" link="\u8ba1\u5212\u8be6\u60c5" link-id="detail-btn"> \u674e\u4e50\u4e50 </lead> <s-cell height="1" bgcolor="white"></s-cell>');
-},{"../../../template":14}],6:[function(require,module,exports){
+},{"../../../template":14}],5:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"c5973c20a038c2be255c14dd7d0acee4"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.panel","<p-main bgcolor='offwhite'> <stub></stub> <panel edit='false' bgcolor='white' border='false'> <a-title id='save' label='\u8054\u7cfb\u65b9\u5f0f'>\u4fdd\u5b58</a-title> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\u8bc1\u4ef6\u7c7b\u578b'>21234567989456462</text-row> <text-row label='\u51fa\u751f\u65e5\u671f'>1995-02-05</text-row> <text-row label='\u6027\u522b'>\u7537</text-row> <text-field-row label='\u6027\u522b' placeholder='\u8bf7\u8f93\u5165'>\u7537</text-field-row> </panel> </p-main>");
-},{"../../../template":14}],7:[function(require,module,exports){
+},{"../../../template":14}],6:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"bee0d266358f53004502dc653e8e18aa"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.password",'<password length="3"></password>');
-},{"../../../template":14}],8:[function(require,module,exports){
+},{"../../../template":14}],7:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"b9a391e2d8b601d4cd2136ce3676a81a"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.protocol",'<protocol checked=\'true\'> <b-text size="24" color="light">\u6211\u5df2\u9605\u8bfb\u5e76\u540c\u610f</b-text> <b-highlight id="link" size="24">\u300a\u5e73\u5b89\u76f4\u901a\u94f6\u884c\u8d26\u6237\u670d\u52a1\u534f\u8bae\u300b</b-highlight> <b-highlight id="link" size="24">\u300a\u5e73\u5b89\u76f4\u901a\u94f6\u884c\u8d26\u6237\u670d\u52a1\u534f\u8bae\u300b</b-highlight> <b-text size="24" color="light">\u6211\u5df2\u9605\u8bfb\u5e76\u540c\u610f</b-text> </protocol>');
+},{"../../../template":14}],8:[function(require,module,exports){
+/*TMODJS:{"version":1,"md5":"21dbde05f45a4529e28e105cb349205c"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.remarks","<remarks> <b-text color='lightgrey' size='24'>\u60a8\u53ef\u5728</b-text> <b-text color='coral'>2017-09-10 15:00</b-text> <b-text color='lightgrey' size='24'>\u524d\u5728\u8d44\u4ea7\u660e\u7ec6\u4e2d\u9884\u7ea6\u8d4e\u56de\u8be5\u4ea7\u54c1</b-text> </remarks>");
 },{"../../../template":14}],9:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"cd0c110d66627ec3786787c40378e58d"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.stages",'<stub></stub> <stages value="1"> <stage></stage> <stage></stage> <stage></stage> </stages> <stub></stub> <stages value="2"> <stage></stage> <stage></stage> <stage></stage> <stage></stage> </stages> <stub></stub> <stages value="3"> <stage>\u9886\u53d6\u4fe1\u606f1</stage> <stage>\u9886\u53d6\u4fe1\u606f2</stage> <stage>\u9886\u53d6\u4fe1\u606f3</stage> <stage>\u9886\u53d6\u4fe1\u606f4</stage> </stages>');

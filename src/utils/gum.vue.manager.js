@@ -48,7 +48,7 @@ var components = [
 
     [ 'flype'                   , require('../assemble/flype/flype.vue.js')                         ],
     [ 'stick'                   , require('../assemble/stick/stick.vue.js')                         ],
-    [ 'hammertips'              , require('../assemble/hammertips/hammertips.vue.js')               ],
+    [ 'remarks'                 , require('../assemble/remarks/remarks.vue.js')                     ],
     [ 'stages'                  , require('../assemble/stages/stages.vue.js')                       ],
     [ 'stage'                   , require('../assemble/stage/stage.vue.js')                         ],
     [ 'stepwise'                , require('../assemble/stepwise/stepwise.vue.js')                   ],

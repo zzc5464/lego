@@ -15371,49 +15371,6 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-module.exports = {
-    props: [ 'label', 'rate', 'total'],
-    data: function() {
-        
-        return {
-            desc: this.label,
-            numerator: parseInt(this.rate),
-            denominator: parseInt(this.total)
-           
-        };
-    },
-    methods: {
-        showChecked: function(){
-            var list = document.querySelectorAll('._solid_checkbox');
-            
-            for(i=0;i<(this.numerator-1);i++){
-                list[i].setAttribute('checked', true);
-            }
-        }
-    }
-}
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_hammertips\">\n    <b-icon name=\"hammer\" size=\"60\"></b-icon>\n    <slot></slot>\n</div>\n"
-if (module.hot) {(function () {  module.hot.accept()
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), true)
-  if (!hotAPI.compatible) return
-  if (!module.hot.data) {
-    hotAPI.createRecord("_v-34407ecc", module.exports)
-  } else {
-    hotAPI.update("_v-34407ecc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
-  }
-})()}
-},{"vue":4,"vue-hot-reload-api":2}],11:[function(require,module,exports){
-
-
-
-
-
-
-
-
 
 
 
@@ -15439,7 +15396,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-42c3e16c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],12:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],11:[function(require,module,exports){
 
 
 
@@ -15544,7 +15501,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-c7797c68", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],13:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],12:[function(require,module,exports){
 
 
 
@@ -15581,7 +15538,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-f4c382d0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],14:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],13:[function(require,module,exports){
 
 
 
@@ -15611,7 +15568,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-a23648d4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],15:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],14:[function(require,module,exports){
 
 
 
@@ -15648,7 +15605,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3d665ba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],16:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],15:[function(require,module,exports){
 
 
 
@@ -15678,6 +15635,34 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.createRecord("_v-bc10a268", module.exports)
   } else {
     hotAPI.update("_v-bc10a268", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":4,"vue-hot-reload-api":2}],16:[function(require,module,exports){
+
+
+
+
+
+
+
+
+module.exports = {
+    props: [],
+    data: function () {
+        return {};
+    }
+}
+
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_hammertips\">\n    <b-icon name=\"hammer\" size=\"60\"></b-icon>\n    <slot></slot>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-d46f4098", module.exports)
+  } else {
+    hotAPI.update("_v-d46f4098", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],17:[function(require,module,exports){
@@ -18296,7 +18281,7 @@ var components = [
 
     [ 'flype'                   , require('../assemble/flype/flype.vue.js')                         ],
     [ 'stick'                   , require('../assemble/stick/stick.vue.js')                         ],
-    [ 'hammertips'              , require('../assemble/hammertips/hammertips.vue.js')               ],
+    [ 'remarks'                 , require('../assemble/remarks/remarks.vue.js')                     ],
     [ 'stages'                  , require('../assemble/stages/stages.vue.js')                       ],
     [ 'stage'                   , require('../assemble/stage/stage.vue.js')                         ],
     [ 'stepwise'                , require('../assemble/stepwise/stepwise.vue.js')                   ],
@@ -18340,4 +18325,4 @@ VueManager.prototype = {
 }
 
 module.exports = new VueManager();
-},{"../assemble/button/button.vue.js":6,"../assemble/card-invest/card-invest.vue.js":7,"../assemble/dock/dock.vue.js":8,"../assemble/flype/flype.vue.js":9,"../assemble/hammertips/hammertips.vue.js":10,"../assemble/id-field-row/id-field-row.vue.js":11,"../assemble/lead/lead.vue.js":12,"../assemble/otp-field-row/otp-field-row.vue.js":13,"../assemble/panel/panel.vue.js":14,"../assemble/password/password.vue.js":15,"../assemble/protocol/protocol.vue.js":16,"../assemble/select-row/select-row.vue.js":17,"../assemble/stage/stage.vue.js":18,"../assemble/stages/stages.vue.js":19,"../assemble/stepwise/stepwise.vue.js":20,"../assemble/stick/stick.vue.js":21,"../assemble/stub/stub.vue.js":22,"../assemble/table/table.vue.js":23,"../assemble/tel-field-row/tel-field-row.vue.js":24,"../assemble/text-field-row/text-field-row.vue.js":25,"../assemble/text-row/text-row.vue.js":26,"../assemble/timeline/timeline.vue.js":27,"../assemble/timepoint/timepoint.vue.js":28,"../assemble/title/title.vue.js":29,"../basic/address-field/address-field.vue.js":30,"../basic/button/button.vue.js":31,"../basic/checkbox/checkbox.vue.js":32,"../basic/email-field/email-field.vue.js":33,"../basic/highlight/highlight.vue.js":34,"../basic/icon/icon.vue.js":35,"../basic/idcard-field/idcard-field.vue.js":36,"../basic/image-button/image-button.vue.js":37,"../basic/image/image.vue.js":38,"../basic/number-field/number-field.vue.js":39,"../basic/radio/radio.vue.js":40,"../basic/rectangular-button/rectangular-button.vue.js":41,"../basic/select/select.vue.js":42,"../basic/skeleton/skeleton.vue.js":43,"../basic/solid-checkbox/solid-checkbox.vue.js":44,"../basic/solid-radio/solid-radio.vue.js":45,"../basic/svg/svg.vue.js":46,"../basic/tab-button/tab-button.vue.js":47,"../basic/tel-field/tel-field.vue.js":48,"../basic/text-button/text-button.vue.js":49,"../basic/text-field/text-field.vue.js":50,"../basic/text/text.vue.js":51,"../basic/toggle/toggle.vue.js":52,"../page/cover/cover.vue.js":53,"../page/footer/footer.vue.js":54,"../page/header/header.vue.js":55,"../page/main/main.vue.js":56,"../page/mask/mask.vue.js":57,"../page/popup/popup.vue.js":58,"../page/presentation/presentation.vue.js":59,"../page/toast/toast.vue.js":60,"../structure/cell/cell.vue.js":61,"../structure/column/column.vue.js":62,"../structure/flex-column/flex-column.vue.js":63,"../structure/multiline/multiline.vue.js":64,"../structure/single-cell/single-cell.vue.js":65,"../structure/sticker/sticker.vue.js":66,"vue/dist/vue.common":3}]},{},[]);
+},{"../assemble/button/button.vue.js":6,"../assemble/card-invest/card-invest.vue.js":7,"../assemble/dock/dock.vue.js":8,"../assemble/flype/flype.vue.js":9,"../assemble/id-field-row/id-field-row.vue.js":10,"../assemble/lead/lead.vue.js":11,"../assemble/otp-field-row/otp-field-row.vue.js":12,"../assemble/panel/panel.vue.js":13,"../assemble/password/password.vue.js":14,"../assemble/protocol/protocol.vue.js":15,"../assemble/remarks/remarks.vue.js":16,"../assemble/select-row/select-row.vue.js":17,"../assemble/stage/stage.vue.js":18,"../assemble/stages/stages.vue.js":19,"../assemble/stepwise/stepwise.vue.js":20,"../assemble/stick/stick.vue.js":21,"../assemble/stub/stub.vue.js":22,"../assemble/table/table.vue.js":23,"../assemble/tel-field-row/tel-field-row.vue.js":24,"../assemble/text-field-row/text-field-row.vue.js":25,"../assemble/text-row/text-row.vue.js":26,"../assemble/timeline/timeline.vue.js":27,"../assemble/timepoint/timepoint.vue.js":28,"../assemble/title/title.vue.js":29,"../basic/address-field/address-field.vue.js":30,"../basic/button/button.vue.js":31,"../basic/checkbox/checkbox.vue.js":32,"../basic/email-field/email-field.vue.js":33,"../basic/highlight/highlight.vue.js":34,"../basic/icon/icon.vue.js":35,"../basic/idcard-field/idcard-field.vue.js":36,"../basic/image-button/image-button.vue.js":37,"../basic/image/image.vue.js":38,"../basic/number-field/number-field.vue.js":39,"../basic/radio/radio.vue.js":40,"../basic/rectangular-button/rectangular-button.vue.js":41,"../basic/select/select.vue.js":42,"../basic/skeleton/skeleton.vue.js":43,"../basic/solid-checkbox/solid-checkbox.vue.js":44,"../basic/solid-radio/solid-radio.vue.js":45,"../basic/svg/svg.vue.js":46,"../basic/tab-button/tab-button.vue.js":47,"../basic/tel-field/tel-field.vue.js":48,"../basic/text-button/text-button.vue.js":49,"../basic/text-field/text-field.vue.js":50,"../basic/text/text.vue.js":51,"../basic/toggle/toggle.vue.js":52,"../page/cover/cover.vue.js":53,"../page/footer/footer.vue.js":54,"../page/header/header.vue.js":55,"../page/main/main.vue.js":56,"../page/mask/mask.vue.js":57,"../page/popup/popup.vue.js":58,"../page/presentation/presentation.vue.js":59,"../page/toast/toast.vue.js":60,"../structure/cell/cell.vue.js":61,"../structure/column/column.vue.js":62,"../structure/flex-column/flex-column.vue.js":63,"../structure/multiline/multiline.vue.js":64,"../structure/single-cell/single-cell.vue.js":65,"../structure/sticker/sticker.vue.js":66,"vue/dist/vue.common":3}]},{},[]);
