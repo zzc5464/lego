@@ -690,7 +690,12 @@ h1, h2, h3, h4, h5, h6 {
     ._assetheader div ._select {
       position: absolute;
       bottom: -1px;
-      right: 0; }
+      right: 0;
+      display: inline-block;
+      text-align: right; }
+      ._assetheader div ._select i {
+        display: inline-block;
+        width: 15px; }
 
 ._mask {
   position: fixed;

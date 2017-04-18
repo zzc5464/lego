@@ -10,11 +10,6 @@
         events   = require('../../utils/gum.vue.events');
 
     module.exports = {
-        // props: [ 
-        //     'align',    'size',     'clearall', 'placeholder', 
-        //     'id',       'name',     'value',    'required',
-        //     'label',    'max'
-        // ],
         props: {
             id: {
                 type: String
@@ -24,7 +19,7 @@
                 default: 'left'
             },
             size: {
-                type: Number
+                type: String
             },
             clearall: {
                 type: Boolean,

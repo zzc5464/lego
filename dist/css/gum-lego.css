@@ -569,7 +569,12 @@
       .gum .lego ._assetheader div ._select {
         position: absolute;
         bottom: -1px;
-        right: 0; }
+        right: 0;
+        display: inline-block;
+        text-align: right; }
+        .gum .lego ._assetheader div ._select i {
+          display: inline-block;
+          width: 15px; }
   .gum .lego ._mask {
     position: fixed;
     top: 0;
