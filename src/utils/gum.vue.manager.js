@@ -58,8 +58,6 @@ var components = [
     [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ],
     [ 'lead'                    , require('../assemble/lead/lead.vue.js')                           ],
 
-    [ 'card-invest'             , require('../assemble/card-invest/card-invest.vue.js')             ],
-
     [ 'stub'                    , require('../assemble/stub/stub.vue.js')                           ],
     [ 'a-table'                 , require('../assemble/table/table.vue.js')                         ],
     [ 'text-row'                , require('../assemble/text-row/text-row.vue.js')                   ],
