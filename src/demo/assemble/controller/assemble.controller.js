@@ -12,7 +12,6 @@ var FController         = require('fcontroller'),
     tplTimelineView     = require('../views/tpl.timeline'),
     tplProtocolView     = require('../views/tpl.protocol'),
     tplLeadView         = require('../views/tpl.lead'),
-
     tplTableView        = require('../views/tpl.table'),
     tplDockView         = require('../views/tpl.dock'),
     tplPanelView        = require('../views/tpl.panel');
@@ -24,36 +23,24 @@ function AssembleController () {
     this.classList  = [ 'lego-demo' ];
 
     this.routers    = {
-        flype       : 'flype',
-        stick       : 'stick',
-        remarks     : 'remarks',
-        password    : 'password',
-        stages      : 'stages',
-        stepwise    : 'stepwise',
-        timeline    : 'timeline',
-        protocol    : 'protocol',
-        table       : 'table',
-        dock        : 'dock',
-        panel       : 'panel',
-        lead        : 'lead'
+         flype      : 'flype',
+         stick      : 'stick',
+         remarks    : 'remarks',
+         password   : 'password',
+         stages     : 'stages',
+         stepwise   : 'stepwise',
+         timeline   : 'timeline',
+         protocol   : 'protocol',
+         table      : 'table',
+         dock       : 'dock',
+         panel      : 'panel',
+         lead       : 'lead'
     }
 
     this.VueManager = VueManager;
 }
 
 AssembleController.prototype = new FController({
-    show: function (title, tpl, callback, data) {
-        var html;
-
-        html     = tpl(data);
-        title    = title || '';
-        data     = data  || {};
-        callback = function () {};
-
-        this.renderVUE(html, data, title, function (app) {
-            callback();
-        });
-    },
 
     flype: function () {
         this.show('可折叠信息', tplFlypeView);
@@ -105,6 +92,17 @@ AssembleController.prototype = new FController({
 
     lead: function () {
         this.show('头条', tplLeadView);
+    },
+
+    show: function (title, tpl, callback, data) {
+
+        title    = title || '';
+        data     = data || {};
+        callback = callback || function () {};
+
+        this.renderVUE(tpl(data), data, title, function () {
+            callback();
+        });
     }
 });
 
