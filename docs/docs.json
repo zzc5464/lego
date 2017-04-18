@@ -164,9 +164,13 @@
         },
 
         {
-            "name"      : "组合元素 <c-*/>",
+            "name"      : "组合元素",
             "isFolder"  : true,
-            "children"  : []
+            "children"  : [{
+                "name"      : "<dock/> 按钮",
+                "isFolder"  : false,
+                "link"      : "./assemble/dock/dock.md.html"
+            }]
         },
 
         {

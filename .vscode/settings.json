@@ -4,7 +4,7 @@
         "**/npm-debug.log"  : true,
         "**/node_modules"   : true,
         "**/.sass-cache"    : true,
-        "**/docs"           : true,
+        "**/docs"           : false,
         "**/examples"       : false,
         "**/template.js"    : true,
         "**/webroot"        : false,
