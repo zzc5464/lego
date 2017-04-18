@@ -4,6 +4,28 @@ var FController     = require('fcontroller'),
     VueManager      = require('lego'),
     tplIndexView    = require('../views/tpl.index');
 
+var modules = {
+    'a-table'       : 'demo/assemble/table',
+    'a-dock'        : 'demo/assemble/dock',
+    'a-panel'       : 'demo/assemble/panel',
+    'a-flype'       : 'demo/assemble/flype',
+    'a-stick'       : 'demo/assemble/stick',
+    'a-remarks'     : 'demo/assemble/remarks',
+    'a-protocol'    : 'demo/assemble/protocol',
+    'a-stages'      : 'demo/assemble/stages',
+    'a-password'    : 'demo/assemble/password',
+    'a-stepwise'    : 'demo/assemble/stepwise',
+    'a-timeline'    : 'demo/assemble/timeline',
+    'a-lead'        : 'demo/assemble/lead',
+
+    'text'          : 'demo/basic/text',
+    'button'        : 'demo/basic/button',
+    'field'         : 'demo/basic/field',
+    'icon'          : 'demo/basic/icon',
+    'image'         : 'demo/basic/image',
+    'list'          : 'demo/basic/list'
+}
+
 function IndexController () {
     this.moduleName = 'demo';
     this.name       = 'index';
@@ -15,72 +37,14 @@ function IndexController () {
 
 IndexController.prototype = new FController({
     index: function () {
-        var $ = this.$, navigate = this.navigate.bind(this);
+        var navigate = this.navigate.bind(this), 
+            data = {}, $ = this.$;
 
-        function show (data) {
-            this.renderVUE(tplIndexView(data), data, 'LEGO', function (app) {
-                $('#a-table').tap(function(){
-                    navigate('demo/assemble/table');
-                });
-                $('#a-dock').tap(function(){
-                    navigate('demo/assemble/dock');
-                });
-                $('#a-panel').tap(function(){
-                    navigate('demo/assemble/panel');
-                });
-
-                $('#a-flype').tap(function(){
-                    navigate('demo/assemble/flype');
-                });
-                $('#a-stick').tap(function(){
-                    navigate('demo/assemble/stick');
-                });
-                $('#a-remarks').tap(function(){
-                    navigate('demo/assemble/remarks');
-                });
-                $('#a-protocol').tap(function(){
-                    navigate('demo/assemble/protocol');
-                });
-                $('#a-stages').tap(function(){
-                    navigate('demo/assemble/stages');
-                });
-                $('#a-password').tap(function(){
-                    navigate('demo/assemble/password');
-                });
-                $('#a-stepwise').tap(function(){
-                    navigate('demo/assemble/stepwise');
-                });
-                $('#a-timeline').tap(function(){
-                    navigate('demo/assemble/timeline');
-                });
-                $('#a-lead').tap(function(){
-                    navigate('demo/assemble/lead');
-                });
-
-                $('#text').tap(function(){
-                    navigate('demo/basic/text');
-                });
-                $('#button').tap(function(){
-                    navigate('demo/basic/button');
-                });
-                $('#field').tap(function(){
-                    navigate('demo/basic/field');
-                });
-                $('#icon').tap(function(){
-                    navigate('demo/basic/icon');
-                });
-                $('#image').tap(function(){
-                    navigate('demo/basic/image');
-                });
-                $('#list').tap(function(){
-                    navigate('demo/basic/list');
-                });
-         
+        this.renderVUE(tplIndexView(data), data, 'LEGO', function () {
+            Object.keys(modules).forEach(function (key) {
+                $('#' + key).tap(function () { navigate(modules[key]); });
             });
-        }
-        show.call(this, {
-            // DATA
-        })
+        });
     }
 });
 
