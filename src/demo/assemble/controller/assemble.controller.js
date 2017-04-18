@@ -43,47 +43,43 @@ function AssembleController () {
 AssembleController.prototype = new FController({
 
     flype: function () {
-        this.show('可折叠信息', tplFlypeView);
+        this.show('可折叠提示', tplFlypeView);
     },
 
     stick: function () {
-        this.show('小提示展示', tplStickView);
+        this.show('可关闭提示', tplStickView);
     },
 
     remarks: function () {
-        this.show('小提示展示', tplRemarksView);
+        this.show('注意事项', tplRemarksView);
     },
 
     password: function () {
-        this.show('密码展示', tplPasswordView);
+        this.show('交易密码', tplPasswordView);
     },
 
     stages: function () {
-        this.show('流程进度展示', tplStagesView);
-    },
-
-    progress: function () {
-        this.show('流程进度展示', tplProgressView);
+        this.show('进度条', tplStagesView);
     },
 
     stepwise: function () {
-        this.show('进度展示', tplStepwiseView);
+        this.show('完成进度', tplStepwiseView);
     },
 
     timeline: function () {
-        this.show('时间段', tplTimelineView);
+        this.show('时间线', tplTimelineView);
     },
 
     protocol: function () {
-        this.show('协议同意', tplProtocolView);
+        this.show('协议', tplProtocolView);
     },
 
     table: function () {
-        this.show('表格示例', tplTableView);
+        this.show('表格&空行', tplTableView);
     },
 
     dock: function () {
-        this.show('按钮组件', tplDockView);
+        this.show('按钮', tplDockView);
     },
 
     panel: function () {
