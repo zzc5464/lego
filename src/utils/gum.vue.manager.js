@@ -47,7 +47,7 @@ var components = [
     [ 'p-popup'                 , require('../page/popup/popup.vue.js')                             ],
 
     [ 'flype'                   , require('../assemble/flype/flype.vue.js')                         ],
-    [ 'notetips'                , require('../assemble/notetips/notetips.vue.js')                   ],
+    [ 'stick'                   , require('../assemble/stick/stick.vue.js')                         ],
     [ 'hammertips'              , require('../assemble/hammertips/hammertips.vue.js')               ],
     [ 'stages'                  , require('../assemble/stages/stages.vue.js')                       ],
     [ 'stage'                   , require('../assemble/stage/stage.vue.js')                         ],
@@ -56,7 +56,6 @@ var components = [
     [ 'timepoint'               , require('../assemble/timepoint/timepoint.vue.js')                 ],
     [ 'password'                , require('../assemble/password/password.vue.js')                   ],
     [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ],
-    [ 'assetheader'             , require('../assemble/assetheader/assetheader.vue.js')             ],
     [ 'lead'                    , require('../assemble/lead/lead.vue.js')                           ],
 
     [ 'card-invest'             , require('../assemble/card-invest/card-invest.vue.js')             ],

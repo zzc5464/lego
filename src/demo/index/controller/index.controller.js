@@ -32,8 +32,8 @@ IndexController.prototype = new FController({
                 $('#a-flype').tap(function(){
                     navigate('demo/assemble/flype');
                 });
-                $('#a-notetips').tap(function(){
-                    navigate('demo/assemble/notetips');
+                $('#a-stick').tap(function(){
+                    navigate('demo/assemble/stick');
                 });
                 $('#a-hammertips').tap(function(){
                     navigate('demo/assemble/hammertips');

@@ -5,7 +5,7 @@ var FController         = require('fcontroller'),
     VueManager          = require('lego'),
     
     tplFlypeView        = require('../views/tpl.flype'),
-    tplNotetipsView     = require('../views/tpl.notetips'),
+    tplStickView        = require('../views/tpl.stick'),
     tplHammertipsView   = require('../views/tpl.hammertips'),
     tplPasswordView     = require('../views/tpl.password'),
     tplStagesView       = require('../views/tpl.stages'),
@@ -25,7 +25,7 @@ function AssembleController () {
     this.classList  = [ 'lego-demo' ];
     this.routers    = {
         flype       : 'flype',
-        notetips    : 'notetips',
+        stick       : 'stick',
         hammertips  : 'hammertips',
         password    : 'password',
         stages      : 'stages',
@@ -54,20 +54,15 @@ AssembleController.prototype = new FController({
             folded: true
         });
     },
-    notetips: function () {
+    stick: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplNotetipsView(data), data, '小提示展示', function (app) {
-                // TODO: navigate to component demo pages.
-                $('#back').tap(function(){
-                    window.back();
-                });
+            this.renderVUE(tplStickView(data), data, '小提示展示', function (app) {
             });
         }
 
         show.call(this, {
-            // DATA
         });
     },
     hammertips: function () {
@@ -237,7 +232,7 @@ AssembleController.prototype = new FController({
 });
 
 (new AssembleController()).initController({});
-},{"../views/tpl.dock":2,"../views/tpl.flype":3,"../views/tpl.hammertips":4,"../views/tpl.lead":5,"../views/tpl.notetips":6,"../views/tpl.panel":7,"../views/tpl.password":8,"../views/tpl.protocol":9,"../views/tpl.stages":10,"../views/tpl.stepwise":11,"../views/tpl.table":12,"../views/tpl.timeline":13,"fcontroller":"fcontroller","lego":"lego"}],2:[function(require,module,exports){
+},{"../views/tpl.dock":2,"../views/tpl.flype":3,"../views/tpl.hammertips":4,"../views/tpl.lead":5,"../views/tpl.panel":6,"../views/tpl.password":7,"../views/tpl.protocol":8,"../views/tpl.stages":9,"../views/tpl.stepwise":10,"../views/tpl.stick":11,"../views/tpl.table":12,"../views/tpl.timeline":13,"fcontroller":"fcontroller","lego":"lego"}],2:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"f6bd7d3df8cc4fba7e95d3880a7afeb2"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.dock","<p-main bgcolor='offwhite'> <stub></stub> <dock filled='true' bgcolor='white'> <a-button id='button1'>\u786e\u5b9a</a-button> </dock> <stub></stub> <dock filled='false' bgcolor='white'> <a-button id='button2'>\u786e\u5b9a</a-button> </dock> <stub></stub> <dock bgcolor='white'> <a-button id='cancel'>\u53d6\u6d88</a-button> <a-button id='ok'>\u786e\u5b9a</a-button> </dock> </p-main> <p-footer> <dock bgcolor='white'> <a-button id='f-cancel'>\u53d6\u6d88</a-button> <a-button id='f-ok'>\u786e\u5b9a</a-button> </dock> </p-footer>");
 },{"../../../template":14}],3:[function(require,module,exports){
@@ -250,23 +245,23 @@ var template=require("../../../template");module.exports=template("demo/assemble
 /*TMODJS:{"version":1,"md5":"047d4bdf48a5ca30bc180d07a16e375c"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.lead",'<s-cell height="1" bgcolor="white"></s-cell> <lead footer="\u7533\u8d2d\u6210\u529f"> \u4ea4\u6613\u6210\u529f </lead> <s-cell height="1" bgcolor="white"></s-cell> <lead>\u652f\u4ed8\u4e2d</lead> <s-cell height="1" bgcolor="white"></s-cell> <lead header="\u6301\u6709\u8d44\u4ea7"> 1110.00 </lead> <s-cell height="1" bgcolor="white"></s-cell> <lead header="GE***\u9879\u76ee" footer="\u8ba1\u5212\u521b\u5efa\u65f6\u95f4\uff1a2005-07-01"> \u674e\u4e50\u4e50 </lead> <s-cell height="1" bgcolor="white"></s-cell> <lead header="GE***\u9879\u76ee" footer="\u8ba1\u5212\u521b\u5efa\u65f6\u95f4\uff1a2005-07-01" link="\u8ba1\u5212\u8be6\u60c5" link-id="detail-btn"> \u674e\u4e50\u4e50 </lead> <s-cell height="1" bgcolor="white"></s-cell>');
 },{"../../../template":14}],6:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"4a5a81aa0b20848662a2921d6d763f62"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.notetips","<notetips cross='true'> <b-text>\u4ea7\u54c1\u8fc7\u5f80\u4e1a\u7ee9\u4ec5\u4f9b\u53c2\u8003\uff0c\u4e0d\u4ee3\u8868\u7ba1\u7406\u4eba\u5bf9\u672a\u6765\u6536\u76ca\u7684\u627f\u8bfa</b-text> </notetips> <s-cell height='2' bgcolor=\"offwhite\" > </s-cell> <notetips> <b-text>\u4ea7\u54c1\u8fc7\u5f80\u4e1a\u7ee9\u4ec5\u4f9b\u53c2\u8003\uff0c\u4e0d\u4ee3\u8868\u7ba1\u7406\u4eba\u5bf9\u672a\u6765\u6536\u76ca\u7684\u627f\u8bfa</b-text> </notetips>");
-},{"../../../template":14}],7:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"c5973c20a038c2be255c14dd7d0acee4"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.panel","<p-main bgcolor='offwhite'> <stub></stub> <panel edit='false' bgcolor='white' border='false'> <a-title id='save' label='\u8054\u7cfb\u65b9\u5f0f'>\u4fdd\u5b58</a-title> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\u8bc1\u4ef6\u7c7b\u578b'>21234567989456462</text-row> <text-row label='\u51fa\u751f\u65e5\u671f'>1995-02-05</text-row> <text-row label='\u6027\u522b'>\u7537</text-row> <text-field-row label='\u6027\u522b' placeholder='\u8bf7\u8f93\u5165'>\u7537</text-field-row> </panel> </p-main>");
-},{"../../../template":14}],8:[function(require,module,exports){
+},{"../../../template":14}],7:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"bee0d266358f53004502dc653e8e18aa"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.password",'<password length="3"></password>');
-},{"../../../template":14}],9:[function(require,module,exports){
+},{"../../../template":14}],8:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"b9a391e2d8b601d4cd2136ce3676a81a"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.protocol",'<protocol checked=\'true\'> <b-text size="24" color="light">\u6211\u5df2\u9605\u8bfb\u5e76\u540c\u610f</b-text> <b-highlight id="link" size="24">\u300a\u5e73\u5b89\u76f4\u901a\u94f6\u884c\u8d26\u6237\u670d\u52a1\u534f\u8bae\u300b</b-highlight> <b-highlight id="link" size="24">\u300a\u5e73\u5b89\u76f4\u901a\u94f6\u884c\u8d26\u6237\u670d\u52a1\u534f\u8bae\u300b</b-highlight> <b-text size="24" color="light">\u6211\u5df2\u9605\u8bfb\u5e76\u540c\u610f</b-text> </protocol>');
-},{"../../../template":14}],10:[function(require,module,exports){
+},{"../../../template":14}],9:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"cd0c110d66627ec3786787c40378e58d"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.stages",'<stub></stub> <stages value="1"> <stage></stage> <stage></stage> <stage></stage> </stages> <stub></stub> <stages value="2"> <stage></stage> <stage></stage> <stage></stage> <stage></stage> </stages> <stub></stub> <stages value="3"> <stage>\u9886\u53d6\u4fe1\u606f1</stage> <stage>\u9886\u53d6\u4fe1\u606f2</stage> <stage>\u9886\u53d6\u4fe1\u606f3</stage> <stage>\u9886\u53d6\u4fe1\u606f4</stage> </stages>');
-},{"../../../template":14}],11:[function(require,module,exports){
+},{"../../../template":14}],10:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"2d523c2e9385717169c08a25248c3566"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.stepwise",'<stepwise label=\'\u5df2\u5b8c\u6210 \' :rate=\'rate\' :total=\'total\'> </stepwise> <card-invest :rate="0" > <span slot="title">\u7ec4\u54081</span> <span slot="labelname">\u9ad8\u98ce\u9669</span> <span slot="currentrate">\u5f53\u524d\u6bd4\u4f8b</span> <span slot="changerate">\u53d8\u66f4\u6bd4\u4f8b</span> <span slot="currentshare">100</span> </card-invest> <card-invest :rate="100"> <span slot="title">\u7ec4\u54082</span> <span slot="labelname">\u4e2d\u4f4e\u98ce\u9669</span> <span slot="currentrate">\u5f53\u524d\u6bd4\u4f8b</span> <span slot="changerate">\u53d8\u66f4\u6bd4\u4f8b</span> <span slot="currentshare">0</span> </card-invest> <card-invest :type="true"> <span slot="title">\u7ec4\u54081</span> <span slot="labelname">\u9ad8\u98ce\u9669</span> <span slot="currentrate">\u5f53\u524d\u4efd\u989d</span> <span slot="changerate">\u5f53\u524d\u5e02\u503c</span> <span slot="currentshare">1866.7183</span> <span slot="currentvalue">13104.55</span> </card-invest> <card-invest :type="true" :nolabel="true"> <span slot="title">\u7ec4\u54082</span> <span slot="currentrate">\u5f53\u524d\u4efd\u989d</span> <span slot="changerate">\u5f53\u524d\u5e02\u503c</span> <span slot="currentshare">0</span> <span slot="currentvalue">0</span> </card-invest> <s-cell height="2.789474" border="true" bgcolor="white" > <s-flex-column> </s-flex-column> <s-column width="5.5263" align="center"> <b-text size="30" color="grey">\u516c\u53f8\u8d26\u6237</b-text> </s-column> <s-column width="5.5263" align="center"> <b-text size="30" color="grey">\u4e2a\u4eba\u8d26\u6237</b-text> </s-column> <s-column width="5.5263" align="center"> <b-text size="30" color="grey">\u5355\u4f4d\u51c0\u503c</b-text> </s-column> <s-flex-column> </s-flex-column> </s-cell> <card-invest :active="true" :type="true" :nolabel="true" :card="2"> <span slot="title">\u7ec4\u54081</span> <span slot="company">0</span> <span slot="private">13104.55</span> <span slot="netvalue">7.0201</span> </card-invest> <card-invest :type="true" :nolabel="true" :card="2"> <span slot="title">\u7ec4\u54082</span> <span slot="company">9189.97</span> <span slot="private">0</span> <span slot="netvalue">3.9699</span> </card-invest> <card-invest :type="true" :nolabel="true" :card="2"> <span slot="title">\u7ec4\u54083</span> <span slot="company">0</span> <span slot="private">0</span> <span slot="netvalue">2.2515</span> </card-invest> <br><br><br><br><br><br><br>');
+},{"../../../template":14}],11:[function(require,module,exports){
+/*TMODJS:{"version":1,"md5":"c205581af81eee7f993420b6277ac0e8"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.stick",'<stick>\u4ea7\u54c1\u8fc7\u5f80\u4e1a\u7ee9\u4ec5\u4f9b\u53c2\u8003\uff0c\u4e0d\u4ee3\u8868\u7ba1\u7406\u4eba\u5bf9\u672a\u6765\u6536\u76ca\u7684\u627f\u8bfa</stick> <stick closable="false">\u4ea7\u54c1\u8fc7\u5f80\u4e1a\u7ee9\u4ec5\u4f9b\u53c2\u8003\uff0c\u4e0d\u4ee3\u8868\u7ba1\u7406\u4eba\u5bf9\u672a\u6765\u6536\u76ca\u7684\u627f\u8bfa</stick>');
 },{"../../../template":14}],12:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"96028e7ace693ef85332a3b9f45f4030"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.table","<p-main bgcolor='offwhite'> <stub></stub> <a-table bgcolor='white'> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\b\u516c\u53f8\u540d\u79f0'>\u5e73\u5b89\u517b\u8001\u4fdd\u9669\u80a1\u4efd\u6709\u9650\u516c\u53f8\u5e73\u5b89\u517b\u8001\u4fdd\u9669\u80a1\u4efd\u6709\u9650\u516c\u53f8\u5e73\u5b89\u517b\u8001\u4fdd\u9669\u80a1\u4efd\u6709\u9650\u516c\u53f8</text-row> <select-row label='\u5f00\u6237\u7701\u4efd'>\u8bf7\u9009\u62e9</select-row> </a-table> <stub></stub> <a-table bgcolor='white'> <text-field-row label='\u59d3\u540d' placeholder='\u8bf7\u8f93\u5165\u59d3\u540d' required='true'></text-field-row> <text-field-row label='\u59d3\u540d' placeholder='\u8bf7\u8f93\u5165\u59d3\u540d' value='\u9ed8\u8ba4\u503c' required='true'></text-field-row> <tel-field-row label='\u624b\u673a\u53f7\u7801' placeholder='\u8bf7\u8f93\u5165\u624b\u673a\u53f7\u7801' required='true'></tel-field-row> <id-field-row label='\u8eab\u4efd\u8bc1\u53f7' placeholder='\u8bf7\u8f93\u5165\u8eab\u4efd\u8bc1\u53f7' required='true'></id-field-row> <otp-field-row label='\u9a8c\u8bc1\u7801' placeholder='\u77ed\u4fe1\u9a8c\u8bc1\u7801' required='true'></otp-field-row> </a-table> </p-main>");

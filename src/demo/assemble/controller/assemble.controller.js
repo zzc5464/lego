@@ -4,7 +4,7 @@ var FController         = require('fcontroller'),
     VueManager          = require('lego'),
     
     tplFlypeView        = require('../views/tpl.flype'),
-    tplNotetipsView     = require('../views/tpl.notetips'),
+    tplStickView        = require('../views/tpl.stick'),
     tplHammertipsView   = require('../views/tpl.hammertips'),
     tplPasswordView     = require('../views/tpl.password'),
     tplStagesView       = require('../views/tpl.stages'),
@@ -24,7 +24,7 @@ function AssembleController () {
     this.classList  = [ 'lego-demo' ];
     this.routers    = {
         flype       : 'flype',
-        notetips    : 'notetips',
+        stick       : 'stick',
         hammertips  : 'hammertips',
         password    : 'password',
         stages      : 'stages',
@@ -53,20 +53,15 @@ AssembleController.prototype = new FController({
             folded: true
         });
     },
-    notetips: function () {
+    stick: function () {
         var $ = this.$, navigate = this.navigate.bind(this);
 
         function show (data) {
-            this.renderVUE(tplNotetipsView(data), data, '小提示展示', function (app) {
-                // TODO: navigate to component demo pages.
-                $('#back').tap(function(){
-                    window.back();
-                });
+            this.renderVUE(tplStickView(data), data, '小提示展示', function (app) {
             });
         }
 
         show.call(this, {
-            // DATA
         });
     },
     hammertips: function () {
