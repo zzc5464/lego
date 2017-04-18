@@ -103,7 +103,6 @@ ul {
 }
 
 ._progress {
-    // width: 16.5rem;
     height: calRem(120);
     margin: calRem(18) auto;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#47b2ac' x='15%' y='0' width='11.5%' height='1'/><rect fill='#d2d2d2' x='25.5%' y='0' width='61.5%' height='1'/></svg>");
@@ -115,10 +114,6 @@ ul {
         text-align: center;
         float: left;
     }
-    // ._stage:first-child,
-    // ._stage:last-child {
-    //     width: calRem(117);
-    // }
     ._stage ._stageheader {
         display: block;
         width: calRem(44);
@@ -134,18 +129,6 @@ ul {
         border: 1px solid #d2d2d2;
         border-radius: 50%;
     }
-    // ._stage:last-child ._stageheader {
-    //     margin: 0 0 0 calRem(76);
-    // }
-    // ._stage:first-child ._stageheader {
-    //     margin: 0 calRem(76) 0 0 ;
-    // }
-    // ._stage:first-child span {
-    //     margin-left: -#{calRem(60)};
-    // }
-    // ._stage:last-child span {
-    //     margin-right: -#{calRem(60)};
-    // }
 }
 
 %stageActive {
@@ -155,7 +138,6 @@ ul {
  
 // 只有三步的时候
 ._p3 {
-    // width: 11.5rem;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#47b2ac' x='15%' y='0' width='17.5%' height='1'/><rect fill='#d2d2d2' x='32.5%' y='0' width='48%' height='1'/></svg>");
     
 }
@@ -269,6 +251,12 @@ h1,h2,h3,h4,h5,h6 {
             position: absolute;
             bottom: -1px;
             right: 0;
+            display: inline-block;
+            text-align: right; 
+            & i {
+                display: inline-block;
+                width: 15px;
+            }
         }
     }
 }
