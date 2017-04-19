@@ -43,13 +43,38 @@
  black | #333333 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/333.png) 
  grey | #666666 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/666.png) 
  light | #999999 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
- high | #D7AC62 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
- green | #58AF51 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
- blue | #4475AC | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
- placeholder | #C1C1C1 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)   
+ lightgrey | #c1c1c1 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
+ stonegrey | #dcdcdc | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
+ smokegrey | #e5e5e5 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
+ offwhite | #efefef | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
+ cream | #f6f6f7 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
 
-## 背景颜色
-> 用于给结构组件添加背景颜色，相当于 background-color 属性
+ high | #D7AC62 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
+ tapping | #b38f47 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
+ yellowish | #e0c89d | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
+ lightyellow | #fffce8 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
+
+ grass | #58AF51 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
+ skyblue | #4475AC | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
+ powderblue | #50b1ab | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)   
+ blackblue | #2e2516 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)   
+ coral | #e6654c | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)  
+
+ transparent | transparent | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
+
+## 文字和背景颜色
+> 用于给结构组件设置棕色渐变的背景色
+
+ deepbrown | transparent | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
+ 
+ ## 文字和背景颜色
+> 用于给结构组件设置0.9透明度的白色背景
+
+ paper | transparent | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
+   
+
+## 文字和背景颜色
+> 用于给结构组件设置文字颜色或添加背景颜色
 
 ### 示例
 
@@ -63,19 +88,6 @@
     </s-flex-column>
 </s-cell>
 ```
-
-### 颜色列表
-
- 颜色名 | 颜色值 | 示例 
---- | --- | ---
- white | #FFFFFF | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/fff.png)  
- high | #D7AC62 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png) 
- high-tapping | #B38F47 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/B38F47.png) 
- lightgrey | #DCDCDC | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/DCDCDC.png) 
- offwhite | #EFEFEF | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/fff.png) 
- cream | #F6F6F7 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/fff.png)
- gradient | xxxxxx | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/DCDCDC.png) 
- transparent | - | -
 
 ## 字体图标
 > 使用 iconfont 定义的字体图标
