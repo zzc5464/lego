@@ -27,7 +27,10 @@ var modules = {
 }
 
 function updatePageTitleIniOS (title) {
-    document.title = title;
+    if (!/(micromessenger)+/i.test(navigator.userAgent)) {
+        document.title = title;
+        return;
+    }
 
 	//iframe 加载后的回调函数
 	function unloadHandler() {
@@ -41,7 +44,7 @@ function updatePageTitleIniOS (title) {
 	var ifrm = document.createElement('iframe');
 	//iframe 指向图标文件
 	//ifrm.src = '/favicon.ico';
-	ifrm.src = 'assets/images/logo.png';
+	ifrm.src = 'css/lego.css';
 	ifrm.style.position = 'absolute';
 	ifrm.style.top = '-1000px';
 	
@@ -64,16 +67,14 @@ function IndexController () {
 IndexController.prototype = new FController({
     index: function () {
         var navigate = this.navigate.bind(this), 
-            data = {}, $ = this.$;
+            data = {}, $ = this.$, title = 'LEGO'
 
-        this.renderVUE(tplIndexView(data), data, 'LEGO', function () {
+        this.renderVUE(tplIndexView(data), data, title, function () {
+            updatePageTitleIniOS(title);
+
             Object.keys(modules).forEach(function (key) {
                 $('#' + key).tap(function () { navigate(modules[key]); });
             });
-
-            if (navigator.userAgent.toLowerCase().indexOf('micromessenger') > -1) {
-                updatePageTitleIniOS('LEGO');
-            }
         });
     }
 });
