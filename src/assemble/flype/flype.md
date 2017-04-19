@@ -2,7 +2,11 @@
 > 一般位于页面顶部，展示多行文字中的首行，并且可以展开或折叠
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/canFoldTips_1.png" width="280.859"/></div>
+
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/canFoldtips_2.png" width="280.859"/></div>
+
 
 ### 属性列表
 

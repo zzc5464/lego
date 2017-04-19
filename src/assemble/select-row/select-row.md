@@ -2,7 +2,7 @@
 > 在文字表格中，展示纯文本的“键-值”成对信息，并显示一个“箭头”，引导用户跳转到下一个页面
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/formNull_top_wordLink.png" width="280.859"/></div>
 
 ### 属性列表
 

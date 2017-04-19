@@ -2,7 +2,7 @@
 > 在文字表格中的表单填写项，用于输入一行身份证号码。格式校验规则支持 15 位和 18 位身份证号码，若有字母“X”，自动转为大写
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/formNull_bottom_IDcard.png" width="280.859"/></div>
 
 ### 属性列表
 

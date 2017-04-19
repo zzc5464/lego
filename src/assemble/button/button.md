@@ -2,7 +2,7 @@
 > 声明每个按钮组件中的按钮节点
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/button.jpeg" width="280.859"/></div>
 
 ### 属性列表
 

@@ -2,7 +2,7 @@
 > 验证交易密码的页面
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/password.png" width="280.859"/></div>
 
 ### 属性列表
 

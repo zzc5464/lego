@@ -2,7 +2,7 @@
 > 一般位于在页面中下部，展示多行文字，提示用户若干注意事项
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/careMatters.png" width="280.859"/></div>
 
 ### 属性列表
 > 无

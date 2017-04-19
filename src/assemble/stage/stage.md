@@ -2,7 +2,7 @@
 > 用于描述进度条上的结点
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/progressBar.png" width="280.859"/></div>
 
 ### 属性列表
 > 无

@@ -2,7 +2,7 @@
 > 将多个按钮组合成常用的组件形式，主要包括：单行单按钮、单行双按钮等
 
 ### 组件截图
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/button.jpeg" width="280.859"/></div>
 
 ### 属性列表
 > 注意：文字大小是按 UI 视觉稿上的标注来定的，比如 22px 等
