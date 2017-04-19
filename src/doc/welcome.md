@@ -1,6 +1,11 @@
 # LEGO
 A UI components library
 
+### DEMO
+> 扫描二维码，可以在手机里查看演示效果
+
+![扫一扫](https://ohc0dpsgs.qnssl.com/lego/images/DemoCode.png)
+
 ### 使用说明
 
 ```
