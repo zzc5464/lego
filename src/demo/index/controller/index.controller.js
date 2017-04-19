@@ -27,8 +27,9 @@ var modules = {
 }
 
 function updatePageTitleIniOS (title) {
+    document.title = title;
+
     if (!/(micromessenger)+/i.test(navigator.userAgent)) {
-        document.title = title;
         return;
     }
 
