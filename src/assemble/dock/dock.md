@@ -1,7 +1,7 @@
 # dock 按钮
 > 将多个按钮组合成常用的组件形式，主要包括：单行单按钮、单行双按钮等
 
-### DEMO
+### 组件截图
 ![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
 
 ### 属性列表

@@ -44,6 +44,13 @@ function AssembleController () {
 function updatePageTitleIniOS (title) {
     document.title = title;
 
+    var ua = navigator.userAgent;
+
+    // 若当前浏览器不是 iPhone 下的微信，则直接返回
+    if (!(/(micromessenger)+/i.test(ua) && /(iphone)+/i.test(ua))) {
+        return;
+    }
+
 	//iframe 加载后的回调函数
 	function unloadHandler() {
 		ifrm.removeEventListener('load', unloadHandler, false);
@@ -56,7 +63,7 @@ function updatePageTitleIniOS (title) {
 	var ifrm = document.createElement('iframe');
 	//iframe 指向图标文件
 	//ifrm.src = '/favicon.ico';
-	ifrm.src = 'assets/images/logo.png';
+	ifrm.src = 'css/lego.css';
 	ifrm.style.position = 'absolute';
 	ifrm.style.top = '-1000px';
 	
@@ -124,10 +131,6 @@ AssembleController.prototype = new FController({
         callback = callback || function () {};
 
         this.renderVUE(tpl(data), data, title, function () {
-            
-            // if (navigator.userAgent.toLowerCase().indexOf('micromessenger') > -1) {
-            //     updatePageTitleIniOS(title);
-            // }
             updatePageTitleIniOS(title);
             callback();
         });
