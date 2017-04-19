@@ -44,7 +44,10 @@ function AssembleController () {
 function updatePageTitleIniOS (title) {
     document.title = title;
 
-    if (!/(micromessenger)+/i.test(navigator.userAgent)) {
+    var ua = navigator.userAgent;
+
+    // 若当前浏览器不是 iPhone 下的微信，则直接返回
+    if (!(/(micromessenger)+/i.test(ua) && /(iphone)+/i.test(ua))) {
         return;
     }
 
