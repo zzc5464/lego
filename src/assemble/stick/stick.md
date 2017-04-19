@@ -2,7 +2,7 @@
 > 一般用于在页面顶部，展示一行文字，并支持用户关闭
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/canCloseTips.png" width="280.859"/></div>
 
 ### 属性列表
 

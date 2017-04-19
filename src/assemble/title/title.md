@@ -2,7 +2,7 @@
 > 在文字面板首行，用于展示标题和操作
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/wordPanel_title.png" width="280.859"/></div>
 
 ### 属性列表
 

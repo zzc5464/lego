@@ -2,7 +2,7 @@
 > 用于在流式布局中，插入一行空白
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/formNull.jpeg" width="280.859"/></div>
 
 ### 属性列表
 > 无

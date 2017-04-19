@@ -2,7 +2,7 @@
 > 在文字表格中的表单填写项，用于输入短信验证码。该组件包含“发送”按钮。暂不支持倒计时、重新发送等操作
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/formNull_bottom_message.png" width="280.859"/></div>
 
 ### 属性列表
 

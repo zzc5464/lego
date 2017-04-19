@@ -2,7 +2,7 @@
 > 在时间线中，描述每一个时间结点
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/timeline.png" width="280.859"/></div>
 
 ### 属性列表
 

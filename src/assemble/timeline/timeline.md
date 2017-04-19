@@ -2,7 +2,7 @@
 > 用于展示一系列时间截点，以及当前完成情况。按视觉要求，时间线目前都只停留在第一个时间结点，不存在其它结点被点亮的情况。若实际需求中，出现其它情况，请及时反馈。
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/timeline.png" width="280.859"/></div>
 
 ### 属性列表
 > 无

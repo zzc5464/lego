@@ -2,7 +2,7 @@
 > 文字表格，主要用于展示“键-值”对信息，也用于信息录入等
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/formNull.jpeg" width="280.859"/></div>
 
 ### 属性列表
 

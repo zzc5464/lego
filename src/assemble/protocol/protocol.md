@@ -2,7 +2,7 @@
 > 一般用于在页面底部，提示用户必须同意若干协议
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/agreement.png" width="280.859"/></div>
 
 ### 属性列表
 

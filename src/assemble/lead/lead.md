@@ -2,7 +2,7 @@
 > 用于页面顶部，给当前页面一个总结性提示，例如：当前用户的资产总额、交易状态等。
 
 ### DEMO
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+<div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/lead.png" width="280.859"/></div>
 
 ### 属性列表
 
