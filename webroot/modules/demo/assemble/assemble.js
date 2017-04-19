@@ -125,10 +125,10 @@ AssembleController.prototype = new FController({
 
         this.renderVUE(tpl(data), data, title, function () {
             
-            if (navigator.userAgent.toLowerCase().indexOf('micromessenger') > -1) {
-                updatePageTitleIniOS(title);
-            }
-
+            // if (navigator.userAgent.toLowerCase().indexOf('micromessenger') > -1) {
+            //     updatePageTitleIniOS(title);
+            // }
+            updatePageTitleIniOS(title);
             callback();
         });
     }

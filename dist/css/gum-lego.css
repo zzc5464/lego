@@ -819,7 +819,7 @@
   .gum .lego ._bgcolor_deepbrown, .gum .lego ._assetheader {
     background: -webkit-linear-gradient(-135deg, #5c4e27, #423620);
     background: linear-gradient(-135deg, #5c4e27, #423620); }
-  .gum .lego ._bgcolor_alpha {
+  .gum .lego ._bgcolor_paper {
     background: rgba(255, 255, 255, 0.9); }
   .gum .lego ._layers {
     position: relative;

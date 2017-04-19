@@ -1001,7 +1001,7 @@ button, input, span {
   background: -webkit-linear-gradient(-135deg, #5c4e27, #423620);
   background: linear-gradient(-135deg, #5c4e27, #423620); }
 
-._bgcolor_alpha {
+._bgcolor_paper {
   background: rgba(255, 255, 255, 0.9); }
 
 ._layers {

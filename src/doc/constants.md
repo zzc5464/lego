@@ -39,42 +39,35 @@
 
  颜色名 | 颜色值 | 示例 
 --- | --- | ---
- white | #FFFFFF | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/fff.png) 
- black | #333333 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/333.png) 
- grey | #666666 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/666.png) 
- light | #999999 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
- lightgrey | #c1c1c1 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
- stonegrey | #dcdcdc | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
- smokegrey | #e5e5e5 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
- offwhite | #efefef | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
- cream | #f6f6f7 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
+ white			| #FFFFFF | <div style="background: #FFFFFF;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ black			| #333333 | <div style="background: #333333;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ grey 			| #666666 | <div style="background: #666666;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ light			| #999999 | <div style="background: #999999;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ lightgrey	| #c1c1c1 | <div style="background: #c1c1c1;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div> 
+ stonegrey 	| #dcdcdc | <div style="background: #dcdcdc;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ smokegrey 	| #e5e5e5 | <div style="background: #e5e5e5;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ offwhite 	| #efefef | <div style="background: #efefef;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ cream 		| #f6f6f7 | <div style="background: #f6f6f7;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ high 			| #D7AC62 | <div style="background: #D7AC62;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ tapping 		| #b38f47 | <div style="background: #b38f47;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ yellowish	| #e0c89d | <div style="background: #e0c89d;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ lightyellow	| #fffce8 | <div style="background: #fffce8;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ grass 		| #58AF51 | <div style="background: #58AF51;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ skyblue		| #4475AC | <div style="background: #4475AC;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ powderblue 	| #50b1ab | <div style="background: #50b1ab;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>   
+ blackblue 	| #2e2516 | <div style="background: #2e2516;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ coral 		| #e6654c | <div style="background: #e6654c;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
+ transparent	| transparent |<div style="background: transparent;border: 2px solid #000;width: 150px;height:30px;">&nbsp;</div>
 
- high | #D7AC62 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
- tapping | #b38f47 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
- yellowish | #e0c89d | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
- lightyellow | #fffce8 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/999.png) 
+## 背景颜色
+> 用于给结构组件设置背景色
 
- grass | #58AF51 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
- skyblue | #4475AC | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
- powderblue | #50b1ab | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)   
- blackblue | #2e2516 | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)   
- coral | #e6654c | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)  
+ 颜色名 | 颜色值 | 示例 
+--- | --- | ---
+deepbrown | 棕色渐变 |<div style="background: -webkit-linear-gradient(-135deg, #5c4e27, #423620 );width: 150px;height:30px;">&nbsp;</div> 
+paper | 0.9白色透明 | <div style="background: #e6654c;width: 150px;height:30px;"><div style="rgba(255,255,255,.9);width: 150px;height:20px;"></div></div> 
 
- transparent | transparent | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
-
-## 文字和背景颜色
-> 用于给结构组件设置棕色渐变的背景色
-
- deepbrown | transparent | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
- 
- ## 文字和背景颜色
-> 用于给结构组件设置0.9透明度的白色背景
-
- paper | transparent | ![DEMO](https://ohc0dpsgs.qnssl.com/lego/images/d7ac62.png)
    
-
-## 文字和背景颜色
-> 用于给结构组件设置文字颜色或添加背景颜色
 
 ### 示例
 
@@ -98,4 +91,30 @@
 ```
 
 ### 图标名称
-![DEMO](https://ohc0dpsgs.qnssl.com/image/service/serviceBanner.jpg)
+图标	|		类名		| 图标	| 类名
+---		|		---  		|   ---	| --- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

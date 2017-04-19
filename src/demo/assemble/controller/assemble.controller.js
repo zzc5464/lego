@@ -127,7 +127,6 @@ AssembleController.prototype = new FController({
             if (navigator.userAgent.toLowerCase().indexOf('micromessenger') > -1) {
                 updatePageTitleIniOS(title);
             }
-
             callback();
         });
     }
