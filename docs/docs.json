@@ -20,6 +20,146 @@
         },
 
         {
+            "name"      : "组合元素",
+            "isFolder"  : true,
+            "children"  : [{
+                "name"      : "<dock/> 按钮",
+                "isFolder"  : false,
+                "link"      : "./assemble/dock/dock.md.html"
+            }, {
+                "name"      : "<a-button/> 按钮节点",
+                "isFolder"  : false,
+                "link"      : "./assemble/button/button.md.html"
+            }, {
+                "name"      : "<stub/> 空行",
+                "isFolder"  : false,
+                "link"      : "./assemble/stub/stub.md.html"
+            }, {
+                "name"      : "<a-table/> 表格",
+                "isFolder"  : false,
+                "link"      : "./assemble/table/table.md.html"
+            }, {
+                "name"      : "<text-row/> 纯文本行",
+                "isFolder"  : false,
+                "link"      : "./assemble/text-row/text-row.md.html"
+            }, {
+                "name"      : "<select-row/> 文本链接行",
+                "isFolder"  : false,
+                "link"      : "./assemble/select-row/select-row.md.html"
+            }, {
+                "name"      : "<text-field-row/> 文本输入行",
+                "isFolder"  : false,
+                "link"      : "./assemble/text-field-row/text-field-row.md.html"
+            }, {
+                "name"      : "<tel-field-row/> 手机输入行",
+                "isFolder"  : false,
+                "link"      : "./assemble/tel-field-row/tel-field-row.md.html"
+            }, {
+                "name"      : "<id-field-row/> 身份证输入行",
+                "isFolder"  : false,
+                "link"      : "./assemble/id-field-row/id-field-row.md.html"
+            }, {
+                "name"      : "<otp-field-row/> 短信验证码",
+                "isFolder"  : false,
+                "link"      : "./assemble/otp-field-row/otp-field-row.md.html"
+            }, {
+                "name"      : "<panel/> 文字面板",
+                "isFolder"  : false,
+                "link"      : "./assemble/panel/panel.md.html"
+            }, {
+                "name"      : "<a-title/> 文字面板标题栏",
+                "isFolder"  : false,
+                "link"      : "./assemble/title/title.md.html"
+            }, {
+                "name"      : "<flype/> 可折叠提示",
+                "isFolder"  : false,
+                "link"      : "./assemble/flype/flype.md.html"
+            }, {
+                "name"      : "<stick/> 可关闭提示",
+                "isFolder"  : false,
+                "link"      : "./assemble/stick/stick.md.html"
+            }, {
+                "name"      : "<remarks/> 注意事项",
+                "isFolder"  : false,
+                "link"      : "./assemble/remarks/remarks.md.html"
+            }, {
+                "name"      : "<protocol/> 协议",
+                "isFolder"  : false,
+                "link"      : "./assemble/protocol/protocol.md.html"
+            }, {
+                "name"      : "<password/> 交易密码",
+                "isFolder"  : false,
+                "link"      : "./assemble/password/password.md.html"
+            }, {
+                "name"      : "<stages/> 进度条",
+                "isFolder"  : false,
+                "link"      : "./assemble/stages/stages.md.html"
+            }, {
+                "name"      : "<stage/> 进度条结点",
+                "isFolder"  : false,
+                "link"      : "./assemble/stage/stage.md.html"
+            }, {
+                "name"      : "<stepwise/> 完成进度",
+                "isFolder"  : false,
+                "link"      : "./assemble/stepwise/stepwise.md.html"
+            }, {
+                "name"      : "<timeline/> 时间线",
+                "isFolder"  : false,
+                "link"      : "./assemble/timeline/timeline.md.html"
+            }, {
+                "name"      : "<timepoint/> 时间结点",
+                "isFolder"  : false,
+                "link"      : "./assemble/timepoint/timepoint.md.html"
+            }, {
+                "name"      : "<lead/> 头条",
+                "isFolder"  : false,
+                "link"      : "./assemble/lead/lead.md.html"
+            }]
+        },
+
+        {
+            "name"      : "页面元素 <p-*/>",
+            "isFolder"  : true,
+            "children"  : [
+                {
+                    "name"      : "<p-main/> 主体容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/main/main.md.html"
+                },
+                {
+                    "name"      : "<p-footer/> 驻底容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/footer/footer.md.html"
+                },
+                {
+                    "name"      : "<p-header/> 驻顶容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/header/header.md.html"
+                },
+                {
+                    "name"      : "<p-cover/> 漂浮容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/cover/cover.md.html"
+                },
+                {
+                    "name"      : "<p-mask/> 蒙板容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/mask/mask.md.html"
+                },
+                {
+                    "name"      : "<p-presentation/> 上升容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/presentation/presentation.md.html"
+                },
+                {
+                    "name"      : "<p-popup/> 弹出容器",
+                    "isFolder"  : false,
+                    "link"      : "./pages/popup/popup.md.html"
+                }
+            ]
+        },
+
+        {
             "name"      : "基本元素 <b-*/>",
             "isFolder"  : true,
             "children"  : [
@@ -159,146 +299,6 @@
                     "name"      : "<s-sticker/> 漂浮单元",
                     "isFolder"  : false,
                     "link"      : "./structure/skeleton/skeleton.md.html"
-                }
-            ]
-        },
-
-        {
-            "name"      : "组合元素",
-            "isFolder"  : true,
-            "children"  : [{
-                "name"      : "<dock/> 按钮",
-                "isFolder"  : false,
-                "link"      : "./assemble/dock/dock.md.html"
-            }, {
-                "name"      : "<a-button/> 按钮节点",
-                "isFolder"  : false,
-                "link"      : "./assemble/button/button.md.html"
-            }, {
-                "name"      : "<stub/> 空行",
-                "isFolder"  : false,
-                "link"      : "./assemble/stub/stub.md.html"
-            }, {
-                "name"      : "<a-table/> 表格",
-                "isFolder"  : false,
-                "link"      : "./assemble/table/table.md.html"
-            }, {
-                "name"      : "<text-row/> 纯文本行",
-                "isFolder"  : false,
-                "link"      : "./assemble/text-row/text-row.md.html"
-            }, {
-                "name"      : "<select-row/> 文本链接行",
-                "isFolder"  : false,
-                "link"      : "./assemble/select-row/select-row.md.html"
-            }, {
-                "name"      : "<text-field-row/> 文本输入行",
-                "isFolder"  : false,
-                "link"      : "./assemble/text-field-row/text-field-row.md.html"
-            }, {
-                "name"      : "<tel-field-row/> 手机输入行",
-                "isFolder"  : false,
-                "link"      : "./assemble/tel-field-row/tel-field-row.md.html"
-            }, {
-                "name"      : "<id-field-row/> 身份证输入行",
-                "isFolder"  : false,
-                "link"      : "./assemble/id-field-row/id-field-row.md.html"
-            }, {
-                "name"      : "<otp-field-row/> 短信验证码",
-                "isFolder"  : false,
-                "link"      : "./assemble/otp-field-row/otp-field-row.md.html"
-            }, {
-                "name"      : "<panel/> 文字面板",
-                "isFolder"  : false,
-                "link"      : "./assemble/panel/panel.md.html"
-            }, {
-                "name"      : "<a-title/> 文字面板标题栏",
-                "isFolder"  : false,
-                "link"      : "./assemble/title/title.md.html"
-            }, {
-                "name"      : "<flype/> 可折叠提示",
-                "isFolder"  : false,
-                "link"      : "./assemble/flype/flype.md.html"
-            }, {
-                "name"      : "<stick/> 可关闭提示",
-                "isFolder"  : false,
-                "link"      : "./assemble/stick/stick.md.html"
-            }, {
-                "name"      : "<remarks/> 注意事项",
-                "isFolder"  : false,
-                "link"      : "./assemble/remarks/remarks.md.html"
-            }, {
-                "name"      : "<protocol/> 协议",
-                "isFolder"  : false,
-                "link"      : "./assemble/protocol/protocol.md.html"
-            }, {
-                "name"      : "<password/> 交易密码",
-                "isFolder"  : false,
-                "link"      : "./assemble/password/password.md.html"
-            }, {
-                "name"      : "<stages/> 进度条",
-                "isFolder"  : false,
-                "link"      : "./assemble/stages/stages.md.html"
-            }, {
-                "name"      : "<stage/> 进度条结点",
-                "isFolder"  : false,
-                "link"      : "./assemble/stage/stage.md.html"
-            }, {
-                "name"      : "<stepwise/> 完成进度",
-                "isFolder"  : false,
-                "link"      : "./assemble/stepwise/stepwise.md.html"
-            }, {
-                "name"      : "<timeline/> 时间线",
-                "isFolder"  : false,
-                "link"      : "./assemble/timeline/timeline.md.html"
-            }, {
-                "name"      : "<timepoint/> 时间结点",
-                "isFolder"  : false,
-                "link"      : "./assemble/timepoint/timepoint.md.html"
-            }, {
-                "name"      : "<lead/> 头条",
-                "isFolder"  : false,
-                "link"      : "./assemble/lead/lead.md.html"
-            }]
-        },
-
-        {
-            "name"      : "页面元素 <p-*/>",
-            "isFolder"  : true,
-            "children"  : [
-                {
-                    "name"      : "<p-main/> 主体容器",
-                    "isFolder"  : false,
-                    "link"      : "./pages/main/main.md.html"
-                },
-                {
-                    "name"      : "<p-footer/> 驻底容器",
-                    "isFolder"  : false,
-                    "link"      : "./pages/footer/footer.md.html"
-                },
-                {
-                    "name"      : "<p-header/> 驻顶容器",
-                    "isFolder"  : false,
-                    "link"      : "./pages/header/header.md.html"
-                },
-                {
-                    "name"      : "<p-cover/> 漂浮容器",
-                    "isFolder"  : false,
-                    "link"      : "./pages/cover/cover.md.html"
-                },
-                {
-                    "name"      : "<p-mask/> 蒙板容器",
-                    "isFolder"  : false,
-                    "link"      : "./pages/mask/mask.md.html"
-                },
-                {
-                    "name"      : "<p-presentation/> 上升容器",
-                    "isFolder"  : false,
-                    "link"      : "./pages/presentation/presentation.md.html"
-                },
-                {
-                    "name"      : "<p-popup/> 弹出容器",
-                    "isFolder"  : false,
-                    "link"      : "./pages/popup/popup.md.html"
                 }
             ]
         }
