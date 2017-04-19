@@ -206,6 +206,58 @@
                 "name"      : "<otp-field-row/> 短信验证码",
                 "isFolder"  : false,
                 "link"      : "./assemble/otp-field-row/otp-field-row.md.html"
+            }, {
+                "name"      : "<panel/> 文字面板",
+                "isFolder"  : false,
+                "link"      : "./assemble/panel/panel.md.html"
+            }, {
+                "name"      : "<a-title/> 文字面板标题栏",
+                "isFolder"  : false,
+                "link"      : "./assemble/title/title.md.html"
+            }, {
+                "name"      : "<flype/> 可折叠提示",
+                "isFolder"  : false,
+                "link"      : "./assemble/flype/flype.md.html"
+            }, {
+                "name"      : "<stick/> 可关闭提示",
+                "isFolder"  : false,
+                "link"      : "./assemble/stick/stick.md.html"
+            }, {
+                "name"      : "<remarks/> 注意事项",
+                "isFolder"  : false,
+                "link"      : "./assemble/remarks/remarks.md.html"
+            }, {
+                "name"      : "<protocol/> 协议",
+                "isFolder"  : false,
+                "link"      : "./assemble/protocol/protocol.md.html"
+            }, {
+                "name"      : "<password/> 交易密码",
+                "isFolder"  : false,
+                "link"      : "./assemble/password/password.md.html"
+            }, {
+                "name"      : "<stages/> 进度条",
+                "isFolder"  : false,
+                "link"      : "./assemble/stages/stages.md.html"
+            }, {
+                "name"      : "<stage/> 进度条结点",
+                "isFolder"  : false,
+                "link"      : "./assemble/stage/stage.md.html"
+            }, {
+                "name"      : "<stepwise/> 完成进度",
+                "isFolder"  : false,
+                "link"      : "./assemble/stepwise/stepwise.md.html"
+            }, {
+                "name"      : "<timeline/> 时间线",
+                "isFolder"  : false,
+                "link"      : "./assemble/timeline/timeline.md.html"
+            }, {
+                "name"      : "<timepoint/> 时间结点",
+                "isFolder"  : false,
+                "link"      : "./assemble/timepoint/timepoint.md.html"
+            }, {
+                "name"      : "<lead/> 头条",
+                "isFolder"  : false,
+                "link"      : "./assemble/lead/lead.md.html"
             }]
         },
 
