@@ -8,7 +8,8 @@ var FController     = require('fcontroller'),
     tplIconView   = require('../views/tpl.icon'),
     tplImageView   = require('../views/tpl.image'),
     tplListView   = require('../views/tpl.list'),
-    tplUploadingView   = require('../views/tpl.uploading');
+    tplUploadingView   = require('../views/tpl.uploading'),
+    tplLayersView  = require('../views/tpl.layers');
 
 function BasicController () {
     this.moduleName = 'demo';
@@ -22,7 +23,8 @@ function BasicController () {
         'icon' : 'icon',
         'image' : 'image',
         'list' : 'list',
-        'uploading': 'uploading'
+        'uploading': 'uploading',
+        'layers' : 'layers'
     }
     this.VueManager = VueManager;
 }
@@ -137,6 +139,19 @@ BasicController.prototype = new FController({
                 $('#back').tap(function(){
                     window.back();
                 });
+            });
+        }
+
+        show.call(this, {
+            // DATA
+        });
+    },
+    layers: function () {
+        var $ = this.$, navigate = this.navigate.bind(this);
+
+        function show (data) {
+            this.renderVUE(tplLayersView(data), data, 'UI层级', function (app) {
+                
             });
         }
 

@@ -823,7 +823,15 @@
     background: rgba(255, 255, 255, 0.9); }
   .gum .lego ._layers {
     position: relative;
-    height: 300px; }
+    height: 300px;
+    margin: 200px auto; }
+  .gum .lego ._layers span {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff; }
   .gum .lego ._layers_common {
     position: absolute;
     left: 50%;
@@ -831,49 +839,45 @@
     height: 200px;
     margin-left: -75px;
     box-sizing: border-box;
-    color: #000;
     font-size: 0.78947rem;
     -webkit-transition: .5s;
     transition: .5s;
-    border: 1px solid #dcdcdc; }
+    border: 1px solid transparent; }
   .gum .lego ._layers_popout {
+    height: 100px;
+    width: 120px;
+    left: 40%;
+    top: 30%;
     z-index: 10;
-    background-color: transparent; }
+    background-color: #f57be9;
+    border-color: rgba(245, 123, 233, 0.4); }
   .gum .lego ._layers_p_transform {
-    -webkit-transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(150px);
-    transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(150px); }
+    -webkit-transform: translateX(15px) rotateX(30deg) rotate(10deg) skew(-20deg) translateZ(180px);
+    transform: translateX(15px) rotateX(30deg) rotate(10deg) skew(-20deg) translateZ(180px); }
   .gum .lego ._layers_mask {
+    top: 6%;
+    left: 45%;
     z-index: 8;
-    border-color: rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.3); }
   .gum .lego ._layers_m_transform {
-    -webkit-transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(100px);
-    transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(100px); }
+    -webkit-transform: translateX(15px) rotateX(30deg) rotate(10deg) skew(-20deg) translateZ(120px);
+    transform: translateX(15px) rotateX(30deg) rotate(10deg) skew(-20deg) translateZ(120px); }
   .gum .lego ._layers_absolute {
+    height: 60px;
+    top: 45%;
+    left: 37%;
     z-index: 5;
-    border-color: rgba(40, 187, 102, 0.6);
-    background-color: rgba(40, 187, 102, 0.6); }
+    border-color: rgba(40, 187, 102, 0.9);
+    background-color: rgba(40, 187, 102, 0.9); }
   .gum .lego ._layers_a_transform {
-    -webkit-transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(50px);
-    transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(50px); }
+    -webkit-transform: translateX(15px) rotateX(30deg) rotate(10deg) skew(-20deg) translateZ(50px);
+    transform: translateX(15px) rotateX(30deg) rotate(10deg) skew(-20deg) translateZ(50px); }
   .gum .lego ._layers_content {
-    border-color: #f40;
-    background-color: #f40; }
+    border-color: #fbe3e3;
+    background-color: #fbe3e3; }
   .gum .lego ._layers_c_transform {
-    -webkit-transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(0px);
-    transform: translateX(15px) rotateX(40deg) rotate(10deg) skew(-20deg) translateZ(0px); }
-  .gum .lego ._success_icon {
-    width: 3.947368rem;
-    height: 3.947368rem;
-    border-radius: 50%;
-    background-color: #50b15b;
-    line-height: 4.247368rem; }
-  .gum .lego ._failure_icon {
-    width: 3.947368rem;
-    height: 3.947368rem;
-    border-radius: 50%;
-    background-color: darkblue;
-    line-height: 4.247368rem; }
+    -webkit-transform: translateX(15px) rotateX(30deg) rotate(10deg) skew(-20deg) translateZ(-20px);
+    transform: translateX(15px) rotateX(30deg) rotate(10deg) skew(-20deg) translateZ(-20px); }
 
 .gum.rwd .lego button {
   background-image: none; }
