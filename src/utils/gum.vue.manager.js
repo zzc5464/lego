@@ -5,7 +5,6 @@ var Vue = require('vue/dist/vue.common');
 var components = [
     [ 'b-text'                  , require('../basic/text/text.vue.js')                              ],
     [ 'b-highlight'             , require('../basic/highlight/highlight.vue.js')                    ],
-    [ 'b-skeleton'              , require('../basic/skeleton/skeleton.vue.js')                      ],
     [ 'b-icon'                  , require('../basic/icon/icon.vue.js')                              ],
     [ 'b-image'                 , require('../basic/image/image.vue.js')                            ],
     [ 'b-svg'                   , require('../basic/svg/svg.vue.js')                                ],
@@ -14,7 +13,6 @@ var components = [
     [ 'b-rectangular-button'    , require('../basic/rectangular-button/rectangular-button.vue.js')  ],
     [ 'b-tab-button'            , require('../basic/tab-button/tab-button.vue.js')                  ],
     [ 'b-text-button'           , require('../basic/text-button/text-button.vue.js')                ],
-    [ 'b-image-button'          , require('../basic/image-button/image-button.vue.js')              ],
 
     [ 'b-text-field'            , require('../basic/text-field/text-field.vue.js')                  ],
     [ 'b-number-field'          , require('../basic/number-field/number-field.vue.js')              ],
@@ -35,16 +33,9 @@ var components = [
     [ 's-column'                , require('../structure/column/column.vue.js')                      ],
     [ 's-flex-column'           , require('../structure/flex-column/flex-column.vue.js')            ],
     [ 's-multiline'             , require('../structure/multiline/multiline.vue.js')                ],
-    [ 's-sticker'               , require('../structure/sticker/sticker.vue.js')                    ],
 
     [ 'p-main'                  , require('../page/main/main.vue.js')                               ],
     [ 'p-footer'                , require('../page/footer/footer.vue.js')                           ],
-    [ 'p-header'                , require('../page/header/header.vue.js')                           ],
-    [ 'p-cover'                 , require('../page/cover/cover.vue.js')                             ],
-    [ 'p-mask'                  , require('../page/mask/mask.vue.js')                               ],
-    [ 'p-toast'                 , require('../page/toast/toast.vue.js')                             ],
-    [ 'p-presentation'          , require('../page/presentation/presentation.vue.js')               ],
-    [ 'p-popup'                 , require('../page/popup/popup.vue.js')                             ],
 
     [ 'flype'                   , require('../assemble/flype/flype.vue.js')                         ],
     [ 'stick'                   , require('../assemble/stick/stick.vue.js')                         ],

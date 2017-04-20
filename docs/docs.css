@@ -175,8 +175,13 @@
 	font-weight: 700
 }
 
+.markdown-section h1:first-child,
+.markdown-section h2:first-child {
+	padding-top: 0.8em;
+}
+
 .markdown-section h1 {
-	font-size: 2em
+	font-size: 2em;
 }
 
 .markdown-section h2 {
