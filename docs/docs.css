@@ -504,8 +504,40 @@ section>p {
   transition: font-size 0.25s ease-out 0s;
 
 }
-.icon_lists .icon:hover{
+.icon_lists .icon:hover {
   font-size: 100px;
 }
 
-
+@media screen and (max-width: 414px) {
+	.book {
+		display: block;
+	}
+	.aside, .book-body {
+		width: 100%;
+		overflow-y: scroll;
+		position: absolute;
+		top: 0;
+	}
+	.aside {
+		background: #fff;
+		margin-left: 0;
+		margin-top: 0;
+		padding-left: 20px;
+		z-index: 999;
+		top: 40px;
+	}
+	.aside h1:first-of-type {
+		margin-top: 5px;
+	}
+	.aside .btn_l {
+		width: 100%;
+		position: relative;
+	}
+	.book-body {
+		position: fixed;
+		height: 100%;
+	}
+	.book-body .right_head {
+		z-index: 1000;
+	}
+}

@@ -6,22 +6,12 @@
         <meta content="telephone=no" name="format-detection"/>
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <link rel="stylesheet" href="./docs.css"/>
-        <!--<link rel="stylesheet" href="./iconfont.css"/>-->
         <script type="text/javascript" src="./jquery.min.js"></script>
         <title>LEGO Document</title>   
     </head>
     <body>
         <div class="book">
-            <div class="aside" id="aside" style=''>
-                <!--<div class="btn_l">lego</div>-->
-                <!--<h1>导航部分点击展开</h1>
-                <ul class="one" style="display: none;">
-                    <li data-link='./basic/text/text.md.html'>链接链接</li>
-                    <li data-link='./basic/address-field/address-field.md.html'>链接链接</li>
-                    <li>链接链接</li>
-                    <li>链接链接</li>
-                </ul>-->
-            </div>
+            <div class="aside" id="aside" style=''></div>
             <div class="book-body">
                 <div class="right_head">
                     <div class="btn_r" id="btn"></div>
@@ -39,8 +29,14 @@
             return text;
         }
 
+        var t = false;
         $('#btn').click(function(){
             $('.aside').fadeToggle('fast');
+
+            if ($(window).width() <= 414) {
+                t = !t;
+                $('.book-body').css('position', t ? 'fixed' : 'relative');
+            }
         });
 
         // 获取 JSON 文件
@@ -105,6 +101,12 @@
                 setTimeout(function(){
                     $("#introduce").fadeIn(800);
                 },0);
+
+                if ($(window).width() <= 414) {
+                    $('.aside').fadeToggle('fast');
+                    t = !t;
+                    $('.book-body').css('position', t ? 'fixed' : 'relative');
+                }
             });
 
         });
