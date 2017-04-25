@@ -60,7 +60,10 @@ var components = [
     [ 'dock'                    , require('../assemble/dock/dock.vue.js')                           ],
     [ 'a-button'                , require('../assemble/button/button.vue.js')                       ],
     [ 'panel'                   , require('../assemble/panel/panel.vue.js')                         ],
-    [ 'a-title'                 , require('../assemble/title/title.vue.js')                         ]
+    [ 'a-title'                 , require('../assemble/title/title.vue.js')                         ],
+
+    [ 'list'                    , require('../assemble/list/list.vue.js')                           ],
+    [ 'card'                    , require('../assemble/card/card.vue.js')                           ]
 ];
 
 components.forEach(function (component) {

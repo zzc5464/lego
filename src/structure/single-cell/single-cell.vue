@@ -1,10 +1,31 @@
 <template>
-    <div class='_single-cell' :class='classObj' :style='styleObj'><slot></slot></div>
+    <div class='_single-cell' :class='classObj' :style='styleObj' @mytap='onTapCallback' data-tappable><slot></slot></div>
 </template>
 
 <script>
     module.exports = {
-        props: [ 'height', 'border', 'bgcolor' ],
+        props: {
+            height: {
+                type: String,
+                default: '1'
+            },
+
+            border: {
+                type: String,
+                default: 'false'
+            },
+
+            bgcolor: {
+                type: String,
+                default: 'white'
+            },
+
+            onTap: {
+                type: Function,
+                default: function () {}
+            }
+        },
+
         data: function() {
             var list = [];
 
@@ -16,6 +37,12 @@
                 },
                 classObj: list
             };
+        },
+        
+        methods: {
+            onTapCallback: function (e) {
+                this.onTap(e);
+            }
         }
     }
 </script>

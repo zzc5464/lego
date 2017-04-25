@@ -14,7 +14,8 @@ var FController         = require('fcontroller'),
     tplLeadView         = require('../views/tpl.lead'),
     tplTableView        = require('../views/tpl.table'),
     tplDockView         = require('../views/tpl.dock'),
-    tplPanelView        = require('../views/tpl.panel');
+    tplPanelView        = require('../views/tpl.panel'),
+    tplListView         = require('../views/tpl.list');
 
 function AssembleController () {
     this.moduleName = 'demo';
@@ -34,7 +35,8 @@ function AssembleController () {
          table      : 'table',
          dock       : 'dock',
          panel      : 'panel',
-         lead       : 'lead'
+         lead       : 'lead',
+         list       : 'list'
     }
 
     this.VueManager = VueManager;
@@ -121,6 +123,15 @@ AssembleController.prototype = new FController({
 
     lead: function () {
         this.show('头条', tplLeadView);
+    },
+
+    list: function () {
+        this.show('列表', tplListView, null, {
+            list: [{name: '123'}, {name: '456'}],
+            onTap: function (itemData) {
+                console.log(itemData.name);
+            }
+        });
     },
 
     show: function (title, tpl, callback, data) {
