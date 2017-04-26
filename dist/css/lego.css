@@ -28,7 +28,7 @@ $bgcolor-gradient       : linear-gradient(45deg, #423620, #5c4e27);
 $bgcolor-alpha          : rgba(255,255,255,.9);
 
 *******/
-._card ._multiline h4, ._card ._multiline h6, ._setflex {
+._setflex {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -818,16 +818,6 @@ h1, h2, h3, h4, h5, h6 {
       position: absolute;
       top: 0.78947rem;
       right: 0.26316rem; }
-
-._card ._multiline h4, ._card ._multiline h6 {
-  margin: 0;
-  padding: 0; }
-._card ._multiline h4 {
-  color: #333;
-  font-size: 0.78947rem; }
-._card ._multiline h6 {
-  color: #999;
-  font-size: 0.63158rem; }
 
 ._main {
   min-height: 100.1%; }

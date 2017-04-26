@@ -1,5 +1,5 @@
 <template>
-    <s-cell height="3.421056" :on-tap='onTapCallback' class="_next-card" border="true">
+    <s-cell height="3.421056" :on-tap='onTapCallback' class="_next-card" :class="{_cell_next: isGoNext}" border="true">
         <s-flex-column>
         </s-flex-column>
         <s-multiline width="10" align="left" self-align="center">
@@ -53,8 +53,8 @@
         },
         
         computed: {
-            isIncome: function(){
-                if(this.itemData.orderAmount.indexOf('+')> -1){
+            isGoNext: function(){
+                if(this.itemData.orderType !=='1' && this.itemData.orderType !=='2'){
                     return true;
                 }
             }

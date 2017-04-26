@@ -431,19 +431,3 @@ h1,h2,h3,h4,h5,h6 {
     }
 }
 
-._card {
-    & ._multiline h4,
-    & ._multiline h6 {
-        @extend %setflex;
-        margin: 0;
-        padding: 0;
-    }
-    & ._multiline h4{
-        color: $c-black;
-        font-size: calRem(30);
-    }
-    & ._multiline h6{
-        color: $c-light;
-        font-size: calRem(24);
-    }
-}
