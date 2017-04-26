@@ -7,7 +7,19 @@
 
 <script>
     module.exports = {
-        props: ['id', 'size', 'color'],
+        props: {
+            id: {
+                type: String
+            },
+            size: {
+                type: String,
+                default: '30'
+            },
+            color: {
+                type: String,
+                default: 'black'
+            }
+        },
         data: function() {
             var list = [], obj = {};
 

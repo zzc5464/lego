@@ -294,6 +294,37 @@ h1,h2,h3,h4,h5,h6 {
     height: 80px;
 }
 
+// to next page bank
+// ._next-card {
+//     @extend %setflex;
+//     box-sizing: border-box;
+//     padding: 0 calRem(30);
+//     width: 100%;
+//     & > div {
+//         width: 50%;
+//         @extend %setflex;
+//     }
+// }
+
+// ._select-card {
+
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // card-invest
 ._card-invest {
     padding: 15px 15px 0;
@@ -397,5 +428,22 @@ h1,h2,h3,h4,h5,h6 {
             top: calRem(30);
             right: calRem(10);
         }
+    }
+}
+
+._card {
+    & ._multiline h4,
+    & ._multiline h6 {
+        @extend %setflex;
+        margin: 0;
+        padding: 0;
+    }
+    & ._multiline h4{
+        color: $c-black;
+        font-size: calRem(30);
+    }
+    & ._multiline h6{
+        color: $c-light;
+        font-size: calRem(24);
     }
 }

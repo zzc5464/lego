@@ -4,10 +4,10 @@
 
 <script>
     module.exports = {
-        props: [ 'width', 'align' ],
+        props: [ 'width', 'align', 'selfAlign' ],
 
         data: function() {
-            var justifyContent = {
+            var setAlign = {
                 left    : 'flex-start',
                 right   : 'flex-end',
                 center  : 'center'
@@ -22,7 +22,8 @@
                     width           : this.width + 'rem', 
                     paddingTop      : padding + 'rem',
                     paddingBottom   : padding + 'rem',
-                    justifyContent  : justifyContent[this.align] || justifyContent['left']
+                    justifyContent  : setAlign[this.align] || setAlign['left'],
+                    alignSelf       : setAlign[this.selfAlign] || setAlign['left']
                 }
             };
         }

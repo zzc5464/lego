@@ -127,7 +127,39 @@ AssembleController.prototype = new FController({
 
     list: function () {
         this.show('列表', tplListView, null, {
-            list: [{name: '123'}, {name: '456'}],
+            // list: [{name: '123'}, {name: '456'}],
+            // 可供选择的银行卡 且 选中第一张 
+            list: [
+                {"bankName": "平安银行","bankNum":"3453","limit":"100"},
+                {"bankName": "建设银行","bankNum":"1233","limit":"200"},
+                {"bankName": "浦发银行","bankNum":"2333","limit":"30"}
+            ],
+            // 点击银行卡  跳转下一页
+            list1: [
+                {"bankName": "平安银行","bankNum":"3453","limit":"100"}
+            ],
+            // 不支持充值的银行卡 
+            list2: [
+                {"bankName": "浦发银行","bankNum":"2333","limit":"30"},
+                {"bankName": "平安银行","bankNum":"3453","limit":"100"}
+            ],
+            // 不支持充值的银行卡 
+            list3: [
+                {"bankName": "浦发银行","bankNum":"2333","limit":"30"},
+                {"bankName": "建设银行","bankNum":"1233","limit":"200"}
+            ],
+            // 在途资产
+            list4: [
+                {"orderName": "工资宝","orderType":"赎回","orderTime":"2015-08-18 09:01:40","orderAmount":"500.50"},
+                {"orderName": "定期产品","orderType":"申购","orderTime":"2015-08-18 09:01:40","orderAmount":"600.00"}
+            ],
+            // 账户明细
+            list5: [
+                {"orderName": "认购-","orderDesc":"财富121期","orderType":"1","orderTime":"2015-08-18 09:01:40","orderAmount":"7008.50"},
+                {"orderName": "赎回-","orderDesc":"财富121期","orderType":"2","orderTime":"2015-08-18 09:01:40","orderAmount":"600.00"},
+                {"orderName": "在线充值","orderType":"1","orderTime":"2015-08-18 09:01:40","orderAmount":"600.00"},
+                {"orderName": "线下充值","orderType":"1","orderTime":"2015-08-18 09:01:40","orderAmount":"600.00"}
+            ],
             onTap: function (itemData) {
                 console.log(itemData.name);
             }

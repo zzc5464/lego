@@ -1,6 +1,6 @@
 <template>
     <div>
-        <component v-for='(item, index) in data' :is='card' :item-data='item' :item-index='index' :checked='name !== "" && item[name] === value' :on-tap='onTapCallback'></component>
+        <component v-for='(item, index) in data' :is='card' :item-data='item' :item-index='index' :checked='name !== "" && item[name] === value' :support='support' :on-tap='onTapCallback'></component>
     </div>
 </template>
 
@@ -11,7 +11,7 @@
             // 卡片类型
             card: {
                 type: String,
-                default: 'card'
+                default: 'next-card'
             },
 
             // 列表数据，要求是数组格式
@@ -36,6 +36,11 @@
             onTap: {
                 type: Function,
                 default: function () {}
+            },
+
+            support: {
+                type: Number,
+                default: 1
             }
 
         }, 

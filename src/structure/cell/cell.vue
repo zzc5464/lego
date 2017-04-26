@@ -6,7 +6,6 @@
 
 <script>
     module.exports = {
-        // props: [ 'height', 'min-height', 'border', 'bgcolor' ],
         props: {
             height: {
                 type: String,

@@ -1,19 +1,24 @@
 <template>
-    <s-single-cell height="4.736842" :on-tap='onTapCallback' class="_card" border="true">
-        <s-column width=".789474" align="left">
-        </s-column>
-        <s-multiline width="16" align="left" self-align="center">
-            <b-text color="black" size="30">{{itemData.bankName}}  <br>
-                <b-text color="light" size="24">单笔：100万 &nbsp; 单日：500万 &nbsp; 日累计：10笔</b-text><br>
-                <b-text color="light" size="24">交易时间：12:00-24:00</b-text>
+    <s-cell height="3.421056" :on-tap='onTapCallback' class="_next-card" border="true">
+        <s-flex-column>
+        </s-flex-column>
+        <s-multiline width="12" align="left" self-align="center">
+            <b-text color="black" size="30">
+                {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}} <br>
+                <b-text color="light" size="24">单笔限额{{itemData.limit}}万</b-text>
             </b-text>
         </s-multiline>
-    </s-single-cell>
+        <s-column width="6" align="right">
+            <b-icon v-if="checked" size="30" color="high" name="check"></b-icon>
+        </s-column>
+        <s-flex-column>
+        </s-flex-column>
+    </s-cell>
     
 </template>
 
 <script>
-    // <b-text>{{itemIndex}} - {{itemData.name}} - {{checked}}</b-text>
+// <b-text>{{itemIndex}} - {{itemData.name}} - {{checked}}</b-text>
     // 银行卡 点击 进入下一页
     module.exports = {
         props: {
@@ -36,7 +41,9 @@
                 type: Function,
                 default: function () {}
             }
+
         },
+        
 
         data: function () {
             return {}
@@ -44,6 +51,7 @@
 
         methods: {
             onTapCallback: function (e) {
+                this.checked = true;
                 this.onTap(this.itemData, e);
             }
         }

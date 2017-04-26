@@ -1,9 +1,75 @@
-<stub></stub>
 
-<!-- 指定默认选中的片卡 -->
-<list card='card' name='name' value='123' :data='list' :on-tap='onTap'></list>
+<!-- 银行卡 跳转下一页  -->
+<s-cell height="1" border="true" bgcolor="offwhite">
+    <s-column width=".789474" align="left">
+    </s-column>
+    <s-column width="13" align="left">
+        <b-text size="22" color="grey">银行卡 跳转下一页</b-text>
+    </s-column>
+</s-cell>
+<list card='next-card' :data='list1' :on-tap='onTap'></list>
 
-<stub></stub>
+<s-cell height="1" border="true" bgcolor="offwhite">
+    <s-column width=".789474" align="left">
+    </s-column>
+    <s-column width="13" align="left">
+        <b-text size="22" color="grey">不支持的银行卡 提示更换 跳转下一页 </b-text>
+    </s-column>
+</s-cell>
 
-<!-- 不指定默认选中的片卡 -->
-<list card='card' :data='list' :on-tap='onTap'></list>
+<list card='next-card' name='name' value='123' :data='list1' :on-tap='onTap' :support='2' ></list>
+
+<s-cell height="1" border="true" bgcolor="offwhite">
+    <s-column width=".789474" align="left">
+    </s-column>
+    <s-column width="13" align="left">
+        <b-text size="22" color="grey">不支持的银行卡 不可点击 </b-text>
+    </s-column>
+</s-cell>
+
+<list card='next-card' name='name' value='123' :data='list2' :on-tap='onTap' :support='3' ></list>
+
+<!-- 选择银行卡 指定默认选中的片卡  -->
+<s-cell height="1" border="true" bgcolor="offwhite">
+    <s-column width=".789474" align="left">
+    </s-column>
+    <s-column width="13" align="left">
+        <b-text size="22" color="grey">指定默认选中的片卡 且银行卡列表循环 </b-text>
+    </s-column>
+</s-cell>
+
+<list card='select-card' name='bankName' value='平安银行' :data='list' :on-tap='onTap'  ></list>
+
+<!-- 支持的银行卡   -->
+<s-cell height="1" border="true" bgcolor="offwhite">
+    <s-column width=".789474" align="left">
+    </s-column>
+    <s-column width="13" align="left">
+        <b-text size="22" color="grey">指定默认选中的片卡 且银行卡列表循环 </b-text>
+    </s-column>
+</s-cell>
+
+<list card='card' name='bankName' value='平安银行' :data='list' :on-tap='onTap'  ></list>
+
+<!-- 在途资产   -->
+<s-cell height="1" border="true" bgcolor="offwhite">
+    <s-column width=".789474" align="left">
+    </s-column>
+    <s-column width="13" align="left">
+        <b-text size="22" color="grey">在途资产 申购赎回订单列表 </b-text>
+    </s-column>
+</s-cell>
+
+<list card='order-card' :data='list4' :on-tap='onTap'  ></list>
+
+<!-- 账户明细   -->
+<s-cell height="1" border="true" bgcolor="offwhite">
+    <s-column width=".789474" align="left">
+    </s-column>
+    <s-column width="13" align="left">
+        <b-text size="22" color="grey">账户明细</b-text>
+    </s-column>
+</s-cell>
+
+<list card='order-card' :data='list5' :on-tap='onTap'  ></list>
+

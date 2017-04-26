@@ -29,7 +29,7 @@
   $bgcolor-alpha          : rgba(255,255,255,.9);
   
   *******/ }
-  .gum .lego ._setflex {
+  .gum .lego ._card ._multiline h4, .gum .lego ._card ._multiline h6, .gum .lego ._setflex {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -406,6 +406,15 @@
   .gum .lego ._justify-end {
     -webkit-justify-content: flex-end;
     justify-content: flex-end; }
+  .gum .lego ._align-start {
+    -webkit-align-self: flex-start;
+    align-self: flex-start; }
+  .gum .lego ._align-center {
+    -webkit-align-self: center;
+    align-self: center; }
+  .gum .lego ._align-end {
+    -webkit-align-self: flex-end;
+    align-self: flex-end; }
   .gum .lego ._cell._border, .gum .lego ._single-cell._border {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
     background-position: 0 100%;
@@ -676,6 +685,15 @@
         position: absolute;
         top: 0.78947rem;
         right: 0.26316rem; }
+  .gum .lego ._card ._multiline h4, .gum .lego ._card ._multiline h6 {
+    margin: 0;
+    padding: 0; }
+  .gum .lego ._card ._multiline h4 {
+    color: #333;
+    font-size: 0.78947rem; }
+  .gum .lego ._card ._multiline h6 {
+    color: #999;
+    font-size: 0.63158rem; }
   .gum .lego ._main {
     min-height: 100.1%; }
   .gum .lego ._main_wrp {
@@ -772,6 +790,8 @@
     color: #2e2516; }
   .gum .lego .text_color_coral {
     color: #e6654c; }
+  .gum .lego ._text_size_18px {
+    font-size: 0.47368rem; }
   .gum .lego ._text_size_22px {
     font-size: 0.57895rem; }
   .gum .lego ._text_size_24px, .gum .lego ._assetheader h6 {
