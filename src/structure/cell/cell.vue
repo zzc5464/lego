@@ -1,5 +1,5 @@
 <template>
-    <div class='_cell' :class='classObj' :style='styleObj' v-on:mytap='tapped' data-tappable >
+    <div class='_cell' :class='classObj' :style='styleObj' @mytap='onTapCallback' data-tappable >
         <slot></slot>
     </div>
 </template>
@@ -21,6 +21,10 @@
             },
             bgcolor: {
                 type: String
+            },
+            onTap: {
+                type: Function,
+                default: function () {}
             }
         },
         data: function() {
@@ -39,8 +43,8 @@
             };
         },
         methods: {
-            tapped: function(){
-                this.$emit('tapped');
+            onTapCallback: function (e) {
+                this.onTap(e);
             }
         }
     }
