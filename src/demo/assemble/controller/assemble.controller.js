@@ -15,7 +15,8 @@ var FController         = require('fcontroller'),
     tplTableView        = require('../views/tpl.table'),
     tplDockView         = require('../views/tpl.dock'),
     tplPanelView        = require('../views/tpl.panel'),
-    tplListView         = require('../views/tpl.list');
+    tplListView         = require('../views/tpl.list'),
+    tplCommentView         = require('../views/tpl.comment');
 
 function AssembleController () {
     this.moduleName = 'demo';
@@ -36,7 +37,8 @@ function AssembleController () {
          dock       : 'dock',
          panel      : 'panel',
          lead       : 'lead',
-         list       : 'list'
+         list       : 'list',
+         comment    : 'comment'
     }
 
     this.VueManager = VueManager;
@@ -176,7 +178,10 @@ AssembleController.prototype = new FController({
             updatePageTitleIniOS(title);
             callback();
         });
-    }
+    },
+    comment: function () {
+        this.show('成交量', tplCommentView);
+    },
 });
 
 (new AssembleController()).initController({});

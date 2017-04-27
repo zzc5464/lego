@@ -607,6 +607,12 @@
   .gum .lego ._modal-footer {
     border-top: 1px solid #c1c1c1;
     height: 80px; }
+  .gum .lego ._comment {
+    padding: 0 0.78947rem;
+    line-height: 1.94737rem;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
+    background-position: 0 100%;
+    background-repeat: no-repeat; }
   .gum .lego ._card-invest {
     padding: 15px 15px 0; }
   .gum .lego ._card-title {

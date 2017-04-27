@@ -294,22 +294,13 @@ h1,h2,h3,h4,h5,h6 {
     height: 80px;
 }
 
-// to next page bank
-// ._next-card {
-//     @extend %setflex;
-//     box-sizing: border-box;
-//     padding: 0 calRem(30);
-//     width: 100%;
-//     & > div {
-//         width: 50%;
-//         @extend %setflex;
-//     }
-// }
-
-// ._select-card {
-
-
-// }
+._comment {
+    padding: 0 calRem(30);
+    line-height: calRem(74);
+    background-image: $img-border-btm;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+}
 
 
 
