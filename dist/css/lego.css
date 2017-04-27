@@ -1,33 +1,4 @@
 @charset "UTF-8";
-/*******
-
-$text-color-white       : #fff;
-$text-color-black       : #333;
-$text-color-grey        : #666;
-$text-color-light       : #999;
-$text-color-high        : #d7ac62;
-$text-color-tapped      : #e0c89d;    //点击状态
-$text-color-green       : #58af51;    //成功
-$text-color-blue        : #4475ac;    //失败
-$text-color-stonegrey   : #c1c1c1;    // placeholder
-
-$bgcolor-white          : #fff;
-$bgcolor-high           : #d7ac62;
-$bgcolor-high-tapping   : #b38f47;
-$bgcolor-lightgrey      : #c1c1c1;    //灰色按钮
-$bgcolor-stonegrey      : #dcdcdc;    // 分割线，边框
-$bgcolor-offwhite       : #efefef;
-$bgcolor-cream          : #f6f6f7;    // 导航栏 #f6f6f7
-$bgcolor-smokegray      : #e5e5e5;
-$bgcolor-coral          : #e6654c;   //辅色 1 #e6654c
-$bgcolor-browm          : #2e2516;   //辅色 2 #2e2516
-
-$bgcolor-transparent    : transparent;
-$bgcolor-gradient-webkit: -webkit-linear-gradient(45deg, #423620, #5c4e27);
-$bgcolor-gradient       : linear-gradient(45deg, #423620, #5c4e27);
-$bgcolor-alpha          : rgba(255,255,255,.9);
-
-*******/
 ._setflex {
   display: -webkit-box;
   display: -webkit-flex;
@@ -738,10 +709,54 @@ h1, h2, h3, h4, h5, h6 {
 
 ._comment {
   padding: 0 0.78947rem;
-  line-height: 1.94737rem;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
-  background-position: 0 100%;
-  background-repeat: no-repeat; }
+  line-height: 1.94737rem; }
+
+._toast {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: transparent; }
+
+._toast_container {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin-top: -1.23684rem;
+  height: 2.47368rem;
+  width: 100%; }
+
+._toast_message {
+  display: inline-block;
+  padding: 0.78947rem;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 100; }
+
+._toast_fade_off {
+  display: none; }
+
+._toast_fade_in {
+  display: block; }
+
+._top-toast {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0.52632rem 0.78947rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 0.57895rem;
+  z-index: 100; }
 
 ._card-invest {
   padding: 15px 15px 0; }
@@ -842,39 +857,6 @@ h1, h2, h3, h4, h5, h6 {
 ._main_wrp_toast {
   width: 100%;
   height: 100%; }
-
-._toast {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99;
-  background: transparent; }
-
-._toast_container {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  margin-top: -1.23684rem;
-  height: 2.47368rem;
-  width: 100%; }
-
-._toast_message {
-  display: inline-block;
-  padding: 0.78947rem;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.5);
-  box-sizing: border-box; }
-
-._toast_fade_off {
-  display: none; }
-
-._toast_fade_in {
-  display: block; }
 
 html, body, #wrapper {
   height: 100%;
@@ -1025,6 +1007,11 @@ button, input, span {
 
 ._bgcolor_paper {
   background: rgba(255, 255, 255, 0.9); }
+
+._borderbottom1px {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
+  background-position: 0 100%;
+  background-repeat: no-repeat; }
 
 ._layers {
   position: relative;

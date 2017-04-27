@@ -33,36 +33,6 @@ $c-paper            : rgba(255,255,255,.9);
 $zindex-mask: 99;
 $zindex-modal: 100;
 
-/*******
-
-$text-color-white       : #fff;
-$text-color-black       : #333;
-$text-color-grey        : #666;
-$text-color-light       : #999;
-$text-color-high        : #d7ac62;
-$text-color-tapped      : #e0c89d;    //点击状态
-$text-color-green       : #58af51;    //成功
-$text-color-blue        : #4475ac;    //失败
-$text-color-stonegrey   : #c1c1c1;    // placeholder
-
-$bgcolor-white          : #fff;
-$bgcolor-high           : #d7ac62;
-$bgcolor-high-tapping   : #b38f47;
-$bgcolor-lightgrey      : #c1c1c1;    //灰色按钮
-$bgcolor-stonegrey      : #dcdcdc;    // 分割线，边框
-$bgcolor-offwhite       : #efefef;
-$bgcolor-cream          : #f6f6f7;    // 导航栏 #f6f6f7
-$bgcolor-smokegray      : #e5e5e5;
-$bgcolor-coral          : #e6654c;   //辅色 1 #e6654c
-$bgcolor-browm          : #2e2516;   //辅色 2 #2e2516
-
-$bgcolor-transparent    : transparent;
-$bgcolor-gradient-webkit: -webkit-linear-gradient(45deg, #423620, #5c4e27);
-$bgcolor-gradient       : linear-gradient(45deg, #423620, #5c4e27);
-$bgcolor-alpha          : rgba(255,255,255,.9);
-
-*******/
-
 $border-2x-high         : .5px solid $c-high;
 $border-3x-high         : .4px solid $c-high;
 
@@ -71,11 +41,6 @@ $border-radius          : 3px;
 @function calRem($px) {
     @return $px/38 + rem; 
 }
-// @mixin textSize($px, $unit:rem) {
-//     %ts-#{$px}{
-//         font-size: #{$px / 38}#{$unit};
-//     }
-// }
 
 // 以下为文字大小的对应关系，左侧为视觉标准单位，右侧为 rem 值
 $text-size-18px         : calRem(18);

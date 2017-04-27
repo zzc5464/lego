@@ -178,7 +178,16 @@ button, input, span {
     @extend %setflex;
 }
 
+//1px border bottom
+%borderbottom1px {
+    background-image: $img-border-btm;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+}
 
+._borderbottom1px {
+    @extend %borderbottom1px;
+}
 
 // test LEGO UI 页面层级
 @mixin transform($z: 0px) {

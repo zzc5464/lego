@@ -67,7 +67,8 @@ var components = [
     [ 'next-card'               , require('../assemble/next-card/next-card.vue.js')                 ],
     [ 'select-card'             , require('../assemble/select-card/select-card.vue.js')             ],
     [ 'order-card'              , require('../assemble/order-card/order-card.vue.js')               ],
-    [ 'comment'                 , require('../assemble/comment/comment.vue.js')                     ]
+    [ 'comment'                 , require('../assemble/comment/comment.vue.js')                     ],
+    [ 'toast'                   , require('../assemble/toast/toast.vue.js')                         ]
 ];
 
 components.forEach(function (component) {

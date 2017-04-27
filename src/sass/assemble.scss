@@ -297,13 +297,63 @@ h1,h2,h3,h4,h5,h6 {
 ._comment {
     padding: 0 calRem(30);
     line-height: calRem(74);
-    background-image: $img-border-btm;
-    background-position: 0 100%;
-    background-repeat: no-repeat;
+    
 }
 
 
+//toast 
+._toast {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0,0,0,0);
+}
+._toast_container {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-top: -#{calRem(47)};
+    height: calRem(94);
+    width: 100%;
+}
+._toast_message {
+    display: inline-block;
+    padding: calRem(30);
+    border-radius: 5px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    overflow: hidden;
+    @extend ._text_color_white;
+    @extend ._text_size_34px;
+    z-index: $zindex-modal;
+}
+._toast_fade_off {
+    display: none;
+}
 
+._toast_fade_in {
+    display: block;
+}
+
+//顶部toast
+._top-toast {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: calRem(20) calRem(30);
+    background: rgba(0,0,0,0.5);
+    color: $c-white;
+    font-size: $text-size-22px;
+    z-index: $zindex-modal;
+}
 
 
 
