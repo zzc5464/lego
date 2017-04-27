@@ -1,6 +1,6 @@
 <template>
     <div>
-        <component v-for='(item, index) in data' :is='card' :item-data='item' :item-index='index' :checked='name !== "" && item[name] === value' :support='support' :on-tap='onTapCallback'></component>
+        <component v-for='(item, index) in data' :is='card' :item-data='item' :item-index='index' :checked='name !== "" && item[name] === value' :on-tap='onTapCallback'></component>
     </div>
 </template>
 
@@ -36,13 +36,7 @@
             onTap: {
                 type: Function,
                 default: function () {}
-            },
-
-            support: {
-                type: Number,
-                default: 1
             }
-
         }, 
 
         data: function () { 

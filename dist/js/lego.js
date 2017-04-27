@@ -15525,13 +15525,7 @@ module.exports = {
         onTap: {
             type: Function,
             default: function () {}
-        },
-
-        support: {
-            type: Number,
-            default: 1
         }
-
     }, 
 
     data: function () { 
@@ -15546,7 +15540,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div>\n    <component v-for=\"(item, index) in data\" :is=\"card\" :item-data=\"item\" :item-index=\"index\" :checked=\"name !== &quot;&quot; &amp;&amp; item[name] === value\" :support=\"support\" :on-tap=\"onTapCallback\"></component>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div>\n    <component v-for=\"(item, index) in data\" :is=\"card\" :item-data=\"item\" :item-index=\"index\" :checked=\"name !== &quot;&quot; &amp;&amp; item[name] === value\" :on-tap=\"onTapCallback\"></component>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15629,13 +15623,7 @@ if (module.hot) {(function () {  module.hot.accept()
             onTap: {
                 type: Function,
                 default: function () {}
-            },
-            support: {
-                type: Number,
-                default: 1
             }
-
-
         },
 
         data: function () {
@@ -15650,7 +15638,7 @@ if (module.hot) {(function () {  module.hot.accept()
     }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell v-if=\"support === 1\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card _cell_next\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"black\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}} <br>\n            <b-text color=\"light\" size=\"24\">单笔限额{{itemData.limit}}万</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-select size=\"30\" color=\"high\"></b-select>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n<s-cell v-else-if=\"support === 2\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card _cell_next\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"light\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}}<br>\n            <b-text color=\"black\" size=\"24\">不支持在线充值</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-select size=\"30\" color=\"high\">请更换银行卡</b-select>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n<s-cell v-else-if=\"support === 3\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"light\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}}<br>\n            <b-text color=\"stonegrey\" size=\"24\">不支持在线充值</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        \n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell v-if=\"itemData.support == '1'\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card _cell_next\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"black\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}} <br>\n            <b-text color=\"light\" size=\"24\">单笔限额{{itemData.limit}}万</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-select size=\"30\" color=\"high\"></b-select>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n<s-cell v-else-if=\"itemData.support == '2'\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card _cell_next\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"light\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}}<br>\n            <b-text color=\"black\" size=\"24\">不支持在线充值</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-select size=\"30\" color=\"high\">请更换银行卡</b-select>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n<s-cell v-else-if=\"itemData.support == '3'\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"light\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}}<br>\n            <b-text color=\"stonegrey\" size=\"24\">不支持在线充值</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        \n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15888,15 +15876,24 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
+
 module.exports = {
-    props: [],
+    props: {
+        markType: {
+            type: Boolean,
+            default: false
+        }
+    },
     data: function () {
         return {};
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_hammertips\">\n    <b-icon name=\"hammer\" size=\"60\"></b-icon>\n    <slot></slot>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_hammertips\" v-if=\"!markType\">\n    <b-icon name=\"hammer\" size=\"60\"></b-icon>\n    <slot></slot>\n</div>\n<div class=\"_hammertips-fail\" v-else=\"\">\n    <div class=\"_hammertips-fail-title\">失败原因</div>\n    <slot></slot>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15961,7 +15958,6 @@ if (module.hot) {(function () {  module.hot.accept()
 
         methods: {
             onTapCallback: function (e) {
-                this.checked = true;
                 this.onTap(this.itemData, e);
             }
         }
@@ -17911,6 +17907,10 @@ module.exports = {
         },
         bgcolor: {
             type: String
+        },
+        onTap: {
+            type: Function,
+            default: function () {}
         }
     },
     data: function() {
@@ -17929,14 +17929,14 @@ module.exports = {
         };
     },
     methods: {
-        tapped: function(){
-            this.$emit('tapped');
+        onTapCallback: function (e) {
+            this.onTap(e);
         }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_cell\" :class=\"classObj\" :style=\"styleObj\" v-on:mytap=\"tapped\" data-tappable=\"\">\n    <slot></slot>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_cell\" :class=\"classObj\" :style=\"styleObj\" @mytap=\"onTapCallback\" data-tappable=\"\">\n    <slot></slot>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

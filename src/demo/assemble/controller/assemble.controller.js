@@ -138,17 +138,17 @@ AssembleController.prototype = new FController({
             ],
             // 点击银行卡  跳转下一页
             list1: [
-                {"bankName": "平安银行","bankNum":"3453","limit":"100"}
+                {"bankName": "平安银行","bankNum":"3453","limit":"100","support":"1"}
             ],
             // 不支持充值的银行卡 
             list2: [
-                {"bankName": "浦发银行","bankNum":"2333","limit":"30"},
-                {"bankName": "平安银行","bankNum":"3453","limit":"100"}
+                {"bankName": "浦发银行","bankNum":"2333","limit":"30","support":"2"},
+                {"bankName": "平安银行","bankNum":"3453","limit":"100","support":"2"}
             ],
             // 不支持充值的银行卡 
             list3: [
-                {"bankName": "浦发银行","bankNum":"2333","limit":"30"},
-                {"bankName": "建设银行","bankNum":"1233","limit":"200"}
+                {"bankName": "浦发银行","bankNum":"2333","limit":"30","support":"3"},
+                {"bankName": "建设银行","bankNum":"1233","limit":"200","support":"3"}
             ],
             // 在途资产
             list4: [
@@ -163,7 +163,7 @@ AssembleController.prototype = new FController({
                 {"orderName": "线下充值","orderType":"1","orderTime":"2015-08-18 09:01:40","orderAmount":"600.00"}
             ],
             onTap: function (itemData) {
-                console.log(itemData.name);
+                console.log(itemData);
             }
         });
     },

@@ -1,5 +1,5 @@
 <template>
-    <s-cell v-if="support === 1" height="3.421056" :on-tap='onTapCallback' class="_next-card _cell_next" border="true">
+    <s-cell v-if="itemData.support == '1'" height="3.421056" :on-tap='onTapCallback' class="_next-card _cell_next" border="true">
         <s-flex-column>
         </s-flex-column>
         <s-multiline width="12" align="left" self-align="center">
@@ -14,7 +14,7 @@
         <s-flex-column>
         </s-flex-column>
     </s-cell>
-    <s-cell v-else-if="support === 2" height="3.421056" :on-tap='onTapCallback' class="_next-card _cell_next" border="true">
+    <s-cell v-else-if="itemData.support == '2'" height="3.421056" :on-tap='onTapCallback' class="_next-card _cell_next" border="true">
         <s-flex-column>
         </s-flex-column>
         <s-multiline width="12" align="left" self-align="center">
@@ -29,7 +29,7 @@
         <s-flex-column>
         </s-flex-column>
     </s-cell>
-    <s-cell v-else-if="support === 3" height="3.421056" :on-tap='onTapCallback' class="_next-card" border="true">
+    <s-cell v-else-if="itemData.support == '3'" height="3.421056" :on-tap='onTapCallback' class="_next-card" border="true">
         <s-flex-column>
         </s-flex-column>
         <s-multiline width="12" align="left" self-align="center">
@@ -69,13 +69,7 @@
             onTap: {
                 type: Function,
                 default: function () {}
-            },
-            support: {
-                type: Number,
-                default: 1
             }
-
-
         },
 
         data: function () {

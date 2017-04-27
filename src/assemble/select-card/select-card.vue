@@ -51,7 +51,6 @@
 
         methods: {
             onTapCallback: function (e) {
-                this.checked = true;
                 this.onTap(this.itemData, e);
             }
         }

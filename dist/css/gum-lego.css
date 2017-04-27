@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .gum .lego ._setflex {
   display: -webkit-box;
   display: -webkit-flex;
@@ -513,7 +512,6 @@
   padding: 1rem .8rem;
   width: 70%;
   margin: 1rem auto 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%…oke='#dcdcdc' x='0' y='0' width='100%' height='100%' rx='8' ry='8'/></svg>");
   border-radius: 4px;
   color: #c1c1c1; }
   .gum .lego ._hammertips i {
@@ -526,6 +524,28 @@
     line-height: 30px;
     text-align: center;
     background-color: #fff; }
+.gum .lego ._hammertips-fail {
+  position: relative;
+  padding: 1rem .3rem;
+  width: 85%;
+  margin: 1rem auto 0;
+  border-top: 1px solid #ccc;
+  color: #c1c1c1;
+  font-size: 0.73684rem;
+  line-height: 1.8;
+  text-align: center; }
+  .gum .lego ._hammertips-fail ._hammertips-fail-title {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    margin-left: -35px;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+    z-index: 2; }
 .gum .lego h1, .gum .lego h2, .gum .lego h3, .gum .lego h4, .gum .lego h5, .gum .lego h6 {
   margin: 0;
   padding: 0;
