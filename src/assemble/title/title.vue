@@ -6,7 +6,7 @@
             <b-text size='20' color='grey'>{{ subtitle }}</b-text>
         </s-column>
         <s-column width='5.578945' align='right'>
-            <b-text size='34' color='black'>{{ amount }}</b-text>
+            <b-text size='34' color='black'>{{ comment }}</b-text>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>
@@ -14,7 +14,7 @@
 
 <script>
     module.exports = {
-        props: [ 'label', 'subtitle', 'amount' ],
+        props: [ 'label', 'subtitle', 'comment' ],
         data: function() {
             return {};
         }
