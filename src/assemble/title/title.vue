@@ -1,10 +1,12 @@
 <template>
     <s-cell height='2.263158' border='true' >
         <s-flex-column></s-flex-column>
-        <s-column width='16.315789' align='left'>
+        <s-column width='12.315789' align='left'>
             <b-text size='34' color='black'>{{ label }}</b-text>
+            <b-text size='20' color='grey'>{{ subtitle }}</b-text>
         </s-column>
-        <s-column width='1.578945' align='right'>
+        <s-column width='5.578945' align='right'>
+            <b-text size='34' color='black'>{{ amount }}</b-text>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>
@@ -12,7 +14,7 @@
 
 <script>
     module.exports = {
-        props: [ 'label' ],
+        props: [ 'label', 'subtitle', 'amount' ],
         data: function() {
             return {};
         }
