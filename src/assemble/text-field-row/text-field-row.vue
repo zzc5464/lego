@@ -1,10 +1,10 @@
 <template>
     <s-cell height='2.473684' border='true'>
         <s-flex-column></s-flex-column>
-        <s-column width='4.871795' align='left'>
+        <s-column :width='width.label' align='left'>
             <b-text size='30' color='grey'>{{ label }}</b-text>
         </s-column>
-        <s-column width='13.157895' align='left'>
+        <s-column :width='width.value' align='left'>
             <b-text-field size='30' color='black' clearall='true' :placeholder='placeholder' :value='value'></b-text-field>
         </s-column>
         <s-flex-column></s-flex-column>
@@ -13,9 +13,31 @@
 
 <script>
     module.exports = {
-        props   : [ 'label', 'placeholder', 'value' ],
+        props   : {
+            label: {
+                type: String,
+                default: ''
+            },
+            placeholder: {
+                type: String,
+                default: ''
+            },
+            value: {
+                type: String,
+                default: ''
+            },
+            labelwidth: {
+                type: Number,
+                default: 4.871795
+            }
+        },
         data    : function () {
-            return {};
+            return {
+                width: {
+                    label: this.labelwidth,
+                    value: 18.02969 - this.labelwidth
+                }
+            };
         }
     }
 </script>

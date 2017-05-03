@@ -25,7 +25,7 @@
                 type: String,
                 default: 'black'
             },
-            labelWidth: {
+            labelwidth: {
                 type: Number,
                 default: 4.871795
             }
@@ -33,8 +33,8 @@
         data: function () {
             return {
                 width: {
-                    label: this.labelWidth,
-                    value: 18.02969 - this.labelWidth
+                    label: this.labelwidth,
+                    value: 18.02969 - this.labelwidth
                 }
             };
         }
