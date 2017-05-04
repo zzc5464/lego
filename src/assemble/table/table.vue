@@ -26,7 +26,7 @@
             for (var i=0; i<length; i++) {
                 options = slots[i].componentOptions;
                 options && (propsData = options.propsData);
-                options && propsData && (propsData['labelWidth'] = this.labelWidth);
+                options && propsData && (propsData['labelWidth'] = parseFloat(this.labelWidth));
             }
 
             return {
