@@ -245,7 +245,7 @@ module.exports = function(grunt) {
         "sass", 
         "copy",
         "cssmin",
-        /*"uglify",  */
+        "uglify",
         "clean"
     ]);
     /* grunt demo 部分 */
