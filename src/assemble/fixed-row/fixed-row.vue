@@ -1,6 +1,6 @@
 <template>
-    <s-single-cell :height='dheight' :border='value2' bgcolor='transparent' class='_justify-center'>
-        <b-text size='30' :color='value'><slot></slot></b-text>
+    <s-single-cell :height='dheight' :border='bordeValue' bgcolor='transparent' class='_justify-center'>
+        <b-text size='30' :color='colorValue'><slot></slot></b-text>
     </s-single-cell>
 </template>
 
@@ -23,8 +23,8 @@
         data: function (){
             return {
                 dheight: this.height,
-                value: this.color,
-                value2: this.border
+                colorValue: this.color,
+                bordeValue: this.border
             }
         }
     }
