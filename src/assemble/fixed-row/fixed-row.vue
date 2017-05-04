@@ -8,7 +8,8 @@
     module.exports = {
         props: {
             height: {
-                default: 0.368421
+                type: String,
+                default: '0.368421'
             },
             color: {
                 type: String,

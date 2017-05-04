@@ -12,22 +12,24 @@
 </template>
 
 <script>
+    var contants = require('../../utils/contants');
+
     module.exports = {
         props   : {
             label: {
                 type: String,
                 default: ''
             },
-            labelwidth: {
+            labelWidth: {
                 type: Number,
-                default: 4.871795
+                default: contants.labelWidth
             }
         }, 
         data    : function () {
             return {
                 width: {
-                    label: this.labelwidth,
-                    value: 18.02969 - this.labelwidth
+                    label: this.labelWidth,
+                    value: contants.tableWidth - this.labelWidth
                 }
             };
         }
