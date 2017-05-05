@@ -33,7 +33,7 @@
             itemIndex: {
                 type: Number,
                 default: 0
-            }, 
+            },
 
             checked: {
                 type: Boolean,
@@ -49,19 +49,13 @@
         
 
         data: function () {
-            return {}
-        },
-        
-        computed: {
-            isGoNext: function(){
-                if(this.itemData.orderType !=='1' && this.itemData.orderType !=='2'){
-                    return true;
-                }
+            return {
+                isGoNext : (this.itemData.orderType !=='1' && this.itemData.orderType !=='2')
             }
         },
+
         methods: {
             onTapCallback: function (e) {
-                this.checked = true;
                 this.onTap(this.itemData, e);
             }
         }
