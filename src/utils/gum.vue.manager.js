@@ -70,7 +70,8 @@ var components = [
     [ 'comment'                 , require('../assemble/comment/comment.vue.js')                     ],
     [ 'toast'                   , require('../assemble/toast/toast.vue.js')                         ],
 
-    [ 'fixed-row'               , require('../assemble/fixed-row/fixed-row.vue.js')                 ]
+    [ 'fixed-row'               , require('../assemble/fixed-row/fixed-row.vue.js')                 ],
+    [ 'tab-button'              , require('../assemble/tab-button/tab-button.vue.js')               ]
 ];
 
 components.forEach(function (component) {

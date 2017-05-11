@@ -16,7 +16,8 @@ var FController         = require('fcontroller'),
     tplDockView         = require('../views/tpl.dock'),
     tplPanelView        = require('../views/tpl.panel'),
     tplListView         = require('../views/tpl.list'),
-    tplCommentView         = require('../views/tpl.comment');
+    tplCommentView      = require('../views/tpl.comment'),
+    tplTabbutton      = require('../views/tpl.tabbutton');
 
 function AssembleController () {
     this.moduleName = 'demo';
@@ -38,7 +39,8 @@ function AssembleController () {
          panel      : 'panel',
          lead       : 'lead',
          list       : 'list',
-         comment    : 'comment'
+         comment    : 'comment',
+         tabbutton  : 'tabbutton'
     }
 
     this.VueManager = VueManager;
@@ -166,6 +168,9 @@ AssembleController.prototype = new FController({
                 console.log(itemData);
             }
         });
+    },
+    tabbutton: function () {
+        this.show('TAB切换按钮', tplTabbutton);
     },
 
     show: function (title, tpl, callback, data) {
