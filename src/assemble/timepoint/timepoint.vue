@@ -4,7 +4,14 @@
 
 <script>
     module.exports = {
-        props: ['label', 'desc'],
+        props: {
+            label: {
+                type: String
+            },
+            desc: {
+                type: String
+            }
+        },
         data: function() {
             return { };
         }
