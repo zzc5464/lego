@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="book">
-            <div class="aside" id="aside" style=''></div>
+            <div class="aside" id="aside" ></div>
             <div class="book-body">
                 <div class="right_head">
                     <div class="btn_r" id="btn"></div>
@@ -31,11 +31,14 @@
 
         var t = false;
         $('#btn').click(function(){
-            $('.aside').fadeToggle('fast');
-
+            
             if ($(window).width() <= 414) {
+                $('.aside h1:odd').toggleClass('fakes');
+                $('.aside h1:even').toggleClass('moves');
                 t = !t;
-                $('.book-body').css('position', t ? 'fixed' : 'relative');
+                $(".aside").stop(true,false).animate({left: (t ? 0 : -350)});
+            } else {
+                $('.aside').fadeToggle('normal');
             }
         });
 
@@ -102,10 +105,12 @@
                     $("#introduce").fadeIn(800);
                 },0);
 
+                $('.aside h1:odd').removeClass('fakes');
+                $('.aside h1:even').removeClass('moves');
+
                 if ($(window).width() <= 414) {
-                    $('.aside').fadeToggle('fast');
                     t = !t;
-                    $('.book-body').css('position', t ? 'fixed' : 'relative');
+                    $(".aside").animate({left:-350});
                 }
             });
 

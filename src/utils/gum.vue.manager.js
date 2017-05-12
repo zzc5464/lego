@@ -68,7 +68,10 @@ var components = [
     [ 'select-card'             , require('../assemble/select-card/select-card.vue.js')             ],
     [ 'order-card'              , require('../assemble/order-card/order-card.vue.js')               ],
     [ 'comment'                 , require('../assemble/comment/comment.vue.js')                     ],
-    [ 'toast'                   , require('../assemble/toast/toast.vue.js')                         ]
+    [ 'toast'                   , require('../assemble/toast/toast.vue.js')                         ],
+
+    [ 'fixed-row'               , require('../assemble/fixed-row/fixed-row.vue.js')                 ],
+    [ 'tab-button'              , require('../assemble/tab-button/tab-button.vue.js')               ]
 ];
 
 components.forEach(function (component) {

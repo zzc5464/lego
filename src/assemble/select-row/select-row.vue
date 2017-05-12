@@ -1,10 +1,10 @@
 <template>
     <s-cell min-height='2.473684' border='true'>
         <s-flex-column></s-flex-column>
-        <s-column width='4.871795'>
+        <s-column :width='width.label'>
             <b-text size='30' color='grey'>{{ label }}</b-text>
         </s-column>
-        <s-column width='13.157895' align='right'>
+        <s-column :width='width.value' align='right'>
             <b-select size='size' color='color'><slot></slot></b-select>
         </s-column>
         <s-flex-column></s-flex-column>
@@ -12,6 +12,8 @@
 </template>
 
 <script>
+    var contants = require('../../utils/contants');
+
     module.exports = {
         props: {
             label: {
@@ -24,10 +26,19 @@
             color: {
                 type: String,
                 default: 'black'
+            },
+            labelWidth: {
+                type: Number,
+                default: contants.labelWidth
             }
         },
         data: function () {
-            return {};
+            return {
+                width: {
+                    label: this.labelWidth,
+                    value: contants.tableWidth - this.labelWidth
+                }
+            };
         }
     }
 </script>

@@ -15098,6 +15098,31 @@ module.exports = Vue$2;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"_process":1}],5:[function(require,module,exports){
+var inserted = exports.cache = {}
+
+function noop () {}
+
+exports.insert = function (css) {
+  if (inserted[css]) return noop
+  inserted[css] = true
+
+  var elem = document.createElement('style')
+  elem.setAttribute('type', 'text/css')
+
+  if ('textContent' in elem) {
+    elem.textContent = css
+  } else {
+    elem.styleSheet.cssText = css
+  }
+
+  document.getElementsByTagName('head')[0].appendChild(elem)
+  return function () {
+    document.getElementsByTagName('head')[0].removeChild(elem)
+    inserted[css] = false
+  }
+}
+
+},{}],6:[function(require,module,exports){
 
 
 
@@ -15122,7 +15147,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-267071cc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],6:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],7:[function(require,module,exports){
 
 
 
@@ -15186,7 +15211,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-bedf9b68", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],7:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],8:[function(require,module,exports){
 
 
 
@@ -15219,7 +15244,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-5a60eae8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],8:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],9:[function(require,module,exports){
 
 
 
@@ -15297,7 +15322,51 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-22a8402c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],9:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],10:[function(require,module,exports){
+
+
+
+
+
+
+
+module.exports = {
+    props: {
+        height: {
+            type: String,
+            default: '0.368421'
+        },
+        color: {
+            type: String,
+            default: 'light'
+        },
+        border: {
+            type: String,
+            default: 'true'
+        }
+    },
+    data: function (){
+        return {
+            dheight: this.height,
+            colorValue: this.color,
+            bordeValue: this.border
+        }
+    }
+}
+
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-single-cell :height=\"dheight\" :border=\"bordeValue\" bgcolor=\"transparent\" class=\"_justify-center\">\n    <b-text size=\"30\" :color=\"colorValue\"><slot></slot></b-text>\n</s-single-cell>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-5be542d0", module.exports)
+  } else {
+    hotAPI.update("_v-5be542d0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":4,"vue-hot-reload-api":2}],11:[function(require,module,exports){
 
 
 
@@ -15347,7 +15416,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6724abde", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],10:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],12:[function(require,module,exports){
 
 
 
@@ -15361,16 +15430,41 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+var contants = require('../../utils/contants');
 
 module.exports = {
-    props   : [ 'label', 'placeholder', 'value' ],
-    data    : function () {
-        return {};
+    props: {
+        label: {
+            type: String,
+            default: ''
+        },
+        placeholder: {
+            type: String,
+            default: ''
+        },
+        value: {
+            type: String,
+            default: ''
+        },
+        labelWidth: {
+            type: Number,
+            default: contants.labelWidth
+        }
+    },
+
+    data: function () {
+        return {
+            width: {
+                label: this.labelWidth,
+                value: contants.tableWidth - this.labelWidth
+            }
+        };
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"4.871795\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column width=\"13.157895\">\n        <b-idcard-field size=\"30\" color=\"black\" clearall=\"true\" :label=\"label\" :placeholder=\"placeholder\" :value=\"value\"></b-idcard-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\">\n        <b-idcard-field size=\"30\" color=\"black\" clearall=\"true\" :label=\"label\" :placeholder=\"placeholder\" :value=\"value\"></b-idcard-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15381,7 +15475,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-42c3e16c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],11:[function(require,module,exports){
+},{"../../utils/contants":66,"vue":4,"vue-hot-reload-api":2}],13:[function(require,module,exports){
 
 
 
@@ -15486,7 +15580,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-c7797c68", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],12:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],14:[function(require,module,exports){
 
 
 
@@ -15551,7 +15645,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6ae71b0c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],13:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],15:[function(require,module,exports){
 
 
 
@@ -15649,7 +15743,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-405a15e2", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],14:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],16:[function(require,module,exports){
 
 
 
@@ -15685,7 +15779,7 @@ if (module.hot) {(function () {  module.hot.accept()
             itemIndex: {
                 type: Number,
                 default: 0
-            }, 
+            },
 
             checked: {
                 type: Boolean,
@@ -15701,19 +15795,13 @@ if (module.hot) {(function () {  module.hot.accept()
         
 
         data: function () {
-            return {}
-        },
-        
-        computed: {
-            isGoNext: function(){
-                if(this.itemData.orderType !=='1' && this.itemData.orderType !=='2'){
-                    return true;
-                }
+            return {
+                isGoNext : (this.itemData.orderType !=='1' && this.itemData.orderType !=='2')
             }
         },
+
         methods: {
             onTapCallback: function (e) {
-                this.checked = true;
                 this.onTap(this.itemData, e);
             }
         }
@@ -15731,7 +15819,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-e430d3a8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],15:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],17:[function(require,module,exports){
 
 
 
@@ -15748,16 +15836,41 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+var contants = require('../../utils/contants');
 
 module.exports = {
-    props   : [ 'label', 'placeholder', 'value' ],
-    data    : function () {
-        return {};
+    props   : {
+        label: {
+            type: String,
+            default: ''
+        },
+        placeholder: {
+            type: String,
+            default: ''
+        },
+        value: {
+            type: String,
+            default: ''
+        },
+        labelWidth: {
+            type: Number,
+            default: contants.labelWidth
+        }
+    }, 
+    data: function () {
+        return {
+            width: {
+                label: this.labelWidth,
+                value: contants.tableWidth - 6.368421 - this.labelWidth,
+                button: 6.368421
+            }
+        };
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"4.871795\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column width=\"6.789474\">\n        <b-number-field size=\"30\" color=\"black\" :placeholder=\"placeholder\" :value=\"value\" :label=\"label\"></b-number-field>\n    </s-column>\n    <s-column width=\"6.368421\" align=\"right\">\n        <b-button size=\"30\" filled=\"true\" width=\"5.26316\" height=\"1.578947\">获取验证码</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\">\n        <b-number-field size=\"30\" color=\"black\" :placeholder=\"placeholder\" :value=\"value\" :label=\"label\"></b-number-field>\n    </s-column>\n    <s-column :width=\"width.button\" align=\"right\">\n        <b-button size=\"30\" filled=\"true\" width=\"5.26316\" height=\"1.578947\">获取验证码</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15768,17 +15881,37 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-f4c382d0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],16:[function(require,module,exports){
+},{"../../utils/contants":66,"vue":4,"vue-hot-reload-api":2}],18:[function(require,module,exports){
 
 
 
 
 
 module.exports = {
-    props: [ 'bgcolor' ],
+    props: {
+        bgcolor: {
+            type: String,
+            default: ''
+        },
+
+        labelWidth: {
+            type: String,
+            default: '4.871795'
+        }
+    }, 
+
     data: function() {
         var list = [];
         this.bgcolor && list.push('_bgcolor_' + this.bgcolor);
+
+        var slots = this.$slots.default, length = slots.length,
+            options, propsData;
+
+        for (var i=0; i<length; i++) {
+            options = slots[i].componentOptions;
+            options && (propsData = options.propsData);
+            options && propsData && (propsData['labelWidth'] = parseFloat(this.labelWidth));
+        }
 
         return {
             classObj: list
@@ -15798,7 +15931,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-a23648d4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],17:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],19:[function(require,module,exports){
 
 
 
@@ -15835,7 +15968,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3d665ba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],18:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],20:[function(require,module,exports){
 
 
 
@@ -15867,7 +16000,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-bc10a268", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],19:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],21:[function(require,module,exports){
 
 
 
@@ -15882,9 +16015,9 @@ if (module.hot) {(function () {  module.hot.accept()
 
 module.exports = {
     props: {
-        markType: {
-            type: Boolean,
-            default: false
+        type: {
+            type: String,
+            default: ''
         }
     },
     data: function () {
@@ -15893,7 +16026,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_hammertips\" v-if=\"!markType\">\n    <b-icon name=\"hammer\" size=\"60\"></b-icon>\n    <slot></slot>\n</div>\n<div class=\"_hammertips-fail\" v-else=\"\">\n    <div class=\"_hammertips-fail-title\">失败原因</div>\n    <slot></slot>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_hammertips\" v-if=\"type === 'hammer'\">\n    <b-icon name=\"hammer\" size=\"60\"></b-icon>\n    <slot></slot>\n</div>\n<div class=\"_hammertips-fail\" v-else=\"\">\n    <div class=\"_hammertips-fail-title\">{{type}}</div>\n    <slot></slot>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15904,7 +16037,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-d46f4098", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],20:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],22:[function(require,module,exports){
 
 
 
@@ -15975,7 +16108,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-79a71360", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],21:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],23:[function(require,module,exports){
 
 
 
@@ -15989,6 +16122,8 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+var contants = require('../../utils/contants');
 
 module.exports = {
     props: {
@@ -16002,15 +16137,24 @@ module.exports = {
         color: {
             type: String,
             default: 'black'
+        },
+        labelWidth: {
+            type: Number,
+            default: contants.labelWidth
         }
     },
     data: function () {
-        return {};
+        return {
+            width: {
+                label: this.labelWidth,
+                value: contants.tableWidth - this.labelWidth
+            }
+        };
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"4.871795\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column width=\"13.157895\" align=\"right\">\n        <b-select size=\"size\" color=\"color\"><slot></slot></b-select>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"right\">\n        <b-select size=\"size\" color=\"color\"><slot></slot></b-select>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16021,7 +16165,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-296479ec", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],22:[function(require,module,exports){
+},{"../../utils/contants":66,"vue":4,"vue-hot-reload-api":2}],24:[function(require,module,exports){
 
 
 
@@ -16047,7 +16191,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-2641d00a", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],23:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],25:[function(require,module,exports){
 
 
 
@@ -16108,7 +16252,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-ff422f28", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],24:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],26:[function(require,module,exports){
 
 
 
@@ -16157,7 +16301,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6cfbe1cc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],25:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],27:[function(require,module,exports){
 
 
 
@@ -16198,7 +16342,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-ccbab8a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],26:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],28:[function(require,module,exports){
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-single-cell height=\"0.368421\" border=\"true\" bgcolor=\"transparent\"></s-single-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
@@ -16210,17 +16354,113 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6136a50c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],27:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],29:[function(require,module,exports){
+var __vueify_insert__ = require("vueify/lib/insert-css")
+var __vueify_style__ = __vueify_insert__.insert("\n.ruletab {\n    padding-top: 9px;\n    overflow: hidden;\n    background-image: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>\");\n    background-position: 0 100%;\n    background-repeat: no-repeat;\n    background-color: #fff;\n}\n.ruletab span {\n    position: relative;\n    display: inline-block;\n    width: 5.263158rem;\n    color: #333;\n    font-size: .789474rem;\n    line-height: 1.894737rem;\n    text-align: center;\n    \n}\n.ruletab1 span{\n    margin: 0 1.578947rem;\n}\n.ruletab1 span:last-child {\n    float: right;\n}\n.ruletab span.borderbtm {\n    border-bottom: 2px solid #d7ac62;\n    color: #d7ac62;\n}\n.ruletab2 {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.ruletab2 span{\n    margin: 0 0.7rem;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n")
+
+
+
+
+
+
+
+
 
 
 
 
 
 module.exports = {
-    props: [ 'bgcolor' ],
-    data: function() {
+    props: [],
+    data: function (){
+        var slots = this.$slots.default,
+        elems = [], options, children;
+
+        slots.forEach(function (s) {
+            options = s.componentOptions;
+            if (options && options.propsData && options.propsData.id) {
+                children = options.children;
+                if (children.length > 0 && typeof children[0].text !== 'undefined') {
+                    elems.push({
+                        id: options.propsData.id,
+                        text: children[0].text
+                    });
+                }
+            }
+        });
+        return {
+            elements: elems,
+            isA: true,
+            isB: false,
+            isC: false
+        }
+    },
+    methods: {
+        toggle1: function(){
+            this.isA = true;
+            this.isB = false;
+            this.isC = false;
+        },
+        toggle2: function(){
+            this.isA = false;
+            this.isB = true;
+            this.isC = false;
+        },
+        toggle3: function(){
+            this.isA = false;
+            this.isB = false;
+            this.isC = true;
+        }
+    }
+}
+
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"elements.length === 2\" class=\"ruletab ruletab1\">\n    <span :class=\"{borderbtm:isA}\" @click=\"toggle1\" :id=\"elements[0].id\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @click=\"toggle2\" :class=\"{borderbtm:isB}\">{{elements[1].text}}</span>\n</div> \n<div v-else=\"\" class=\"ruletab ruletab2\">\n    <span :id=\"elements[0].id\" :class=\"{borderbtm:isA}\" @click=\"toggle1\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" :class=\"{borderbtm:isB}\" @click=\"toggle2\">{{elements[1].text}}</span>\n    <span :id=\"elements[2].id\" :class=\"{borderbtm:isC}\" @click=\"toggle3\">{{elements[2].text}}</span>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.dispose(function () {
+    __vueify_insert__.cache["\n.ruletab {\n    padding-top: 9px;\n    overflow: hidden;\n    background-image: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>\");\n    background-position: 0 100%;\n    background-repeat: no-repeat;\n    background-color: #fff;\n}\n.ruletab span {\n    position: relative;\n    display: inline-block;\n    width: 5.263158rem;\n    color: #333;\n    font-size: .789474rem;\n    line-height: 1.894737rem;\n    text-align: center;\n    \n}\n.ruletab1 span{\n    margin: 0 1.578947rem;\n}\n.ruletab1 span:last-child {\n    float: right;\n}\n.ruletab span.borderbtm {\n    border-bottom: 2px solid #d7ac62;\n    color: #d7ac62;\n}\n.ruletab2 {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.ruletab2 span{\n    margin: 0 0.7rem;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-0c40e34c", module.exports)
+  } else {
+    hotAPI.update("_v-0c40e34c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":4,"vue-hot-reload-api":2,"vueify/lib/insert-css":5}],30:[function(require,module,exports){
+
+
+
+
+
+module.exports = {
+    props: {
+        bgcolor: {
+            type: String,
+            default: ''
+        },
+
+        labelWidth: {
+            type: String,
+            default: '4.871795'
+        }
+    },
+
+    data: function () {
         var list = [];
         this.bgcolor && list.push('_bgcolor_' + this.bgcolor);
+
+        var slots = this.$slots.default, length = slots.length,
+            options, propsData;
+
+        for (var i=0; i<length; i++) {
+            options = slots[i].componentOptions;
+            options && (propsData = options.propsData);
+            options && propsData && (propsData['labelWidth'] = parseFloat(this.labelWidth));
+        }
 
         return {
             classObj: list
@@ -16240,7 +16480,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-24c1d4ac", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],28:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],31:[function(require,module,exports){
 
 
 
@@ -16254,16 +16494,40 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+var contants = require('../../utils/contants');
 
 module.exports = {
-    props   : [ 'label', 'placeholder', 'value' ],
+    props   : {
+        label: {
+            type: String,
+            default: ''
+        },
+        placeholder: {
+            type: String,
+            default: ''
+        },
+        value: {
+            type: String,
+            default: ''
+        },
+        labelWidth: {
+            type: Number,
+            default: contants.labelWidth
+        }
+    },
     data    : function () {
-        return {};
+        return {
+            width: {
+                label: this.labelWidth,
+                value: contants.tableWidth - this.labelWidth
+            }
+        };
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"4.871795\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column width=\"13.157895\">\n        <b-tel-field size=\"30\" color=\"black\" clearall=\"true\" :label=\"label\" :placeholder=\"placeholder\" :value=\"value\"></b-tel-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\">\n        <b-tel-field size=\"30\" color=\"black\" clearall=\"true\" :label=\"label\" :placeholder=\"placeholder\" :value=\"value\"></b-tel-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16274,7 +16538,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-33243478", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],29:[function(require,module,exports){
+},{"../../utils/contants":66,"vue":4,"vue-hot-reload-api":2}],32:[function(require,module,exports){
 
 
 
@@ -16288,16 +16552,40 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+var contants = require('../../utils/contants');
 
 module.exports = {
-    props   : [ 'label', 'placeholder', 'value' ],
+    props   : {
+        label: {
+            type: String,
+            default: ''
+        },
+        placeholder: {
+            type: String,
+            default: ''
+        },
+        value: {
+            type: String,
+            default: ''
+        },
+        labelWidth: {
+            type: Number,
+            default: contants.labelWidth
+        }
+    },
     data    : function () {
-        return {};
+        return {
+            width: {
+                label: this.labelWidth,
+                value: contants.tableWidth - this.labelWidth
+            }
+        };
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"4.871795\" align=\"left\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column width=\"13.157895\" align=\"left\">\n        <b-text-field size=\"30\" color=\"black\" clearall=\"true\" :placeholder=\"placeholder\" :value=\"value\"></b-text-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\" align=\"left\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"left\">\n        <b-text-field size=\"30\" color=\"black\" clearall=\"true\" :placeholder=\"placeholder\" :value=\"value\"></b-text-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16308,7 +16596,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-dd7a2ba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],30:[function(require,module,exports){
+},{"../../utils/contants":66,"vue":4,"vue-hot-reload-api":2}],33:[function(require,module,exports){
 
 
 
@@ -16322,16 +16610,32 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+var contants = require('../../utils/contants');
 
 module.exports = {
-    props   : [ 'label' ],
+    props   : {
+        label: {
+            type: String,
+            default: ''
+        },
+        labelWidth: {
+            type: Number,
+            default: contants.labelWidth
+        }
+    }, 
     data    : function () {
-        return {};
+        return {
+            width: {
+                label: this.labelWidth,
+                value: contants.tableWidth - this.labelWidth
+            }
+        };
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-multiline width=\"4.871795\" align=\"left\">\n        <b-text size=\"30\" color=\"light\">{{ label }}</b-text>\n    </s-multiline>\n    <s-multiline width=\"13.157895\" align=\"left\">\n        <b-text size=\"30\" color=\"black\"><slot></slot></b-text>\n    </s-multiline>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-multiline :width=\"width.label\" align=\"left\">\n        <b-text size=\"30\" color=\"light\">{{ label }}</b-text>\n    </s-multiline>\n    <s-multiline :width=\"width.value\" align=\"left\">\n        <b-text size=\"30\" color=\"black\"><slot></slot></b-text>\n    </s-multiline>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16342,7 +16646,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-379a35e8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],31:[function(require,module,exports){
+},{"../../utils/contants":66,"vue":4,"vue-hot-reload-api":2}],34:[function(require,module,exports){
 
 
 
@@ -16438,7 +16742,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-a3c62628", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],32:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],35:[function(require,module,exports){
 
 
 
@@ -16470,7 +16774,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-21b167d8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],33:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],36:[function(require,module,exports){
 
 
 
@@ -16483,16 +16787,46 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
+
+var contants =  require('../../utils/contants');
 
 module.exports = {
-    props: [ 'label' ],
+    props: {
+        valueWidth: {
+            type: Number,
+            default: 5.578945
+        },
+
+        label: {
+            type: String,
+            default: ''
+        },
+
+        subtitle: {
+            type: String,
+            default: ''
+        },
+
+        comment: {
+            type: String,
+            default: ''
+        }
+    }, 
     data: function() {
-        return {};
+        return {
+            width: {
+                label: contants.tableWidth - this.valueWidth,
+                value: this.valueWidth
+            }
+        };
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.263158\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"16.315789\" align=\"left\">\n        <b-text size=\"34\" color=\"black\">{{ label }}</b-text>\n    </s-column>\n    <s-column width=\"1.578945\" align=\"right\">\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.263158\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\" align=\"left\">\n        <b-text size=\"34\" color=\"black\">{{ label }}</b-text>&nbsp;\n        <b-text size=\"20\" color=\"light\">{{ subtitle }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"right\">\n        <b-text v-if=\"comment !== &quot;&quot;\" size=\"34\" color=\"black\">{{ comment }}</b-text>\n        <b-text v-else=\"\" size=\"34\" color=\"high\"><slot></slot></b-text>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16503,7 +16837,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-8e052d84", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],34:[function(require,module,exports){
+},{"../../utils/contants":66,"vue":4,"vue-hot-reload-api":2}],37:[function(require,module,exports){
 
 
 
@@ -16545,7 +16879,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-62a2cac8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],35:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],38:[function(require,module,exports){
 
 
 
@@ -16655,7 +16989,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-cd2039b0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":63,"../../utils/validate":64,"vue":4,"vue-hot-reload-api":2}],36:[function(require,module,exports){
+},{"../../utils/gum.vue.events":67,"../../utils/validate":68,"vue":4,"vue-hot-reload-api":2}],39:[function(require,module,exports){
 
 
 
@@ -16760,7 +17094,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-4392a664", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],37:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],40:[function(require,module,exports){
 
 
 
@@ -16794,7 +17128,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-fa497078", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],38:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],41:[function(require,module,exports){
 
 
 
@@ -16873,7 +17207,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-47954578", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":63,"../../utils/validate":64,"vue":4,"vue-hot-reload-api":2}],39:[function(require,module,exports){
+},{"../../utils/gum.vue.events":67,"../../utils/validate":68,"vue":4,"vue-hot-reload-api":2}],42:[function(require,module,exports){
 
 
 
@@ -16910,7 +17244,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-eeafffe4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],40:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],43:[function(require,module,exports){
 
 
 
@@ -16955,7 +17289,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-eec7c6f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],41:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],44:[function(require,module,exports){
 
 
 
@@ -17038,7 +17372,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-052a3ee4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":63,"../../utils/validate":64,"vue":4,"vue-hot-reload-api":2}],42:[function(require,module,exports){
+},{"../../utils/gum.vue.events":67,"../../utils/validate":68,"vue":4,"vue-hot-reload-api":2}],45:[function(require,module,exports){
 
 
 
@@ -17092,7 +17426,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-64bddec8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],43:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],46:[function(require,module,exports){
 
 
 
@@ -17176,7 +17510,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0355bfa4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":63,"../../utils/validate":64,"vue":4,"vue-hot-reload-api":2}],44:[function(require,module,exports){
+},{"../../utils/gum.vue.events":67,"../../utils/validate":68,"vue":4,"vue-hot-reload-api":2}],47:[function(require,module,exports){
 
 
 
@@ -17211,7 +17545,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0650cddc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],45:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],48:[function(require,module,exports){
 
 
 
@@ -17257,7 +17591,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-b89c90f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],46:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],49:[function(require,module,exports){
 
 
 
@@ -17310,7 +17644,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-02d50f24", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],47:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],50:[function(require,module,exports){
 
 
 
@@ -17354,7 +17688,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-93fd89f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],48:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],51:[function(require,module,exports){
 
 
 
@@ -17389,7 +17723,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-413fcb18", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],49:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],52:[function(require,module,exports){
 
 
 
@@ -17422,7 +17756,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6894e2a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],50:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],53:[function(require,module,exports){
 
 
 
@@ -17468,7 +17802,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-52de0038", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],51:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],54:[function(require,module,exports){
 
 
 
@@ -17554,7 +17888,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-08467336", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":63,"../../utils/validate":64,"vue":4,"vue-hot-reload-api":2}],52:[function(require,module,exports){
+},{"../../utils/gum.vue.events":67,"../../utils/validate":68,"vue":4,"vue-hot-reload-api":2}],55:[function(require,module,exports){
 
 
 
@@ -17600,7 +17934,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3ec5af8a", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],53:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],56:[function(require,module,exports){
 
 
 
@@ -17680,7 +18014,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-00ed29e4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":63,"../../utils/validate":64,"vue":4,"vue-hot-reload-api":2}],54:[function(require,module,exports){
+},{"../../utils/gum.vue.events":67,"../../utils/validate":68,"vue":4,"vue-hot-reload-api":2}],57:[function(require,module,exports){
 
 
 
@@ -17716,7 +18050,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-84e5a5f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],55:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],58:[function(require,module,exports){
 
 
 
@@ -17749,7 +18083,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-44bb3c24", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],56:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],59:[function(require,module,exports){
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<footer class=\"_footer\">\n    <slot></slot>\n</footer>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
@@ -17761,7 +18095,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-e95d6bae", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],57:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],60:[function(require,module,exports){
 
 
 
@@ -17773,28 +18107,23 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-
-
-
-
-
-
-
-
-
-
-var events = require('../../utils/gum.vue.events'),
-    toasts = [];
+var events = require('../../utils/gum.vue.events');
+    //toasts = [];
 
 module.exports = {
-    props: [ 'bgcolor' ],
+    props: {
+        bgcolor: {
+            type: String,
+            default: ''
+        }
+    },
 
     mounted: function () {
-        var toast = this.toast.bind(this);
+        // var toast = this.toast.bind(this);
 
-        events.on('fielderror', function (errors) {
-            toast(errors[0]);
-        });
+        // events.on('fielderror', function (errors) {
+        //     toast(errors[0]);
+        // });
     },
 
     data: function () {
@@ -17804,106 +18133,60 @@ module.exports = {
             '_bgcolor_' + this.bgcolor
         );
 
-        // var slots    = this.$slots.default,
-        //     group    = null,
-        //     groups   = [],
-        //     pre      = null,
-        //     bgcolor  = null,
-        //     props;
-
-        // slots.forEach(function (vnode) {
-        //     if (typeof vnode.componentOptions !== 'undefined') {
-        //         props = vnode.componentOptions.propsData;
-        //         bgcolor = props.bgcolor || '';
-        //         props.bgcolor = '';
-
-        //         if (pre === null || pre !== bgcolor) {
-        //             group = {
-        //                 bgcolor: bgcolor, 
-        //                 slots: []
-        //             };
-
-        //             groups.push(group);
-        //         }
-
-        //         pre = bgcolor;
-        //         group.slots.push(vnode);
-        //     }
-        // });
-
-        // var slotNames = [], name;
-
-        // for (var i = 0, l = groups.length; i < l; i++) {
-        //     name = 'slot-' + i;
-        //     bgcolor = groups[i].bgcolor;
-        //     this.$slots[name] = groups[i].slots;
-
-        //     slotNames.push({
-        //         name        : name, 
-        //         className   : bgcolor ? '_bgcolor_' + bgcolor : ''
-        //     });
-        // }
-
         return {
-            classObj: list,
-            //slotNames: slotNames,
-
-            toastMsg: '',
-            toastOpened: false,
-            toastQueue: [],
-            toastClass: ''
+            classObj: list
         }
     },
 
     methods: {
-        toast: function (message) {
+        // toast: function (message) {
 
-            this.toastQueue.push(message);
-            showToast.call(this);
+        //     this.toastQueue.push(message);
+        //     showToast.call(this);
 
-            function showToast () {
-                if (this.toastQueue.length === 0 || this.toastOpened) return;
+        //     function showToast () {
+        //         if (this.toastQueue.length === 0 || this.toastOpened) return;
 
-                // get the first message in queue;
-                this.toastMsg = this.toastQueue[0];
+        //         // get the first message in queue;
+        //         this.toastMsg = this.toastQueue[0];
 
-                // show toast;
-                this.toastOpened = true;
-                this.toastFadeIn();
-                console.log('open');
+        //         // show toast;
+        //         this.toastOpened = true;
+        //         this.toastFadeIn();
+        //         console.log('open');
 
-                setTimeout((function () {
-                    // hide toast;
-                    this.toastOpened = false;
-                    this.toastFadeOut((function () {
-                        console.log('close');
+        //         setTimeout((function () {
+        //             // hide toast;
+        //             this.toastOpened = false;
+        //             this.toastFadeOut((function () {
+        //                 console.log('close');
 
-                        // remove the first message in queue;
-                        this.toastQueue.splice(0, 1);
+        //                 // remove the first message in queue;
+        //                 this.toastQueue.splice(0, 1);
 
-                        // execute show() again;
-                        showToast.call(this);
+        //                 // execute show() again;
+        //                 showToast.call(this);
 
-                    }).bind(this));
-                }).bind(this), 2000);
-            }
-        },
+        //             }).bind(this));
+        //         }).bind(this), 2000);
+        //     }
+        // },
 
-        toastFadeIn: function () {
-            this.toastClass = '_toast_fade_in';
-        },
+        // toastFadeIn: function () {
+        //     this.toastClass = '_toast_fade_in';
+        // },
 
-        toastFadeOut: function (callback) {
-            this.toastClass = '_toast_fade_off';
-            setTimeout(function () {
-                callback();
-            }, 300);
-        }
+        // toastFadeOut: function (callback) {
+        //     this.toastClass = '_toast_fade_off';
+        //     setTimeout(function () {
+        //         callback();
+        //     }, 300);
+        // }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_main_wrp_toast\">\n    <div class=\"_main_wrp\" :class=\"classObj\">\n        <main class=\"_main\">\n            <slot></slot>\n            <!--<div class='_cell_group' v-for='slotNames in slotNames' :class='slotNames.className'>\n                <slot :name='slotNames.name'></slot>\n            </div>-->\n        </main>\n    </div>\n    <div class=\"_toast\" :class=\"toastClass\">\n        <div class=\"_toast_container\">\n            <div class=\"_toast_message\">\n                {{ toastMsg }}\n            </div>\n        </div>\n    </div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_main_wrp_toast\">\n    <div class=\"_main_wrp\" :class=\"classObj\">\n        <main class=\"_main\">\n            <slot></slot>\n        </main>\n    </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17914,7 +18197,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-27ed8ae9", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":63,"vue":4,"vue-hot-reload-api":2}],58:[function(require,module,exports){
+},{"../../utils/gum.vue.events":67,"vue":4,"vue-hot-reload-api":2}],61:[function(require,module,exports){
 
 
 
@@ -17978,7 +18261,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-2cf463a9", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],59:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],62:[function(require,module,exports){
 
 
 
@@ -18022,7 +18305,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-e67e4e2e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],60:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],63:[function(require,module,exports){
 
 
 
@@ -18059,7 +18342,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3c4dc802", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],61:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],64:[function(require,module,exports){
 
 
 
@@ -18103,7 +18386,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3f93e705", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],62:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],65:[function(require,module,exports){
 
 
 
@@ -18164,7 +18447,16 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-ffede88e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],63:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],66:[function(require,module,exports){
+'use strict';
+
+var contants = {
+    tableWidth: 18.02969,
+    labelWidth: 4.871795
+}
+
+module.exports = contants;
+},{}],67:[function(require,module,exports){
 'use strict';
 
 var Vue = require('vue/dist/vue.common');
@@ -18182,7 +18474,7 @@ Events.prototype.on = function (a, b) {
 }
 
 module.exports = new Events();
-},{"vue/dist/vue.common":3}],64:[function(require,module,exports){
+},{"vue/dist/vue.common":3}],68:[function(require,module,exports){
 'use strict';
 
 var required    = require('../validator/require.validator'),
@@ -18252,7 +18544,7 @@ Validate.prototype.errors = function () {
 }
 
 module.exports = Validate;
-},{"../validator/email.validator":65,"../validator/idcard.validator":66,"../validator/number.validator":67,"../validator/require.validator":68,"../validator/tel.validator":69}],65:[function(require,module,exports){
+},{"../validator/email.validator":69,"../validator/idcard.validator":70,"../validator/number.validator":71,"../validator/require.validator":72,"../validator/tel.validator":73}],69:[function(require,module,exports){
 'use strict';
 
 function EmailValidator () {
@@ -18269,7 +18561,7 @@ EmailValidator.prototype.validate = function (value) {
 }
 
 module.exports = new EmailValidator();
-},{}],66:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 'use strict';
 
 function IdCardValidator () {
@@ -18427,7 +18719,7 @@ module.exports = new IdCardValidator();
                 //         return Errors[1];
                 //         break;
                 // }
-},{}],67:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 'use strict';
 
 function NumberValidator () {
@@ -18448,7 +18740,7 @@ NumberValidator.prototype = {
 }
 
 module.exports = new NumberValidator();
-},{}],68:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 'use strict';
 
 function RequireValidator () {
@@ -18462,7 +18754,7 @@ RequireValidator.prototype = {
 }
 
 module.exports = new RequireValidator();
-},{}],69:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 'use strict';
 
 function TelValidator () {
@@ -18555,7 +18847,10 @@ var components = [
     [ 'select-card'             , require('../assemble/select-card/select-card.vue.js')             ],
     [ 'order-card'              , require('../assemble/order-card/order-card.vue.js')               ],
     [ 'comment'                 , require('../assemble/comment/comment.vue.js')                     ],
-    [ 'toast'                   , require('../assemble/toast/toast.vue.js')                         ]
+    [ 'toast'                   , require('../assemble/toast/toast.vue.js')                         ],
+
+    [ 'fixed-row'               , require('../assemble/fixed-row/fixed-row.vue.js')                 ],
+    [ 'tab-button'              , require('../assemble/tab-button/tab-button.vue.js')               ]
 ];
 
 components.forEach(function (component) {
@@ -18576,4 +18871,4 @@ VueManager.prototype = {
 }
 
 module.exports = new VueManager();
-},{"../assemble/button/button.vue.js":5,"../assemble/card/card.vue.js":6,"../assemble/comment/comment.vue.js":7,"../assemble/dock/dock.vue.js":8,"../assemble/flype/flype.vue.js":9,"../assemble/id-field-row/id-field-row.vue.js":10,"../assemble/lead/lead.vue.js":11,"../assemble/list/list.vue.js":12,"../assemble/next-card/next-card.vue.js":13,"../assemble/order-card/order-card.vue.js":14,"../assemble/otp-field-row/otp-field-row.vue.js":15,"../assemble/panel/panel.vue.js":16,"../assemble/password/password.vue.js":17,"../assemble/protocol/protocol.vue.js":18,"../assemble/remarks/remarks.vue.js":19,"../assemble/select-card/select-card.vue.js":20,"../assemble/select-row/select-row.vue.js":21,"../assemble/stage/stage.vue.js":22,"../assemble/stages/stages.vue.js":23,"../assemble/stepwise/stepwise.vue.js":24,"../assemble/stick/stick.vue.js":25,"../assemble/stub/stub.vue.js":26,"../assemble/table/table.vue.js":27,"../assemble/tel-field-row/tel-field-row.vue.js":28,"../assemble/text-field-row/text-field-row.vue.js":29,"../assemble/text-row/text-row.vue.js":30,"../assemble/timeline/timeline.vue.js":31,"../assemble/timepoint/timepoint.vue.js":32,"../assemble/title/title.vue.js":33,"../assemble/toast/toast.vue.js":34,"../basic/address-field/address-field.vue.js":35,"../basic/button/button.vue.js":36,"../basic/checkbox/checkbox.vue.js":37,"../basic/email-field/email-field.vue.js":38,"../basic/highlight/highlight.vue.js":39,"../basic/icon/icon.vue.js":40,"../basic/idcard-field/idcard-field.vue.js":41,"../basic/image/image.vue.js":42,"../basic/number-field/number-field.vue.js":43,"../basic/radio/radio.vue.js":44,"../basic/rectangular-button/rectangular-button.vue.js":45,"../basic/select/select.vue.js":46,"../basic/solid-checkbox/solid-checkbox.vue.js":47,"../basic/solid-radio/solid-radio.vue.js":48,"../basic/svg/svg.vue.js":49,"../basic/tab-button/tab-button.vue.js":50,"../basic/tel-field/tel-field.vue.js":51,"../basic/text-button/text-button.vue.js":52,"../basic/text-field/text-field.vue.js":53,"../basic/text/text.vue.js":54,"../basic/toggle/toggle.vue.js":55,"../page/footer/footer.vue.js":56,"../page/main/main.vue.js":57,"../structure/cell/cell.vue.js":58,"../structure/column/column.vue.js":59,"../structure/flex-column/flex-column.vue.js":60,"../structure/multiline/multiline.vue.js":61,"../structure/single-cell/single-cell.vue.js":62,"vue/dist/vue.common":3}]},{},[]);
+},{"../assemble/button/button.vue.js":6,"../assemble/card/card.vue.js":7,"../assemble/comment/comment.vue.js":8,"../assemble/dock/dock.vue.js":9,"../assemble/fixed-row/fixed-row.vue.js":10,"../assemble/flype/flype.vue.js":11,"../assemble/id-field-row/id-field-row.vue.js":12,"../assemble/lead/lead.vue.js":13,"../assemble/list/list.vue.js":14,"../assemble/next-card/next-card.vue.js":15,"../assemble/order-card/order-card.vue.js":16,"../assemble/otp-field-row/otp-field-row.vue.js":17,"../assemble/panel/panel.vue.js":18,"../assemble/password/password.vue.js":19,"../assemble/protocol/protocol.vue.js":20,"../assemble/remarks/remarks.vue.js":21,"../assemble/select-card/select-card.vue.js":22,"../assemble/select-row/select-row.vue.js":23,"../assemble/stage/stage.vue.js":24,"../assemble/stages/stages.vue.js":25,"../assemble/stepwise/stepwise.vue.js":26,"../assemble/stick/stick.vue.js":27,"../assemble/stub/stub.vue.js":28,"../assemble/tab-button/tab-button.vue.js":29,"../assemble/table/table.vue.js":30,"../assemble/tel-field-row/tel-field-row.vue.js":31,"../assemble/text-field-row/text-field-row.vue.js":32,"../assemble/text-row/text-row.vue.js":33,"../assemble/timeline/timeline.vue.js":34,"../assemble/timepoint/timepoint.vue.js":35,"../assemble/title/title.vue.js":36,"../assemble/toast/toast.vue.js":37,"../basic/address-field/address-field.vue.js":38,"../basic/button/button.vue.js":39,"../basic/checkbox/checkbox.vue.js":40,"../basic/email-field/email-field.vue.js":41,"../basic/highlight/highlight.vue.js":42,"../basic/icon/icon.vue.js":43,"../basic/idcard-field/idcard-field.vue.js":44,"../basic/image/image.vue.js":45,"../basic/number-field/number-field.vue.js":46,"../basic/radio/radio.vue.js":47,"../basic/rectangular-button/rectangular-button.vue.js":48,"../basic/select/select.vue.js":49,"../basic/solid-checkbox/solid-checkbox.vue.js":50,"../basic/solid-radio/solid-radio.vue.js":51,"../basic/svg/svg.vue.js":52,"../basic/tab-button/tab-button.vue.js":53,"../basic/tel-field/tel-field.vue.js":54,"../basic/text-button/text-button.vue.js":55,"../basic/text-field/text-field.vue.js":56,"../basic/text/text.vue.js":57,"../basic/toggle/toggle.vue.js":58,"../page/footer/footer.vue.js":59,"../page/main/main.vue.js":60,"../structure/cell/cell.vue.js":61,"../structure/column/column.vue.js":62,"../structure/flex-column/flex-column.vue.js":63,"../structure/multiline/multiline.vue.js":64,"../structure/single-cell/single-cell.vue.js":65,"vue/dist/vue.common":3}]},{},[]);

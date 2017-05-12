@@ -28,7 +28,7 @@
 	width: 270px;
 	background-color: #fff !important;
 	border-bottom: 1px solid rgba(0,0,0,.07);
-	border-right: 1px solid rgba(0,0,0,.07);
+	/*border-right: 1px solid rgba(0,0,0,.07);*/
 	cursor: pointer;
 	position: fixed;
 }
@@ -512,19 +512,25 @@ section>p {
 	.book {
 		display: block;
 	}
-	.aside, .book-body {
+	.book-body {
 		width: 100%;
-		overflow-y: scroll;
-		position: absolute;
+		position: relative;
 		top: 0;
 	}
 	.aside {
+		position: fixed;
+		width: 76%;
+		height: 100%;
 		background: #fff;
 		margin-left: 0;
 		margin-top: 0;
 		padding-left: 20px;
-		z-index: 999;
+		z-index: 99999;
+		padding-bottom: 60px;
+		overflow: auto;
+		display: block;
 		top: 40px;
+		left:-350px;
 	}
 	.aside h1:first-of-type {
 		margin-top: 5px;
@@ -540,4 +546,27 @@ section>p {
 	.book-body .right_head {
 		z-index: 1000;
 	}
+}
+
+@keyframes fake{
+	0%{transform: rotate(10deg);transform-origin: 8% center;}
+	20%{transform: rotate(-10deg);transform-origin: 8% center;}
+	40%{transform: rotate(10deg);transform-origin: 8% center;}
+	60%{transform: rotate(-10deg);transform-origin: 8% center;}
+	80%{transform: rotate(10deg);transform-origin: 8% center;}
+	100%{transform: rotate(0deg);transform-origin: 8% center;}
+}
+@keyframes move{
+	0%{transform: translateX(-10px);transform-origin: 8% center;}
+	20%{transform: translateX(10px);transform-origin: 8% center;}
+	40%{transform: translateX(-10px);transform-origin: 8% center;}
+	60%{transform: translateX(10px);transform-origin: 8% center;}
+	80%{transform: translateX(-10px);transform-origin: 8% center;}
+	100%{transform: translateX(0px);transform-origin: 8% center;}
+}
+.fakes{
+	animation: fake 0.8s ease
+}
+.moves{
+	animation: move 0.8s ease
 }
