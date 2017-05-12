@@ -15098,33 +15098,10 @@ module.exports = Vue$2;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"_process":1}],5:[function(require,module,exports){
-var inserted = exports.cache = {}
 
-function noop () {}
 
-exports.insert = function (css) {
-  if (inserted[css]) return noop
-  inserted[css] = true
 
-  var elem = document.createElement('style')
-  elem.setAttribute('type', 'text/css')
 
-  if ('textContent' in elem) {
-    elem.textContent = css
-  } else {
-    elem.styleSheet.cssText = css
-  }
-
-  document.getElementsByTagName('head')[0].appendChild(elem)
-  return function () {
-    document.getElementsByTagName('head')[0].removeChild(elem)
-    inserted[css] = false
-  }
-}
-
-},{}],6:[function(require,module,exports){
-var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("\n._amountCapital {\n    min-height: 50%;\n    background-image: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>\");\n    background-position: 0 100%;\n    background-repeat: no-repeat;\n}\n._amountCapital {\n    padding: 0.789474rem 0.789474rem 0.526316rem;\n    background-color: #fff;\n}\n._amountCapital p,\n._amountCapital .amountdesc{\n    color: #333;\n    margin-bottom: 16px;\n    font-size: 0.631579rem;\n}\n._amountCapital .amountdesc {\n    position: relative;\n    margin-bottom: 6px;\n}\n._amountCapital .unit {\n    display: inline-block;\n    vertical-align: -2px;\n    font-size: 1.578947rem;\n}\n._amountCapital .amount {\n    font-size: 1.157895rem;\n    text-align: left;\n    font-weight: normal;\n    display: inline-block;\n    width: 80%;\n}\n._amountCapital .amountdesc input::-webkit-input-placeholder {\n    font-size: .98rem;\n    font-weight: normal;\n}\n._amountCapital .amountdesc i {\n    position: absolute;\n    right: 0px;\n    top: 0.5rem;\n    width: 1.26316rem;\n    height: 1.26316rem;\n    background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" t=\"1490767245272\" class=\"icon\" style=\"\" viewBox=\"0 0 1024 1024\" version=\"1.1\" p-id=\"2328\" width=\"200\" height=\"200\"><defs><style type=\"text/css\"/></defs><path d=\"M526.377 842.717c-189.805 0-345.098-155.294-345.098-345.098s155.294-345.098 345.098-345.098 345.098 155.294 345.098 345.098-155.294 345.098-345.098 345.098zM690.301 368.208c11.502-11.502 11.502-25.879 0-37.383s-25.879-11.502-37.383 0l-129.41 129.41-126.534-126.534c-11.502-11.502-25.879-11.502-37.383 0s-11.502 25.879 0 37.383l129.41 129.41-126.534 126.534c-11.502 11.502-11.502 25.879 0 37.383s25.879 11.502 37.383 0l129.41-129.41 129.41 129.41c11.502 11.502 25.879 11.502 37.383 0s11.502-25.879 0-37.383l-129.41-129.41 123.659-129.41zM690.301 368.208z\" fill=\"#c1c1c1\" p-id=\"2329\"/></svg>') ;\n    background-repeat: no-repeat;\n    background-position: center center;\n    background-size: 100% 100%;\n\n}\n._amountCapital h2 {\n    position: relative;\n    line-height: inherit;\n}\n._amountCapital strong {\n    display: inline-block;\n    vertical-align: middle;\n    width: 70%;\n    text-align: left;\n    font-weight: normal;\n    color: #999;\n    font-size: 0.789474rem;\n    padding-left: 1.473684rem;\n    line-height:1rem;\n    word-wrap: break-word;\n}\n._amountCapital .tiperror {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    text-align: right;\n    font-size: 0.631578rem;\n    color: #e6654c;\n    vertical-align: middle;\n}\n")
 
 
 
@@ -15164,46 +15141,47 @@ module.exports = {
     methods: {
         inputTap: function (){
             var inputValue = $('#payamount')[0].value;
+            if(inputValue === 'undefine') {
+                $('#mapText')[0].style.display = 'none';
+            } else {
+                $('#mapText')[0].style.display = 'block';
+            }
 
-            $('#clearamounts')[0].style.display = 'block';
+            $('#clearamounts')[0].style.opacity = '1';
             $('#capitalamount')[0].innerHTML = amountCapital.sumCapital(inputValue);
 
             if (inputValue == ''){
-                $('#clearamounts')[0].style.display = 'none';
+                $('#clearamounts')[0].style.opacity = '0';
             }
             
             if (inputValue > parseFloat(this.label)){
-                $('#tiperror')[0].style.display = 'block';
+                $('#tiperror')[0].style.opacity = '1';
             } else {
-                $('#tiperror')[0].style.display = 'none';
+                $('#tiperror')[0].style.opacity = '0';
             }
         },
         iconTap: function (){
-            $('#clearamounts')[0].style.display = 'none';
+            $('#clearamounts')[0].style.opacity = '0';
             $('#payamount')[0].value = '';
             $('#capitalamount')[0].innerHTML = '';
-            $('#tiperror')[0].style.display = 'none';
+            $('#tiperror')[0].style.opacity = '0';
         }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_amountCapital\">\n    <p>充值金额</p>\n    <div class=\"amountdesc\">\n        <span class=\"unit\">￥</span>\n        <input class=\"amount\" @input=\"inputTap\" id=\"payamount\" type=\"number\" :placeholder=\"placeholder\" value=\"\"> \n        <i v-on:mytap=\"iconTap\" id=\"clearamounts\" class=\"clearall\" data-tappable=\"\" ontouchstart=\"\" style=\"display: none;\"></i>\n    </div> \n    <h2>\n        <strong id=\"capitalamount\"></strong>\n        <span id=\"tiperror\" class=\"tiperror\" style=\"display: none;\">已超限额</span> \n    </h2> \n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_amountCapital\">\n    <p>充值金额</p>\n    <div class=\"_amountdesc\">\n        <span class=\"_unit\">￥</span>\n        <input class=\"_amount\" @input=\"inputTap\" id=\"payamount\" type=\"number\" :placeholder=\"placeholder\" value=\"\"> \n        <div>\n            <b-icon name=\"round-cross\" color=\"stonegrey\" size=\"40\" v-on:mytap=\"iconTap\" id=\"clearamounts\" data-tappable=\"\" ontouchstart=\"\"></b-icon>\n            <b-highlight>全部转出</b-highlight>\n        </div>\n        \n    </div> \n    <h2 id=\"mapText\">\n        <strong id=\"capitalamount\"></strong>\n        <span id=\"tiperror\" class=\"_tiperror\">已超限额</span> \n    </h2> \n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  module.hot.dispose(function () {
-    __vueify_insert__.cache["\n._amountCapital {\n    min-height: 50%;\n    background-image: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>\");\n    background-position: 0 100%;\n    background-repeat: no-repeat;\n}\n._amountCapital {\n    padding: 0.789474rem 0.789474rem 0.526316rem;\n    background-color: #fff;\n}\n._amountCapital p,\n._amountCapital .amountdesc{\n    color: #333;\n    margin-bottom: 16px;\n    font-size: 0.631579rem;\n}\n._amountCapital .amountdesc {\n    position: relative;\n    margin-bottom: 6px;\n}\n._amountCapital .unit {\n    display: inline-block;\n    vertical-align: -2px;\n    font-size: 1.578947rem;\n}\n._amountCapital .amount {\n    font-size: 1.157895rem;\n    text-align: left;\n    font-weight: normal;\n    display: inline-block;\n    width: 80%;\n}\n._amountCapital .amountdesc input::-webkit-input-placeholder {\n    font-size: .98rem;\n    font-weight: normal;\n}\n._amountCapital .amountdesc i {\n    position: absolute;\n    right: 0px;\n    top: 0.5rem;\n    width: 1.26316rem;\n    height: 1.26316rem;\n    background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" t=\"1490767245272\" class=\"icon\" style=\"\" viewBox=\"0 0 1024 1024\" version=\"1.1\" p-id=\"2328\" width=\"200\" height=\"200\"><defs><style type=\"text/css\"/></defs><path d=\"M526.377 842.717c-189.805 0-345.098-155.294-345.098-345.098s155.294-345.098 345.098-345.098 345.098 155.294 345.098 345.098-155.294 345.098-345.098 345.098zM690.301 368.208c11.502-11.502 11.502-25.879 0-37.383s-25.879-11.502-37.383 0l-129.41 129.41-126.534-126.534c-11.502-11.502-25.879-11.502-37.383 0s-11.502 25.879 0 37.383l129.41 129.41-126.534 126.534c-11.502 11.502-11.502 25.879 0 37.383s25.879 11.502 37.383 0l129.41-129.41 129.41 129.41c11.502 11.502 25.879 11.502 37.383 0s11.502-25.879 0-37.383l-129.41-129.41 123.659-129.41zM690.301 368.208z\" fill=\"#c1c1c1\" p-id=\"2329\"/></svg>') ;\n    background-repeat: no-repeat;\n    background-position: center center;\n    background-size: 100% 100%;\n\n}\n._amountCapital h2 {\n    position: relative;\n    line-height: inherit;\n}\n._amountCapital strong {\n    display: inline-block;\n    vertical-align: middle;\n    width: 70%;\n    text-align: left;\n    font-weight: normal;\n    color: #999;\n    font-size: 0.789474rem;\n    padding-left: 1.473684rem;\n    line-height:1rem;\n    word-wrap: break-word;\n}\n._amountCapital .tiperror {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    text-align: right;\n    font-size: 0.631578rem;\n    color: #e6654c;\n    vertical-align: middle;\n}\n"] = false
-    document.head.removeChild(__vueify_style__)
-  })
   if (!module.hot.data) {
     hotAPI.createRecord("_v-0696886c", module.exports)
   } else {
     hotAPI.update("_v-0696886c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/amount.capital":67,"vue":4,"vue-hot-reload-api":2,"vueify/lib/insert-css":5}],7:[function(require,module,exports){
+},{"../../utils/amount.capital":66,"vue":4,"vue-hot-reload-api":2}],6:[function(require,module,exports){
 
 
 
@@ -15228,7 +15206,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-267071cc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],8:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],7:[function(require,module,exports){
 
 
 
@@ -15292,7 +15270,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-bedf9b68", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],9:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],8:[function(require,module,exports){
 
 
 
@@ -15325,7 +15303,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-5a60eae8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],10:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],9:[function(require,module,exports){
 
 
 
@@ -15403,7 +15381,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-22a8402c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],11:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],10:[function(require,module,exports){
 
 
 
@@ -15447,7 +15425,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-5be542d0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],12:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],11:[function(require,module,exports){
 
 
 
@@ -15497,7 +15475,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6724abde", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],13:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],12:[function(require,module,exports){
 
 
 
@@ -15556,7 +15534,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-42c3e16c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":68,"vue":4,"vue-hot-reload-api":2}],14:[function(require,module,exports){
+},{"../../utils/contants":67,"vue":4,"vue-hot-reload-api":2}],13:[function(require,module,exports){
 
 
 
@@ -15661,7 +15639,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-c7797c68", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],15:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],14:[function(require,module,exports){
 
 
 
@@ -15726,7 +15704,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6ae71b0c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],16:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],15:[function(require,module,exports){
 
 
 
@@ -15824,7 +15802,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-405a15e2", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],17:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],16:[function(require,module,exports){
 
 
 
@@ -15900,7 +15878,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-e430d3a8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],18:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],17:[function(require,module,exports){
 
 
 
@@ -15962,7 +15940,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-f4c382d0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":68,"vue":4,"vue-hot-reload-api":2}],19:[function(require,module,exports){
+},{"../../utils/contants":67,"vue":4,"vue-hot-reload-api":2}],18:[function(require,module,exports){
 
 
 
@@ -16012,7 +15990,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-a23648d4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],20:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],19:[function(require,module,exports){
 
 
 
@@ -16049,7 +16027,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3d665ba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],21:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],20:[function(require,module,exports){
 
 
 
@@ -16081,7 +16059,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-bc10a268", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],22:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],21:[function(require,module,exports){
 
 
 
@@ -16118,7 +16096,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-d46f4098", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],23:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],22:[function(require,module,exports){
 
 
 
@@ -16189,7 +16167,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-79a71360", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],24:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],23:[function(require,module,exports){
 
 
 
@@ -16246,7 +16224,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-296479ec", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":68,"vue":4,"vue-hot-reload-api":2}],25:[function(require,module,exports){
+},{"../../utils/contants":67,"vue":4,"vue-hot-reload-api":2}],24:[function(require,module,exports){
 
 
 
@@ -16272,7 +16250,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-2641d00a", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],26:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],25:[function(require,module,exports){
 
 
 
@@ -16333,7 +16311,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-ff422f28", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],27:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],26:[function(require,module,exports){
 
 
 
@@ -16382,7 +16360,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6cfbe1cc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],28:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],27:[function(require,module,exports){
 
 
 
@@ -16423,7 +16401,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-ccbab8a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],29:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],28:[function(require,module,exports){
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-single-cell height=\"0.368421\" border=\"true\" bgcolor=\"transparent\"></s-single-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
@@ -16435,7 +16413,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6136a50c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],30:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],29:[function(require,module,exports){
 
 
 
@@ -16468,10 +16446,11 @@ module.exports = {
             }
         });
         return {
-            elements: elems,
-            isA: true,
-            isB: false,
-            isC: false
+            elements: elems
+            // ,
+            // isA: true,
+            // isB: false,
+            // isC: false
         }
     },
     methods: {
@@ -16482,27 +16461,28 @@ module.exports = {
             }
           
             e.target.classList = '_borderbtm';
-        },
-        toggle1: function(){
-            this.isA = true;
-            this.isB = false;
-            this.isC = false;
-        },
-        toggle2: function(){
-            this.isA = false;
-            this.isB = true;
-            this.isC = false;
-        },
-        toggle3: function(){
-            this.isA = false;
-            this.isB = false;
-            this.isC = true;
         }
+        // ,
+        // toggle1: function(){
+        //     this.isA = true;
+        //     this.isB = false;
+        //     this.isC = false;
+        // },
+        // toggle2: function(){
+        //     this.isA = false;
+        //     this.isB = true;
+        //     this.isC = false;
+        // },
+        // toggle3: function(){
+        //     this.isA = false;
+        //     this.isB = false;
+        //     this.isC = true;
+        // }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"tabbutton\" v-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" @click=\"tabswitch\" class=\"_borderbtm\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @click=\"tabswitch\">{{elements[1].text}}</span>\n</div> \n<div id=\"tabbutton\" v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"elements[0].id\" class=\"_borderbtm\" @click=\"tabswitch\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @click=\"tabswitch\">{{elements[1].text}}</span>\n    <span :id=\"elements[2].id\" @click=\"tabswitch\">{{elements[2].text}}</span>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" @click=\"tabswitch\" class=\"_borderbtm\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @click=\"tabswitch\">{{elements[1].text}}</span>\n</div> \n<div v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"elements[0].id\" class=\"_borderbtm\" @click=\"tabswitch\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @click=\"tabswitch\">{{elements[1].text}}</span>\n    <span :id=\"elements[2].id\" @click=\"tabswitch\">{{elements[2].text}}</span>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16513,7 +16493,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0c40e34c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],31:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],30:[function(require,module,exports){
 
 
 
@@ -16563,7 +16543,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-24c1d4ac", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],32:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],31:[function(require,module,exports){
 
 
 
@@ -16621,7 +16601,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-33243478", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":68,"vue":4,"vue-hot-reload-api":2}],33:[function(require,module,exports){
+},{"../../utils/contants":67,"vue":4,"vue-hot-reload-api":2}],32:[function(require,module,exports){
 
 
 
@@ -16679,7 +16659,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-dd7a2ba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":68,"vue":4,"vue-hot-reload-api":2}],34:[function(require,module,exports){
+},{"../../utils/contants":67,"vue":4,"vue-hot-reload-api":2}],33:[function(require,module,exports){
 
 
 
@@ -16729,7 +16709,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-379a35e8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":68,"vue":4,"vue-hot-reload-api":2}],35:[function(require,module,exports){
+},{"../../utils/contants":67,"vue":4,"vue-hot-reload-api":2}],34:[function(require,module,exports){
 
 
 
@@ -16825,7 +16805,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-a3c62628", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],36:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],35:[function(require,module,exports){
 
 
 
@@ -16857,7 +16837,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-21b167d8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],37:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],36:[function(require,module,exports){
 
 
 
@@ -16920,7 +16900,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-8e052d84", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":68,"vue":4,"vue-hot-reload-api":2}],38:[function(require,module,exports){
+},{"../../utils/contants":67,"vue":4,"vue-hot-reload-api":2}],37:[function(require,module,exports){
 
 
 
@@ -16962,7 +16942,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-62a2cac8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],39:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],38:[function(require,module,exports){
 
 
 
@@ -17072,7 +17052,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-cd2039b0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":69,"../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],40:[function(require,module,exports){
+},{"../../utils/gum.vue.events":68,"../../utils/validate":69,"vue":4,"vue-hot-reload-api":2}],39:[function(require,module,exports){
 
 
 
@@ -17177,7 +17157,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-4392a664", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],41:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],40:[function(require,module,exports){
 
 
 
@@ -17211,7 +17191,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-fa497078", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],42:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],41:[function(require,module,exports){
 
 
 
@@ -17290,7 +17270,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-47954578", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":69,"../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],43:[function(require,module,exports){
+},{"../../utils/gum.vue.events":68,"../../utils/validate":69,"vue":4,"vue-hot-reload-api":2}],42:[function(require,module,exports){
 
 
 
@@ -17327,7 +17307,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-eeafffe4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],44:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],43:[function(require,module,exports){
 
 
 
@@ -17372,7 +17352,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-eec7c6f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],45:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],44:[function(require,module,exports){
 
 
 
@@ -17455,7 +17435,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-052a3ee4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":69,"../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],46:[function(require,module,exports){
+},{"../../utils/gum.vue.events":68,"../../utils/validate":69,"vue":4,"vue-hot-reload-api":2}],45:[function(require,module,exports){
 
 
 
@@ -17509,7 +17489,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-64bddec8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],47:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],46:[function(require,module,exports){
 
 
 
@@ -17593,7 +17573,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0355bfa4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":69,"../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],48:[function(require,module,exports){
+},{"../../utils/gum.vue.events":68,"../../utils/validate":69,"vue":4,"vue-hot-reload-api":2}],47:[function(require,module,exports){
 
 
 
@@ -17628,7 +17608,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0650cddc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],49:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],48:[function(require,module,exports){
 
 
 
@@ -17674,7 +17654,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-b89c90f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],50:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],49:[function(require,module,exports){
 
 
 
@@ -17727,7 +17707,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-02d50f24", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],51:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],50:[function(require,module,exports){
 
 
 
@@ -17771,7 +17751,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-93fd89f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],52:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],51:[function(require,module,exports){
 
 
 
@@ -17806,7 +17786,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-413fcb18", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],53:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],52:[function(require,module,exports){
 
 
 
@@ -17839,7 +17819,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6894e2a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],54:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],53:[function(require,module,exports){
 
 
 
@@ -17885,7 +17865,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-52de0038", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],55:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],54:[function(require,module,exports){
 
 
 
@@ -17971,7 +17951,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-08467336", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":69,"../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],56:[function(require,module,exports){
+},{"../../utils/gum.vue.events":68,"../../utils/validate":69,"vue":4,"vue-hot-reload-api":2}],55:[function(require,module,exports){
 
 
 
@@ -18017,7 +17997,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3ec5af8a", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],57:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],56:[function(require,module,exports){
 
 
 
@@ -18097,7 +18077,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-00ed29e4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":69,"../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],58:[function(require,module,exports){
+},{"../../utils/gum.vue.events":68,"../../utils/validate":69,"vue":4,"vue-hot-reload-api":2}],57:[function(require,module,exports){
 
 
 
@@ -18133,7 +18113,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-84e5a5f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],59:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],58:[function(require,module,exports){
 
 
 
@@ -18166,7 +18146,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-44bb3c24", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],60:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],59:[function(require,module,exports){
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<footer class=\"_footer\">\n    <slot></slot>\n</footer>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
@@ -18178,7 +18158,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-e95d6bae", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],61:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],60:[function(require,module,exports){
 
 
 
@@ -18280,7 +18260,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-27ed8ae9", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":69,"vue":4,"vue-hot-reload-api":2}],62:[function(require,module,exports){
+},{"../../utils/gum.vue.events":68,"vue":4,"vue-hot-reload-api":2}],61:[function(require,module,exports){
 
 
 
@@ -18344,7 +18324,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-2cf463a9", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],63:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],62:[function(require,module,exports){
 
 
 
@@ -18388,7 +18368,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-e67e4e2e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],64:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],63:[function(require,module,exports){
 
 
 
@@ -18425,7 +18405,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3c4dc802", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],65:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],64:[function(require,module,exports){
 
 
 
@@ -18469,7 +18449,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3f93e705", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],66:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],65:[function(require,module,exports){
 
 
 
@@ -18530,7 +18510,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-ffede88e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],67:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2}],66:[function(require,module,exports){
 function ConvertCurrency(){
     
 }
@@ -18623,7 +18603,7 @@ module.exports = new ConvertCurrency();
 
 
         
-},{}],68:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 'use strict';
 
 var contants = {
@@ -18632,7 +18612,7 @@ var contants = {
 }
 
 module.exports = contants;
-},{}],69:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 'use strict';
 
 var Vue = require('vue/dist/vue.common');
@@ -18650,7 +18630,7 @@ Events.prototype.on = function (a, b) {
 }
 
 module.exports = new Events();
-},{"vue/dist/vue.common":3}],70:[function(require,module,exports){
+},{"vue/dist/vue.common":3}],69:[function(require,module,exports){
 'use strict';
 
 var required    = require('../validator/require.validator'),
@@ -18720,7 +18700,7 @@ Validate.prototype.errors = function () {
 }
 
 module.exports = Validate;
-},{"../validator/email.validator":71,"../validator/idcard.validator":72,"../validator/number.validator":73,"../validator/require.validator":74,"../validator/tel.validator":75}],71:[function(require,module,exports){
+},{"../validator/email.validator":70,"../validator/idcard.validator":71,"../validator/number.validator":72,"../validator/require.validator":73,"../validator/tel.validator":74}],70:[function(require,module,exports){
 'use strict';
 
 function EmailValidator () {
@@ -18737,7 +18717,7 @@ EmailValidator.prototype.validate = function (value) {
 }
 
 module.exports = new EmailValidator();
-},{}],72:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 'use strict';
 
 function IdCardValidator () {
@@ -18895,7 +18875,7 @@ module.exports = new IdCardValidator();
                 //         return Errors[1];
                 //         break;
                 // }
-},{}],73:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 'use strict';
 
 function NumberValidator () {
@@ -18916,7 +18896,7 @@ NumberValidator.prototype = {
 }
 
 module.exports = new NumberValidator();
-},{}],74:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 'use strict';
 
 function RequireValidator () {
@@ -18930,7 +18910,7 @@ RequireValidator.prototype = {
 }
 
 module.exports = new RequireValidator();
-},{}],75:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 'use strict';
 
 function TelValidator () {
@@ -19048,4 +19028,4 @@ VueManager.prototype = {
 }
 
 module.exports = new VueManager();
-},{"../assemble/amount-row/amount-row.vue.js":6,"../assemble/button/button.vue.js":7,"../assemble/card/card.vue.js":8,"../assemble/comment/comment.vue.js":9,"../assemble/dock/dock.vue.js":10,"../assemble/fixed-row/fixed-row.vue.js":11,"../assemble/flype/flype.vue.js":12,"../assemble/id-field-row/id-field-row.vue.js":13,"../assemble/lead/lead.vue.js":14,"../assemble/list/list.vue.js":15,"../assemble/next-card/next-card.vue.js":16,"../assemble/order-card/order-card.vue.js":17,"../assemble/otp-field-row/otp-field-row.vue.js":18,"../assemble/panel/panel.vue.js":19,"../assemble/password/password.vue.js":20,"../assemble/protocol/protocol.vue.js":21,"../assemble/remarks/remarks.vue.js":22,"../assemble/select-card/select-card.vue.js":23,"../assemble/select-row/select-row.vue.js":24,"../assemble/stage/stage.vue.js":25,"../assemble/stages/stages.vue.js":26,"../assemble/stepwise/stepwise.vue.js":27,"../assemble/stick/stick.vue.js":28,"../assemble/stub/stub.vue.js":29,"../assemble/tab-button/tab-button.vue.js":30,"../assemble/table/table.vue.js":31,"../assemble/tel-field-row/tel-field-row.vue.js":32,"../assemble/text-field-row/text-field-row.vue.js":33,"../assemble/text-row/text-row.vue.js":34,"../assemble/timeline/timeline.vue.js":35,"../assemble/timepoint/timepoint.vue.js":36,"../assemble/title/title.vue.js":37,"../assemble/toast/toast.vue.js":38,"../basic/address-field/address-field.vue.js":39,"../basic/button/button.vue.js":40,"../basic/checkbox/checkbox.vue.js":41,"../basic/email-field/email-field.vue.js":42,"../basic/highlight/highlight.vue.js":43,"../basic/icon/icon.vue.js":44,"../basic/idcard-field/idcard-field.vue.js":45,"../basic/image/image.vue.js":46,"../basic/number-field/number-field.vue.js":47,"../basic/radio/radio.vue.js":48,"../basic/rectangular-button/rectangular-button.vue.js":49,"../basic/select/select.vue.js":50,"../basic/solid-checkbox/solid-checkbox.vue.js":51,"../basic/solid-radio/solid-radio.vue.js":52,"../basic/svg/svg.vue.js":53,"../basic/tab-button/tab-button.vue.js":54,"../basic/tel-field/tel-field.vue.js":55,"../basic/text-button/text-button.vue.js":56,"../basic/text-field/text-field.vue.js":57,"../basic/text/text.vue.js":58,"../basic/toggle/toggle.vue.js":59,"../page/footer/footer.vue.js":60,"../page/main/main.vue.js":61,"../structure/cell/cell.vue.js":62,"../structure/column/column.vue.js":63,"../structure/flex-column/flex-column.vue.js":64,"../structure/multiline/multiline.vue.js":65,"../structure/single-cell/single-cell.vue.js":66,"vue/dist/vue.common":3}]},{},[]);
+},{"../assemble/amount-row/amount-row.vue.js":5,"../assemble/button/button.vue.js":6,"../assemble/card/card.vue.js":7,"../assemble/comment/comment.vue.js":8,"../assemble/dock/dock.vue.js":9,"../assemble/fixed-row/fixed-row.vue.js":10,"../assemble/flype/flype.vue.js":11,"../assemble/id-field-row/id-field-row.vue.js":12,"../assemble/lead/lead.vue.js":13,"../assemble/list/list.vue.js":14,"../assemble/next-card/next-card.vue.js":15,"../assemble/order-card/order-card.vue.js":16,"../assemble/otp-field-row/otp-field-row.vue.js":17,"../assemble/panel/panel.vue.js":18,"../assemble/password/password.vue.js":19,"../assemble/protocol/protocol.vue.js":20,"../assemble/remarks/remarks.vue.js":21,"../assemble/select-card/select-card.vue.js":22,"../assemble/select-row/select-row.vue.js":23,"../assemble/stage/stage.vue.js":24,"../assemble/stages/stages.vue.js":25,"../assemble/stepwise/stepwise.vue.js":26,"../assemble/stick/stick.vue.js":27,"../assemble/stub/stub.vue.js":28,"../assemble/tab-button/tab-button.vue.js":29,"../assemble/table/table.vue.js":30,"../assemble/tel-field-row/tel-field-row.vue.js":31,"../assemble/text-field-row/text-field-row.vue.js":32,"../assemble/text-row/text-row.vue.js":33,"../assemble/timeline/timeline.vue.js":34,"../assemble/timepoint/timepoint.vue.js":35,"../assemble/title/title.vue.js":36,"../assemble/toast/toast.vue.js":37,"../basic/address-field/address-field.vue.js":38,"../basic/button/button.vue.js":39,"../basic/checkbox/checkbox.vue.js":40,"../basic/email-field/email-field.vue.js":41,"../basic/highlight/highlight.vue.js":42,"../basic/icon/icon.vue.js":43,"../basic/idcard-field/idcard-field.vue.js":44,"../basic/image/image.vue.js":45,"../basic/number-field/number-field.vue.js":46,"../basic/radio/radio.vue.js":47,"../basic/rectangular-button/rectangular-button.vue.js":48,"../basic/select/select.vue.js":49,"../basic/solid-checkbox/solid-checkbox.vue.js":50,"../basic/solid-radio/solid-radio.vue.js":51,"../basic/svg/svg.vue.js":52,"../basic/tab-button/tab-button.vue.js":53,"../basic/tel-field/tel-field.vue.js":54,"../basic/text-button/text-button.vue.js":55,"../basic/text-field/text-field.vue.js":56,"../basic/text/text.vue.js":57,"../basic/toggle/toggle.vue.js":58,"../page/footer/footer.vue.js":59,"../page/main/main.vue.js":60,"../structure/cell/cell.vue.js":61,"../structure/column/column.vue.js":62,"../structure/flex-column/flex-column.vue.js":63,"../structure/multiline/multiline.vue.js":64,"../structure/single-cell/single-cell.vue.js":65,"vue/dist/vue.common":3}]},{},[]);

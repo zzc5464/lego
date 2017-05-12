@@ -742,6 +742,69 @@
 .gum .lego ._ruletab2 span {
   margin: 0 0.7rem;
   flex: 1; }
+.gum .lego ._amountCapital {
+  min-height: 50%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
+  background-position: 0 100%;
+  background-repeat: no-repeat; }
+.gum .lego ._amountCapital {
+  padding: 0.789474rem 0.789474rem 0.526316rem;
+  background-color: #fff; }
+  .gum .lego ._amountCapital p {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 0.394564rem;
+    font-size: 0.631579rem; }
+  .gum .lego ._amountCapital ._amountdesc {
+    position: relative;
+    color: #333;
+    font-size: 0.631579rem; }
+    .gum .lego ._amountCapital ._amountdesc input::-webkit-input-placeholder {
+      font-size: .98rem;
+      font-weight: normal; }
+    .gum .lego ._amountCapital ._amountdesc > div {
+      position: absolute;
+      right: 0px;
+      top: 0.8rem; }
+      .gum .lego ._amountCapital ._amountdesc > div i {
+        vertical-align: middle;
+        opacity: 0; }
+    .gum .lego ._amountCapital ._amountdesc ._highlight {
+      margin-left: 6px; }
+  .gum .lego ._amountCapital ._unit {
+    display: inline-block;
+    vertical-align: -2px;
+    font-size: 1.578947rem; }
+  .gum .lego ._amountCapital ._amount {
+    font-size: 1.157895rem;
+    text-align: left;
+    font-weight: normal;
+    display: inline-block;
+    width: 80%; }
+  .gum .lego ._amountCapital h2 {
+    position: relative;
+    line-height: inherit;
+    display: none; }
+  .gum .lego ._amountCapital strong {
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+    text-align: left;
+    font-weight: normal;
+    color: #999;
+    font-size: 0.789474rem;
+    padding-left: 1.473684rem;
+    line-height: 1rem;
+    word-wrap: break-word; }
+  .gum .lego ._amountCapital ._tiperror {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+    font-size: 0.631578rem;
+    color: #e6654c;
+    vertical-align: middle;
+    opacity: 0; }
 .gum .lego ._main {
   min-height: 100.1%; }
 .gum .lego ._main_wrp {
