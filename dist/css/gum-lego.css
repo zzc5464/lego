@@ -715,6 +715,33 @@
       position: absolute;
       top: 0.78947rem;
       right: 0.26316rem; }
+.gum .lego ._ruletab {
+  padding-top: 9px;
+  overflow: hidden;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-color: #fff; }
+  .gum .lego ._ruletab span {
+    position: relative;
+    display: inline-block;
+    width: 5.263158rem;
+    color: #333;
+    font-size: .789474rem;
+    line-height: 1.894737rem;
+    text-align: center; }
+  .gum .lego ._ruletab span._borderbtm {
+    border-bottom: 2px solid #d7ac62;
+    color: #d7ac62; }
+.gum .lego ._ruletab1 span {
+  margin: 0 1.578947rem; }
+.gum .lego ._ruletab1 span:last-child {
+  float: right; }
+.gum .lego ._ruletab2 {
+  display: flex; }
+.gum .lego ._ruletab2 span {
+  margin: 0 0.7rem;
+  flex: 1; }
 .gum .lego ._main {
   min-height: 100.1%; }
 .gum .lego ._main_wrp {
