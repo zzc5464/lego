@@ -71,7 +71,8 @@ var components = [
     [ 'toast'                   , require('../assemble/toast/toast.vue.js')                         ],
 
     [ 'fixed-row'               , require('../assemble/fixed-row/fixed-row.vue.js')                 ],
-    [ 'tab-button'              , require('../assemble/tab-button/tab-button.vue.js')               ]
+    [ 'tab-button'              , require('../assemble/tab-button/tab-button.vue.js')               ],
+    [ 'amount-row'              , require('../assemble/amount-row/amount-row.vue.js')               ]
 ];
 
 components.forEach(function (component) {
