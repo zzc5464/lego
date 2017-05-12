@@ -15170,7 +15170,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_amountCapital\">\n    <p>充值金额</p>\n    <div class=\"_amountdesc\">\n        <span class=\"_unit\">￥</span>\n        <input class=\"_amount\" @input=\"inputTap\" id=\"payamount\" type=\"number\" :placeholder=\"placeholder\" value=\"\"> \n        <div>\n            <b-icon name=\"round-cross\" color=\"stonegrey\" size=\"40\" v-on:mytap=\"iconTap\" id=\"clearamounts\" data-tappable=\"\" ontouchstart=\"\"></b-icon>\n            <b-highlight>全部转出</b-highlight>\n        </div>\n        \n    </div> \n    <h2 id=\"mapText\">\n        <strong id=\"capitalamount\"></strong>\n        <span id=\"tiperror\" class=\"_tiperror\">已超限额</span> \n    </h2> \n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_amountCapital\">\n    <p>充值金额</p>\n    <div class=\"_amountdesc\">\n        <span class=\"_unit\">￥</span>\n        <input class=\"_amount\" @input=\"inputTap\" id=\"payamount\" type=\"number\" :placeholder=\"placeholder\" value=\"\"> \n        <div>\n            <b-icon name=\"round-cross\" color=\"stonegrey\" size=\"40\" v-on:tapped=\"iconTap\" id=\"clearamounts\" data-tappable=\"\" ontouchstart=\"\"></b-icon>\n            <b-highlight>全部转出</b-highlight>\n        </div>\n        \n    </div> \n    <h2 id=\"mapText\">\n        <strong id=\"capitalamount\"></strong>\n        <span id=\"tiperror\" class=\"_tiperror\">已超限额</span> \n    </h2> \n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

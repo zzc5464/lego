@@ -914,7 +914,7 @@ h1, h2, h3, h4, h5, h6 {
     ._amountCapital ._amountdesc > div {
       position: absolute;
       right: 0px;
-      top: 0.8rem; }
+      top: 0.5rem; }
       ._amountCapital ._amountdesc > div i {
         vertical-align: middle;
         opacity: 0; }
@@ -931,28 +931,24 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     width: 80%; }
   ._amountCapital h2 {
-    position: relative;
     line-height: inherit;
     display: none; }
   ._amountCapital strong {
     display: inline-block;
-    vertical-align: middle;
-    width: 70%;
+    vertical-align: top;
+    width: 60%;
     text-align: left;
     font-weight: normal;
     color: #999;
     font-size: 0.789474rem;
-    padding-left: 1.473684rem;
+    padding-left: 1.73684rem;
     line-height: 1rem;
     word-wrap: break-word; }
   ._amountCapital ._tiperror {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    float: right;
     text-align: right;
     font-size: 0.631578rem;
     color: #e6654c;
-    vertical-align: middle;
     opacity: 0; }
 
 ._main {

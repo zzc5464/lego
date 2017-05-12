@@ -5,7 +5,7 @@
             <span class="_unit">￥</span>
             <input class="_amount" @input="inputTap" id="payamount" type="number" :placeholder="placeholder"  value=""> 
             <div>
-                <b-icon name="round-cross" color="stonegrey" size="40" v-on:mytap="iconTap" id="clearamounts" data-tappable="" ontouchstart=""></b-icon>
+                <b-icon name="round-cross" color="stonegrey" size="40" v-on:tapped="iconTap" id="clearamounts" data-tappable="" ontouchstart=""></b-icon>
                 <b-highlight>全部转出</b-highlight>
             </div>
             
