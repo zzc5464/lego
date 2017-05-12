@@ -1,12 +1,12 @@
 <template>
-    <div v-if="elements.length === 2" class="_ruletab _ruletab1">
-        <span :class="{_borderbtm:isA}" @click="toggle1" :id="elements[0].id">{{elements[0].text}}</span>
-        <span :id="elements[1].id" @click="toggle2" :class="{_borderbtm:isB}">{{elements[1].text}}</span>
+    <div v-if="elements.length === 2" class="_ruletab _ruletab1" >
+        <span :id="elements[0].id" @click="tabswitch" class="_borderbtm" >{{elements[0].text}}</span>
+        <span :id="elements[1].id" @click="tabswitch" >{{elements[1].text}}</span>
     </div> 
     <div v-else class="_ruletab _ruletab2">
-        <span :id="elements[0].id" :class="{_borderbtm:isA}" @click="toggle1">{{elements[0].text}}</span>
-        <span :id="elements[1].id" :class="{_borderbtm:isB}" @click="toggle2">{{elements[1].text}}</span>
-        <span :id="elements[2].id" :class="{_borderbtm:isC}" @click="toggle3" >{{elements[2].text}}</span>
+        <span :id="elements[0].id" class="_borderbtm" @click="tabswitch">{{elements[0].text}}</span>
+        <span :id="elements[1].id" @click="tabswitch">{{elements[1].text}}</span>
+        <span :id="elements[2].id" @click="tabswitch" >{{elements[2].text}}</span>
     </div>
 </template>
 
@@ -30,28 +30,38 @@
                 }
             });
             return {
-                elements: elems,
-                isA: true,
-                isB: false,
-                isC: false
+                elements: elems
+                // ,
+                // isA: true,
+                // isB: false,
+                // isC: false
             }
         },
         methods: {
-            toggle1: function(){
-                this.isA = true;
-                this.isB = false;
-                this.isC = false;
-            },
-            toggle2: function(){
-                this.isA = false;
-                this.isB = true;
-                this.isC = false;
-            },
-            toggle3: function(){
-                this.isA = false;
-                this.isB = false;
-                this.isC = true;
+            tabswitch: function (e) {
+                var sbilings = this.$el.children;
+                for(var i=0;i<sbilings.length;i++) {
+                    sbilings[i].classList = '';
+                }
+              
+                e.target.classList = '_borderbtm';
             }
+            // ,
+            // toggle1: function(){
+            //     this.isA = true;
+            //     this.isB = false;
+            //     this.isC = false;
+            // },
+            // toggle2: function(){
+            //     this.isA = false;
+            //     this.isB = true;
+            //     this.isC = false;
+            // },
+            // toggle3: function(){
+            //     this.isA = false;
+            //     this.isB = false;
+            //     this.isC = true;
+            // }
         }
     }
 </script>

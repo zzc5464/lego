@@ -16475,6 +16475,14 @@ module.exports = {
         }
     },
     methods: {
+        tabswitch: function (e) {
+            var sbilings = this.$el.children;
+            for(var i=0;i<sbilings.length;i++) {
+                sbilings[i].classList = '';
+            }
+          
+            e.target.classList = '_borderbtm';
+        },
         toggle1: function(){
             this.isA = true;
             this.isB = false;
@@ -16494,7 +16502,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :class=\"{_borderbtm:isA}\" @click=\"toggle1\" :id=\"elements[0].id\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @click=\"toggle2\" :class=\"{_borderbtm:isB}\">{{elements[1].text}}</span>\n</div> \n<div v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"elements[0].id\" :class=\"{_borderbtm:isA}\" @click=\"toggle1\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" :class=\"{_borderbtm:isB}\" @click=\"toggle2\">{{elements[1].text}}</span>\n    <span :id=\"elements[2].id\" :class=\"{_borderbtm:isC}\" @click=\"toggle3\">{{elements[2].text}}</span>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"tabbutton\" v-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" @click=\"tabswitch\" class=\"_borderbtm\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @click=\"tabswitch\">{{elements[1].text}}</span>\n</div> \n<div id=\"tabbutton\" v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"elements[0].id\" class=\"_borderbtm\" @click=\"tabswitch\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @click=\"tabswitch\">{{elements[1].text}}</span>\n    <span :id=\"elements[2].id\" @click=\"tabswitch\">{{elements[2].text}}</span>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
