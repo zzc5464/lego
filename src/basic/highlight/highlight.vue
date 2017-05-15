@@ -1,5 +1,5 @@
 <template>
-    <span class='_highlight' :class='classObj'><slot></slot></span>
+    <span class='_highlight' :class='classObj' @mytap='tapped' ><slot></slot></span>
 </template>
 
 <script>
@@ -19,6 +19,11 @@
             return {
                 classObj: list
             };
+        },
+        methods: {
+            tapped: function(){
+                this.$emit('tapped');
+            }
         }
     }  
 </script>

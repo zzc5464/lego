@@ -15128,6 +15128,10 @@ module.exports = {
         label: {
             type: String
         },
+        desc: {
+            type: String,
+            default: '充值金额'
+        },
         placeholder: {
             type: String,
             default: '请输入充值金额'
@@ -15165,12 +15169,22 @@ module.exports = {
             $('#payamount')[0].value = '';
             $('#capitalamount')[0].innerHTML = '';
             $('#tiperror')[0].style.opacity = '0';
+        },
+        amountAllIpt: function () {
+            if(this.label) {
+                $('#payamount')[0].value = this.label;
+                $('#payamount')[0].focus();
+                $('#tiperror')[0].style.opacity = '0';
+                $('#clearamounts')[0].style.opacity = '1';
+                $('#capitalamount')[0].innerHTML = amountCapital.sumCapital($('#payamount')[0].value);
+                $('#mapText')[0].style.display = 'block';
+            }
         }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_amountCapital\">\n    <p>充值金额</p>\n    <div class=\"_amountdesc\">\n        <span class=\"_unit\">￥</span>\n        <input class=\"_amount\" @input=\"inputTap\" id=\"payamount\" type=\"number\" :placeholder=\"placeholder\" value=\"\"> \n        <div>\n            <b-icon name=\"round-cross\" color=\"stonegrey\" size=\"40\" v-on:tapped=\"iconTap\" id=\"clearamounts\" data-tappable=\"\" ontouchstart=\"\"></b-icon>\n            <b-highlight>全部转出</b-highlight>\n        </div>\n        \n    </div> \n    <h2 id=\"mapText\">\n        <strong id=\"capitalamount\"></strong>\n        <span id=\"tiperror\" class=\"_tiperror\">已超限额</span> \n    </h2> \n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_amountCapital\">\n    <p>{{ desc }}</p>\n    <div class=\"_amountdesc\">\n        <span class=\"_unit\">￥</span>\n        <input class=\"_amount\" @input=\"inputTap\" id=\"payamount\" type=\"number\" :placeholder=\"placeholder\" value=\"\"> \n        <div>\n            <b-icon name=\"round-cross\" color=\"stonegrey\" size=\"40\" @tapped=\"iconTap\" id=\"clearamounts\" data-tappable=\"\" ontouchstart=\"\"></b-icon>\n            <b-highlight @tapped=\"amountAllIpt\" v-show=\"label\">全部转出</b-highlight>\n        </div>\n        \n    </div> \n    <h2 id=\"mapText\">\n        <strong id=\"capitalamount\"></strong>\n        <span id=\"tiperror\" class=\"_tiperror\">已超限额</span> \n    </h2> \n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17292,11 +17306,16 @@ module.exports = {
         return {
             classObj: list
         };
+    },
+    methods: {
+        tapped: function(){
+            this.$emit('tapped');
+        }
     }
 }  
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span class=\"_highlight\" :class=\"classObj\"><slot></slot></span>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span class=\"_highlight\" :class=\"classObj\" @mytap=\"tapped\"><slot></slot></span>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

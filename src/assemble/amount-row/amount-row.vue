@@ -1,12 +1,12 @@
 <template>
     <div class="_amountCapital">
-        <p>充值金额</p>
+        <p>{{ desc }}</p>
         <div class="_amountdesc">
             <span class="_unit">￥</span>
             <input class="_amount" @input="inputTap" id="payamount" type="number" :placeholder="placeholder"  value=""> 
             <div>
-                <b-icon name="round-cross" color="stonegrey" size="40" v-on:tapped="iconTap" id="clearamounts" data-tappable="" ontouchstart=""></b-icon>
-                <b-highlight>全部转出</b-highlight>
+                <b-icon name="round-cross" color="stonegrey" size="40" @tapped="iconTap" id="clearamounts" data-tappable="" ontouchstart=""></b-icon>
+                <b-highlight @tapped="amountAllIpt" v-show="label">全部转出</b-highlight>
             </div>
             
         </div> 
@@ -27,6 +27,10 @@
         props: {
             label: {
                 type: String
+            },
+            desc: {
+                type: String,
+                default: '充值金额'
             },
             placeholder: {
                 type: String,
@@ -65,6 +69,16 @@
                 $('#payamount')[0].value = '';
                 $('#capitalamount')[0].innerHTML = '';
                 $('#tiperror')[0].style.opacity = '0';
+            },
+            amountAllIpt: function () {
+                if(this.label) {
+                    $('#payamount')[0].value = this.label;
+                    $('#payamount')[0].focus();
+                    $('#tiperror')[0].style.opacity = '0';
+                    $('#clearamounts')[0].style.opacity = '1';
+                    $('#capitalamount')[0].innerHTML = amountCapital.sumCapital($('#payamount')[0].value);
+                    $('#mapText')[0].style.display = 'block';
+                }
             }
         }
     }
