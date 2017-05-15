@@ -15,10 +15,10 @@
     <amount-row label='1000' desc='赎回金额' placeholder="本次最多赎回1000.00元"></amount-row>
     <amount-row desc='充值金额' placeholder="本次最多赎回1000.00元"></amount-row>
     <amount-row label='1000' placeholder="本次最多赎回1000.00元"></amount-row>
-    <check-line>
-        <check-item type='银行卡支付' bank-num='0040' id='pay1' checked='false'>中国建设银行</check-item>
-        <check-item type='钱包支付' bank-num='0050' id='pay2' checked='true'>中国平安银行</check-item>
-        <check-item type='银行卡支付' bank-num='0050' id='pay3' checked='true'>中国平安银行</check-item>
-    </check-line>
+    <check-line-group>
+        <check-line id='pay1' label='银行卡支付' comment='单日限额 3000 元' value='平安银行 尾号3500' link='true'></check-line>
+        <check-line id='pay2' label='钱包支付' value='3,000.00 元'></check-line>
+        <check-line id='pay3' label='银行卡支付' value='中国工商银行 尾号8188' checked='true' link='true'></check-line>
+    </check-line-group>
     <fixed-row height='5' border='false'></fixed-row>
 </p-main>

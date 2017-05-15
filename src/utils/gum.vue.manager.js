@@ -74,7 +74,7 @@ var components = [
     [ 'tab-button'              , require('../assemble/tab-button/tab-button.vue.js')               ],
     [ 'amount-row'              , require('../assemble/amount-row/amount-row.vue.js')               ],
     [ 'check-line'              , require('../assemble/check-line/check-line.vue.js')               ],
-    [ 'check-item'              , require('../assemble/check-item/check-item.vue.js')               ]
+    [ 'check-line-group'        , require('../assemble/check-line-group/check-line-group.vue.js')   ]
 ];
 
 components.forEach(function (component) {
