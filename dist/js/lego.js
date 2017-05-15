@@ -15290,23 +15290,79 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = {
-    props: ['id', 'type', 'bankNum', 'checked'],
     data: function() {
-        return {};
+        var slots = this.$slots.default,
+        elems = [], options, children;
+
+        var unchecked = true;
+
+        slots.forEach(function (s) {
+            options = s.componentOptions;
+            if (options && options.propsData && options.propsData.id) {
+                elems.push({
+                    id      : options.propsData.id,
+                    label   : options.propsData.label,
+                    comment : options.propsData.comment,
+                    value   : options.propsData.value,
+                    checked : options.propsData.checked === 'true',
+                    link    : options.propsData.link === 'true'
+                });
+
+                if (options.propsData.checked === 'true') {
+                    unchecked = false;
+                }
+            }
+        });
+
+        // 若没有 checked 的项目，则默认第一条
+        unchecked && elems[0] && (elems[0].checked = true);
+
+        return {
+            elements: elems
+        };
+    },
+    methods: {
+        inputTab: function (e){
+            var el = e.target,
+                allSpan = document.querySelectorAll('.realradio');
+
+            while(el && el.tagName !== 'DIV'){
+                el = el.parentNode;
+            }
+
+            for (var i = 0; i < allSpan.length; i ++){
+                allSpan[i].classList.remove('active');
+            }
+            
+            el.firstChild.classList.add('active');
+        }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<!-- 虚节点 -->\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_payway\">  \n    <div class=\"waylist\" :id=\"item.id\" v-for=\"(item, index) in elements\">\n        <span class=\"realradio\" :class=\"{active: item.checked}\" @click=\"inputTab\">\n            <b-icon name=\"check\"></b-icon>\n        </span> \n        <span>{{item.label}}</span> \n        <span class=\"next\"> \n            {{item.value}}<b-icon v-if=\"item.link\" name=\"angle-right-bold\"></b-icon>\n        </span>  \n        <p v-if=\"item.comment\">{{item.comment}}</p>\n    </div>  \n    \n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-35ee268c", module.exports)
+    hotAPI.createRecord("_v-b3a6aba8", module.exports)
   } else {
-    hotAPI.update("_v-35ee268c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-b3a6aba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],9:[function(require,module,exports){
@@ -15315,89 +15371,50 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// <div class="waylist" :id="elements[0].id" v-for="item in elements">
-//     <span class="realradio active" @click='inputTab'>
-//         <b-icon name="check"></b-icon>
-//     </span> 
-//     <span>{{elements[0].type}}</span> 
-//     <span class="next" id="selectCard"> 
-//         {{elements[0].bankName}} &nbsp; 尾号 {{elements[0].bankNum}} <b-icon name="angle-right-bold"></b-icon>
-//     </span>  
-// </div>  
-// <div class="waylist" :id="elements[1].id" v-if="elements.length==2 || elements.length==3">
-//     <span class="realradio" @click='inputTab'>
-//         <b-icon name="check"></b-icon>
-//     </span> 
-//     <span>{{elements[1].type}}</span> 
-//     <span class="next" id="selectCard"> 
-//         {{elements[1].bankName}} &nbsp; 尾号 {{elements[1].bankNum}} <b-icon name="angle-right-bold"></b-icon>
-//     </span>  
-// </div> 
-// <div class="waylist" :id="elements[2].id" v-if="elements.length==3">
-//     <span class="realradio" @click='inputTab'>
-//         <b-icon name="check"></b-icon>
-//     </span> 
-//     <span>{{elements[2].type}}</span> 
-//     <span class="next" id="selectCard"> 
-//         {{elements[2].bankName}} &nbsp; 尾号 {{elements[2].bankNum}} <b-icon name="angle-right-bold"></b-icon>
-//     </span>  
-// </div>
-
-    module.exports = {
-        data: function() {
-            var slots = this.$slots.default,
-            elems = [], options, children;
-
-            slots.forEach(function (s) {
-                options = s.componentOptions;
-                if (options && options.propsData && options.propsData.id) {
-                    children = options.children;
-                    if (children.length > 0 && typeof children[0].text !== 'undefined') {
-                        elems.push({
-                            id: options.propsData.id,
-                            bankName: children[0].text,
-                            type: options.propsData.type,
-                            bankNum: options.propsData.bankNum,
-                            checked: options.propsData.checked
-                        });
-                    }
-                }
-            });
-            return {
-                elements: elems
-            };
+module.exports = {
+    props: {
+        id: {
+            type: String
         },
-        methods: {
-            inputTab: function (e){
-                var el = e.target,
-                    allSpan = document.querySelectorAll('.realradio');
 
-                while(el && el.tagName !== 'DIV'){
-                    el = el.parentNode;
-                }
+        // 左侧主文字说明
+        label: {
+            type: String,
+            default: ''
+        },
 
-                for (var i = 0; i < allSpan.length; i ++){
-                    allSpan[i].classList.remove('active');
-                }
-                
-                el.firstChild.classList.add('active');
-            }
+        // 左侧副文字
+        comment: {
+            type: String
+        },
+
+        // 右侧主文字说明
+        value: {
+            type: String,
+            default: ''
+        },
+
+        // 是否勾选
+        checked: {
+            type: String,
+            default: 'false'
+        },
+
+        // 是否显示箭头
+        link: {
+            type: String,
+            default: 'false'
+
         }
+    },
+
+    data: function() {
+        return {};
     }
+}
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_payway\">  \n    <div class=\"waylist\" :id=\"item.id\" v-for=\"(item, index) in elements\">\n        <span class=\"realradio\" :class=\"{active: index=='0'}\" @click=\"inputTab\">\n            <b-icon name=\"check\"></b-icon>\n        </span> \n        <span>{{item.type}}</span> \n        <span class=\"next\" id=\"selectCard\"> \n            {{item.bankName}} &nbsp; 尾号 {{item.bankNum}} <b-icon name=\"angle-right-bold\"></b-icon>\n        </span>  \n    </div>  \n    \n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<!-- 虚节点 -->\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -19152,7 +19169,7 @@ var components = [
     [ 'tab-button'              , require('../assemble/tab-button/tab-button.vue.js')               ],
     [ 'amount-row'              , require('../assemble/amount-row/amount-row.vue.js')               ],
     [ 'check-line'              , require('../assemble/check-line/check-line.vue.js')               ],
-    [ 'check-item'              , require('../assemble/check-item/check-item.vue.js')               ]
+    [ 'check-line-group'        , require('../assemble/check-line-group/check-line-group.vue.js')   ]
 ];
 
 components.forEach(function (component) {
@@ -19173,4 +19190,4 @@ VueManager.prototype = {
 }
 
 module.exports = new VueManager();
-},{"../assemble/amount-row/amount-row.vue.js":5,"../assemble/button/button.vue.js":6,"../assemble/card/card.vue.js":7,"../assemble/check-item/check-item.vue.js":8,"../assemble/check-line/check-line.vue.js":9,"../assemble/comment/comment.vue.js":10,"../assemble/dock/dock.vue.js":11,"../assemble/fixed-row/fixed-row.vue.js":12,"../assemble/flype/flype.vue.js":13,"../assemble/id-field-row/id-field-row.vue.js":14,"../assemble/lead/lead.vue.js":15,"../assemble/list/list.vue.js":16,"../assemble/next-card/next-card.vue.js":17,"../assemble/order-card/order-card.vue.js":18,"../assemble/otp-field-row/otp-field-row.vue.js":19,"../assemble/panel/panel.vue.js":20,"../assemble/password/password.vue.js":21,"../assemble/protocol/protocol.vue.js":22,"../assemble/remarks/remarks.vue.js":23,"../assemble/select-card/select-card.vue.js":24,"../assemble/select-row/select-row.vue.js":25,"../assemble/stage/stage.vue.js":26,"../assemble/stages/stages.vue.js":27,"../assemble/stepwise/stepwise.vue.js":28,"../assemble/stick/stick.vue.js":29,"../assemble/stub/stub.vue.js":30,"../assemble/tab-button/tab-button.vue.js":31,"../assemble/table/table.vue.js":32,"../assemble/tel-field-row/tel-field-row.vue.js":33,"../assemble/text-field-row/text-field-row.vue.js":34,"../assemble/text-row/text-row.vue.js":35,"../assemble/timeline/timeline.vue.js":36,"../assemble/timepoint/timepoint.vue.js":37,"../assemble/title/title.vue.js":38,"../assemble/toast/toast.vue.js":39,"../basic/address-field/address-field.vue.js":40,"../basic/button/button.vue.js":41,"../basic/checkbox/checkbox.vue.js":42,"../basic/email-field/email-field.vue.js":43,"../basic/highlight/highlight.vue.js":44,"../basic/icon/icon.vue.js":45,"../basic/idcard-field/idcard-field.vue.js":46,"../basic/image/image.vue.js":47,"../basic/number-field/number-field.vue.js":48,"../basic/radio/radio.vue.js":49,"../basic/rectangular-button/rectangular-button.vue.js":50,"../basic/select/select.vue.js":51,"../basic/solid-checkbox/solid-checkbox.vue.js":52,"../basic/solid-radio/solid-radio.vue.js":53,"../basic/svg/svg.vue.js":54,"../basic/tab-button/tab-button.vue.js":55,"../basic/tel-field/tel-field.vue.js":56,"../basic/text-button/text-button.vue.js":57,"../basic/text-field/text-field.vue.js":58,"../basic/text/text.vue.js":59,"../basic/toggle/toggle.vue.js":60,"../page/footer/footer.vue.js":61,"../page/main/main.vue.js":62,"../structure/cell/cell.vue.js":63,"../structure/column/column.vue.js":64,"../structure/flex-column/flex-column.vue.js":65,"../structure/multiline/multiline.vue.js":66,"../structure/single-cell/single-cell.vue.js":67,"vue/dist/vue.common":3}]},{},[]);
+},{"../assemble/amount-row/amount-row.vue.js":5,"../assemble/button/button.vue.js":6,"../assemble/card/card.vue.js":7,"../assemble/check-line-group/check-line-group.vue.js":8,"../assemble/check-line/check-line.vue.js":9,"../assemble/comment/comment.vue.js":10,"../assemble/dock/dock.vue.js":11,"../assemble/fixed-row/fixed-row.vue.js":12,"../assemble/flype/flype.vue.js":13,"../assemble/id-field-row/id-field-row.vue.js":14,"../assemble/lead/lead.vue.js":15,"../assemble/list/list.vue.js":16,"../assemble/next-card/next-card.vue.js":17,"../assemble/order-card/order-card.vue.js":18,"../assemble/otp-field-row/otp-field-row.vue.js":19,"../assemble/panel/panel.vue.js":20,"../assemble/password/password.vue.js":21,"../assemble/protocol/protocol.vue.js":22,"../assemble/remarks/remarks.vue.js":23,"../assemble/select-card/select-card.vue.js":24,"../assemble/select-row/select-row.vue.js":25,"../assemble/stage/stage.vue.js":26,"../assemble/stages/stages.vue.js":27,"../assemble/stepwise/stepwise.vue.js":28,"../assemble/stick/stick.vue.js":29,"../assemble/stub/stub.vue.js":30,"../assemble/tab-button/tab-button.vue.js":31,"../assemble/table/table.vue.js":32,"../assemble/tel-field-row/tel-field-row.vue.js":33,"../assemble/text-field-row/text-field-row.vue.js":34,"../assemble/text-row/text-row.vue.js":35,"../assemble/timeline/timeline.vue.js":36,"../assemble/timepoint/timepoint.vue.js":37,"../assemble/title/title.vue.js":38,"../assemble/toast/toast.vue.js":39,"../basic/address-field/address-field.vue.js":40,"../basic/button/button.vue.js":41,"../basic/checkbox/checkbox.vue.js":42,"../basic/email-field/email-field.vue.js":43,"../basic/highlight/highlight.vue.js":44,"../basic/icon/icon.vue.js":45,"../basic/idcard-field/idcard-field.vue.js":46,"../basic/image/image.vue.js":47,"../basic/number-field/number-field.vue.js":48,"../basic/radio/radio.vue.js":49,"../basic/rectangular-button/rectangular-button.vue.js":50,"../basic/select/select.vue.js":51,"../basic/solid-checkbox/solid-checkbox.vue.js":52,"../basic/solid-radio/solid-radio.vue.js":53,"../basic/svg/svg.vue.js":54,"../basic/tab-button/tab-button.vue.js":55,"../basic/tel-field/tel-field.vue.js":56,"../basic/text-button/text-button.vue.js":57,"../basic/text-field/text-field.vue.js":58,"../basic/text/text.vue.js":59,"../basic/toggle/toggle.vue.js":60,"../page/footer/footer.vue.js":61,"../page/main/main.vue.js":62,"../structure/cell/cell.vue.js":63,"../structure/column/column.vue.js":64,"../structure/flex-column/flex-column.vue.js":65,"../structure/multiline/multiline.vue.js":66,"../structure/single-cell/single-cell.vue.js":67,"vue/dist/vue.common":3}]},{},[]);

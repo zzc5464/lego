@@ -8,6 +8,7 @@
             <span class="next"> 
                 {{item.value}}<b-icon v-if='item.link' name="angle-right-bold"></b-icon>
             </span>  
+            <p v-if='item.comment'>{{item.comment}}</p>
         </div>  
         
     </div>
