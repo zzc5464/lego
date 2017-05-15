@@ -41,10 +41,10 @@
             tabswitch: function (e) {
                 var sbilings = this.$el.children;
                 for(var i=0;i<sbilings.length;i++) {
-                    sbilings[i].classList = '';
+                    sbilings[i].classList.remove('_borderbtm');
                 }
               
-                e.target.classList = '_borderbtm';
+                e.target.classList.add('_borderbtm');
             }
             // ,
             // toggle1: function(){
