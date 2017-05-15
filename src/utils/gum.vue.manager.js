@@ -72,7 +72,9 @@ var components = [
 
     [ 'fixed-row'               , require('../assemble/fixed-row/fixed-row.vue.js')                 ],
     [ 'tab-button'              , require('../assemble/tab-button/tab-button.vue.js')               ],
-    [ 'amount-row'              , require('../assemble/amount-row/amount-row.vue.js')               ]
+    [ 'amount-row'              , require('../assemble/amount-row/amount-row.vue.js')               ],
+    [ 'check-line'              , require('../assemble/check-line/check-line.vue.js')               ],
+    [ 'check-item'              , require('../assemble/check-item/check-item.vue.js')               ]
 ];
 
 components.forEach(function (component) {

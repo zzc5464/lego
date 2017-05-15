@@ -951,6 +951,55 @@ h1, h2, h3, h4, h5, h6 {
     color: #e6654c;
     opacity: 0; }
 
+._payway {
+  background: #fff; }
+
+._payway .waylist {
+  position: relative;
+  padding: 0.631579rem 0 0.526316rem 0.789474rem;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  color: #333;
+  font-size: .736842rem; }
+  ._payway .waylist span:nth-of-type(2) {
+    vertical-align: top;
+    line-height: 23px; }
+._payway .realradio {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  border: 1px solid #999;
+  border-radius: 50%;
+  background-color: transparent;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  margin-right: 6px;
+  -webkit-tap-highlight-color: transparent; }
+._payway .realradio i {
+  font-size: 16px;
+  color: #fff; }
+._payway .realradio.active {
+  border-color: #d7ac62;
+  background-color: #d7ac62; }
+._payway .waylist .next {
+  position: absolute;
+  top: 0.666316rem;
+  right: 0.789474rem;
+  color: #999; }
+._payway .next i {
+  font-size: 0.789474rem; }
+._payway .waylist p {
+  color: #999;
+  font-size: 0.631579rem;
+  margin: 0;
+  padding-left: 29px; }
+._payway .waylist:last-child {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>"); }
+
 ._main {
   min-height: 100.1%; }
 
