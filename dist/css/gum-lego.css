@@ -604,7 +604,8 @@
   right: 0;
   bottom: 0;
   z-index: 99;
-  background: transparent; }
+  background: transparent;
+  transition: all 1s; }
 .gum .lego ._toast_container {
   position: fixed;
   top: 50%;
@@ -623,9 +624,14 @@
   overflow: hidden;
   z-index: 100; }
 .gum .lego ._toast_fade_off {
-  display: none; }
+  opacity: 0; }
 .gum .lego ._toast_fade_in {
-  display: block; }
+  display: block;
+  opacity: 1; }
+.gum .lego .fade-transition {
+  opacity: 1; }
+.gum .lego .fade-enter, .gum .lego .fade-leave {
+  opacity: 0; }
 .gum .lego ._top-toast {
   position: fixed;
   top: 0;
@@ -782,8 +788,7 @@
     display: inline-block;
     width: 80%; }
   .gum .lego ._amountCapital h2 {
-    line-height: inherit;
-    display: none; }
+    line-height: inherit; }
   .gum .lego ._amountCapital strong {
     display: inline-block;
     vertical-align: top;

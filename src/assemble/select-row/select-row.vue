@@ -5,7 +5,7 @@
             <b-text size='30' color='grey'>{{ label }}</b-text>
         </s-column>
         <s-column :width='width.value' align='right'>
-            <b-select size='size' color='color'><slot></slot></b-select>
+            <b-select :size='size' :color='color'><slot></slot></b-select>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>

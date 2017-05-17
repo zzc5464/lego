@@ -15145,11 +15145,11 @@ module.exports = {
     methods: {
         inputTap: function (){
             var inputValue = $('#payamount')[0].value;
-            if(inputValue === 'undefine') {
-                $('#mapText')[0].style.display = 'none';
-            } else {
-                $('#mapText')[0].style.display = 'block';
-            }
+            // if(inputValue === 'undefine') {
+            //     $('#mapText')[0].style.display = 'none';
+            // } else {
+            //     $('#mapText')[0].style.display = 'block';
+            // }
 
             $('#clearamounts')[0].style.opacity = '1';
             $('#capitalamount')[0].innerHTML = amountCapital.sumCapital(inputValue);
@@ -16368,7 +16368,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"right\">\n        <b-select size=\"size\" color=\"color\"><slot></slot></b-select>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"right\">\n        <b-select :size=\"size\" :color=\"color\"><slot></slot></b-select>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16602,10 +16602,6 @@ module.exports = {
         });
         return {
             elements: elems
-            // ,
-            // isA: true,
-            // isB: false,
-            // isC: false
         }
     },
     methods: {
@@ -16617,22 +16613,6 @@ module.exports = {
           
             e.target.classList.add('_borderbtm');
         }
-        // ,
-        // toggle1: function(){
-        //     this.isA = true;
-        //     this.isB = false;
-        //     this.isC = false;
-        // },
-        // toggle2: function(){
-        //     this.isA = false;
-        //     this.isB = true;
-        //     this.isC = false;
-        // },
-        // toggle3: function(){
-        //     this.isA = false;
-        //     this.isB = false;
-        //     this.isC = true;
-        // }
     }
 }
 
@@ -17070,6 +17050,10 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
+
 module.exports = {
     props: {
         toastType: {
@@ -17086,7 +17070,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_toast\" v-if=\"!toastType\">\n    <div class=\"_toast_container\">\n        <div class=\"_toast_message\">\n            <slot></slot>\n        </div>\n    </div>\n</div>\n<div class=\"_top-toast\" v-else=\"\">\n    <slot></slot>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div>\n    <div class=\"_toast\" v-if=\"!toastType\" transition=\"fade\">\n        <div class=\"_toast_container\">\n            <div class=\"_toast_message\">\n                <slot></slot>\n            </div>\n        </div>\n    </div>\n    <div class=\"_top-toast\" v-else=\"\">\n        <slot></slot>\n    </div>\n</div>\n\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

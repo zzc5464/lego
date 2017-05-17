@@ -31,10 +31,6 @@
             });
             return {
                 elements: elems
-                // ,
-                // isA: true,
-                // isB: false,
-                // isC: false
             }
         },
         methods: {
@@ -46,22 +42,6 @@
               
                 e.target.classList.add('_borderbtm');
             }
-            // ,
-            // toggle1: function(){
-            //     this.isA = true;
-            //     this.isB = false;
-            //     this.isC = false;
-            // },
-            // toggle2: function(){
-            //     this.isA = false;
-            //     this.isB = true;
-            //     this.isC = false;
-            // },
-            // toggle3: function(){
-            //     this.isA = false;
-            //     this.isB = false;
-            //     this.isC = true;
-            // }
         }
     }
 </script>

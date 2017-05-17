@@ -736,7 +736,8 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   bottom: 0;
   z-index: 99;
-  background: transparent; }
+  background: transparent;
+  transition: all 1s; }
 
 ._toast_container {
   position: fixed;
@@ -758,10 +759,17 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 100; }
 
 ._toast_fade_off {
-  display: none; }
+  opacity: 0; }
 
 ._toast_fade_in {
-  display: block; }
+  display: block;
+  opacity: 1; }
+
+.fade-transition {
+  opacity: 1; }
+
+.fade-enter, .fade-leave {
+  opacity: 0; }
 
 ._top-toast {
   position: fixed;
@@ -931,8 +939,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     width: 80%; }
   ._amountCapital h2 {
-    line-height: inherit;
-    display: none; }
+    line-height: inherit; }
   ._amountCapital strong {
     display: inline-block;
     vertical-align: top;

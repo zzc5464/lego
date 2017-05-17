@@ -1,14 +1,18 @@
 <template>
-    <div class='_toast' v-if='!toastType'>
-        <div class="_toast_container">
-            <div class="_toast_message">
-                <slot></slot>
+    <div>
+        <div class='_toast' v-if='!toastType' transition="fade">
+            <div class="_toast_container">
+                <div class="_toast_message">
+                    <slot></slot>
+                </div>
             </div>
         </div>
+        <div class='_top-toast' v-else>
+            <slot></slot>
+        </div>
     </div>
-    <div class='_top-toast' v-else>
-        <slot></slot>
-    </div>
+    
+
 </template>
 
 <script>
