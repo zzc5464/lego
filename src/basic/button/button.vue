@@ -7,7 +7,7 @@
         email-err='emailErrMsg' 
         :idcard-err='idcardErrMsg' 
         :number-err='numberErrMsg' 
-        v-on:mytap = 'timekeeper' 
+        @mytap = 'timekeeper' 
         :istapped='tapped'
         data-tappable
     >

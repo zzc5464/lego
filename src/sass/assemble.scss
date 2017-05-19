@@ -324,7 +324,20 @@ h1,h2,h3,h4,h5,h6 {
 ._comment {
     padding: 0 calRem(30);
     line-height: calRem(74);
-    
+    background: $c-offwhite;
+}
+._comment-more {
+    padding: calRem(30) calRem(30) calRem(20);
+    line-height: calRem(36);
+    font-size: 0;
+    & > div {
+        display: inline-block;
+        width: 95%;
+    }
+    & > div:first-child {
+        width: 5%;
+        vertical-align: top;
+    }
 }
 
 // toast
@@ -337,6 +350,14 @@ h1,h2,h3,h4,h5,h6 {
     z-index: 99;
     background: rgba(0,0,0,0);
     transition: all 1s;
+    // .fade-transition {
+    //     opacity: 1;
+    //     transform: scale(1);
+    // }
+    // .fade-enter,.fade-leave {
+    //     opacity: 0;
+    //     transform: scale(.4);
+    // }
 }
 ._toast_container {
     position: fixed;
@@ -359,21 +380,16 @@ h1,h2,h3,h4,h5,h6 {
     @extend ._text_size_34px;
     z-index: $zindex-modal;
 }
-._toast_fade_off {
-    // display: none;
-    opacity: 0;
-}
+// ._toast_fade_off {
+//     // display: none;
+//     opacity: 0;
+// }
 
-._toast_fade_in {
-    display: block;
-    opacity: 1;
-}
-.fade-transition {
-    opacity: 1;
-}
-.fade-enter,.fade-leave {
-    opacity: 0;
-}
+// ._toast_fade_in {
+//     display: block;
+//     opacity: 1;
+// }
+
 
 //顶部toast
 ._top-toast {

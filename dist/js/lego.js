@@ -15434,9 +15434,20 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
+
+
+
+
+
 module.exports = {
     props: {
-        
+        oneline: {
+            type: Boolean,
+            default: true
+        }
     },
     data: function() {
 
@@ -15447,7 +15458,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_comment _borderbottom1px\">\n    <b-icon name=\"quote\" size=\"24\" color=\"stonegrey\"></b-icon>\n    <slot></slot>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_comment _borderbottom1px\" v-if=\"oneline\">\n    <b-icon name=\"quote\" size=\"24\" color=\"stonegrey\"></b-icon>\n    <slot></slot>\n</div>\n<div class=\"_comment _comment-more _borderbottom1px\" v-else=\"\">\n    <div>\n        <b-icon name=\"quote\" size=\"24\" color=\"stonegrey\"></b-icon>\n    </div>\n    <div>\n        <slot></slot>\n    </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17051,12 +17062,9 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-
-
-
 module.exports = {
     props: {
-        toastType: {
+        toptoast: {
             type: Boolean,
             default: false
         }
@@ -17064,13 +17072,22 @@ module.exports = {
     data: function() {
 
         return {
-            
+            isShow: false
         };
+    },
+    methods: {
+        // toastShow: function() {
+        //     var that = this;
+        //     that.isShow = true;
+        //     setTimeout(function(){
+        //         that.isShow = false;
+        //     },3000);
+        // }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div>\n    <div class=\"_toast\" v-if=\"!toastType\" transition=\"fade\">\n        <div class=\"_toast_container\">\n            <div class=\"_toast_message\">\n                <slot></slot>\n            </div>\n        </div>\n    </div>\n    <div class=\"_top-toast\" v-else=\"\">\n        <slot></slot>\n    </div>\n</div>\n\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"toast\" class=\"_toast\" v-if=\"!toptoast\">\n    <div class=\"_toast_container\">\n        <div class=\"_toast_message\">\n            <slot></slot>\n        </div>\n    </div>\n</div>\n<div class=\"_top-toast\" v-else=\"\">\n    <slot></slot>\n</div>\n  \n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17285,7 +17302,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<button :id=\"id\" class=\"_button\" :class=\"classObj\" :style=\"styleObj\" :phone-err=\"phoneErrMsg\" email-err=\"emailErrMsg\" :idcard-err=\"idcardErrMsg\" :number-err=\"numberErrMsg\" v-on:mytap=\"timekeeper\" :istapped=\"tapped\" data-tappable=\"\">\n    <slot>{{counts}}</slot>\n</button>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<button :id=\"id\" class=\"_button\" :class=\"classObj\" :style=\"styleObj\" :phone-err=\"phoneErrMsg\" email-err=\"emailErrMsg\" :idcard-err=\"idcardErrMsg\" :number-err=\"numberErrMsg\" @mytap=\"timekeeper\" :istapped=\"tapped\" data-tappable=\"\">\n    <slot>{{counts}}</slot>\n</button>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

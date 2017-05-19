@@ -1,8 +1,8 @@
 @font-face {
   font-family: "pingan";
-  src: url("iconfont/iconfont.eot?t=1487923650635");
+  src: url("iconfont/iconfont.eot");
   /* IE9*/
-  src: url("iconfont/iconfont.eot?t=1487923650635#iefix") format("embedded-opentype"), url("iconfont/iconfont.woff?t=1487923650635") format("woff"), url("iconfont/iconfont.ttf?t=1487923650635") format("truetype"), url("iconfont/iconfont.svg?t=1487923650635#pingan") format("svg");
+  src: url("iconfont/iconfont.eot") format("embedded-opentype"), url("iconfont/iconfont.woff") format("woff"), url("iconfont/iconfont.ttf") format("truetype"), url("iconfont/iconfont.svg") format("svg");
   /* iOS 4.1- */ }
 .gum .lego ._setflex {
   display: -webkit-box;
@@ -596,7 +596,18 @@
   height: 80px; }
 .gum .lego ._comment {
   padding: 0 0.78947rem;
-  line-height: 1.94737rem; }
+  line-height: 1.94737rem;
+  background: #efefef; }
+.gum .lego ._comment-more {
+  padding: 0.78947rem 0.78947rem 0.52632rem;
+  line-height: 0.94737rem;
+  font-size: 0; }
+  .gum .lego ._comment-more > div {
+    display: inline-block;
+    width: 95%; }
+  .gum .lego ._comment-more > div:first-child {
+    width: 5%;
+    vertical-align: top; }
 .gum .lego ._toast {
   position: fixed;
   top: 0;
@@ -623,15 +634,6 @@
   box-sizing: border-box;
   overflow: hidden;
   z-index: 100; }
-.gum .lego ._toast_fade_off {
-  opacity: 0; }
-.gum .lego ._toast_fade_in {
-  display: block;
-  opacity: 1; }
-.gum .lego .fade-transition {
-  opacity: 1; }
-.gum .lego .fade-enter, .gum .lego .fade-leave {
-  opacity: 0; }
 .gum .lego ._top-toast {
   position: fixed;
   top: 0;
@@ -1038,7 +1040,8 @@
   background-image: none; }
 
 .gum.rwd .lego input {
-  margin: 0; }
+  margin: 0;
+  height: auto; }
 
 .hairlines .lego ._button {
   border: 0.5px solid #d7ac62; }
