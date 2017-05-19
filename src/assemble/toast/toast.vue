@@ -1,14 +1,14 @@
 <template>
-    <!--<div id="toast" class="_toast" v-if="!toptoast" >
+    <div id="toast" class="_toast" v-if="!toptoast" >
         <div class="_toast_container">
             <div class="_toast_message">
-                <slot></slot>
+                <slot>{{errMsg}}</slot>
             </div>
         </div>
     </div>
     <div class='_top-toast' v-else>
         <slot></slot>
-    </div>-->
+    </div>
 </template>
 
 <script>
@@ -31,7 +31,8 @@
             return {
                 isShow: false,
                 queue: [],
-                isOpen: false
+                isOpen: false,
+                errMsg: ''
             };
         },
 
@@ -69,9 +70,10 @@
                 this.queue.length > 0 ? (function () {
                     var msg = this.queue[0];
                     this.isOpen = true;
-                    
+                    this.errMsg = msg;
                     // 启动 toast 弹出的动画
                     // TODO:
+                    document.getElementById('toast').style.opacity = '1';
                     console.log('TOAST: ' + msg);
 
                     setTimeout((function () {
@@ -79,7 +81,8 @@
 
                         // 启动 隐藏当前 toast 的动画
                         // TODO:
-                        console.log('TOAST CLOSING');
+                        document.getElementById('toast').style.opacity = '0';
+                        // console.log('TOAST CLOSING');
 
                         // 当 toast 消失的动画结束，启动下一个 toast 提示框弹出动画
                         setTimeout((function () {

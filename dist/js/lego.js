@@ -17124,7 +17124,8 @@ module.exports = {
         return {
             isShow: false,
             queue: [],
-            isOpen: false
+            isOpen: false,
+            errMsg: ''
         };
     },
 
@@ -17141,6 +17142,13 @@ module.exports = {
     methods: {
         // 接收消息，并加入消息队列
         received: function (msg) {
+            var last = this.queue.pop();
+            last && this.queue.push(last);
+
+            if (last === msg) {
+                return;
+            }
+            
             this.queue.push(msg);
             !this.isOpen && this.show();
         },
@@ -17155,16 +17163,19 @@ module.exports = {
             this.queue.length > 0 ? (function () {
                 var msg = this.queue[0];
                 this.isOpen = true;
-                this.queue = this.queue.slice(1);
-
+                this.errMsg = msg;
                 // 启动 toast 弹出的动画
                 // TODO:
+                document.getElementById('toast').style.opacity = '1';
                 console.log('TOAST: ' + msg);
 
                 setTimeout((function () {
+                    this.queue = this.queue.slice(1);
+
                     // 启动 隐藏当前 toast 的动画
                     // TODO:
-                    console.log('TOAST CLOSING');
+                    document.getElementById('toast').style.opacity = '0';
+                    // console.log('TOAST CLOSING');
 
                     // 当 toast 消失的动画结束，启动下一个 toast 提示框弹出动画
                     setTimeout((function () {
@@ -17188,7 +17199,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"toast\" class=\"_toast\" v-if=\"!toptoast\">\n    <div class=\"_toast_container\">\n        <div class=\"_toast_message\">\n            <slot></slot>\n        </div>\n    </div>\n</div>\n<div class=\"_top-toast\" v-else=\"\">\n    <slot></slot>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"toast\" class=\"_toast\" v-if=\"!toptoast\">\n    <div class=\"_toast_container\">\n        <div class=\"_toast_message\">\n            <slot>{{errMsg}}</slot>\n        </div>\n    </div>\n</div>\n<div class=\"_top-toast\" v-else=\"\">\n    <slot></slot>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -18462,11 +18473,11 @@ module.exports = {
     },
 
     mounted: function () {
-        // var toast = this.toast.bind(this);
-
-        // events.on('fielderror', function (errors) {
-        //     toast(errors[0]);
-        // });
+        events.on('fielderrors', function (errors) {
+            errors.forEach(function (error) {
+                events.toast(error);
+            });
+        });
     },
 
     data: function () {
@@ -19209,6 +19220,25 @@ Events.prototype.emit = function (a, b) {
 
 Events.prototype.on = function (a, b) {
     this.events.$on(a, b);
+}
+
+Events.prototype.validate = function () {
+    var errors = [];
+    this.events.$emit('validate', errors);
+
+    return errors;
+}
+
+Events.prototype.fieldErrors = function (errors) {
+    this.events.$emit('fielderrors', errors);
+}
+
+Events.prototype.toast = function (msg) {
+    this.events.$emit('toast', msg);
+}
+
+Events.prototype.toastClear = function () {
+    this.events.$emit('toast-clear');
 }
 
 module.exports = new Events();

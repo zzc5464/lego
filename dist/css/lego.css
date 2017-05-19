@@ -742,13 +742,7 @@ h1, h2, h3, h4, h5, h6 {
     vertical-align: top; }
 
 ._toast {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99;
-  background: transparent;
+  opacity: 0;
   transition: all 1s; }
 
 ._toast_container {
