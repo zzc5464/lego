@@ -27,7 +27,6 @@
                 default: 3000
             }
         },
-
         data: function() {
             return {
                 isShow: false,
