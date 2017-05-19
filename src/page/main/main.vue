@@ -21,11 +21,11 @@
         },
 
         mounted: function () {
-            // var toast = this.toast.bind(this);
-
-            // events.on('fielderror', function (errors) {
-            //     toast(errors[0]);
-            // });
+            events.on('fielderrors', function (errors) {
+                errors.forEach(function (error) {
+                    events.toast(error);
+                });
+            });
         },
 
         data: function () {

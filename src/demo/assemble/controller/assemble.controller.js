@@ -124,34 +124,24 @@ AssembleController.prototype = new FController({
     },
 
     panel: function () {
-        // var data = {
-        //     message: '初始值',
-        //     message1: '13311660002'
-        // }, $ = this.$;
+        var data = {
+            tel: '',
+        }, $ = this.$;
 
 
-        // data.submit = function () {
-        //     alert(data.message1);
-        // }
-
-        var data = {}, $ = this.$;
+        data.submit = function () {
+            alert(data.tel);
+        }
 
         this.show('文字面板', tplPanelView, function () {
-            $('#save1').tap(function () {
-                events.emit('toast-clear');
-            });
             $('#save2').tap(function () {
-                events.emit('toast', '123');
-                //alert(data.message1);
-                // var errors = [];
-                // events.emit('validate', errors);
+                var errors = events.validate();
 
-                // if (errors.length > 0) {
-                //     //alert(JSON.stringify(errors));
-                //     events.emit('fielderrors', errors);
-                // } else {
-                //     data.submit();
-                // }
+                if (errors.length > 0) {
+                    events.fieldErrors(errors);
+                } else {
+                    data.submit();
+                }
             });
         }, data);
     },
