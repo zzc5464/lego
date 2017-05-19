@@ -76,7 +76,8 @@ module.exports = function(grunt) {
                         debug: false
                     },
                     alias: {
-                        "lego": "./src/utils/gum.vue.manager.js"
+                        "lego": "./src/utils/gum.vue.manager.js",
+                        "events": "./src/utils/gum.vue.events.js"
                     },
                     external: [
                         'fcontroller'
@@ -117,7 +118,7 @@ module.exports = function(grunt) {
                         debug: false
                     },
                     external: [
-                        'fcontroller', 'lego'
+                        'fcontroller', 'lego', 'events'
                     ]
                 },
                 src: ['./src/demo/assemble/controller/assemble.controller.js'],

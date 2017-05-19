@@ -1,6 +1,6 @@
 <template>
     <div class='_field' :class='status'>
-        <input :id='id' :name='name' class='_input' :class='classObj' :style='styleObj' type='tel' maxlength='11' :placeholder='placeholder' @blur='blur' @input='input' v-model='phone'/>
+        <input :id='id' :name='name' class='_input' :class='classObj' :style='styleObj' type='tel' maxlength='11' :placeholder='placeholder' @focus='focus' @blur='blur' @input='input' :value='val' />
         <i @mytap='clear'></i>
     </div>
 </template>
@@ -29,35 +29,40 @@
             return {
                 classObj: list,
                 styleObj: obj,
-                phone   : this.value,
-                status  : this.init()
+                val     : this.value,
+                status  : ''
             }
         },
 
         mounted: function () {
-            this.phone = this.value;
+            var validate = this.validate.bind(this);
+            events.on('validate', function (errors) {
+                var ret = validate();
+                !ret.passed && Array.prototype.push.apply(errors, ret.errors);
+            });
         },
 
         methods: {
-            blur: function() {
-                var v = new Validate({
-                    label    : this.label,
-                    rules    : [ 'tel' ],
-                    required : this.required === 'true'
-                });
+            blur: function(e) {
+                this.status = '';
 
-                !v.validate(this.phone) && (function () {
-                    events.emit('fielderror', v.errors());
-                })();
+                var result = this.validate();
+                (!result.passed) && events.emit('fielderrors', result.errors);
+            },
+
+            focus: function () {
+                this.status = this.update();
             },
 
             clear: function () {
-                this.phone  = '';
+                this.val = '';
                 this.status = this.update();
             },
 
-            input: function () {
+            input: function (e) {
+                this.val = e.target.value;
                 this.status = this.update();
+                this.$emit('input', this.val);
             },
 
             init: function () {
@@ -65,7 +70,20 @@
             },
 
             update: function () {
-                return (this.phone.length > 0 && this.clearall === 'true') ? 'entering' : '';
+                return (this.val.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            },
+
+            validate: function () {
+                var v = new Validate({
+                    label    : this.label,
+                    rules    : [ 'tel' ],
+                    required : this.required === 'true'
+                });
+
+                return {
+                    passed: v.validate(this.val),
+                    errors: v.errors()
+                };
             }
         }
     }

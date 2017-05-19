@@ -19,6 +19,8 @@ var FController         = require('fcontroller'),
     tplCommentView      = require('../views/tpl.comment'),
     tplTabbutton      = require('../views/tpl.tabbutton');
 
+var events = require('events');
+
 function AssembleController () {
     this.moduleName = 'demo';
     this.name       = 'assemble';
@@ -122,7 +124,30 @@ AssembleController.prototype = new FController({
     },
 
     panel: function () {
-        this.show('文字面板', tplPanelView);
+        var data = {
+            message: '初始值',
+            message1: '13311660002'
+        }, $ = this.$;
+
+
+        data.submit = function () {
+            alert(data.message1);
+        }
+
+        this.show('文字面板', tplPanelView, function () {
+            $('#save2').tap(function () {
+                alert(data.message1);
+                // var errors = [];
+                // events.emit('validate', errors);
+
+                // if (errors.length > 0) {
+                //     //alert(JSON.stringify(errors));
+                //     events.emit('fielderrors', errors);
+                // } else {
+                //     data.submit();
+                // }
+            });
+        }, data);
     },
 
     lead: function () {
