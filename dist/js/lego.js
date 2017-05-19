@@ -15302,7 +15302,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-
+var events = require('../../utils/gum.vue.events');
 module.exports = {
     data: function() {
         var slots = this.$slots.default,
@@ -15335,6 +15335,14 @@ module.exports = {
             elements: elems
         };
     },
+
+    mounted: function () {
+        events.on('test', function (a) {
+            // alert('check-line-group');
+            a.push('check-line-group');
+        });
+    },
+
     methods: {
         inputTab: function (e){
             var el = e.target,
@@ -15349,12 +15357,14 @@ module.exports = {
             }
             
             el.firstChild.classList.add('active');
+
+            this.$emit('input', '123');
         }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_payway\">  \n    <div class=\"waylist\" :id=\"item.id\" v-for=\"(item, index) in elements\">\n        <span class=\"realradio\" :class=\"{active: item.checked}\" @click=\"inputTab\">\n            <b-icon name=\"check\"></b-icon>\n        </span> \n        <span>{{item.label}}</span> \n        <span class=\"next\"> \n            {{item.value}}<b-icon v-if=\"item.link\" name=\"angle-right-bold\"></b-icon>\n        </span>  \n        <p v-if=\"item.comment\">{{item.comment}}</p>\n    </div>  \n    \n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_payway\">  \n    <div class=\"waylist\" :id=\"item.id\" v-for=\"(item, index) in elements\">\n        <span class=\"realradio\" :class=\"{active: item.checked}\" @mytap=\"inputTab\">\n            <b-icon name=\"check\"></b-icon>\n        </span> \n        <span>{{item.label}}</span> \n        <span class=\"next\"> \n            {{item.value}}<b-icon v-if=\"item.link\" name=\"angle-right-bold\"></b-icon>\n        </span>  \n        <p v-if=\"item.comment\">{{item.comment}}</p>\n    </div>  \n    \n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15365,7 +15375,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-b3a6aba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],9:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],9:[function(require,module,exports){
 
 
 
@@ -16568,7 +16578,26 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}],30:[function(require,module,exports){
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-single-cell height=\"0.368421\" border=\"true\" bgcolor=\"transparent\"></s-single-cell>\n"
+
+
+
+
+module.exports = {
+    props: {
+        border: {
+            type: String,
+            default: 'true'
+        }
+    }, 
+    data: function () {
+        return {
+           
+        };
+    }
+}
+
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-single-cell height=\"0.368421\" :border=\"border\" bgcolor=\"transparent\"></s-single-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16707,7 +16736,7 @@ if (module.hot) {(function () {  module.hot.accept()
 var contants = require('../../utils/contants');
 
 module.exports = {
-    props   : {
+    props: {
         label: {
             type: String,
             default: ''
@@ -16725,18 +16754,25 @@ module.exports = {
             default: contants.labelWidth
         }
     },
-    data    : function () {
+
+    data: function () {
         return {
             width: {
                 label: this.labelWidth,
                 value: contants.tableWidth - this.labelWidth
             }
         };
+    },
+
+    methods: {
+        input: function (e) {
+            this.$emit('input', e);
+        }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\">\n        <b-tel-field size=\"30\" color=\"black\" clearall=\"true\" :label=\"label\" :placeholder=\"placeholder\" :value=\"value\"></b-tel-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\">\n        <b-tel-field size=\"30\" color=\"black\" clearall=\"true\" :label=\"label\" :placeholder=\"placeholder\" :value=\"value\" @input=\"input\"></b-tel-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17069,21 +17105,78 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+var events = require('../../utils/gum.vue.events');
 
 module.exports = {
     props: {
         toptoast: {
             type: Boolean,
             default: false
+        },
+
+        // 每条 toast 提示的停留时间
+        stay: {
+            type: Number,
+            default: 3000
         }
     },
     data: function() {
-
         return {
-            isShow: false
+            isShow: false,
+            queue: [],
+            isOpen: false
         };
     },
+
+    mounted: function () {
+        events.on('toast', (function (msg) {
+            this.received(msg);
+        }).bind(this));
+
+        events.on('toast-clear', (function () {
+            this.clear();
+        }).bind(this));
+    },
+
     methods: {
+        // 接收消息，并加入消息队列
+        received: function (msg) {
+            this.queue.push(msg);
+            !this.isOpen && this.show();
+        },
+
+        // 清除消息队列
+        clear: function () {
+            this.queue = [];
+        },
+
+        // 动画展现 toast 框
+        show: function () {
+            this.queue.length > 0 ? (function () {
+                var msg = this.queue[0];
+                this.isOpen = true;
+                this.queue = this.queue.slice(1);
+
+                // 启动 toast 弹出的动画
+                // TODO:
+                console.log('TOAST: ' + msg);
+
+                setTimeout((function () {
+                    // 启动 隐藏当前 toast 的动画
+                    // TODO:
+                    console.log('TOAST CLOSING');
+
+                    // 当 toast 消失的动画结束，启动下一个 toast 提示框弹出动画
+                    setTimeout((function () {
+                        console.log('TOAST CLOSED');
+                        this.show();
+                    }).bind(this), 300);
+
+                }).bind(this), this.stay);
+
+            }).call(this) : (this.isOpen = false);
+        }
+
         // toastShow: function() {
         //     var that = this;
         //     that.isShow = true;
@@ -17095,7 +17188,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"toast\" class=\"_toast\" v-if=\"!toptoast\">\n    <div class=\"_toast_container\">\n        <div class=\"_toast_message\">\n            <slot></slot>\n        </div>\n    </div>\n</div>\n<div class=\"_top-toast\" v-else=\"\">\n    <slot></slot>\n</div>\n  \n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"toast\" class=\"_toast\" v-if=\"!toptoast\">\n    <div class=\"_toast_container\">\n        <div class=\"_toast_message\">\n            <slot></slot>\n        </div>\n    </div>\n</div>\n<div class=\"_top-toast\" v-else=\"\">\n    <slot></slot>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17106,7 +17199,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-62a2cac8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],40:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],40:[function(require,module,exports){
 
 
 
@@ -17216,7 +17309,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-cd2039b0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":70,"../../utils/validate":71,"vue":4,"vue-hot-reload-api":2}],41:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],41:[function(require,module,exports){
 
 
 
@@ -17434,7 +17527,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-47954578", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":70,"../../utils/validate":71,"vue":4,"vue-hot-reload-api":2}],44:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],44:[function(require,module,exports){
 
 
 
@@ -17604,7 +17697,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-052a3ee4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":70,"../../utils/validate":71,"vue":4,"vue-hot-reload-api":2}],47:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],47:[function(require,module,exports){
 
 
 
@@ -17742,7 +17835,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0355bfa4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":70,"../../utils/validate":71,"vue":4,"vue-hot-reload-api":2}],49:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],49:[function(require,module,exports){
 
 
 
@@ -18066,35 +18159,40 @@ module.exports = {
         return {
             classObj: list,
             styleObj: obj,
-            phone   : this.value,
-            status  : this.init()
+            val     : this.value,
+            status  : ''
         }
     },
 
     mounted: function () {
-        this.phone = this.value;
+        var validate = this.validate.bind(this);
+        events.on('validate', function (errors) {
+            var ret = validate();
+            !ret.passed && Array.prototype.push.apply(errors, ret.errors);
+        });
     },
 
     methods: {
-        blur: function() {
-            var v = new Validate({
-                label    : this.label,
-                rules    : [ 'tel' ],
-                required : this.required === 'true'
-            });
+        blur: function(e) {
+            this.status = '';
 
-            !v.validate(this.phone) && (function () {
-                events.emit('fielderror', v.errors());
-            })();
+            var result = this.validate();
+            (!result.passed) && events.emit('fielderrors', result.errors);
+        },
+
+        focus: function () {
+            this.status = this.update();
         },
 
         clear: function () {
-            this.phone  = '';
+            this.val = '';
             this.status = this.update();
         },
 
-        input: function () {
+        input: function (e) {
+            this.val = e.target.value;
             this.status = this.update();
+            this.$emit('input', this.val);
         },
 
         init: function () {
@@ -18102,14 +18200,27 @@ module.exports = {
         },
 
         update: function () {
-            return (this.phone.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.val.length > 0 && this.clearall === 'true') ? 'entering' : '';
+        },
+
+        validate: function () {
+            var v = new Validate({
+                label    : this.label,
+                rules    : [ 'tel' ],
+                required : this.required === 'true'
+            });
+
+            return {
+                passed: v.validate(this.val),
+                errors: v.errors()
+            };
         }
     }
 }
 
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_field\" :class=\"status\">\n    <input :id=\"id\" :name=\"name\" class=\"_input\" :class=\"classObj\" :style=\"styleObj\" type=\"tel\" maxlength=\"11\" :placeholder=\"placeholder\" @blur=\"blur\" @input=\"input\" v-model=\"phone\">\n    <i @mytap=\"clear\"></i>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_field\" :class=\"status\">\n    <input :id=\"id\" :name=\"name\" class=\"_input\" :class=\"classObj\" :style=\"styleObj\" type=\"tel\" maxlength=\"11\" :placeholder=\"placeholder\" @focus=\"focus\" @blur=\"blur\" @input=\"input\" :value=\"val\">\n    <i @mytap=\"clear\"></i>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -18120,7 +18231,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-08467336", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":70,"../../utils/validate":71,"vue":4,"vue-hot-reload-api":2}],57:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],57:[function(require,module,exports){
 
 
 
@@ -18246,7 +18357,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-00ed29e4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":70,"../../utils/validate":71,"vue":4,"vue-hot-reload-api":2}],59:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":70,"vue":4,"vue-hot-reload-api":2}],59:[function(require,module,exports){
 
 
 
@@ -18429,7 +18540,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-27ed8ae9", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":70,"vue":4,"vue-hot-reload-api":2}],63:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],63:[function(require,module,exports){
 
 
 
@@ -18784,24 +18895,6 @@ module.exports = contants;
 },{}],70:[function(require,module,exports){
 'use strict';
 
-var Vue = require('vue/dist/vue.common');
-
-function Events () {
-    this.events = new Vue();
-}
-
-Events.prototype.emit = function (a, b) {
-    this.events.$emit(a, b);
-}
-
-Events.prototype.on = function (a, b) {
-    this.events.$on(a, b);
-}
-
-module.exports = new Events();
-},{"vue/dist/vue.common":3}],71:[function(require,module,exports){
-'use strict';
-
 var required    = require('../validator/require.validator'),
     validators  = {
         tel     : require('../validator/tel.validator'),
@@ -18869,7 +18962,7 @@ Validate.prototype.errors = function () {
 }
 
 module.exports = Validate;
-},{"../validator/email.validator":72,"../validator/idcard.validator":73,"../validator/number.validator":74,"../validator/require.validator":75,"../validator/tel.validator":76}],72:[function(require,module,exports){
+},{"../validator/email.validator":71,"../validator/idcard.validator":72,"../validator/number.validator":73,"../validator/require.validator":74,"../validator/tel.validator":75}],71:[function(require,module,exports){
 'use strict';
 
 function EmailValidator () {
@@ -18886,7 +18979,7 @@ EmailValidator.prototype.validate = function (value) {
 }
 
 module.exports = new EmailValidator();
-},{}],73:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 'use strict';
 
 function IdCardValidator () {
@@ -19044,7 +19137,7 @@ module.exports = new IdCardValidator();
                 //         return Errors[1];
                 //         break;
                 // }
-},{}],74:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 'use strict';
 
 function NumberValidator () {
@@ -19065,7 +19158,7 @@ NumberValidator.prototype = {
 }
 
 module.exports = new NumberValidator();
-},{}],75:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 'use strict';
 
 function RequireValidator () {
@@ -19079,7 +19172,7 @@ RequireValidator.prototype = {
 }
 
 module.exports = new RequireValidator();
-},{}],76:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 'use strict';
 
 function TelValidator () {
@@ -19101,7 +19194,25 @@ TelValidator.prototype = {
 }
 
 module.exports = new TelValidator();
-},{}],"lego":[function(require,module,exports){
+},{}],"events":[function(require,module,exports){
+'use strict';
+
+var Vue = require('vue/dist/vue.common');
+
+function Events () {
+    this.events = new Vue();
+}
+
+Events.prototype.emit = function (a, b) {
+    this.events.$emit(a, b);
+}
+
+Events.prototype.on = function (a, b) {
+    this.events.$on(a, b);
+}
+
+module.exports = new Events();
+},{"vue/dist/vue.common":3}],"lego":[function(require,module,exports){
 'use strict';
 
 var Vue = require('vue/dist/vue.common');
