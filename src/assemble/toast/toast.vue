@@ -1,5 +1,5 @@
 <template>
-    <div id="toast" class="_toast" v-if="!toptoast" >
+    <!--<div id="toast" class="_toast" v-if="!toptoast" >
         <div class="_toast_container">
             <div class="_toast_message">
                 <slot></slot>
@@ -8,7 +8,7 @@
     </div>
     <div class='_top-toast' v-else>
         <slot></slot>
-    </div>
+    </div>-->
 </template>
 
 <script>
@@ -49,6 +49,13 @@
         methods: {
             // 接收消息，并加入消息队列
             received: function (msg) {
+                var last = this.queue.pop();
+                last && this.queue.push(last);
+
+                if (last === msg) {
+                    return;
+                }
+                
                 this.queue.push(msg);
                 !this.isOpen && this.show();
             },
@@ -63,13 +70,14 @@
                 this.queue.length > 0 ? (function () {
                     var msg = this.queue[0];
                     this.isOpen = true;
-                    this.queue = this.queue.slice(1);
-
+                    
                     // 启动 toast 弹出的动画
                     // TODO:
                     console.log('TOAST: ' + msg);
 
                     setTimeout((function () {
+                        this.queue = this.queue.slice(1);
+
                         // 启动 隐藏当前 toast 的动画
                         // TODO:
                         console.log('TOAST CLOSING');
