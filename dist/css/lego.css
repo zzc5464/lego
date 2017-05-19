@@ -1,8 +1,8 @@
 @font-face {
   font-family: "pingan";
-  src: url("iconfont/iconfont.eot?t=1487923650635");
+  src: url("iconfont/iconfont.eot");
   /* IE9*/
-  src: url("iconfont/iconfont.eot?t=1487923650635#iefix") format("embedded-opentype"), url("iconfont/iconfont.woff?t=1487923650635") format("woff"), url("iconfont/iconfont.ttf?t=1487923650635") format("truetype"), url("iconfont/iconfont.svg?t=1487923650635#pingan") format("svg");
+  src: url("iconfont/iconfont.eot") format("embedded-opentype"), url("iconfont/iconfont.woff") format("woff"), url("iconfont/iconfont.ttf") format("truetype"), url("iconfont/iconfont.svg") format("svg");
   /* iOS 4.1- */ }
 ._setflex {
   display: -webkit-box;
@@ -727,7 +727,19 @@ h1, h2, h3, h4, h5, h6 {
 
 ._comment {
   padding: 0 0.78947rem;
-  line-height: 1.94737rem; }
+  line-height: 1.94737rem;
+  background: #efefef; }
+
+._comment-more {
+  padding: 0.78947rem 0.78947rem 0.52632rem;
+  line-height: 0.94737rem;
+  font-size: 0; }
+  ._comment-more > div {
+    display: inline-block;
+    width: 95%; }
+  ._comment-more > div:first-child {
+    width: 5%;
+    vertical-align: top; }
 
 ._toast {
   position: fixed;
@@ -736,7 +748,8 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   bottom: 0;
   z-index: 99;
-  background: transparent; }
+  background: transparent;
+  transition: all 1s; }
 
 ._toast_container {
   position: fixed;
@@ -756,12 +769,6 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
   overflow: hidden;
   z-index: 100; }
-
-._toast_fade_off {
-  display: none; }
-
-._toast_fade_in {
-  display: block; }
 
 ._top-toast {
   position: fixed;
@@ -931,8 +938,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     width: 80%; }
   ._amountCapital h2 {
-    line-height: inherit;
-    display: none; }
+    line-height: inherit; }
   ._amountCapital strong {
     display: inline-block;
     vertical-align: top;
@@ -996,7 +1002,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #999;
   font-size: 0.631579rem;
   margin: 0;
-  padding-left: 29px; }
+  padding-left: 30px; }
 ._payway .waylist:last-child {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>"); }
 

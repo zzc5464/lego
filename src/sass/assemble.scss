@@ -324,7 +324,20 @@ h1,h2,h3,h4,h5,h6 {
 ._comment {
     padding: 0 calRem(30);
     line-height: calRem(74);
-    
+    background: $c-offwhite;
+}
+._comment-more {
+    padding: calRem(30) calRem(30) calRem(20);
+    line-height: calRem(36);
+    font-size: 0;
+    & > div {
+        display: inline-block;
+        width: 95%;
+    }
+    & > div:first-child {
+        width: 5%;
+        vertical-align: top;
+    }
 }
 
 // toast
@@ -336,6 +349,15 @@ h1,h2,h3,h4,h5,h6 {
     bottom: 0;
     z-index: 99;
     background: rgba(0,0,0,0);
+    transition: all 1s;
+    // .fade-transition {
+    //     opacity: 1;
+    //     transform: scale(1);
+    // }
+    // .fade-enter,.fade-leave {
+    //     opacity: 0;
+    //     transform: scale(.4);
+    // }
 }
 ._toast_container {
     position: fixed;
@@ -358,13 +380,16 @@ h1,h2,h3,h4,h5,h6 {
     @extend ._text_size_34px;
     z-index: $zindex-modal;
 }
-._toast_fade_off {
-    display: none;
-}
+// ._toast_fade_off {
+//     // display: none;
+//     opacity: 0;
+// }
 
-._toast_fade_in {
-    display: block;
-}
+// ._toast_fade_in {
+//     display: block;
+//     opacity: 1;
+// }
+
 
 //顶部toast
 ._top-toast {
@@ -576,7 +601,7 @@ h1,h2,h3,h4,h5,h6 {
     }
     h2 {
         line-height: inherit;
-        display: none;
+        // display: none;
     }
     strong {
         display: inline-block;
@@ -653,7 +678,7 @@ h1,h2,h3,h4,h5,h6 {
         color: #999;
         font-size: 0.631579rem;
         margin: 0;
-        padding-left: 29px;
+        padding-left: 30px;
     }
     .waylist:last-child{
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");

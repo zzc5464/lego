@@ -45,11 +45,11 @@
         methods: {
             inputTap: function (){
                 var inputValue = $('#payamount')[0].value;
-                if(inputValue === 'undefine') {
-                    $('#mapText')[0].style.display = 'none';
-                } else {
-                    $('#mapText')[0].style.display = 'block';
-                }
+                // if(inputValue === 'undefine') {
+                //     $('#mapText')[0].style.display = 'none';
+                // } else {
+                //     $('#mapText')[0].style.display = 'block';
+                // }
 
                 $('#clearamounts')[0].style.opacity = '1';
                 $('#capitalamount')[0].innerHTML = amountCapital.sumCapital(inputValue);
