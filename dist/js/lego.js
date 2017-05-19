@@ -16752,7 +16752,12 @@ module.exports = {
         labelWidth: {
             type: Number,
             default: contants.labelWidth
+        },
+        align: {
+            type: String,
+            default: 'left'
         }
+
     },
 
     data: function () {
@@ -16772,7 +16777,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\">\n        <b-tel-field size=\"30\" color=\"black\" clearall=\"true\" :label=\"label\" :placeholder=\"placeholder\" :value=\"value\" @input=\"input\"></b-tel-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\">\n        <b-tel-field size=\"30\" color=\"black\" clearall=\"true\" :label=\"label\" :placeholder=\"placeholder\" :value=\"value\" :align=\"align\" @input=\"input\"></b-tel-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16817,6 +16822,10 @@ module.exports = {
         labelWidth: {
             type: Number,
             default: contants.labelWidth
+        },
+        align: {
+            type: String,
+            default: 'left'
         }
     },
     data    : function () {
@@ -16830,7 +16839,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\" align=\"left\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"left\">\n        <b-text-field size=\"30\" color=\"black\" clearall=\"true\" :placeholder=\"placeholder\" :value=\"value\"></b-text-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\" align=\"left\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\">\n        <b-text-field size=\"30\" color=\"black\" clearall=\"true\" :placeholder=\"placeholder\" :value=\"value\" :align=\"align\"></b-text-field>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17199,7 +17208,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"toast\" class=\"_toast\" v-if=\"!toptoast\">\n    <div class=\"_toast_container\">\n        <div class=\"_toast_message\">\n            <slot>{{errMsg}}</slot>\n        </div>\n    </div>\n</div>\n<div class=\"_top-toast\" v-else=\"\">\n    <slot></slot>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"toast\" class=\"_toast\" v-if=\"!toptoast\">\n    <div class=\"_toast_container\">\n        <div class=\"_toast_message\">\n            <slot>{{errMsg}}</slot>\n        </div>\n    </div>\n</div>\n<div class=\"_top-toast\" v-else=\"\">\n    <slot>{{errMsg}}</slot>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17299,11 +17308,11 @@ module.exports = {
         },
 
         init: function () {
-            return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
         },
 
         update: function () {
-            return (this.address.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.address.length > 0 && this.clearall === 'true') ? 'entering' : '';
         }
     }
 }
@@ -17517,11 +17526,11 @@ module.exports = {
         },
 
         init: function () {
-            return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
         },
 
         update: function () {
-            return (this.email.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.email.length > 0 && this.clearall === 'true') ? 'entering' : '';
         }
     }
 }
@@ -17687,11 +17696,11 @@ module.exports = {
         },
 
         init: function () {
-            return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
         },
 
         update: function () {
-            return (this.idcard.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.idcard.length > 0 && this.clearall === 'true') ? 'entering' : '';
         }
     }
 }
@@ -17825,11 +17834,11 @@ module.exports = {
         },
 
         init: function () {
-            return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
         },
 
         update: function () {
-            return (this.number.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.number.length > 0 && this.clearall === 'true') ? 'entering' : '';
         }
     }
 }
@@ -18207,11 +18216,11 @@ module.exports = {
         },
 
         init: function () {
-            return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
         },
 
         update: function () {
-            return (this.val.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.val.length > 0 && this.clearall === 'true') ? 'entering' : '';
         },
 
         validate: function () {
@@ -18347,11 +18356,11 @@ module.exports = {
         },
 
         init: function () {
-            return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
         },
 
         update: function () {
-            return (this.text.length > 0 && this.clearall === 'true') ? 'entering' : '';
+            return (this.align !== 'right' && this.text.length > 0 && this.clearall === 'true') ? 'entering' : '';
         }
     }
 }

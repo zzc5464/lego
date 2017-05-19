@@ -66,11 +66,11 @@
             },
 
             init: function () {
-                return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+                return (this.align !== 'right' && this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
             },
 
             update: function () {
-                return (this.val.length > 0 && this.clearall === 'true') ? 'entering' : '';
+                return (this.align !== 'right' && this.val.length > 0 && this.clearall === 'true') ? 'entering' : '';
             },
 
             validate: function () {

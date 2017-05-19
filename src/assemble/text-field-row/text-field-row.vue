@@ -4,8 +4,8 @@
         <s-column :width='width.label' align='left'>
             <b-text size='30' color='grey'>{{ label }}</b-text>
         </s-column>
-        <s-column :width='width.value' align='left'>
-            <b-text-field size='30' color='black' clearall='true' :placeholder='placeholder' :value='value'></b-text-field>
+        <s-column :width='width.value'>
+            <b-text-field size='30' color='black' clearall='true' :placeholder='placeholder' :value='value' :align='align'></b-text-field>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>
@@ -31,6 +31,10 @@
             labelWidth: {
                 type: Number,
                 default: contants.labelWidth
+            },
+            align: {
+                type: String,
+                default: 'left'
             }
         },
         data    : function () {

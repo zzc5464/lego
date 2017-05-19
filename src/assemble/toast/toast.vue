@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class='_top-toast' v-else>
-        <slot></slot>
+        <slot>{{errMsg}}</slot>
     </div>
 </template>
 
