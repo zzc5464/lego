@@ -5,7 +5,7 @@
             <b-text size='30' color='grey'>{{ label }}</b-text>
         </s-column>
         <s-column :width='width.value'>
-            <b-tel-field size='30' color='black' clearall='true' :label='label' :placeholder='placeholder' :value='value'></b-tel-field>
+            <b-tel-field size='30' color='black' clearall='true' :label='label' :placeholder='placeholder' :value='value' @input='input'></b-tel-field>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>
@@ -15,7 +15,7 @@
     var contants = require('../../utils/contants');
 
     module.exports = {
-        props   : {
+        props: {
             label: {
                 type: String,
                 default: ''
@@ -33,13 +33,20 @@
                 default: contants.labelWidth
             }
         },
-        data    : function () {
+
+        data: function () {
             return {
                 width: {
                     label: this.labelWidth,
                     value: contants.tableWidth - this.labelWidth
                 }
             };
+        },
+
+        methods: {
+            input: function (e) {
+                this.$emit('input', e);
+            }
         }
     }
 </script>

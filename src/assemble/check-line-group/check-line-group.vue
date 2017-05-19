@@ -1,7 +1,7 @@
 <template>
     <div class="_payway">  
         <div class="waylist" :id="item.id" v-for="(item, index) in elements">
-            <span class="realradio" :class="{active: item.checked}"  @click='inputTab'>
+            <span class="realradio" :class="{active: item.checked}"  @mytap='inputTab'>
                 <b-icon name="check"></b-icon>
             </span> 
             <span>{{item.label}}</span> 
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-
+    var events = require('../../utils/gum.vue.events');
     module.exports = {
         data: function() {
             var slots = this.$slots.default,
@@ -48,6 +48,14 @@
                 elements: elems
             };
         },
+
+        mounted: function () {
+            events.on('test', function (a) {
+                // alert('check-line-group');
+                a.push('check-line-group');
+            });
+        },
+
         methods: {
             inputTab: function (e){
                 var el = e.target,
@@ -62,6 +70,8 @@
                 }
                 
                 el.firstChild.classList.add('active');
+
+                this.$emit('input', '123');
             }
         }
     }

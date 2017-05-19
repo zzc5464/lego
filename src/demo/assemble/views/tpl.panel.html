@@ -1,10 +1,10 @@
 <p-main bgcolor='offwhite'>
     <stub></stub>
-    
     <panel edit='false' bgcolor='white' border='false' label-width='6'>
         <fixed-row height='5' color='black'>暂无消息...</fixed-row>
         <a-title id='save1' label='联系方式' subtitle='(单位：元)' comment='2000.00'></a-title>
         <a-title id='save2' label='联系方式'>保存</a-title>
+        <tel-field-row label='tel'></tel-field-row>
         <text-row label='姓名'>李乐乐</text-row>
         <text-row label='姓名' align='right'>乐乐</text-row>
         <text-row label='证件类型'>21234567989456462</text-row>
@@ -21,5 +21,6 @@
         <check-line id='pay2' label='钱包支付' value='3,000.00 元'></check-line>
         <check-line id='pay3' label='银行卡支付' value='中国工商银行 尾号8188' checked='true' link='true'></check-line>
     </check-line-group>
-    <fixed-row height='5' border='false'></fixed-row>
+    <fixed-row height='5' border='false' submit='true'></fixed-row>
+    <toast></toast>
 </p-main>
