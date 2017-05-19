@@ -2,7 +2,7 @@
     <s-cell min-height='2.473684' border='true'>
         <s-flex-column></s-flex-column>
         <s-multiline :width='width.label' align='left'>
-            <b-text size='30' color='light'>{{ label }}</b-text>
+            <b-text size='30' :color='color'>{{ label }}</b-text>
         </s-multiline>
         <s-multiline :width='width.value' :align='align'>
             <b-text size='30' color='black'><slot></slot></b-text>
@@ -23,11 +23,14 @@
             labelWidth: {
                 type: Number,
                 default: contants.labelWidth
-            }
-            ,
+            },
             align: {
                 type: String,
                 default: 'left'
+            },
+            color: {
+                type: String,
+                default: 'light'
             }
         }, 
         data    : function () {

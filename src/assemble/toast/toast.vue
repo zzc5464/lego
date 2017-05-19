@@ -21,7 +21,6 @@
             }
         },
         data: function() {
-
             return {
                 isShow: false
             };
