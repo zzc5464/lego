@@ -74,7 +74,7 @@
                     // 启动 toast 弹出的动画
                     // TODO:
                     document.getElementById('toast').style.opacity = '1';
-                    console.log('TOAST: ' + msg);
+                    // console.log('TOAST: ' + msg);
 
                     setTimeout((function () {
                         this.queue = this.queue.slice(1);
@@ -86,7 +86,7 @@
 
                         // 当 toast 消失的动画结束，启动下一个 toast 提示框弹出动画
                         setTimeout((function () {
-                            console.log('TOAST CLOSED');
+                            // console.log('TOAST CLOSED');
                             this.show();
                         }).bind(this), 300);
 
