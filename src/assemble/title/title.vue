@@ -33,10 +33,7 @@
                 default: ''
             },
 
-            comment: {
-                type: String,
-                default: ''
-            }
+            comment: {}
         }, 
         data: function() {
             return {
