@@ -1,7 +1,7 @@
 <template>
     <div class='_protocol'>
         <b-checkbox :checked="isChecked"></b-checkbox>
-        <span class='_protocal-text'><slot></slot><span>
+        <span class='_protocal-text'><slot></slot></span>
     </div>
 </template>
 
