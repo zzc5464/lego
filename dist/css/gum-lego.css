@@ -155,6 +155,18 @@
   border: 1px solid #d7ac62;
   border-radius: 3px;
   box-sizing: border-box; }
+.gum .lego ._radius_button {
+  background-color: #fff;
+  color: #c1c1c1;
+  border: 1px solid #c1c1c1;
+  border-radius: 0.78947rem;
+  font-size: 0.73684rem;
+  height: 1.578945rem;
+  width: 4.210526rem;
+  box-sizing: border-box; }
+.gum .lego ._radius_active {
+  border-color: #d7ac62;
+  color: #d7ac62; }
 .gum .lego ._button.tapping, .gum .lego ._button.demo_tapping {
   color: #e0c89d;
   border-color: #e0c89d; }
@@ -419,9 +431,23 @@
   padding: 0;
   margin: 0; }
 .gum .lego ._protocol {
-  padding: 0 0.78947rem; }
-  .gum .lego ._protocol ._checkbox {
-    margin-right: 0.26316rem; }
+  padding: 0 0.78947rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex; }
+  .gum .lego ._protocol > div {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    align-content: flex-start; }
+  .gum .lego ._protocol > div:first-child {
+    width: 1.31579rem;
+    padding-top: 0.13158rem; }
+  .gum .lego ._protocol > div:last-child {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    line-height: 1; }
 .gum .lego ._pwd {
   margin: 30px auto;
   background-color: #fff;
@@ -849,6 +875,17 @@
   padding-left: 30px; }
 .gum .lego ._payway .waylist:last-child {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>"); }
+.gum .lego .fade-enter-active, .gum .lego .fade-leave-active {
+  transition: opacity 0.5s; }
+.gum .lego .fade-enter, .gum .lego .fade-leave-active {
+  opacity: 0; }
+.gum .lego .slide-fade-enter-active {
+  transition: all .3s ease; }
+.gum .lego .slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+.gum .lego .slide-fade-enter, .gum .lego .slide-fade-leave-active {
+  transform: translateX(10px);
+  opacity: 0; }
 .gum .lego ._main {
   min-height: 100.1%; }
 .gum .lego ._main_wrp {

@@ -18,7 +18,7 @@
 <script>
 
     module.exports = {
-        props: [ 'id','width', 'height', 'size', 'filled', 'tapcolor','validate','second','phonevali','count','emailvali','idcardvali','numbervali','callback'],
+        props: [ 'id','width', 'height', 'size', 'filled', 'radius','tapcolor','validate','second','phonevali','count','emailvali','idcardvali','numbervali','callback'],
 
         data: function () {
             var obj = {}, list = [];
@@ -30,8 +30,9 @@
             && list.push('_text_size_' + this.size + 'px');
 
             this.filled === 'true' 
-            && list.push('_button_filled');           
+            && list.push('_button_filled');   
 
+            this.radius === 'true' && list.push('_radius_button');
             return {
                 styleObj: obj,
                 classObj: list,
