@@ -1,10 +1,14 @@
 <template> 
-    <article class="svg-line" id="svg-line" v-html="svgHtml"></article>
+    <div>
+        <article class="svg-line" id="svg-line" v-html="svgHtml"></article>
+    </div>
+    
 </template>
 
 <script>
     var lineChart = require('../../utils/line.chart');
-
+    
+    var event = require('../../utils/gum.vue.events');
     // lineChart(period, is7Rate, data)
     module.exports = {
         props: {
@@ -14,7 +18,7 @@
             },
             rate: {
                 type: String,
-                default: '0'
+                default: '1'
             },
             list: {
                 type: Array,
@@ -26,9 +30,24 @@
             var period = this.period,
                 rate = parseInt(this.rate),
                 list = this.list;
+            
             return {
-                svgHtml: lineChart(period, rate, list)
+                newPeriod: period,
+                svgHtml: lineChart(this.newPeriod, rate, list),
+                rateDate : parseInt(this.rate),
+                listDate : this.list
             }
+        },
+        mounted: function(){
+            var that = this;
+            event.on('tabedswitch',function(date){
+                that.newPeriod = date;
+                that.svgHtml = lineChart(that.newPeriod, that.rateDate, that.listDate);
+            });
+            event.on('tabswitch',function(rate){
+                that.rateDate = parseInt(rate);
+                that.svgHtml = lineChart(that.newPeriod, that.rateDate, that.listDate);
+            });
         }
     }
 </script>
