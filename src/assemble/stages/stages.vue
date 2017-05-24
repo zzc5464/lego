@@ -14,7 +14,7 @@
         },
         data: function() {
             var slots = this.$slots.default, number = 0, noText = true,
-                elems = [], list = [], obj = {};
+                elems = [], list = [], obj = {}, options;
 
             slots.forEach(function (s) {
                 options = s.componentOptions;
