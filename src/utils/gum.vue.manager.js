@@ -13,6 +13,7 @@ var components = [
     [ 'b-rectangular-button'    , require('../basic/rectangular-button/rectangular-button.vue.js')  ],
     [ 'b-tab-button'            , require('../basic/tab-button/tab-button.vue.js')                  ],
     [ 'b-text-button'           , require('../basic/text-button/text-button.vue.js')                ],
+    [ 'b-radius-button'         , require('../basic/radius-button/radius-button.vue.js')            ],
 
     [ 'b-text-field'            , require('../basic/text-field/text-field.vue.js')                  ],
     [ 'b-number-field'          , require('../basic/number-field/number-field.vue.js')              ],

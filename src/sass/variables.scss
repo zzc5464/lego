@@ -36,11 +36,13 @@ $zindex-modal: 100;
 $border-2x-high         : .5px solid $c-high;
 $border-3x-high         : .4px solid $c-high;
 
-$border-radius          : 3px;
-
 @function calRem($px) {
     @return $px/38 + rem; 
 }
+
+$border-radius          : 3px;
+$border-radius-30       : calRem(30);
+
 
 // 以下为文字大小的对应关系，左侧为视觉标准单位，右侧为 rem 值
 $text-size-18px         : calRem(18);

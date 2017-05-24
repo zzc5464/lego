@@ -24,7 +24,7 @@
             // 每条 toast 提示的停留时间
             stay: {
                 type: Number,
-                default: 3000
+                default: 2000
             }
         },
         data: function() {

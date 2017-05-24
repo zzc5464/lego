@@ -41,6 +41,20 @@ button {
     border-radius: $border-radius;
     box-sizing: border-box;
 }
+._radius_button {
+    background-color: $c-white;
+    color: $c-lightgrey;
+    border: 1px solid $c-lightgrey;
+    border-radius: $border-radius-30;
+    font-size: $text-size-28px;
+    height: 1.578945rem;
+    width: 4.210526rem;
+    box-sizing: border-box;
+}
+._radius_active {
+    border-color: $c-high;
+    color: $c-high;
+}
 ._button.tapping, ._button.demo_tapping {
     color: $c-yellowish;
     border-color: $c-yellowish;

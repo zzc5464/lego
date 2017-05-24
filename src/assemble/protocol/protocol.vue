@@ -1,18 +1,25 @@
 <template>
     <div class='_protocol'>
-        <b-checkbox :checked="isChecked"></b-checkbox>
-        <span class='_protocal-text'><slot></slot></span>
+        <div>
+            <b-checkbox :checked='isChecked'></b-checkbox>
+        </div>
+        <div>
+            <span><slot></slot></span>
+        </div>
+        <select>
     </div>
 </template>
 
 <script>
+
 
     module.exports = {
         props: [ 'checked'],
         data: function() {
 
             return {
-                isChecked: this.checked
+                isChecked: this.checked,
+                show: true
             };
         }
     }
