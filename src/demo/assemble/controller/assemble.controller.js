@@ -126,8 +126,102 @@ AssembleController.prototype = new FController({
     panel: function () {
         var data = {
             tel: '',
+            period: '0',
+            data: {
+                "pamaAcct":"1080000101457207",
+                "orangeAccount":"88000079580592",
+                "totalProfit":"0.53",
+                "buyDate":"2017-05-25",
+                "rateOf7Days":"3.3531",
+                "recentRedeemDate":"2017-07-10",
+                "auditResult":"01",
+                "autoInvestPlan":"",
+                "profitOf10K":"1.0128",
+                "limitFlag":"A",
+                "hisProfitRates":[
+                    {
+                        "profitOf10K":"1.0128",
+                        "navDate":"20170522",
+                        "nav":"3.3531"
+                    },
+                    {
+                        "profitOf10K":"1.1634",
+                        "navDate":"20170427",
+                        "nav":"4.6765"
+                    },
+                    {
+                        "profitOf10K":"1.1634",
+                        "navDate":"20170427",
+                        "nav":"4.6765"
+                    },
+                    {
+                        "profitOf10K":"1.7378",
+                        "navDate":"20170426",
+                        "nav":"6.1199"
+                    },
+                    {
+                        "profitOf10K":"0.9348",
+                        "navDate":"20170425",
+                        "nav":"6.4638"
+                    },
+                    {
+                        "profitOf10K":"0.9348",
+                        "navDate":"20170425",
+                        "nav":"6.4638"
+                    },
+                    {
+                        "profitOf10K":"1.5066",
+                        "navDate":"20170424",
+                        "nav":"8.3331"
+                    },
+                    {
+                        "profitOf10K":"3.9315",
+                        "navDate":"20170420",
+                        "nav":"7.7629"
+                    },
+                    {
+                        "profitOf10K":"2.3975",
+                        "navDate":"20170419",
+                        "nav":"6.2666"
+                    },
+                    {
+                        "profitOf10K":"0.9884",
+                        "navDate":"20170406",
+                        "nav":"3.5044"
+                    },
+                    {
+                        "profitOf10K":"4.7461",
+                        "navDate":"20170331",
+                        "nav":"3.5443"
+                    },
+                    {
+                        "profitOf10K":"1.0635",
+                        "navDate":"20170330",
+                        "nav":"3.5077"
+                    },
+                    {
+                        "profitOf10K":"0.9877",
+                        "navDate":"20170329",
+                        "nav":"3.3901"
+                    },
+                    {
+                        "profitOf10K":"1.1125",
+                        "navDate":"20170327",
+                        "nav":"3.1716"
+                    }
+                ],
+                "quotaAvailable":"1,999,999.97",
+                "userLevel":"H",
+                "heldAsset":"2000.54",
+                "toAcctDate":"2017-05-26",
+                "userName":"张一零",
+                "bearingDate":"2017-05-25",
+                "limitMsg":"今日产品可售额度剩余 1,999,999.97元，请尽快购买，以免可售额度售罄",
+                "yesterdyProfit":"0.12",
+                "auditMark":-1,
+                "mobile":"17720170010"
+            }
         }, $ = this.$;
-
 
         data.submit = function () {
             alert(data.tel);
@@ -143,6 +237,17 @@ AssembleController.prototype = new FController({
                     data.submit();
                 }
             });
+
+            // 折线图切换数据
+            $('#sevenDate').parent().tap(function (e){
+                var el = e.target;
+                if (el.getAttribute('id') === 'sevenDate'){
+                    data.period = '0';
+                } else if (el.getAttribute('id') === 'oneMon'){
+                    data.period = '1';
+                }
+            });
+
         }, data);
     },
 
