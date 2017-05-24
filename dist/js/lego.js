@@ -15571,7 +15571,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<!-- 构建单按钮样式（充满效果）-->\n<s-cell v-if=\"elements.length === 1 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column align=\"center\">\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" color=\"white\" filled=\"true\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建单按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 1 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"12.894736\" align=\"center\">\n        <b-button :id=\"elements[0].id\" size=\"34\" color=\"white\" height=\"2.105263\" filled=\"true\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 2\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[0].id\" size=\"34\" height=\"2.105263\" filled=\"false\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-column width=\".789474\"></s-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[0].id\" size=\"34\" height=\"2.105263\" filled=\"true\">{{elements[1].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- \b误用提示 -->\n<s-cell v-else=\"\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-text>参数不合法</b-text>\n    </s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<!-- 构建单按钮样式（充满效果）-->\n<s-cell v-if=\"elements.length === 1 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column align=\"center\">\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" color=\"white\" filled=\"true\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建单按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 1 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"12.894736\" align=\"center\">\n        <b-button :id=\"elements[0].id\" size=\"34\" color=\"white\" height=\"2.105263\" filled=\"true\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 2\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[0].id\" size=\"34\" height=\"2.105263\" filled=\"false\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-column width=\".789474\"></s-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[1].id\" size=\"34\" height=\"2.105263\" filled=\"true\">{{elements[1].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- \b误用提示 -->\n<s-cell v-else=\"\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-text>参数不合法</b-text>\n    </s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16315,7 +16315,6 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-
 module.exports = {
     props: [ 'checked'],
     data: function() {
@@ -16328,7 +16327,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"_protocol\">\n        <div>\n            <b-checkbox :checked=\"isChecked\"></b-checkbox>\n        </div>\n        <div>\n            <span><slot></slot></span>\n        </div>\n        <select>\n    \n</select></div>"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_protocol\">\n    <div>\n        <b-checkbox :checked=\"isChecked\"></b-checkbox>\n    </div>\n    <div>\n        <span><slot></slot></span>\n    </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16745,6 +16744,9 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
 var event = require('../../utils/gum.vue.events');
 module.exports = {
     props: {
@@ -16816,7 +16818,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell bgcolor=\"white\" v-if=\"radius\" id=\"radiusTab\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[0].id\" period=\"0\" class=\"_radius_active\" @tapped=\"tabedswitch\">{{elements[0].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[1].id\" period=\"1\" @tapped=\"tabedswitch\">{{elements[1].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[2].id\" period=\"2\" @tapped=\"tabedswitch\">{{elements[2].text}}</b-radius-button>\n    </s-flex-column>\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n</s-cell>\n\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n</div> \n\n<div v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"elements[0].id\" class=\"_borderbtm\" @mytab=\"tabswitch\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n    <span :id=\"elements[2].id\" @mytap=\"tabswitch\">{{elements[2].text}}</span>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell bgcolor=\"white\" v-if=\"radius\" id=\"radiusTab\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[0].id\" period=\"0\" class=\"_radius_active\" @tapped=\"tabedswitch\">{{elements[0].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[1].id\" period=\"1\" @tapped=\"tabedswitch\">{{elements[1].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[2].id\" period=\"2\" @tapped=\"tabedswitch\">{{elements[2].text}}</b-radius-button>\n    </s-flex-column>\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n</s-cell>\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n</div>\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n</div> \n\n<div v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"elements[0].id\" class=\"_borderbtm\" @mytab=\"tabswitch\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n    <span :id=\"elements[2].id\" @mytap=\"tabswitch\">{{elements[2].text}}</span>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

@@ -6,7 +6,6 @@
         <div>
             <span><slot></slot></span>
         </div>
-        <select>
     </div>
 </template>
 
