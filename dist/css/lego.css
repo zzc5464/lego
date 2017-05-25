@@ -902,15 +902,22 @@ h1, h2, h3, h4, h5, h6 {
     font-size: .789474rem;
     line-height: 1.894737rem;
     text-align: center; }
+  ._ruletab span h3 {
+    font-weight: normal;
+    font-size: .789474rem;
+    line-height: 1.2rem; }
   ._ruletab span._borderbtm {
     border-bottom: 2px solid #d7ac62;
     color: #d7ac62; }
 
-._ruletab1 span {
-  margin: 0 1.578947rem; }
+._ruletab1 {
+  display: flex;
+  display: -webkit-flex; }
 
-._ruletab1 span:last-child {
-  float: right; }
+._ruletab1 span {
+  flex: 1;
+  margin: 0 1.578947rem;
+  padding: 0.2rem 0; }
 
 ._ruletab2 {
   display: flex; }

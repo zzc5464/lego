@@ -758,13 +758,20 @@
     font-size: .789474rem;
     line-height: 1.894737rem;
     text-align: center; }
+  .gum .lego ._ruletab span h3 {
+    font-weight: normal;
+    font-size: .789474rem;
+    line-height: 1.2rem; }
   .gum .lego ._ruletab span._borderbtm {
     border-bottom: 2px solid #d7ac62;
     color: #d7ac62; }
+.gum .lego ._ruletab1 {
+  display: flex;
+  display: -webkit-flex; }
 .gum .lego ._ruletab1 span {
-  margin: 0 1.578947rem; }
-.gum .lego ._ruletab1 span:last-child {
-  float: right; }
+  flex: 1;
+  margin: 0 1.578947rem;
+  padding: 0.2rem 0; }
 .gum .lego ._ruletab2 {
   display: flex; }
 .gum .lego ._ruletab2 span {

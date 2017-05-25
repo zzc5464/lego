@@ -10,40 +10,25 @@ var process = module.exports = {};
 var cachedSetTimeout;
 var cachedClearTimeout;
 
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
 (function () {
     try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
+        cachedSetTimeout = setTimeout;
     } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
+        cachedSetTimeout = function () {
+            throw new Error('setTimeout is not defined');
+        }
     }
     try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
+        cachedClearTimeout = clearTimeout;
     } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
+        cachedClearTimeout = function () {
+            throw new Error('clearTimeout is not defined');
+        }
     }
 } ())
 function runTimeout(fun) {
     if (cachedSetTimeout === setTimeout) {
         //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
         return setTimeout(fun, 0);
     }
     try {
@@ -64,11 +49,6 @@ function runTimeout(fun) {
 function runClearTimeout(marker) {
     if (cachedClearTimeout === clearTimeout) {
         //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
         return clearTimeout(marker);
     }
     try {
@@ -296,10 +276,9 @@ exports.reload = tryWrap(function (id, options) {
   makeOptionsHot(id, options)
   var record = map[id]
   record.Ctor.extendOptions = options
-  var newCtor = record.Ctor.super.extend(options)
+  var newCtor = Vue.extend(options)
   record.Ctor.options = newCtor.options
   record.Ctor.cid = newCtor.cid
-  record.Ctor.prototype = newCtor.prototype
   if (newCtor.release) {
     // temporary global mixin strategy used in < 2.0.0-alpha.6
     newCtor.release()
@@ -15361,13 +15340,6 @@ module.exports = {
         };
     },
 
-    mounted: function () {
-        events.on('test', function (a) {
-            // alert('check-line-group');
-            a.push('check-line-group');
-        });
-    },
-
     methods: {
         inputTab: function (e){
             var el = e.target,
@@ -15383,7 +15355,7 @@ module.exports = {
             
             el.firstChild.classList.add('active');
 
-            this.$emit('input', '123');
+            this.$emit('input', el.lastChild);
         }
     }
 }
@@ -16742,11 +16714,6 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-
-
-
-
-
 var event = require('../../utils/gum.vue.events');
 module.exports = {
     props: {
@@ -16761,6 +16728,10 @@ module.exports = {
         period: {
             type: String,
             default: '0'
+        },
+        label: {
+            type: String,
+            default: ""
         }
     },
     data: function (){
@@ -16781,7 +16752,9 @@ module.exports = {
         });
         return {
             elements: elems,
-            periodType: this.period
+            periodType: this.period,
+            label7Rate: this.label && this.label.split('|')[0],
+            labelWRate: this.label && this.label.split('|')[1]
         }
     },
     methods: {
@@ -16818,7 +16791,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell bgcolor=\"white\" v-if=\"radius\" id=\"radiusTab\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[0].id\" period=\"0\" class=\"_radius_active\" @tapped=\"tabedswitch\">{{elements[0].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[1].id\" period=\"1\" @tapped=\"tabedswitch\">{{elements[1].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[2].id\" period=\"2\" @tapped=\"tabedswitch\">{{elements[2].text}}</b-radius-button>\n    </s-flex-column>\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n</s-cell>\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n</div>\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n</div> \n\n<div v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"elements[0].id\" class=\"_borderbtm\" @mytab=\"tabswitch\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n    <span :id=\"elements[2].id\" @mytap=\"tabswitch\">{{elements[2].text}}</span>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell bgcolor=\"white\" v-if=\"radius\" id=\"radiusTab\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[0].id\" period=\"0\" class=\"_radius_active\" @tapped=\"tabedswitch\">{{elements[0].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[1].id\" period=\"1\" @tapped=\"tabedswitch\">{{elements[1].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[2].id\" period=\"2\" @tapped=\"tabedswitch\">{{elements[2].text}}</b-radius-button>\n    </s-flex-column>\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n</s-cell>\n\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\"><h3>{{elements[0].text}}</h3><h3>{{label7Rate}}</h3></span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\"><h3>{{elements[1].text}}</h3><h3>{{labelWRate}}</h3></span>\n</div> \n\n<div v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"item.id\" :class=\"{_borderbtm: index == 0}\" @mytap=\"tabswitch\" v-for=\"(item,index) in elements\">{{item.text}}</span>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17031,8 +17004,7 @@ var contants = require('../../utils/contants');
 module.exports = {
     props   : {
         label: {
-            type: String,
-            default: ''
+            type: String
         },
         labelWidth: {
             type: Number,
@@ -17048,10 +17020,11 @@ module.exports = {
         }
     }, 
     data    : function () {
+        var w = typeof this.label === 'undefined' ? 0 : this.labelWidth;
         return {
             width: {
-                label: this.labelWidth,
-                value: contants.tableWidth - this.labelWidth
+                label: w,
+                value: contants.tableWidth - w
             }
         };
     }

@@ -17,8 +17,7 @@
     module.exports = {
         props   : {
             label: {
-                type: String,
-                default: ''
+                type: String
             },
             labelWidth: {
                 type: Number,
@@ -33,11 +32,12 @@
                 default: 'light'
             }
         }, 
-        data    : function () {
+        data: function () {
+            var w = typeof this.label === 'undefined' ? 0 : this.labelWidth;
             return {
                 width: {
-                    label: this.labelWidth,
-                    value: contants.tableWidth - this.labelWidth
+                    label: w,
+                    value: contants.tableWidth - w
                 }
             };
         }
