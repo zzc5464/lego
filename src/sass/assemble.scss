@@ -286,7 +286,53 @@ h1,h2,h3,h4,h5,h6 {
         @extend ._text_size_24px;
         line-height: calRem(50);
     }
+    header {
+        text-align: center;
+        padding: calRem(20) 0;
+        h6{
+            color: $c-high;
+            i {
+                vertical-align: middle;
+            }
+        }
+        ._eyecenter {
+            margin-left: calRem(42);
+        }
+    }
+    ._three  {
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
 
+        li {
+            float: left;
+            width: 29%;
+            margin-left: calRem(25);
+            color: $c-white;
+                font-size: calRem(32);
+            & > div:first-child {
+                color: $c-white;
+                font-size: calRem(22);
+            }
+        }
+        li:first-child {
+            width: 33%;
+            margin-left: calRem(50);
+        }
+        li:last-child {
+            width: 23%;
+        }
+        
+    }
+    ._second {
+        li:first-child {
+            width: 40%;
+            margin-left: 18%;
+        }
+        li:last-child {
+            width: 38%;
+        }
+    }
     div {
         position: relative;
         margin: 5px 0 6px;

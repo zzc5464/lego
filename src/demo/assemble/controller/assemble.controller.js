@@ -252,7 +252,13 @@ AssembleController.prototype = new FController({
     },
 
     lead: function () {
-        this.show('头条', tplLeadView);
+        this.show('头条', tplLeadView, null, {
+            list1: 
+                {"header": "今七日化收益率","invest":"6.00%","title1":"每万分收益（元）","value1":"0.34","title2":"起购金额（元）","value2":"1000","title3":"理财期限","value3":"灵活存取"}
+            ,
+            list2: 
+                {"header": "昨日收益","invest":"10.00","title1":"持有资产（元）","value1":"100000.00","title2":"起购金额","value2":"1000"}
+        });
     },
 
     list: function () {

@@ -585,6 +585,38 @@
     line-height: 2.36842rem; }
   .gum .lego ._assetheader h6 {
     line-height: 1.31579rem; }
+  .gum .lego ._assetheader header {
+    text-align: center;
+    padding: 0.52632rem 0; }
+    .gum .lego ._assetheader header h6 {
+      color: #d7ac62; }
+      .gum .lego ._assetheader header h6 i {
+        vertical-align: middle; }
+    .gum .lego ._assetheader header ._eyecenter {
+      margin-left: 1.10526rem; }
+  .gum .lego ._assetheader ._three {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; }
+    .gum .lego ._assetheader ._three li {
+      float: left;
+      width: 29%;
+      margin-left: 0.65789rem;
+      color: #fff;
+      font-size: 0.84211rem; }
+      .gum .lego ._assetheader ._three li > div:first-child {
+        color: #fff;
+        font-size: 0.57895rem; }
+    .gum .lego ._assetheader ._three li:first-child {
+      width: 33%;
+      margin-left: 1.31579rem; }
+    .gum .lego ._assetheader ._three li:last-child {
+      width: 23%; }
+  .gum .lego ._assetheader ._second li:first-child {
+    width: 40%;
+    margin-left: 18%; }
+  .gum .lego ._assetheader ._second li:last-child {
+    width: 38%; }
   .gum .lego ._assetheader div {
     position: relative;
     margin: 5px 0 6px; }
@@ -758,13 +790,20 @@
     font-size: .789474rem;
     line-height: 1.894737rem;
     text-align: center; }
+  .gum .lego ._ruletab span h3 {
+    font-weight: normal;
+    font-size: .789474rem;
+    line-height: 1.2rem; }
   .gum .lego ._ruletab span._borderbtm {
     border-bottom: 2px solid #d7ac62;
     color: #d7ac62; }
+.gum .lego ._ruletab1 {
+  display: flex;
+  display: -webkit-flex; }
 .gum .lego ._ruletab1 span {
-  margin: 0 1.578947rem; }
-.gum .lego ._ruletab1 span:last-child {
-  float: right; }
+  flex: 1;
+  margin: 0 1.578947rem;
+  padding: 0.2rem 0; }
 .gum .lego ._ruletab2 {
   display: flex; }
 .gum .lego ._ruletab2 span {

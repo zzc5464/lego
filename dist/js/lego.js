@@ -15764,6 +15764,42 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = {
     props: {
         header: {
@@ -15784,6 +15820,16 @@ module.exports = {
         linkId: {
             type: String,
             default: ''
+        },
+
+        label: {
+            type: String,
+            default: '1'
+        },
+
+        topData: {
+            type: Object,
+            default: function () { return {}; }
         }
     },
     data: function() {
@@ -15812,24 +15858,47 @@ module.exports = {
             t = 3;
         }
 
-        // var list = [];
-        // var obj = {};
-        // this.height && (obj.paddingTop = '1.052632rem');
-        // this.oneline && (obj.height = '3.684211rem');
-        // this.oneline && list.push('_setflex');
+        if (this.label === '1') {
+            t = 4;
+        }
+
+        if (this.label === '2') {
+            t = 5;
+        }
         return {
+            tempData: this.topData,
+            datas: this.topData,
             classObj: list,
             styleObj: obj,
             type: t
         };
     },
     methods: {
-        
+        hiddenData: function() {
+            // var tempData = {};    
+            var invest, value1, value2 ;
+            if(this.datas.invest !== '****') {
+                invest = this.datas.invest;
+                value1 = this.datas.value1;
+                value2 = this.datas.value2;
+                this.tempData.invest = '****';
+                this.tempData.value1 = '****';
+                this.tempData.value2 = '****';
+            } else {
+                this.tempData.invest = invest;
+                this.tempData.value1 = value1;
+                this.tempData.value2 = value2;
+                // this.datas.invest = tempData.invest;
+                // this.datas.value1 = tempData.value1;
+                // this.datas.value2 = tempData.value2;
+            }
+            
+        }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"type === 0\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h3><slot></slot></h3>\n    <h6>{{ footer }}</h6>\n</div>\n<div v-else-if=\"type === 1\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h6>{{ header }}</h6>\n    <h2><slot></slot></h2>\n</div>\n<div v-else-if=\"type === 2\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 3\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n        <b-select :id=\"linkId\" size=\"24\" color=\"high\">{{ link }}</b-select>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else=\"\"></div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"type === 0\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h3><slot></slot></h3>\n    <h6>{{ footer }}</h6>\n</div>\n<div v-else-if=\"type === 1\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h6>{{ header }}</h6>\n    <h2><slot></slot></h2>\n</div>\n<div v-else-if=\"type === 2\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 3\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n        <b-select :id=\"linkId\" size=\"24\" color=\"high\">{{ link }}</b-select>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 4\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <header class=\"header\">\n        <h6>{{datas.header}}</h6>\n        <h2>{{datas.invest}}</h2>\n    </header>\n    <ul class=\"_three\">\n        <li>\n            <div>{{ datas.title1 }}</div>\n            <div>{{ datas.value1 }}</div>\n        </li>\n        <li>\n            <div>{{ datas.title2 }}</div>\n            <div>{{ datas.value2 }}</div>\n        </li>\n        <li>\n            <div>{{ datas.title3 }}</div>\n            <div>{{ datas.value3 }}</div>\n        </li>\n    </ul>\n</div>\n<div v-else-if=\"type === 5\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <header>\n        <h6 class=\"_eyecenter\">{{datas.header}} <b-icon size=\"40\" name=\"eye\" @tapped=\"hiddenData\"></b-icon></h6>\n        <h2>{{tempData.invest}}</h2>\n    </header>\n    <ul class=\"_three _second\">\n        <li>\n            <div>{{ datas.title1 }}</div>\n            <div>{{ tempData.value1 }}</div>\n        </li>\n        <li>\n            <div>{{ datas.title2 }}</div>\n            <div>{{ tempData.value2 }}</div>\n        </li>\n    </ul>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16742,11 +16811,6 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-
-
-
-
-
 var event = require('../../utils/gum.vue.events');
 module.exports = {
     props: {
@@ -16761,6 +16825,10 @@ module.exports = {
         period: {
             type: String,
             default: '0'
+        },
+        label: {
+            type: String,
+            default: ""
         }
     },
     data: function (){
@@ -16781,7 +16849,9 @@ module.exports = {
         });
         return {
             elements: elems,
-            periodType: this.period
+            periodType: this.period,
+            label7Rate: this.label && this.label.split('|')[0],
+            labelWRate: this.label && this.label.split('|')[1]
         }
     },
     methods: {
@@ -16818,7 +16888,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell bgcolor=\"white\" v-if=\"radius\" id=\"radiusTab\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[0].id\" period=\"0\" class=\"_radius_active\" @tapped=\"tabedswitch\">{{elements[0].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[1].id\" period=\"1\" @tapped=\"tabedswitch\">{{elements[1].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[2].id\" period=\"2\" @tapped=\"tabedswitch\">{{elements[2].text}}</b-radius-button>\n    </s-flex-column>\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n</s-cell>\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n</div>\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n</div> \n\n<div v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"elements[0].id\" class=\"_borderbtm\" @mytab=\"tabswitch\">{{elements[0].text}}</span>\n    <span :id=\"elements[1].id\" @mytap=\"tabswitch\">{{elements[1].text}}</span>\n    <span :id=\"elements[2].id\" @mytap=\"tabswitch\">{{elements[2].text}}</span>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell bgcolor=\"white\" v-if=\"radius\" id=\"radiusTab\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[0].id\" period=\"0\" class=\"_radius_active\" @tapped=\"tabedswitch\">{{elements[0].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[1].id\" period=\"1\" @tapped=\"tabedswitch\">{{elements[1].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[2].id\" period=\"2\" @tapped=\"tabedswitch\">{{elements[2].text}}</b-radius-button>\n    </s-flex-column>\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n</s-cell>\n\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\"><h3>{{elements[0].text}}</h3><h3>{{label7Rate}}</h3></span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\"><h3>{{elements[1].text}}</h3><h3>{{labelWRate}}</h3></span>\n</div> \n\n<div v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"item.id\" :class=\"{_borderbtm: index == 0}\" @mytap=\"tabswitch\" v-for=\"(item,index) in elements\">{{item.text}}</span>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
