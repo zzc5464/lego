@@ -49,13 +49,6 @@
             };
         },
 
-        mounted: function () {
-            events.on('test', function (a) {
-                // alert('check-line-group');
-                a.push('check-line-group');
-            });
-        },
-
         methods: {
             inputTab: function (e){
                 var el = e.target,
@@ -71,7 +64,7 @@
                 
                 el.firstChild.classList.add('active');
 
-                this.$emit('input', '123');
+                this.$emit('input', el.lastChild);
             }
         }
     }
