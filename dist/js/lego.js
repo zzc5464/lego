@@ -17616,7 +17616,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span v-on:mytap=\"tapped\" :checked=\"isChecked\" class=\"_checkbox\" :class=\"{_checkbox_active: isChecked}\">\n      <b-icon v-show=\"isChecked\" name=\"check\" color=\"white\"></b-icon>\n</span>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span v-on:mytap=\"tapped\" :checked=\"isChecked\" class=\"_checkbox\" :class=\"{_checkbox_active: isChecked}\">\n      <b-icon v-show=\"isChecked\" name=\"check\" color=\"white\" size=\"16\"></b-icon>\n</span>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

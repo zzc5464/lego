@@ -333,9 +333,9 @@ input::-webkit-input-placeholder {
 ._checkbox,
 ._solid_checkbox {
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  line-height: 13px;
+  width: 0.84211rem;
+  height: 0.84211rem;
+  line-height: 0.63158rem;
   border: 1px solid #c1c1c1;
   background-color: transparent;
   box-sizing: border-box;
@@ -352,9 +352,9 @@ input::-webkit-input-placeholder {
 ._radio {
   position: relative;
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  line-height: 18px;
+  width: 1.05263rem;
+  height: 1.05263rem;
+  line-height: 0.92105rem;
   border: 1px solid #c1c1c1;
   border-radius: 50%;
   background-color: transparent;
@@ -364,7 +364,7 @@ input::-webkit-input-placeholder {
 
 ._radio i,
 ._checkbox i {
-  font-size: 16px;
+  font-size: 0.78947rem;
   font-weight: bold; }
 
 ._solid_radio_active:after {
@@ -372,10 +372,10 @@ input::-webkit-input-placeholder {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -7px;
-  margin-left: -7px;
-  width: 14px;
-  height: 14px;
+  margin-top: -0.36842rem;
+  margin-left: -0.36842rem;
+  width: 0.73684rem;
+  height: 0.73684rem;
   border: none;
   background-color: #d7ac62;
   border-radius: 50%; }
@@ -559,7 +559,7 @@ ul {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
-    line-height: 1; }
+    line-height: 0.97368rem; }
 
 ._pwd {
   margin: 30px auto;
@@ -1134,6 +1134,9 @@ button, input, span {
 
 .text_color_coral {
   color: #e6654c; }
+
+._text_size_16px {
+  font-size: 0.42105rem; }
 
 ._text_size_18px {
   font-size: 0.47368rem; }
