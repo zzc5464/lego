@@ -15,8 +15,18 @@
         <s-flex-column></s-flex-column>
     </s-cell>
 
+    <!-- 构建双按钮样式（充满效果）-->
+    <s-cell v-else-if='elements.length === 2 && filled === "true"' :height='height' :bgcolor='bgcolor'>
+        <s-flex-column>
+            <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" color="white" filled="false">{{elements[0].text}}</b-rectangular-button>
+        </s-flex-column>
+        <s-flex-column>
+            <b-rectangular-button :id='elements[1].id' size="34" height="3.157895" color="white" filled="true">{{elements[1].text}}</b-rectangular-button>
+        </s-flex-column>
+    </s-cell>
+
     <!-- 构建双按钮样式（留白效果）-->
-    <s-cell v-else-if='elements.length === 2' :height='height' :bgcolor='bgcolor'>
+    <s-cell v-else-if='elements.length === 2 && filled !== "true"' :height='height' :bgcolor='bgcolor'>
         <s-flex-column></s-flex-column>
         <s-column width='8.947368'>
             <b-button :id='elements[0].id' size='34' height='2.105263' filled='false'>{{elements[0].text}}</b-button>
@@ -26,6 +36,19 @@
             <b-button :id='elements[1].id' size='34' height='2.105263' filled='true'>{{elements[1].text}}</b-button>
         </s-column>
         <s-flex-column></s-flex-column>
+    </s-cell>
+
+    <!-- 构建三按钮样式（充满效果）-->
+    <s-cell v-else-if='elements.length === 3' :height='height' :bgcolor='bgcolor'>
+        <s-flex-column>
+            <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" filled="false">{{elements[0].text}}</b-rectangular-button>
+        </s-flex-column>
+        <s-column width='5'>
+            <b-rectangular-button :id='elements[1].id' size="34" height="3.157895" bgcolor="cream" color="light" filled="false">{{elements[1].text}}</b-rectangular-button>
+        </s-column>
+        <s-column width='5'>
+            <b-rectangular-button :id='elements[2].id' size="34" height="3.157895" filled="true">{{elements[2].text}}</b-rectangular-button>
+        </s-column>
     </s-cell>
 
     <!-- 误用提示 -->

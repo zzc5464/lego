@@ -15515,6 +15515,29 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = {
     props: [ 'bgcolor', 'filled' ],
 
@@ -15543,7 +15566,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<!-- 构建单按钮样式（充满效果）-->\n<s-cell v-if=\"elements.length === 1 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column align=\"center\">\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" color=\"white\" filled=\"true\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建单按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 1 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"12.894736\" align=\"center\">\n        <b-button :id=\"elements[0].id\" size=\"34\" color=\"white\" height=\"2.105263\" filled=\"true\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 2\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[0].id\" size=\"34\" height=\"2.105263\" filled=\"false\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-column width=\".789474\"></s-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[1].id\" size=\"34\" height=\"2.105263\" filled=\"true\">{{elements[1].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- \b误用提示 -->\n<s-cell v-else=\"\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-text>参数不合法</b-text>\n    </s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<!-- 构建单按钮样式（充满效果）-->\n<s-cell v-if=\"elements.length === 1 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column align=\"center\">\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" color=\"white\" filled=\"true\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建单按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 1 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"12.894736\" align=\"center\">\n        <b-button :id=\"elements[0].id\" size=\"34\" color=\"white\" height=\"2.105263\" filled=\"true\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（充满效果）-->\n<s-cell v-else-if=\"elements.length === 2 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" color=\"white\" filled=\"false\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[1].id\" size=\"34\" height=\"3.157895\" color=\"white\" filled=\"true\">{{elements[1].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 2 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[0].id\" size=\"34\" height=\"2.105263\" filled=\"false\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-column width=\".789474\"></s-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[1].id\" size=\"34\" height=\"2.105263\" filled=\"true\">{{elements[1].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建三按钮样式（充满效果）-->\n<s-cell v-else-if=\"elements.length === 3\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" filled=\"false\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n    <s-column width=\"5\">\n        <b-rectangular-button :id=\"elements[1].id\" size=\"34\" height=\"3.157895\" bgcolor=\"cream\" color=\"light\" filled=\"false\">{{elements[1].text}}</b-rectangular-button>\n    </s-column>\n    <s-column width=\"5\">\n        <b-rectangular-button :id=\"elements[2].id\" size=\"34\" height=\"3.157895\" filled=\"true\">{{elements[2].text}}</b-rectangular-button>\n    </s-column>\n</s-cell>\n\n<!-- \b误用提示 -->\n<s-cell v-else=\"\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-text>参数不合法</b-text>\n    </s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17019,7 +17042,7 @@ module.exports = {
             default: 'light'
         }
     }, 
-    data    : function () {
+    data: function () {
         var w = typeof this.label === 'undefined' ? 0 : this.labelWidth;
         return {
             width: {
@@ -18081,7 +18104,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 module.exports = {
-    props: [ 'width', 'height', 'size', 'filled', 'tapcolor' ],
+    props: [ 'width', 'height', 'size', 'filled', 'bgcolor', 'color', 'tapcolor' ],
 
     data: function () {
         
@@ -18095,6 +18118,11 @@ module.exports = {
 
         this.filled === 'true' 
         && list.push('_button_filled');
+
+        this.bgcolor && this.filled !== 'true' && list.push('_bgcolor_' + this.bgcolor);
+        
+        this.color 
+        && list.push('_text_color_' + this.color);
 
         return {
             styleObj: obj,
