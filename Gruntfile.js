@@ -8,7 +8,21 @@ module.exports = function(grunt) {
     // Load grunt tasks automatically
     //require('load-grunt-tasks')(grunt);
 
+    grunt.loadNpmTasks('grunt-envify');
+
     grunt.initConfig({
+        envify: {
+            lego: {
+                options: {
+                    env: {
+                        NODE_ENV: 'production'
+                    }
+                },
+                files: {
+                    './dist/js/lego.js': ['./dist/js/lego-o.js']
+                }
+            }
+        },
         tmod: {
             'demo-index': {
                 src: './src/demo/index/views/*.html',
@@ -84,7 +98,7 @@ module.exports = function(grunt) {
                     ]
                 },
                 src: [],
-                dest: './dist/js/lego.js'
+                dest: './dist/js/lego-o.js'
             },
 
             'demo-index': {
@@ -246,6 +260,7 @@ module.exports = function(grunt) {
         "sass", 
         "copy",
         "cssmin",
+        "envify:lego",
         "uglify",
         "clean"
     ]);
