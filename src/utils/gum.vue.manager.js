@@ -13,6 +13,7 @@ var components = [
     [ 'b-rectangular-button'    , require('../basic/rectangular-button/rectangular-button.vue.js')  ],
     [ 'b-tab-button'            , require('../basic/tab-button/tab-button.vue.js')                  ],
     [ 'b-text-button'           , require('../basic/text-button/text-button.vue.js')                ],
+    [ 'b-radius-button'         , require('../basic/radius-button/radius-button.vue.js')            ],
 
     [ 'b-text-field'            , require('../basic/text-field/text-field.vue.js')                  ],
     [ 'b-number-field'          , require('../basic/number-field/number-field.vue.js')              ],
@@ -74,7 +75,8 @@ var components = [
     [ 'tab-button'              , require('../assemble/tab-button/tab-button.vue.js')               ],
     [ 'amount-row'              , require('../assemble/amount-row/amount-row.vue.js')               ],
     [ 'check-line'              , require('../assemble/check-line/check-line.vue.js')               ],
-    [ 'check-line-group'        , require('../assemble/check-line-group/check-line-group.vue.js')   ]
+    [ 'check-line-group'        , require('../assemble/check-line-group/check-line-group.vue.js')   ],
+    [ 'line-chart'              , require('../assemble/line-chart/line-chart.vue.js')               ]
 ];
 
 components.forEach(function (component) {

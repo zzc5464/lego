@@ -23,7 +23,7 @@
         </s-column>
         <s-column width='.789474'></s-column>
         <s-column width='8.947368'>
-            <b-button :id='elements[0].id' size='34' height='2.105263' filled='true'>{{elements[1].text}}</b-button>
+            <b-button :id='elements[1].id' size='34' height='2.105263' filled='true'>{{elements[1].text}}</b-button>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>

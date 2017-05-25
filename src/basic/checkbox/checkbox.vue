@@ -1,6 +1,6 @@
 <template>
     <span v-on:mytap = "tapped" :checked="isChecked" class="_checkbox" :class="{_checkbox_active: isChecked}">
-          <b-icon v-show="isChecked" name="check"color="white"></b-icon>
+          <b-icon v-show="isChecked" name="check"color="white" size="16"></b-icon>
     </span>
 </template>
 

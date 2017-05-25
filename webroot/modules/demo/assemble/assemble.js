@@ -127,8 +127,102 @@ AssembleController.prototype = new FController({
     panel: function () {
         var data = {
             tel: '',
+            period: '0',
+            data: {
+                "pamaAcct":"1080000101457207",
+                "orangeAccount":"88000079580592",
+                "totalProfit":"0.53",
+                "buyDate":"2017-05-25",
+                "rateOf7Days":"3.3531",
+                "recentRedeemDate":"2017-07-10",
+                "auditResult":"01",
+                "autoInvestPlan":"",
+                "profitOf10K":"1.0128",
+                "limitFlag":"A",
+                "hisProfitRates":[
+                    {
+                        "profitOf10K":"1.0128",
+                        "navDate":"20170522",
+                        "nav":"3.3531"
+                    },
+                    {
+                        "profitOf10K":"1.1634",
+                        "navDate":"20170427",
+                        "nav":"4.6765"
+                    },
+                    {
+                        "profitOf10K":"1.1634",
+                        "navDate":"20170427",
+                        "nav":"4.6765"
+                    },
+                    {
+                        "profitOf10K":"1.7378",
+                        "navDate":"20170426",
+                        "nav":"6.1199"
+                    },
+                    {
+                        "profitOf10K":"0.9348",
+                        "navDate":"20170425",
+                        "nav":"6.4638"
+                    },
+                    {
+                        "profitOf10K":"0.9348",
+                        "navDate":"20170425",
+                        "nav":"6.4638"
+                    },
+                    {
+                        "profitOf10K":"1.5066",
+                        "navDate":"20170424",
+                        "nav":"8.3331"
+                    },
+                    {
+                        "profitOf10K":"3.9315",
+                        "navDate":"20170420",
+                        "nav":"7.7629"
+                    },
+                    {
+                        "profitOf10K":"2.3975",
+                        "navDate":"20170419",
+                        "nav":"6.2666"
+                    },
+                    {
+                        "profitOf10K":"0.9884",
+                        "navDate":"20170406",
+                        "nav":"3.5044"
+                    },
+                    {
+                        "profitOf10K":"4.7461",
+                        "navDate":"20170331",
+                        "nav":"3.5443"
+                    },
+                    {
+                        "profitOf10K":"1.0635",
+                        "navDate":"20170330",
+                        "nav":"3.5077"
+                    },
+                    {
+                        "profitOf10K":"0.9877",
+                        "navDate":"20170329",
+                        "nav":"3.3901"
+                    },
+                    {
+                        "profitOf10K":"1.1125",
+                        "navDate":"20170327",
+                        "nav":"3.1716"
+                    }
+                ],
+                "quotaAvailable":"1,999,999.97",
+                "userLevel":"H",
+                "heldAsset":"2000.54",
+                "toAcctDate":"2017-05-26",
+                "userName":"张一零",
+                "bearingDate":"2017-05-25",
+                "limitMsg":"今日产品可售额度剩余 1,999,999.97元，请尽快购买，以免可售额度售罄",
+                "yesterdyProfit":"0.12",
+                "auditMark":-1,
+                "mobile":"17720170010"
+            }
         }, $ = this.$;
-
 
         data.submit = function () {
             alert(data.tel);
@@ -144,6 +238,17 @@ AssembleController.prototype = new FController({
                     data.submit();
                 }
             });
+
+            // 折线图切换数据
+            $('#sevenDate').parent().tap(function (e){
+                var el = e.target;
+                if (el.getAttribute('id') === 'sevenDate'){
+                    data.period = '0';
+                } else if (el.getAttribute('id') === 'oneMon'){
+                    data.period = '1';
+                }
+            });
+
         }, data);
     },
 
@@ -228,8 +333,8 @@ var template=require("../../../template");module.exports=template("demo/assemble
 /*TMODJS:{"version":1,"md5":"1ae97121a3a100c198f9b7959eecfbde"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.list",'  <s-cell height="1" border="true" bgcolor="offwhite"> <s-column width=".789474" align="left"> </s-column> <s-column width="13" align="left"> <b-text size="22" color="grey">\u94f6\u884c\u5361 \u8df3\u8f6c\u4e0b\u4e00\u9875</b-text> </s-column> </s-cell> <list card=\'next-card\' :data=\'list1\' :on-tap=\'onTap\'></list> <s-cell height="1" border="true" bgcolor="offwhite"> <s-column width=".789474" align="left"> </s-column> <s-column width="13" align="left"> <b-text size="22" color="grey">\u4e0d\u652f\u6301\u7684\u94f6\u884c\u5361 \u63d0\u793a\u66f4\u6362 \u8df3\u8f6c\u4e0b\u4e00\u9875 </b-text> </s-column> </s-cell> <list card=\'next-card\' name=\'name\' value=\'123\' :data=\'list2\' :on-tap=\'onTap\' ></list> <s-cell height="1" border="true" bgcolor="offwhite"> <s-column width=".789474" align="left"> </s-column> <s-column width="13" align="left"> <b-text size="22" color="grey">\u4e0d\u652f\u6301\u7684\u94f6\u884c\u5361 \u4e0d\u53ef\u70b9\u51fb </b-text> </s-column> </s-cell> <list card=\'next-card\' name=\'name\' value=\'123\' :data=\'list3\' :on-tap=\'onTap\' ></list>  <s-cell height="1" border="true" bgcolor="offwhite"> <s-column width=".789474" align="left"> </s-column> <s-column width="13" align="left"> <b-text size="22" color="grey">\u6307\u5b9a\u9ed8\u8ba4\u9009\u4e2d\u7684\u7247\u5361 \u4e14\u94f6\u884c\u5361\u5217\u8868\u5faa\u73af </b-text> </s-column> </s-cell> <list card=\'select-card\' name=\'bankName\' value=\'\u5e73\u5b89\u94f6\u884c\' :data=\'list\' :on-tap=\'onTap\' ></list>  <s-cell height="1" border="true" bgcolor="offwhite"> <s-column width=".789474" align="left"> </s-column> <s-column width="13" align="left"> <b-text size="22" color="grey">\u6307\u5b9a\u9ed8\u8ba4\u9009\u4e2d\u7684\u7247\u5361 \u4e14\u94f6\u884c\u5361\u5217\u8868\u5faa\u73af </b-text> </s-column> </s-cell> <list card=\'card\' name=\'bankName\' value=\'\u5e73\u5b89\u94f6\u884c\' :data=\'list\' :on-tap=\'onTap\' ></list>  <s-cell height="1" border="true" bgcolor="offwhite"> <s-column width=".789474" align="left"> </s-column> <s-column width="13" align="left"> <b-text size="22" color="grey">\u5728\u9014\u8d44\u4ea7 \u7533\u8d2d\u8d4e\u56de\u8ba2\u5355\u5217\u8868 </b-text> </s-column> </s-cell> <list card=\'order-card\' :data=\'list4\' :on-tap=\'onTap\' ></list>  <s-cell height="1" border="true" bgcolor="offwhite"> <s-column width=".789474" align="left"> </s-column> <s-column width="13" align="left"> <b-text size="22" color="grey">\u8d26\u6237\u660e\u7ec6</b-text> </s-column> </s-cell> <list card=\'order-card\' :data=\'list5\' :on-tap=\'onTap\' ></list> ');
 },{"../../../template":17}],7:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"610974dbb02cbdc30c8b91fde017d031"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.panel","<p-main bgcolor='offwhite'> <stub></stub> <panel edit='false' bgcolor='white' border='false' label-width='6'> <fixed-row height='5' color='black'>\u6682\u65e0\u6d88\u606f...</fixed-row> <a-title id='save1' label='\u8054\u7cfb\u65b9\u5f0f' subtitle='(\u5355\u4f4d\uff1a\u5143)' comment='2000.00'></a-title> <a-title id='save2' label='\u8054\u7cfb\u65b9\u5f0f'>\u4fdd\u5b58</a-title> <tel-field-row label='\u7535\u8bdd\u53f7\u7801' v-model='tel'></tel-field-row> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\u59d3\u540d' align='right'>\u4e50\u4e50</text-row> <text-row label='\u8bc1\u4ef6\u7c7b\u578b'>21234567989456462</text-row> <text-row label='\u51fa\u751f\u65e5\u671f'>1995-02-05</text-row> <text-row label='\u6027\u522b'>\u7537</text-row> <text-field-row label='\u6027\u522b' placeholder='\u8bf7\u8f93\u5165'>\u7537</text-field-row> </panel> <fixed-row height='5' border='false'>\u6682\u65e0\u6d88\u606f...</fixed-row> <amount-row label='1000' desc='\u8d4e\u56de\u91d1\u989d' placeholder=\"\u672c\u6b21\u6700\u591a\u8d4e\u56de1000.00\u5143\"></amount-row> <amount-row desc='\u5145\u503c\u91d1\u989d' placeholder=\"\u672c\u6b21\u6700\u591a\u8d4e\u56de1000.00\u5143\"></amount-row> <amount-row label='1000' placeholder=\"\u672c\u6b21\u6700\u591a\u8d4e\u56de1000.00\u5143\"></amount-row> <stub border='false'></stub> <check-line-group> <check-line id='pay1' label='\u94f6\u884c\u5361\u652f\u4ed8' comment='\u5355\u65e5\u9650\u989d 3000 \u5143' value='\u5e73\u5b89\u94f6\u884c \u5c3e\u53f73500' link='true'></check-line> <check-line id='pay2' label='\u94b1\u5305\u652f\u4ed8' value='3,000.00 \u5143'></check-line> <check-line id='pay3' label='\u94f6\u884c\u5361\u652f\u4ed8' value='\u4e2d\u56fd\u5de5\u5546\u94f6\u884c \u5c3e\u53f78188' checked='true' link='true'></check-line> </check-line-group> <fixed-row height='5' border='false' submit='true'></fixed-row> <toast></toast> </p-main>");
+/*TMODJS:{"version":1,"md5":"1187804f7e785ef101c9f5862e6fc110"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.panel","<p-main bgcolor='offwhite'> <stub></stub> <panel edit='false' bgcolor='white' border='false' label-width='6'> <fixed-row height='5' color='black'>\u6682\u65e0\u6d88\u606f...</fixed-row> <a-title id='save1' label='\u8054\u7cfb\u65b9\u5f0f' subtitle='(\u5355\u4f4d\uff1a\u5143)' comment='2000.00'></a-title> <a-title id='save2' label='\u8054\u7cfb\u65b9\u5f0f'>\u4fdd\u5b58</a-title> <tel-field-row label='\u7535\u8bdd\u53f7\u7801' placeholder='\u8bf7\u8f93\u5165' v-model='tel'></tel-field-row> <tel-field-row label='\u7535\u8bdd\u53f7\u7801' align='right' placeholder='\u8bf7\u8f93\u5165' v-model='tel'></tel-field-row> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\u59d3\u540d' align='right'>\u4e50\u4e50</text-row> <text-row label='\u8bc1\u4ef6\u7c7b\u578b'>21234567989456462</text-row> <text-row label='\u51fa\u751f\u65e5\u671f'>1995-02-05</text-row> <text-row label='\u6027\u522b'>\u7537</text-row> <text-field-row label='\u6027\u522b' placeholder='\u8bf7\u8f93\u5165'>\u7537</text-field-row> <text-field-row label='\u6027\u522b' placeholder='\u8bf7\u8f93\u5165' align='right'>\u7537</text-field-row> </panel> <fixed-row height='5' border='false'>\u6682\u65e0\u6d88\u606f...</fixed-row> <amount-row label='1000' desc='\u8d4e\u56de\u91d1\u989d' placeholder=\"\u672c\u6b21\u6700\u591a\u8d4e\u56de1000.00\u5143\"></amount-row> <amount-row desc='\u5145\u503c\u91d1\u989d' placeholder=\"\u672c\u6b21\u6700\u591a\u8d4e\u56de1000.00\u5143\"></amount-row> <amount-row label='1000' placeholder=\"\u672c\u6b21\u6700\u591a\u8d4e\u56de1000.00\u5143\"></amount-row> <stub border='false'></stub> <check-line-group> <check-line id='pay1' label='\u94f6\u884c\u5361\u652f\u4ed8' comment='\u5355\u65e5\u9650\u989d 3000 \u5143' value='\u5e73\u5b89\u94f6\u884c \u5c3e\u53f73500' link='true'></check-line> <check-line id='pay2' label='\u94b1\u5305\u652f\u4ed8' value='3,000.00 \u5143'></check-line> <check-line id='pay3' label='\u94f6\u884c\u5361\u652f\u4ed8' value='\u4e2d\u56fd\u5de5\u5546\u94f6\u884c \u5c3e\u53f78188' checked='true' link='true'></check-line> </check-line-group> <tab-button> <a-button id='profit'>7\u65e5\u5e74\u5316\u6536\u76ca(%)</a-button> <a-button id='sdate'>\u4e07\u5206\u6536\u76ca(\u5143)</a-button> </tab-button> <line-chart :list='data.hisProfitRates'></line-chart> <tab-button :radius=\"true\"> <a-button id='all'>7\u65e5</a-button> <a-button id='pay'>1\u4e2a\u6708</a-button> <a-button id='income'>2\u4e2a\u6708</a-button> </tab-button> <fixed-row height='5' border='false' submit='true'></fixed-row> <toast></toast> </p-main>");
 },{"../../../template":17}],8:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"974933937f35c80bd87068cc926b905d"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.password",'<password length="3"></password>');
@@ -249,8 +354,8 @@ var template=require("../../../template");module.exports=template("demo/assemble
 /*TMODJS:{"version":1,"md5":"6359687590759032ecce04613d73bb99"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.stick",'<stick>\u4ea7\u54c1\u8fc7\u5f80\u4e1a\u7ee9\u4ec5\u4f9b\u53c2\u8003</stick> <lead footer="\u7533\u8d2d\u6210\u529f"> \u4ea4\u6613\u6210\u529f </lead> <s-cell class=\'_cell_next\' height="2.473684" border="true" bgcolor=\'white\'> <s-flex-column> </s-flex-column> <s-column width="17" align="left"> <b-text size="30" color="black">2017\u5e74\u5929\u777f\u65b0\u79d1\u5458\u5de5\u4fdd\u9669\u65b9\u6848</b-text> </s-column> <s-column width="1" align="right"> <b-select size=".75" ></b-select> </s-column> <s-flex-column> </s-flex-column> </s-cell> <s-cell class=\'_cell_next\' height="2.473684" border="true" bgcolor=\'white\'> <s-flex-column> </s-flex-column> <s-column width="10" align="left"> <b-text size="30" color="grey">\u8ba2\u5355\u91d1\u989d</b-text> </s-column> <s-column width="8" align="right"> <b-text size="30" color="grey">3000.00\u5143</b-text> </s-column> <s-flex-column> </s-flex-column> </s-cell> <s-cell class=\'_cell_next\' height="2.473684" border="true" bgcolor=\'white\'> <s-flex-column> </s-flex-column> <s-column width="10" align="left"> <b-text size="30" color="grey">\u79ef\u5206\u62b5\u6263</b-text> </s-column> <s-column width="8" align="right"> <b-text size="30" color="grey">3000.00\u5143</b-text> </s-column> <s-flex-column> </s-flex-column> </s-cell> <stick closable="false">\u4ea7\u54c1\u8fc7\u5f80\u4e1a\u7ee9\u4ec5\u4f9b\u53c2\u8003</stick> <lead header="GE***\u9879\u76ee" footer="\u8ba1\u5212\u521b\u5efa\u65f6\u95f4\uff1a2005-07-01" link="\u8ba1\u5212\u8be6\u60c5" link-id="detail-btn"> \u674e\u4e50\u4e50 </lead>');
 },{"../../../template":17}],14:[function(require,module,exports){
-/*TMODJS:{"version":1,"md5":"85c80de6904a5ef2159c2e9cae7d6e14"}*/
-var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.tabbutton","<p-main bgcolor='offwhite'> <tab-button> <a-button id='all'>\u5168\u90e8</a-button> <a-button id='pay'>\u652f\u51fa</a-button> <a-button id='income'>\u6536\u5165</a-button> </tab-button> <tab-button> <a-button id='purchase'>\u7533\u8d2d\u89c4\u5219</a-button> <a-button id='redeem'>\u8d4e\u56de\u89c4\u5219</a-button> </tab-button> <toast>\u63d0\u793a\u9519\u8bef\u4fe1\u606f</toast>  </p-main>");
+/*TMODJS:{"version":1,"md5":"19b2a6b7ebe76e98235fe4e8ceb9126d"}*/
+var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.tabbutton","<p-main bgcolor='offwhite'> <tab-button> <a-button id='all'>\u5168\u90e8</a-button> <a-button id='pay'>\u652f\u51fa</a-button> <a-button id='income'>\u6536\u5165</a-button> </tab-button> <tab-button> <a-button id='purchase'>\u7533\u8d2d\u89c4\u5219</a-button> <a-button id='redeem'>\u8d4e\u56de\u89c4\u5219</a-button> </tab-button> <tab-button :radius=\"true\"> <a-button id='all'>7\u65e5</a-button> <a-button id='pay'>1\u4e2a\u6708</a-button> <a-button id='income'>2\u4e2a\u6708</a-button> </tab-button> <toast>\u63d0\u793a\u9519\u8bef\u4fe1\u606f</toast>  </p-main>");
 },{"../../../template":17}],15:[function(require,module,exports){
 /*TMODJS:{"version":1,"md5":"7143fdb663729021a48ba03db45da2a1"}*/
 var template=require("../../../template");module.exports=template("demo/assemble/views/tpl.table","<p-main bgcolor='offwhite'> <stub></stub> <a-table bgcolor='white'> <text-row label='\u59d3\u540d'>\u674e\u4e50\u4e50</text-row> <text-row label='\u59d3\u540d' align='right' color='grey'>\u674e\u4e50\u4e50</text-row> <text-row label='\b\u516c\u53f8\u540d\u79f0'>\u5e73\u5b89\u517b\u8001\u4fdd\u9669\u80a1\u4efd\u6709\u9650\u516c\u53f8\u5e73\u5b89\u517b\u8001\u4fdd\u9669\u80a1\u4efd\u6709\u9650\u516c\u53f8\u5e73\u5b89\u517b\u8001\u4fdd\u9669\u80a1\u4efd\u6709\u9650\u516c\u53f8</text-row> <select-row label='\u5de6\u4fa7\u5355\u884c'>\u8bf7\u9009\u62e9</select-row> <select-row label='\u652f\u6301\u5de6\u4fa7\u591a\u884c\u6587\u5b57' color='coral'>\u8bf7\u9009\u62e9</select-row> </a-table> <stub></stub> <a-table bgcolor='white'> <text-field-row label='\u59d3\u540d' placeholder='\u8bf7\u8f93\u5165\u59d3\u540d' required='true'></text-field-row> <text-field-row label='\u59d3\u540d' placeholder='\u8bf7\u8f93\u5165\u59d3\u540d' value='\u9ed8\u8ba4\u503c' required='true'></text-field-row> <tel-field-row label='\u624b\u673a\u53f7\u7801' placeholder='\u8bf7\u8f93\u5165\u624b\u673a\u53f7\u7801' required='true'></tel-field-row> <id-field-row label='\u8eab\u4efd\u8bc1\u53f7' placeholder='\u8bf7\u8f93\u5165\u8eab\u4efd\u8bc1\u53f7' required='true'></id-field-row> <otp-field-row label='\u9a8c\u8bc1\u7801' placeholder='\u77ed\u4fe1\u9a8c\u8bc1\u7801' required='true'></otp-field-row> </a-table> </p-main>");

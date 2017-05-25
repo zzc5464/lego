@@ -86,11 +86,11 @@
             },
 
             init: function () {
-                return (this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
+                return (this.align !== 'right' && this.value && this.value.length > 0 && this.clearall === 'true') ? 'entering' : '';
             },
 
             update: function () {
-                return (this.address.length > 0 && this.clearall === 'true') ? 'entering' : '';
+                return (this.align !== 'right' && this.address.length > 0 && this.clearall === 'true') ? 'entering' : '';
             }
         }
     }
