@@ -14,19 +14,14 @@
         <s-column width=".789474" align="left">
         </s-column>
     </s-cell>
+
     <div v-else-if="elements.length === 2" class="_ruletab _ruletab1" >
-        <span :id="elements[0].id" rate='1' @mytap="tabswitch" class="_borderbtm" >{{elements[0].text}}</span>
-        <span :id="elements[1].id" rate='0' @mytap="tabswitch" >{{elements[1].text}}</span>
-    </div>
-    <div v-else-if="elements.length === 2" class="_ruletab _ruletab1" >
-        <span :id="elements[0].id" rate='1' @mytap="tabswitch" class="_borderbtm" >{{elements[0].text}}</span>
-        <span :id="elements[1].id" rate='0' @mytap="tabswitch" >{{elements[1].text}}</span>
+        <span :id="elements[0].id" rate='1' @mytap="tabswitch" class="_borderbtm" ><h3>{{elements[0].text}}</h3><h3>{{label7Rate}}</h3></span>
+        <span :id="elements[1].id" rate='0' @mytap="tabswitch" ><h3>{{elements[1].text}}</h3><h3>{{labelWRate}}</h3></span>
     </div> 
     
     <div v-else class="_ruletab _ruletab2">
-        <span :id="elements[0].id" class="_borderbtm" @mytab="tabswitch">{{elements[0].text}}</span>
-        <span :id="elements[1].id" @mytap="tabswitch">{{elements[1].text}}</span>
-        <span :id="elements[2].id" @mytap="tabswitch" >{{elements[2].text}}</span>
+        <span :id="item.id" :class="{_borderbtm: index == 0}" @mytap="tabswitch" v-for="(item,index) in elements">{{item.text}}</span>
     </div>
 </template>
 
@@ -47,6 +42,10 @@
             period: {
                 type: String,
                 default: '0'
+            },
+            label: {
+                type: String,
+                default: ""
             }
         },
         data: function (){
@@ -67,7 +66,9 @@
             });
             return {
                 elements: elems,
-                periodType: this.period
+                periodType: this.period,
+                label7Rate: this.label && this.label.split('|')[0],
+                labelWRate: this.label && this.label.split('|')[1]
             }
         },
         methods: {
