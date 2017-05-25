@@ -257,10 +257,10 @@ module.exports = function(grunt) {
         "vueify", 
         "tmod", 
         "browserify",
+        "envify:lego",
         "sass", 
         "copy",
         "cssmin",
-        "envify:lego",
         "uglify",
         "clean"
     ]);
