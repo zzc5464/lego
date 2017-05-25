@@ -238,16 +238,6 @@ AssembleController.prototype = new FController({
                 }
             });
 
-            // 折线图切换数据
-            $('#sevenDate').parent().tap(function (e){
-                var el = e.target;
-                if (el.getAttribute('id') === 'sevenDate'){
-                    data.period = '0';
-                } else if (el.getAttribute('id') === 'oneMon'){
-                    data.period = '1';
-                }
-            });
-
         }, data);
     },
 

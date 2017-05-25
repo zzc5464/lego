@@ -4,7 +4,7 @@
 
 <script>
     module.exports = {
-        props: [ 'width', 'height', 'size', 'filled', 'tapcolor' ],
+        props: [ 'width', 'height', 'size', 'filled', 'bgcolor', 'color', 'tapcolor' ],
 
         data: function () {
             
@@ -18,6 +18,11 @@
 
             this.filled === 'true' 
             && list.push('_button_filled');
+
+            this.bgcolor && this.filled !== 'true' && list.push('_bgcolor_' + this.bgcolor);
+            
+            this.color 
+            && list.push('_text_color_' + this.color);
 
             return {
                 styleObj: obj,
