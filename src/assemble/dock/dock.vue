@@ -18,10 +18,10 @@
     <!-- 构建双按钮样式（充满效果）-->
     <s-cell v-else-if='elements.length === 2 && filled === "true"' :height='height' :bgcolor='bgcolor'>
         <s-flex-column>
-            <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" color="white" filled="false">{{elements[0].text}}</b-rectangular-button>
+            <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" filled="false">{{elements[0].text}}</b-rectangular-button>
         </s-flex-column>
         <s-flex-column>
-            <b-rectangular-button :id='elements[1].id' size="34" height="3.157895" color="white" filled="true">{{elements[1].text}}</b-rectangular-button>
+            <b-rectangular-button :id='elements[1].id' size="34" height="3.157895" filled="true">{{elements[1].text}}</b-rectangular-button>
         </s-flex-column>
     </s-cell>
 
