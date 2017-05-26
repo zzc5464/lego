@@ -15560,7 +15560,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 module.exports = {
-    props: [ 'bgcolor', 'filled' ],
+    props: [ 'bgcolor', 'filled', 'type', 'high' ],
 
     data: function () {
         var slots = this.$slots.default,
@@ -15580,14 +15580,14 @@ module.exports = {
         });
 
         return {
-            height: '3.157895',
+            height: this.high || '3.157895',
             elements: elems
         };
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<!-- 构建单按钮样式（充满效果）-->\n<s-cell v-if=\"elements.length === 1 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column align=\"center\">\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" color=\"white\" filled=\"true\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建单按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 1 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"12.894736\" align=\"center\">\n        <b-button :id=\"elements[0].id\" size=\"34\" color=\"white\" height=\"2.105263\" filled=\"true\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（充满效果）-->\n<s-cell v-else-if=\"elements.length === 2 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" filled=\"false\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[1].id\" size=\"34\" height=\"3.157895\" filled=\"true\">{{elements[1].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 2 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[0].id\" size=\"34\" height=\"2.105263\" filled=\"false\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-column width=\".789474\"></s-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[1].id\" size=\"34\" height=\"2.105263\" filled=\"true\">{{elements[1].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建三按钮样式（充满效果）-->\n<s-cell v-else-if=\"elements.length === 3\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" filled=\"false\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n    <s-column width=\"5\">\n        <b-rectangular-button :id=\"elements[1].id\" size=\"34\" height=\"3.157895\" bgcolor=\"cream\" color=\"light\" filled=\"false\">{{elements[1].text}}</b-rectangular-button>\n    </s-column>\n    <s-column width=\"5\">\n        <b-rectangular-button :id=\"elements[2].id\" size=\"34\" height=\"3.157895\" filled=\"true\">{{elements[2].text}}</b-rectangular-button>\n    </s-column>\n</s-cell>\n\n<!-- \b误用提示 -->\n<s-cell v-else=\"\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-text>参数不合法</b-text>\n    </s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<!-- 构建单按钮样式（充满效果）-->\n<s-cell v-if=\"elements.length === 1 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column align=\"center\">\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" color=\"white\" filled=\"true\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建单按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 1 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"12.894736\" align=\"center\">\n        <b-text-button :id=\"elements[0].id\" size=\"30\" color=\"high\" v-if=\"type ===&quot;1&quot;\" :height=\"height\">{{elements[0].text}}</b-text-button>\n        <b-button :id=\"elements[0].id\" size=\"34\" color=\"white\" :height=\"height\" v-else=\"\" filled=\"true\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n<!-- 构建双按钮样式（充满效果）-->\n<s-cell v-else-if=\"elements.length === 2 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" filled=\"false\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[1].id\" size=\"34\" height=\"3.157895\" filled=\"true\">{{elements[1].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 2 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[0].id\" size=\"34\" height=\"2.105263\" filled=\"false\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-column width=\".789474\"></s-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[1].id\" size=\"34\" height=\"2.105263\" filled=\"true\">{{elements[1].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建三按钮样式（充满效果）-->\n<s-cell v-else-if=\"elements.length === 3\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" filled=\"false\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n    <s-column width=\"5\">\n        <b-rectangular-button :id=\"elements[1].id\" size=\"34\" height=\"3.157895\" bgcolor=\"cream\" color=\"light\" filled=\"false\">{{elements[1].text}}</b-rectangular-button>\n    </s-column>\n    <s-column width=\"5\">\n        <b-rectangular-button :id=\"elements[2].id\" size=\"34\" height=\"3.157895\" filled=\"true\">{{elements[2].text}}</b-rectangular-button>\n    </s-column>\n</s-cell>\n\n<!-- \b误用提示 -->\n<s-cell v-else=\"\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-text>参数不合法</b-text>\n    </s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16353,27 +16353,51 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-module.exports = {
-    props   : [ 'length'],
-    data    : function() {
-        return {
-            html: createHtml(parseInt(this.length))
-        };
+var events = require('../../utils/gum.vue.events'),
+    html   = function (length) {
+        var html = '', i, 
+            a = '<li>&#9679;</li>', 
+            b = '<li></li>';
 
-        function createHtml (length) {
-            var html = '';
-
-            for (var i=0; i<6; i++) {
-                html += i < length ? '<li>&#9679;</li>' : '<li></li>';
-            }
-
-            return html;
+        for ( i = 0; i < length; i++ ) {
+            html += a;
         }
+
+        for ( i = length; i < 6; i++ ) {
+            html += b;
+        }
+
+        return html;
+    }
+
+module.exports = {
+    props: {
+        length: {
+            type: Number,
+            default: 0
+        }
+    },
+
+    mounted: function () {
+        events.on('password', function (e) {
+            this.length = e.length;
+
+            //events.emit('input', this.length);
+
+            var ctrl = document.getElementById('_pwd_');
+            ctrl.innerHTML = html(this.length);
+        });
+    },
+
+    data: function () {
+        return {
+            html: html(this.length)
+        };
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<ul class=\"_pwd\" v-html=\"html\"></ul>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<ul id=\"_pwd_\" class=\"_pwd\" v-html=\"html\"></ul>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16384,7 +16408,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3d665ba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],24:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],24:[function(require,module,exports){
 
 
 
@@ -16560,6 +16584,10 @@ module.exports = {
             type: String,
             default: 'black'
         },
+        colorLeft: {
+            type: String,
+            default: 'grey'
+        },
         labelWidth: {
             type: Number,
             default: contants.labelWidth
@@ -16576,7 +16604,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"right\">\n        <b-select :size=\"size\" :color=\"color\"><slot></slot></b-select>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" :color=\"colorLeft\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"right\">\n        <b-select :size=\"size\" :color=\"color\"><slot></slot></b-select>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17129,6 +17157,10 @@ module.exports = {
         color: {
             type: String,
             default: 'light'
+        },
+        colorRight: {
+            type: String,
+            default: 'black'
         }
     }, 
     data: function () {
@@ -17143,7 +17175,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-multiline :width=\"width.label\" align=\"left\">\n        <b-text size=\"30\" :color=\"color\">{{ label }}</b-text>\n    </s-multiline>\n    <s-multiline :width=\"width.value\" :align=\"align\">\n        <b-text size=\"30\" color=\"black\"><slot></slot></b-text>\n    </s-multiline>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-multiline :width=\"width.label\" align=\"left\">\n        <b-text size=\"30\" :color=\"color\">{{ label }}</b-text>\n    </s-multiline>\n    <s-multiline :width=\"width.value\" :align=\"align\">\n        <b-text size=\"30\" :color=\"colorRight\"><slot></slot></b-text>\n    </s-multiline>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
