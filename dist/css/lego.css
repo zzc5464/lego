@@ -713,6 +713,38 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 2.36842rem; }
   ._assetheader h6 {
     line-height: 1.31579rem; }
+  ._assetheader header {
+    text-align: center;
+    padding: 0.52632rem 0; }
+    ._assetheader header h6 {
+      color: #d7ac62; }
+      ._assetheader header h6 i {
+        vertical-align: middle; }
+    ._assetheader header ._eyecenter {
+      margin-left: 1.10526rem; }
+  ._assetheader ._three {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; }
+    ._assetheader ._three li {
+      float: left;
+      width: 29%;
+      margin-left: 0.65789rem;
+      color: #fff;
+      font-size: 0.84211rem; }
+      ._assetheader ._three li > div:first-child {
+        color: #fff;
+        font-size: 0.57895rem; }
+    ._assetheader ._three li:first-child {
+      width: 33%;
+      margin-left: 1.31579rem; }
+    ._assetheader ._three li:last-child {
+      width: 23%; }
+  ._assetheader ._second li:first-child {
+    width: 40%;
+    margin-left: 18%; }
+  ._assetheader ._second li:last-child {
+    width: 38%; }
   ._assetheader div {
     position: relative;
     margin: 5px 0 6px; }

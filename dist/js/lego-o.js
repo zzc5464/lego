@@ -10,25 +10,40 @@ var process = module.exports = {};
 var cachedSetTimeout;
 var cachedClearTimeout;
 
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
 (function () {
     try {
-        cachedSetTimeout = setTimeout;
-    } catch (e) {
-        cachedSetTimeout = function () {
-            throw new Error('setTimeout is not defined');
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
         }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
     }
     try {
-        cachedClearTimeout = clearTimeout;
-    } catch (e) {
-        cachedClearTimeout = function () {
-            throw new Error('clearTimeout is not defined');
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
         }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
     }
 } ())
 function runTimeout(fun) {
     if (cachedSetTimeout === setTimeout) {
         //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
         return setTimeout(fun, 0);
     }
     try {
@@ -49,6 +64,11 @@ function runTimeout(fun) {
 function runClearTimeout(marker) {
     if (cachedClearTimeout === clearTimeout) {
         //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
         return clearTimeout(marker);
     }
     try {
@@ -276,9 +296,10 @@ exports.reload = tryWrap(function (id, options) {
   makeOptionsHot(id, options)
   var record = map[id]
   record.Ctor.extendOptions = options
-  var newCtor = Vue.extend(options)
+  var newCtor = record.Ctor.super.extend(options)
   record.Ctor.options = newCtor.options
   record.Ctor.cid = newCtor.cid
+  record.Ctor.prototype = newCtor.prototype
   if (newCtor.release) {
     // temporary global mixin strategy used in < 2.0.0-alpha.6
     newCtor.release()
@@ -15759,6 +15780,42 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = {
     props: {
         header: {
@@ -15779,52 +15836,84 @@ module.exports = {
         linkId: {
             type: String,
             default: ''
+        },
+
+        label: {
+            type: String,
+            default: ''
+        },
+
+        topData: {
+            type: Object,
+            default: function () { return {}; }
         }
     },
     data: function() {
         var obj = {}, list = [], t = 0;
+        var temp = {};
+        for(var i in this.topData) {
+            temp[i] = this.topData[i];
+        }
 
-        if (this.header === '' && this.footer === '') {
+        if (this.label === '1') {
+            t = 4;
+        } 
+        else if (this.label === '2') {
+            t = 5;
+        } 
+        else if (this.header === '' && this.footer === '') {
             obj.height = '3.684211rem';
             list.push('_setflex');
             t = 0;
         }
 
-        if (this.header !== '' && this.footer === '') {
+        else if (this.header !== '' && this.footer === '') {
             obj.paddingTop = '1.052632rem';
             t = 1;
         }
 
-        if (this.header === '' && this.footer !== '') {
+        else if (this.header === '' && this.footer !== '') {
             t = 0;
         }
 
-        if (this.header !== '' && this.footer !== '' && this.link === '') {
+        else if (this.header !== '' && this.footer !== '' && this.link === '') {
             t = 2;
         }
 
-        if (this.header !== '' && this.footer !== '' && this.link !== '') {
+        else if (this.header !== '' && this.footer !== '' && this.link !== '') {
             t = 3;
         }
-
-        // var list = [];
-        // var obj = {};
-        // this.height && (obj.paddingTop = '1.052632rem');
-        // this.oneline && (obj.height = '3.684211rem');
-        // this.oneline && list.push('_setflex');
+        
         return {
+            tempData: this.topData,
+            datas: temp,
+            open: true,
             classObj: list,
             styleObj: obj,
             type: t
         };
     },
     methods: {
-        
+        hiddenData: function() {
+
+            if(this.tempData.invest !== '****') {
+                this.tempData.invest = '****';
+                this.tempData.value1 = '****';
+                this.tempData.value2 = '****';
+                this.open = false;
+            } else {
+                this.tempData.invest = this.datas.invest;
+                this.tempData.value1 = this.datas.value1;
+                this.tempData.value2 = this.datas.value2;
+                this.open = true;
+            }
+            
+        }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"type === 0\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h3><slot></slot></h3>\n    <h6>{{ footer }}</h6>\n</div>\n<div v-else-if=\"type === 1\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h6>{{ header }}</h6>\n    <h2><slot></slot></h2>\n</div>\n<div v-else-if=\"type === 2\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 3\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n        <b-select :id=\"linkId\" size=\"24\" color=\"high\">{{ link }}</b-select>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else=\"\"></div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"type === 0\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h3><slot></slot></h3>\n    <h6>{{ footer }}</h6>\n</div>\n<div v-else-if=\"type === 1\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h6>{{ header }}</h6>\n    <h2><slot></slot></h2>\n</div>\n<div v-else-if=\"type === 2\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 3\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n        <b-select :id=\"linkId\" size=\"24\" color=\"high\">{{ link }}</b-select>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 4\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <header class=\"header\">\n        <h6>{{datas.header}}</h6>\n        <h2>{{datas.invest}}</h2>\n    </header>\n    <ul class=\"_three\">\n        <li>\n            <div>{{ datas.title1 }}</div>\n            <div>{{ datas.value1 }}</div>\n        </li>\n        <li>\n            <div>{{ datas.title2 }}</div>\n            <div>{{ datas.value2 }}</div>\n        </li>\n        <li>\n            <div>{{ datas.title3 }}</div>\n            <div>{{ datas.value3 }}</div>\n        </li>\n    </ul>\n</div>\n<div v-else-if=\"type === 5\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <header>\n        <h6 class=\"_eyecenter\">{{tempData.header}} <b-icon size=\"40\" name=\"eye\" @tapped=\"hiddenData\" v-show=\"open == true\"></b-icon><b-icon size=\"40\" name=\"eye-closed\" @tapped=\"hiddenData\" v-show=\"open != true\"></b-icon></h6>\n        <h2>{{tempData.invest}}</h2>\n    </header>\n    <ul class=\"_three _second\">\n        <li>\n            <div>{{ tempData.title1 }}</div>\n            <div>{{ tempData.value1 }}</div>\n        </li>\n        <li>\n            <div>{{ datas.title2 }}</div>\n            <div>{{ tempData.value2 }}</div>\n        </li>\n    </ul>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17118,14 +17207,25 @@ module.exports = {
         var cy = ['30','90','150','210'];
         var ty = ['35','95','155','215'];
 
+        var tempH = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4,0,375,95">\
+                    <circle stroke="#C1C1C1" stroke-width="4" fill="#C1C1C1" cx="13%" cy="30" r="4"/>\
+                    <rect fill="#C1C1C1" x="13%" y="30" width="35%" height="0.5"/>\
+                    <text x="13%" y="58" text-anchor="middle" font-size="12" fill="#999">'+ ele[0].label +'</text>\
+                    <text x="13%" y="75" text-anchor="middle" font-size="12" fill="#999">'+ ele[0].desc +'</text>';
+        var ch = ["13%","50%","85%","96%"];
+        var rh = ["13%","51%","81%"];
+
+
         //圆点
         for (var i = 1; i < (len); i++) {
             temp += '<circle stroke="#ffffff" stroke-width="3" fill="#c1c1c1" cx="'+ cx[i]+'" cy="30" r="6"/>';
             tempY += '<circle stroke="#ffffff" stroke-width="3" fill="#c1c1c1" cx="2%" cy="'+ cy[i] +'" r="6"/>';
+            tempH += '<circle stroke="#c1c1c1" stroke-width="1" fill="#c1c1c1" cx="'+ ch[i]+'" cy="30" r="6"/>';
         }
         //横线
         for (var i = 1; i < (len-1); i++) {
             temp += '<rect fill="#c1c1c1" x="'+rx[i]+'" y="30" width="21%" height="0.5"/>';
+            tempH += '<rect fill="#c1c1c1" x="'+rh[i]+'" y="30" width="35%" height="0.5"/>';
         }
         //文字
         for (var i = 1; i < (len); i++) {
@@ -17134,12 +17234,27 @@ module.exports = {
 
             tempY += '<text x="6%" y="'+ ty[i] +'" font-size="15" fill="#999">'+ ele[i].label +'</text>\
             <text x="26%" y="'+ ty[i] +'" font-size="11" fill="#999">'+ ele[i].desc +'</text>';
+
+            tempH += '<text x="'+ch[i]+'" y="58" text-anchor="middle" font-size="12" fill="#999">'+ ele[i].label +'</text>\
+                    <text x="'+ch[i]+'" y="75" text-anchor="middle" font-size="12" fill="#999">'+ ele[i].desc +'</text>';
         }
 
         temp += '</svg>';
         tempY +='</svg>';
+        var svgHtml = '';
+        switch(this.lineType)
+            {
+            case '2':
+                svgHtml = tempY;
+            break;
+            case '3':
+                svgHtml = tempH;
+            break;
+            default:
+                svgHtml = temp;
+            }
         return {
-            creatSvg: this.lineType == '1' ? temp : tempY
+            creatSvg: svgHtml
         };
     },
     methods: {
