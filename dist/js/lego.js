@@ -10,40 +10,25 @@ var process = module.exports = {};
 var cachedSetTimeout;
 var cachedClearTimeout;
 
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
 (function () {
     try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
+        cachedSetTimeout = setTimeout;
     } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
+        cachedSetTimeout = function () {
+            throw new Error('setTimeout is not defined');
+        }
     }
     try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
+        cachedClearTimeout = clearTimeout;
     } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
+        cachedClearTimeout = function () {
+            throw new Error('clearTimeout is not defined');
+        }
     }
 } ())
 function runTimeout(fun) {
     if (cachedSetTimeout === setTimeout) {
         //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
         return setTimeout(fun, 0);
     }
     try {
@@ -64,11 +49,6 @@ function runTimeout(fun) {
 function runClearTimeout(marker) {
     if (cachedClearTimeout === clearTimeout) {
         //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
         return clearTimeout(marker);
     }
     try {
@@ -296,10 +276,9 @@ exports.reload = tryWrap(function (id, options) {
   makeOptionsHot(id, options)
   var record = map[id]
   record.Ctor.extendOptions = options
-  var newCtor = record.Ctor.super.extend(options)
+  var newCtor = Vue.extend(options)
   record.Ctor.options = newCtor.options
   record.Ctor.cid = newCtor.cid
-  record.Ctor.prototype = newCtor.prototype
   if (newCtor.release) {
     // temporary global mixin strategy used in < 2.0.0-alpha.6
     newCtor.release()
@@ -16353,27 +16332,51 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-module.exports = {
-    props   : [ 'length'],
-    data    : function() {
-        return {
-            html: createHtml(parseInt(this.length))
-        };
+var events = require('../../utils/gum.vue.events'),
+    html   = function (length) {
+        var html = '', i, 
+            a = '<li>&#9679;</li>', 
+            b = '<li></li>';
 
-        function createHtml (length) {
-            var html = '';
-
-            for (var i=0; i<6; i++) {
-                html += i < length ? '<li>&#9679;</li>' : '<li></li>';
-            }
-
-            return html;
+        for ( i = 0; i < length; i++ ) {
+            html += a;
         }
+
+        for ( i = length; i < 6; i++ ) {
+            html += b;
+        }
+
+        return html;
+    }
+
+module.exports = {
+    props: {
+        length: {
+            type: Number,
+            default: 0
+        }
+    },
+
+    mounted: function () {
+        events.on('password', function (e) {
+            this.length = e.length;
+
+            //events.emit('input', this.length);
+
+            var ctrl = document.getElementById('_pwd_');
+            ctrl.innerHTML = html(this.length);
+        });
+    },
+
+    data: function () {
+        return {
+            html: html(this.length)
+        };
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<ul class=\"_pwd\" v-html=\"html\"></ul>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<ul id=\"_pwd_\" class=\"_pwd\" v-html=\"html\"></ul>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16384,7 +16387,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3d665ba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],24:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],24:[function(require,module,exports){
 
 
 
