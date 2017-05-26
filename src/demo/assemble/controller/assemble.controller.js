@@ -2,6 +2,7 @@
 
 var FController         = require('fcontroller'),
     VueManager          = require('lego'),
+    events              = require('events'),
     
     tplFlypeView        = require('../views/tpl.flype'),
     tplStickView        = require('../views/tpl.stick'),
@@ -96,7 +97,23 @@ AssembleController.prototype = new FController({
     },
 
     password: function () {
-        this.show('交易密码', tplPasswordView);
+        var data = {
+            password: ''
+        };
+
+        this.show('交易密码', tplPasswordView, function () {
+            setTimeout(function () {
+                events.emit('password', {
+                    length: 3
+                });
+            }, 2000);
+
+            setTimeout(function () {
+                alert(data.length);
+            }, 4000);
+        }, data);
+
+        //this.show('交易密码', tplPasswordView);
     },
 
     stages: function () {
@@ -122,6 +139,9 @@ AssembleController.prototype = new FController({
     dock: function () {
         this.show('按钮', tplDockView);
     },
+
+
+
 
     panel: function () {
         var data = {
