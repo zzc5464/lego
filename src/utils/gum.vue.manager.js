@@ -76,7 +76,8 @@ var components = [
     [ 'amount-row'              , require('../assemble/amount-row/amount-row.vue.js')               ],
     [ 'check-line'              , require('../assemble/check-line/check-line.vue.js')               ],
     [ 'check-line-group'        , require('../assemble/check-line-group/check-line-group.vue.js')   ],
-    [ 'line-chart'              , require('../assemble/line-chart/line-chart.vue.js')               ]
+    [ 'line-chart'              , require('../assemble/line-chart/line-chart.vue.js')               ],
+    [ 'modal'                   , require('../assemble/modal/modal.vue.js')                         ]
 ];
 
 components.forEach(function (component) {

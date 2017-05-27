@@ -637,21 +637,68 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.3);
   z-index: 99; }
+.gum .lego ._modal {
+  display: none; }
 .gum .lego ._modal-wrap {
   position: absolute;
   top: 30%;
   left: 50%;
   margin-left: -8.05263rem;
   width: 16.10526rem;
+  padding-top: 1rem;
   background: #fff;
   border-radius: 4px;
   z-index: 100; }
-.gum .lego ._modal-content {
-  text-align: center;
-  padding: 30px; }
-.gum .lego ._modal-footer {
-  border-top: 1px solid #c1c1c1;
-  height: 80px; }
+  .gum .lego ._modal-wrap h2 {
+    padding-bottom: 0.73684rem;
+    font-size: 0.89474rem;
+    text-align: center;
+    line-height: 1.78947rem;
+    color: #333; }
+  .gum .lego ._modal-wrap ._message {
+    padding: 0 1.31579rem 1rem;
+    font-size: 0.78947rem;
+    line-height: 1.42105rem;
+    text-align: center;
+    color: #666; }
+    .gum .lego ._modal-wrap ._message input {
+      width: 12.89474rem;
+      height: 1.94737rem;
+      padding-left: 0.52632rem;
+      margin-bottom: 0.36842rem;
+      border: 1px solid #dcdcdc; }
+    .gum .lego ._modal-wrap ._message input::-webkit-placeholder {
+      font-size: 0.78947rem;
+      color: #c1c1c1; }
+  .gum .lego ._modal-wrap ._btns {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    border-top: 1px solid #c1c1c1;
+    height: 2.31579rem; }
+    .gum .lego ._modal-wrap ._btns div {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      align-items: center; }
+    .gum .lego ._modal-wrap ._btns div:nth-of-type(2) {
+      border-left: 1px solid #c1c1c1; }
+  .gum .lego ._modal-wrap .lineone {
+    font-size: 1.05263rem;
+    line-height: 1.63158rem;
+    color: #666;
+    padding: 1.39474rem 1.31579rem; }
+  .gum .lego ._modal-wrap .linetwo {
+    text-align: center; }
+.gum .lego ._show {
+  display: block; }
+.gum .lego ._hide {
+  display: none; }
 .gum .lego ._comment {
   padding: 0 0.78947rem;
   line-height: 1.94737rem;

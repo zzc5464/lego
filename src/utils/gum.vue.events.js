@@ -33,4 +33,7 @@ Events.prototype.toastClear = function () {
     this.events.$emit('toast-clear');
 }
 
+Events.prototype.modal = function () {
+    this.events.$emit('modal');
+}
 module.exports = new Events();

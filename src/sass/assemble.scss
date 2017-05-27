@@ -364,24 +364,81 @@ h1,h2,h3,h4,h5,h6 {
     background: rgba(0,0,0,0.3);
     z-index: $zindex-mask;
 }
+._modal {
+    display: none;
+}
 ._modal-wrap {
     position: absolute;
     top: 30%;
     left: 50%;
     margin-left: -#{calRem(306)};
     width: calRem(612);
+    padding-top: calRem(38);
     background: $c-white ;
     border-radius: 4px;
     z-index: $zindex-modal;
-}
-._modal-content{
-    text-align: center;
-    padding: 30px;
+    h2 {
+        padding-bottom: calRem(28);
+        font-size: calRem(34);
+        text-align: center;
+        line-height: calRem(68);
+        color: $c-black;
+    }
+    ._message{
+        padding: 0 calRem(50) calRem(38);
+        font-size: calRem(30);
+        line-height: calRem(54);
+        text-align: center;
+        color: $c-grey;
+        input {
+            width: calRem(490);
+            height: calRem(74);
+            padding-left: calRem(20);
+            margin-bottom: calRem(14);
+            border: 1px solid #dcdcdc;
+        }
+        input::-webkit-placeholder {
+            font-size: calRem(30);
+            color: #c1c1c1;
+        }
+    }
+    ._btns{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        border-top: 1px solid $c-lightgrey;
+        height: calRem(88);
+        div {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
 
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        div:nth-of-type(2){
+            border-left: 1px solid $c-lightgrey;
+        }
+    }
+    .lineone {
+        font-size: calRem(40);
+        line-height: calRem(62);
+        color: $c-grey;
+        padding: calRem(53) calRem(50);
+    }
+    .linetwo {
+        text-align: center;
+    }
 }
-._modal-footer{
-    border-top: 1px solid $c-lightgrey;
-    height: 80px;
+._show {
+    display: block;
+}
+._hide {
+    display: none;
 }
 
 ._comment {

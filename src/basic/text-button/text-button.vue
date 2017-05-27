@@ -27,6 +27,7 @@
 
         methods: {
             tapped: function(){
+                this.$emit('tapped');
             }
         }
     }

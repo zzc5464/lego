@@ -3,7 +3,7 @@
         <s-column width=".789474" align="left">
         </s-column>
         <s-flex-column align="center">
-            <b-radius-button :id="elements[0].id" period='0' class="_radius_active" @tapped="tabedswitch">{{elements[0].text}}</b-radius-button>
+            <b-radius-button :id="elements[0].id" period='0' class="_radius_active hook" @tapped="tabedswitch">{{elements[0].text}}</b-radius-button>
         </s-flex-column>
         <s-flex-column align="center">
             <b-radius-button :id="elements[1].id" period='1' @tapped="tabedswitch">{{elements[1].text}}</b-radius-button>
