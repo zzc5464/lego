@@ -98,18 +98,20 @@ AssembleController.prototype = new FController({
 
     password: function () {
         var data = {
-            password: ''
+            password: '',
+            show: false
         };
 
         this.show('交易密码', tplPasswordView, function () {
-            setTimeout(function () {
-                events.emit('password', {
-                    length: 3
-                });
-            }, 2000);
+            // setTimeout(function () {
+            //     events.emit('password', {
+            //         length: 3
+            //     });
+            // }, 2000);
 
             setTimeout(function () {
-                alert(data.length);
+                //alert(data.password);
+                data.show = true;
             }, 4000);
         }, data);
 
