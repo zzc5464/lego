@@ -15314,7 +15314,6 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-// <b-text>{{itemIndex}} - {{itemData.name}} - {{checked}}</b-text>
 // 银行卡 点击 进入下一页
 module.exports = {
     props: {
@@ -15351,7 +15350,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-single-cell height=\"4.736842\" :on-tap=\"onTapCallback\" class=\"_card\" border=\"true\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-multiline width=\"16\" align=\"left\" self-align=\"center\">\n        <b-text color=\"black\" size=\"30\">{{itemData.bankName}}  <br>\n            <b-text color=\"light\" size=\"24\">单笔：100万 &nbsp; 单日：500万 &nbsp; 日累计：10笔</b-text><br>\n            <b-text color=\"light\" size=\"24\">交易时间：12:00-24:00</b-text>\n        </b-text>\n    </s-multiline>\n</s-single-cell>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-single-cell height=\"4.736842\" :on-tap=\"onTapCallback\" class=\"_card\" border=\"true\" v-show=\"itemData.length>0\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-multiline width=\"16\" align=\"left\" self-align=\"center\">\n        <b-text color=\"black\" size=\"30\">{{itemData.bankName}}  <br>\n            <b-text color=\"light\" size=\"24\">单笔：100万 &nbsp; 单日：500万 &nbsp; 日累计：10笔</b-text><br>\n            <b-text color=\"light\" size=\"24\">交易时间：12:00-24:00</b-text>\n        </b-text>\n    </s-multiline>\n</s-single-cell>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16151,6 +16150,10 @@ module.exports = {
         modalData: {
             type: Object,
             default: function () { return {}; }
+        },
+        arr: {
+            type: Array,
+            default: function () { return ['ww','ee','ss']; }
         }
     },
 

@@ -1,5 +1,5 @@
 <template>
-    <s-single-cell height="4.736842" :on-tap='onTapCallback' class="_card" border="true">
+    <s-single-cell height="4.736842" :on-tap='onTapCallback' class="_card" border="true" v-show="itemData.length>0">
         <s-column width=".789474" align="left">
         </s-column>
         <s-multiline width="16" align="left" self-align="center">
@@ -13,7 +13,6 @@
 </template>
 
 <script>
-    // <b-text>{{itemIndex}} - {{itemData.name}} - {{checked}}</b-text>
     // 银行卡 点击 进入下一页
     module.exports = {
         props: {

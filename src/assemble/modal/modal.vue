@@ -1,6 +1,6 @@
 <template>
     <div class="_modal" :class="{_show: isShow}" >
-        <div class="_modal-wrap">
+        <div class="_modal-wrap" >
             <h2 v-show="mData.title !==''">{{mData.title}}</h2>
             <div v-if="line !=='3'" class="_message" :class="{line0ne: line==='1',linetwo: line==='2'}">
                 {{mData.message}}
@@ -34,6 +34,10 @@
             modalData: {
                 type: Object,
                 default: function () { return {}; }
+            },
+            arr: {
+                type: Array,
+                default: function () { return ['ww','ee','ss']; }
             }
         },
 
