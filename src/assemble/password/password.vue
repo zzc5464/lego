@@ -1,5 +1,5 @@
 <template>
-    <ul id='_pwd_' class='_pwd' v-html='html'></ul>
+    <ul id='_pwd_' class='_pwd' v-html='html' @mytap='focus'></ul>
 </template>
 
 <script>
@@ -32,8 +32,6 @@
             events.on('password', function (e) {
                 this.length = e.length;
 
-                //events.emit('input', this.length);
-
                 var ctrl = document.getElementById('_pwd_');
                 ctrl.innerHTML = html(this.length);
             });
@@ -43,6 +41,12 @@
             return {
                 html: html(this.length)
             };
+        },
+
+        methods: {
+            focus: function () {
+                events.emit('keyboard');
+            }
         }
     }
 </script>

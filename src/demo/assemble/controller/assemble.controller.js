@@ -18,8 +18,7 @@ var FController         = require('fcontroller'),
     tplPanelView        = require('../views/tpl.panel'),
     tplListView         = require('../views/tpl.list'),
     tplCommentView      = require('../views/tpl.comment'),
-    tplTabbuttonView    = require('../views/tpl.tabbutton'),
-    tplModalView        = require('../views/tpl.modal');
+    tplTabbutton      = require('../views/tpl.tabbutton');
 
 var events = require('events');
 
@@ -44,8 +43,7 @@ function AssembleController () {
          lead       : 'lead',
          list       : 'list',
          comment    : 'comment',
-         tabbutton  : 'tabbutton',
-         modal      : 'modal'
+         tabbutton  : 'tabbutton'
     }
 
     this.VueManager = VueManager;
@@ -100,18 +98,20 @@ AssembleController.prototype = new FController({
 
     password: function () {
         var data = {
-            password: ''
+            password: '',
+            show: false
         };
 
         this.show('交易密码', tplPasswordView, function () {
-            setTimeout(function () {
-                events.emit('password', {
-                    length: 3
-                });
-            }, 2000);
+            // setTimeout(function () {
+            //     events.emit('password', {
+            //         length: 3
+            //     });
+            // }, 2000);
 
             setTimeout(function () {
-                alert(data.length);
+                //alert(data.password);
+                data.show = true;
             }, 4000);
         }, data);
 
@@ -142,17 +142,6 @@ AssembleController.prototype = new FController({
         this.show('按钮', tplDockView);
     },
 
-    modal: function () {
-        this.show('模态框', tplModalView, null, {
-            list1: {"title": "健康告知提醒","message": "健康告知提醒健康告知提醒健康告知提醒健康告知提醒健康告知提醒健康告知提醒健康告知提醒健康告知提醒","ltext": "取消","rtext":"确定"},
-            list2: 
-                {"message": "健康告知提醒健","ltext": "业务员分享","rtext":"用户分享"},
-            list3: 
-                {"message": "健康告知提醒健健康告知提提醒健健康告知提醒健","ltext": "取消","rtext":"确定",leftFn: function(){alert('left')},rightFn: function(){alert('right')}},
-            list4: 
-                {"title": "业务员分享","ltext": "取消","rtext":"确定"}
-        });
-    },
 
 
 
@@ -325,7 +314,7 @@ AssembleController.prototype = new FController({
         });
     },
     tabbutton: function () {
-        this.show('TAB切换按钮', tplTabbuttonView);
+        this.show('TAB切换按钮', tplTabbutton);
     },
 
     show: function (title, tpl, callback, data) {

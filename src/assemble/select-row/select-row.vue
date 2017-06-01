@@ -2,7 +2,7 @@
     <s-cell min-height='2.473684' border='true'>
         <s-flex-column></s-flex-column>
         <s-column :width='width.label'>
-            <b-text size='30' :color='colorLeft'>{{ label }}</b-text>
+            <b-text size='30' color='grey'>{{ label }}</b-text>
         </s-column>
         <s-column :width='width.value' align='right'>
             <b-select :size='size' :color='color'><slot></slot></b-select>
@@ -26,10 +26,6 @@
             color: {
                 type: String,
                 default: 'black'
-            },
-            colorLeft: {
-                type: String,
-                default: 'grey'
             },
             labelWidth: {
                 type: Number,

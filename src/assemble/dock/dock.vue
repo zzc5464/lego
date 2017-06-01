@@ -10,11 +10,11 @@
     <s-cell v-else-if='elements.length === 1 && filled !== "true"' :height='height' :bgcolor='bgcolor'>
         <s-flex-column></s-flex-column>
         <s-column width='12.894736' align='center'>
-            <b-text-button :id='elements[0].id' size='30' color='high' v-if='type ==="1"' :height='height'>{{elements[0].text}}</b-text-button>
-            <b-button :id='elements[0].id' size='34' color='white' :height='height' v-else filled='true'>{{elements[0].text}}</b-button>
+            <b-button :id='elements[0].id' size='34' color='white' height='2.105263' filled='true'>{{elements[0].text}}</b-button>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>
+
     <!-- 构建双按钮样式（充满效果）-->
     <s-cell v-else-if='elements.length === 2 && filled === "true"' :height='height' :bgcolor='bgcolor'>
         <s-flex-column>
@@ -60,7 +60,7 @@
 </template>
 <script>
     module.exports = {
-        props: [ 'bgcolor', 'filled', 'type', 'high' ],
+        props: [ 'bgcolor', 'filled' ],
 
         data: function () {
             var slots = this.$slots.default,
@@ -80,7 +80,7 @@
             });
 
             return {
-                height: this.high || '3.157895',
+                height: '3.157895',
                 elements: elems
             };
         }
