@@ -15221,6 +15221,48 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"../../utils/amount.capital":74,"vue":4,"vue-hot-reload-api":2}],7:[function(require,module,exports){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var contants = require('../../utils/contants');
+module.exports = {
+    props: {
+        cellHeight: {
+            type: String,
+            default: '1.684211'
+        },
+       label: {
+            type: String
+        },
+        labelWidth: {
+            type: Number,
+            default: contants.labelWidth
+        }
+    },
+    data: function() {
+        var w = typeof this.label === 'undefined' ? 0 : this.labelWidth;
+        return {
+            width: {
+                label: w,
+                value: contants.tableWidth - w
+            }
+        };
+    }
+}
+
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell :height=\"cellHeight\" bgcolor=\"offwhite\">\n    <s-column width=\".789474\"></s-column>\n    <s-multiline :width=\"width.value\" self-align=\"center\">\n        <b-text size=\"24\" color=\"light\"><slot></slot></b-text>\n    </s-multiline>\n    <s-multiline :width=\"width.label\" align=\"right\" self-align=\"center\">\n        <b-text size=\"24\" color=\"high\">{{ label }}</b-text>\n    </s-multiline>\n    <s-column width=\".789474\"></s-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15231,7 +15273,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-186713a8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],8:[function(require,module,exports){
+},{"../../utils/contants":75,"vue":4,"vue-hot-reload-api":2}],8:[function(require,module,exports){
 
 
 

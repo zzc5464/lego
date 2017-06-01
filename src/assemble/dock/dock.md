@@ -1,5 +1,5 @@
 # dock 按钮
-> 将多个按钮组合成常用的组件形式，主要包括：单行单按钮、单行双按钮等
+> 将多个按钮组合成常用的组件形式，主要包括：单行单按钮、单行双按钮、单行三按钮等
 
 ### 组件截图
 <div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/button.jpeg" width="280.859"/></div>
