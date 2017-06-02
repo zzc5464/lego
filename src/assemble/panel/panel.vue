@@ -13,7 +13,12 @@
             labelWidth: {
                 type: String,
                 default: '4.871795'
+            },
+            edit: {
+                type: String,
+                default: 'true'
             }
+
         }, 
 
         data: function() {
@@ -27,6 +32,7 @@
                 options = slots[i].componentOptions;
                 options && (propsData = options.propsData);
                 options && propsData && (propsData['labelWidth'] = parseFloat(this.labelWidth));
+                (this.edit === 'true') && options && propsData && (propsData['align'] = 'right');
             }
 
             return {

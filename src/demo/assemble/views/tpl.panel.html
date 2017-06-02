@@ -7,7 +7,6 @@
         <tel-field-row label='电话号码' placeholder='请输入' v-model='tel'></tel-field-row>
         <tel-field-row label='电话号码' align='right' placeholder='请输入' v-model='tel'></tel-field-row>
         <text-row label='姓名'>李乐乐</text-row>
-        <text-row label='姓名' align='right'>乐乐</text-row>
         <text-row label='证件类型'>21234567989456462</text-row>
         <text-row label='出生日期'>1995-02-05</text-row>
         <text-row label='性别'>男</text-row>
@@ -18,11 +17,26 @@
             <b-text color='light'>A 回答回答回答</b-text>
         </text-row>
     </panel>
-    
+    <stub></stub>
+    <panel edit='true' bgcolor='white' border='false' label-width='6'>
+        <fixed-row height='5' color='black'>暂无消息...</fixed-row>
+        <a-title id='save1' label='联系方式' subtitle='(单位：元)' comment='2000.00'></a-title>
+        <a-title id='save2' label='联系方式'>保存</a-title>
+        <tel-field-row label='电话号码' placeholder='请输入' v-model='tel'></tel-field-row>
+        <tel-field-row label='电话号码' placeholder='请输入' v-model='tel'></tel-field-row>
+        <text-row label='姓名'>李乐乐</text-row>
+        <text-row label='姓名' align='right'>乐乐</text-row>
+        <text-row label='证件类型'>21234567989456462</text-row>
+        <text-row label='出生日期'>1995-02-05</text-row>
+        <text-row label='性别'>男</text-row>
+        <text-field-row label='性别' placeholder='请输入'>男</text-field-row>
+        <text-field-row label='性别' placeholder='请输入' >男</text-field-row>
+    </panel>
+    <text-row label='证件类型' :label-width='8'>21234567989456462</text-row>
     <fixed-row height='5' border='false'>暂无消息...</fixed-row>
-    <amount-row label='1000' desc='赎回金额' placeholder="本次最多赎回1000.00元"></amount-row>
+    <!--<amount-row label='1000' desc='赎回金额' placeholder="本次最多赎回1000.00元"></amount-row>-->
     <amount-row desc='充值金额' placeholder="本次最多赎回1000.00元"></amount-row>
-    <amount-row label='1000' placeholder="本次最多赎回1000.00元"></amount-row>
+    <!--<amount-row label='1000' placeholder="本次最多赎回1000.00元"></amount-row>-->
     <stub border='false'></stub>
     <check-line-group>
         <check-line id='pay1' label='银行卡支付' comment='单日限额 3000 元' value='平安银行 尾号3500' link='true'></check-line>

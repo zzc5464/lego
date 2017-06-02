@@ -15164,23 +15164,21 @@ module.exports = {
     },
     data: function() {
         return {
-
+            show: false
         }
     },
     methods: {
         inputTap: function (){
-            var inputValue = $('#payamount')[0].value;
-            // if(inputValue === 'undefine') {
-            //     $('#mapText')[0].style.display = 'none';
-            // } else {
-            //     $('#mapText')[0].style.display = 'block';
-            // }
-
-            $('#clearamounts')[0].style.opacity = '1';
+            //this.show = true;
+            var tempValue = $('#payamount')[0].value;
+            var inputValue = (tempValue.length > 12) ? tempValue.slice(0,12) : tempValue ;
+            
             $('#capitalamount')[0].innerHTML = amountCapital.sumCapital(inputValue);
 
             if (inputValue == ''){
                 $('#clearamounts')[0].style.opacity = '0';
+            } else {
+                $('#clearamounts')[0].style.opacity = '1';
             }
             
             if (inputValue > parseFloat(this.label)){
@@ -15196,14 +15194,12 @@ module.exports = {
             $('#tiperror')[0].style.opacity = '0';
         },
         amountAllIpt: function () {
-            if(this.label) {
-                $('#payamount')[0].value = this.label;
-                $('#payamount')[0].focus();
-                $('#tiperror')[0].style.opacity = '0';
-                $('#clearamounts')[0].style.opacity = '1';
-                $('#capitalamount')[0].innerHTML = amountCapital.sumCapital($('#payamount')[0].value);
-                $('#mapText')[0].style.display = 'block';
-            }
+            $('#payamount')[0].value = this.label;
+            $('#tiperror')[0].style.opacity = '0';
+            $('#clearamounts')[0].style.opacity = '1';
+            $('#capitalamount')[0].innerHTML = amountCapital.sumCapital($('#payamount')[0].value);
+            $('#mapText')[0].style.display = 'block';
+           
         }
     }
 }
@@ -16597,7 +16593,12 @@ module.exports = {
         labelWidth: {
             type: String,
             default: '4.871795'
+        },
+        edit: {
+            type: String,
+            default: 'true'
         }
+
     }, 
 
     data: function() {
@@ -16611,6 +16612,7 @@ module.exports = {
             options = slots[i].componentOptions;
             options && (propsData = options.propsData);
             options && propsData && (propsData['labelWidth'] = parseFloat(this.labelWidth));
+            (this.edit === 'true') && options && propsData && (propsData['align'] = 'right');
         }
 
         return {

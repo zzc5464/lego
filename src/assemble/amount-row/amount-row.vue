@@ -3,9 +3,9 @@
         <p>{{ desc }}</p>
         <div class="_amountdesc">
             <span class="_unit">￥</span>
-            <input class="_amount" @input="inputTap" id="payamount" type="number" :placeholder="placeholder"  value=""> 
+            <input class="_amount" @input="inputTap" id="payamount" type="number"  :placeholder="placeholder"  value=""> 
             <div>
-                <b-icon name="round-cross" color="stonegrey" size="40" @tapped="iconTap" id="clearamounts" data-tappable="" ontouchstart=""></b-icon>
+                <b-icon name="round-cross" color="stonegrey" size="40" @tapped="iconTap" id="clearamounts" data-tappable="" ontouchstart="" ></b-icon>
                 <b-highlight @tapped="amountAllIpt" v-show="label">全部转出</b-highlight>
             </div>
             
@@ -39,23 +39,21 @@
         },
         data: function() {
             return {
-
+                show: false
             }
         },
         methods: {
             inputTap: function (){
-                var inputValue = $('#payamount')[0].value;
-                // if(inputValue === 'undefine') {
-                //     $('#mapText')[0].style.display = 'none';
-                // } else {
-                //     $('#mapText')[0].style.display = 'block';
-                // }
-
-                $('#clearamounts')[0].style.opacity = '1';
+                //this.show = true;
+                var tempValue = $('#payamount')[0].value;
+                var inputValue = (tempValue.length > 12) ? tempValue.slice(0,12) : tempValue ;
+                
                 $('#capitalamount')[0].innerHTML = amountCapital.sumCapital(inputValue);
 
                 if (inputValue == ''){
                     $('#clearamounts')[0].style.opacity = '0';
+                } else {
+                    $('#clearamounts')[0].style.opacity = '1';
                 }
                 
                 if (inputValue > parseFloat(this.label)){
@@ -71,14 +69,12 @@
                 $('#tiperror')[0].style.opacity = '0';
             },
             amountAllIpt: function () {
-                if(this.label) {
-                    $('#payamount')[0].value = this.label;
-                    $('#payamount')[0].focus();
-                    $('#tiperror')[0].style.opacity = '0';
-                    $('#clearamounts')[0].style.opacity = '1';
-                    $('#capitalamount')[0].innerHTML = amountCapital.sumCapital($('#payamount')[0].value);
-                    $('#mapText')[0].style.display = 'block';
-                }
+                $('#payamount')[0].value = this.label;
+                $('#tiperror')[0].style.opacity = '0';
+                $('#clearamounts')[0].style.opacity = '1';
+                $('#capitalamount')[0].innerHTML = amountCapital.sumCapital($('#payamount')[0].value);
+                $('#mapText')[0].style.display = 'block';
+               
             }
         }
     }
