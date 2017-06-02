@@ -7,7 +7,7 @@
 <script>
     module.exports = {
         props: {
-            value: {
+            step: {
                 type: String,
                 default: '1'
             }
@@ -31,9 +31,9 @@
                 }
             });
 
-            elems.length == '4' && list.push('_p_step' + this.value);
-            elems.length == '3' && list.push('_p3') && list.push(this.value === '1' ? '_p_step' + this.value : '_p3_step' + this.value);
-            elems.length == '2' && list.push('_p2') && list.push(this.value === '1' ? '_p_step' + this.value : '_p2_step' + this.value);
+            elems.length == '4' && list.push('_p_step' + this.step);
+            elems.length == '3' && list.push('_p3_step' + this.step);
+            elems.length == '2' && list.push('_p2_step' + this.step);
 
 
             obj.width = ((187 * elems.length) / 38).toFixed(6) + 'rem';

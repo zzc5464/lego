@@ -153,14 +153,13 @@ ul {
     border-color: #47b2ac;
 }
  
-// 只有三步的时候
-._p3 {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#47b2ac' x='15%' y='0' width='17.5%' height='1'/><rect fill='#d2d2d2' x='32.5%' y='0' width='48%' height='1'/></svg>");
-    
-}
+// 4步的
 ._p_step1 {
     ._stage:nth-of-type(1) ._stageheader{
         @extend %stageActive;
+    }
+    ._stage:nth-of-type(1) ._text {
+        color: #47b2ac;
     }
 }
 
@@ -170,12 +169,18 @@ ul {
     ._stage:nth-of-type(2) ._stageheader{
         @extend %stageActive;
     }
+    ._stage:nth-of-type(2) ._text {
+        color: #47b2ac;
+    }
 }
 ._p_step3 {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#d2d2d2' x='15%' y='0' width='35.5%' height='1'/><rect fill='#47b1af' x='50%' y='0' width='24.5%' height='1'/><rect fill='#d2d2d2' x='74.5%' y='0' width='10%' height='1'/></svg>");
 
     ._stage:nth-of-type(3) ._stageheader{
         @extend %stageActive;
+    }
+    ._stage:nth-of-type(3) ._text {
+        color: #47b2ac;
     }
 }
 ._p_step4 {
@@ -184,12 +189,28 @@ ul {
     ._stage:nth-of-type(4) ._stageheader{
         @extend %stageActive;
     }
+    ._stage:nth-of-type(4) ._text {
+        color: #47b2ac;
+    }
+}
+._p3_step1 {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#47b2ac' x='15%' y='0' width='17.5%' height='1'/><rect fill='#d2d2d2' x='32.5%' y='0' width='48%' height='1'/></svg>");
+    ._stage:nth-of-type(1) ._stageheader{
+        @extend %stageActive;
+    }
+    ._stage:nth-of-type(1) ._text {
+        color: #47b2ac;
+    }
+    
 }
 ._p3_step2 {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#d2d2d2' x='15%' y='0' width='17.25%' height='1'/><rect fill='#47b1af' x='32%' y='0' width='34%' height='1'/><rect fill='#d2d2d2' x='66%' y='0' width='17.25%' height='1'/></svg>");
 
     ._stage:nth-of-type(2) ._stageheader{
         @extend %stageActive;
+    }
+    ._stage:nth-of-type(2) ._text {
+        color: #47b2ac;
     }
 }
 ._p3_step3 {
@@ -198,12 +219,29 @@ ul {
     ._stage:nth-of-type(3) ._stageheader{
         @extend %stageActive;
     }
+    ._stage:nth-of-type(3) ._text {
+        color: #47b2ac;
+    }
 }
-._p2 {
+._p2_step1 {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#47b2ac' x='30%' y='0' width='20%' height='1'/><rect fill='#d2d2d2' x='50%' y='0' width='20%' height='1'/></svg>");
+    ._stage:nth-of-type(1) ._stageheader{
+        @extend %stageActive;
+    }
+    ._stage:nth-of-type(1) ._text {
+        color: #47b2ac;
+    }
 }
+
 ._p2_step2 {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><rect fill='#d2d2d2' x='30%' y='0' width='20%' height='1'/><rect fill='#47b2ac' x='50%' y='0' width='20%' height='1'/></svg>");
+    
+    ._stage:nth-of-type(2) ._stageheader{
+        @extend %stageActive;
+    }
+    ._stage:nth-of-type(2) ._text {
+        color: #47b2ac;
+    }
 }
 
 //hammertips
