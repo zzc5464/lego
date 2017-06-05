@@ -1,5 +1,5 @@
 <template>
-    <s-cell v-if="itemData.support == '1'" height="3.421056" :on-tap='onTapCallback' class="_next-card _cell_next" border="true">
+    <s-cell v-if="itemData.support == '1'" height="3.421056" :on-tap='onTapCallback' class="_next-card _cell_next"  bgcolor='white' border="true">
         <s-flex-column>
         </s-flex-column>
         <s-multiline width="12" align="left" self-align="center">

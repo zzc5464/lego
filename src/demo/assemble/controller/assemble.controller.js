@@ -315,6 +315,13 @@ AssembleController.prototype = new FController({
                 {"orderName": "2000 ","orderDesc":"元","orderType":"1","orderTime":"预计2017-05-11 ","restore":"到期滚存","orderAmount":"预约赎回"},
                 {"orderName": "2000 ","orderDesc":"元","orderType":"1","orderTime":"预计2017-05-11 ","restore":"到期滚存","orderAmount":"预约赎回"}
             ],
+            // 单行
+            list7: [
+                {"orderName": "2015-08-18 到期","orderAmount":"600.00"},
+                {"orderName": "2015-08-18 到期","orderAmount":"600.00"},
+                {"orderName": "2015-08-18 到期","orderAmount":"600.00"},
+                {"orderName": "2015-08-18 到期","orderAmount":"600.00"}
+            ],
             onTap: function (itemData) {
                 console.log(itemData);
             }

@@ -65,6 +65,7 @@ var components = [
 
     [ 'list'                    , require('../assemble/list/list.vue.js')                           ],
     [ 'card'                    , require('../assemble/card/card.vue.js')                           ],
+    [ 'line-card'               , require('../assemble/line-card/line-card.vue.js')                 ],
     [ 'next-card'               , require('../assemble/next-card/next-card.vue.js')                 ],
     [ 'select-card'             , require('../assemble/select-card/select-card.vue.js')             ],
     [ 'order-card'              , require('../assemble/order-card/order-card.vue.js')               ],

@@ -1,15 +1,14 @@
 <template>
-    <s-cell height="3.421056" :on-tap='onTapCallback' class="_next-card"  bgcolor='white' border="true">
+    <s-cell height="3.15789" :on-tap='onTapCallback' bgcolor='white' class="_card" border="true">
         <s-flex-column>
         </s-flex-column>
-        <s-multiline width="12" align="left" self-align="center">
-            <b-text color="black" size="30">
-                {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}} <br>
-                <b-text color="light" size="24">单笔限额{{itemData.limit}}万</b-text>
+        <s-column width="10" align="left">
+            <b-text :color="color" :size="size" >
+                {{itemData.orderName}}
             </b-text>
-        </s-multiline>
-        <s-column width="6" align="right">
-            <b-icon v-if="checked" size="30" color="high" name="check"></b-icon>
+        </s-column>
+        <s-column width="8" align="right">
+            <b-text size="30" color="light">{{itemData.orderAmount}}元</b-text>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -18,7 +17,6 @@
 </template>
 
 <script>
-// <b-text>{{itemIndex}} - {{itemData.name}} - {{checked}}</b-text>
     // 银行卡 点击 进入下一页
     module.exports = {
         props: {
@@ -40,10 +38,20 @@
             onTap: {
                 type: Function,
                 default: function () {}
+            },
+
+            color: {
+                type: String,
+                default: 'grey'
+            },
+
+            // 左侧特殊字体大小
+            size: {
+                type: String,
+                default: '30'
             }
 
         },
-        
 
         data: function () {
             return {}

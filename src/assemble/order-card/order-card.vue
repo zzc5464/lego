@@ -1,5 +1,5 @@
 <template>
-    <s-cell height="3.421056" :on-tap='onTapCallback' class="_order-card" :class="{_cell_next: isGoNext}" border="true">
+    <s-cell height="3.421056" :on-tap='onTapCallback' class="_order-card" :class="{_cell_next: isGoNext}"  bgcolor='white' border="true">
         <s-flex-column>
         </s-flex-column>
         <s-multiline width="10" align="left" self-align="center">
