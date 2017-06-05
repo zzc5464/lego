@@ -16910,6 +16910,10 @@ module.exports = {
             type: Number,
             default: contants.labelWidth
         },
+        dataSelect: {
+            type: Array,
+            default: function(){return ['11','22','333333333333']}
+        },
         native: {
             type: Boolean,
             default: false
@@ -16930,7 +16934,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"right\">\n        <b-select :size=\"size\" :color=\"color\" :native=\"native\" :placeholder=\"placeholder\"><slot></slot></b-select>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"right\">\n        <b-select :size=\"size\" :color=\"color\" :native=\"native\" :data-select=\"dataSelect\" :placeholder=\"placeholder\"><slot></slot></b-select>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
