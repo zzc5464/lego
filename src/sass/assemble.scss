@@ -383,6 +383,17 @@ h1,h2,h3,h4,h5,h6 {
     }
 }
 
+// 选择框
+._select {
+    & ._native-select {
+        outline: none;
+        border: none;
+        background: transparent;
+        direction: rtl;
+        font-size: calRem(30);
+        margin-right: -#{calRem(10)};
+    }
+}
 
 
 

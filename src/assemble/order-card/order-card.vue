@@ -9,10 +9,13 @@
                 <b-text color="light" size="24">{{itemData.orderTime}} <b-text color="black" size="24">{{itemData.restore}}</b-text> </b-text>
             </b-text>
         </s-multiline>
-        <s-column width="8" align="right">
+        <s-column width="8" align="right" v-if="isShow">
             <b-text size="30" color="coral" v-if="itemData.orderType=='1'">+{{itemData.orderAmount}}元</b-text>
             <b-text size="30" color="black" v-else-if="itemData.orderType=='2'">-{{itemData.orderAmount}}元</b-text>
             <b-text size="30" color="black" v-else>{{itemData.orderAmount}}元</b-text>
+        </s-column>
+        <s-column width="8" align="right" v-else>
+            <b-text size="30" color="coral" v-if="itemData.orderType=='1'">{{itemData.orderAmount}}</b-text>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -21,6 +24,8 @@
 </template>
 
 <script>
+
+
 // <b-text>{{itemIndex}} - {{itemData.name}} - {{checked}}</b-text>
     // 银行卡 点击 进入下一页
     module.exports = {
@@ -62,7 +67,8 @@
         data: function () {
             return {
                 isGoNext : (this.itemData.orderType !=='1' && this.itemData.orderType !=='2'),
-                isNewLH : this.color == 'orange' ? '_newlh-min' : '_newlh'
+                isNewLH : isNaN(parseFloat(this.itemData.orderName)) ? '_newlh' : '_newlh-min',
+                isShow : isNaN(parseFloat(this.itemData.orderAmount)) ? false : true
             }
         },
 

@@ -777,6 +777,14 @@ h1, h2, h3, h4, h5, h6 {
         display: inline-block;
         width: 15px; }
 
+._select ._native-select {
+  outline: none;
+  border: none;
+  background: transparent;
+  direction: rtl;
+  font-size: 0.78947rem;
+  margin-right: -0.26316rem; }
+
 ._mask {
   position: fixed;
   top: 0;

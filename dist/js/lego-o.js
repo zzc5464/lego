@@ -16477,6 +16477,11 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
+
+
 // <b-text>{{itemIndex}} - {{itemData.name}} - {{checked}}</b-text>
     // 银行卡 点击 进入下一页
     module.exports = {
@@ -16518,7 +16523,8 @@ if (module.hot) {(function () {  module.hot.accept()
         data: function () {
             return {
                 isGoNext : (this.itemData.orderType !=='1' && this.itemData.orderType !=='2'),
-                isNewLH : this.color == 'orange' ? '_newlh-min' : '_newlh'
+                isNewLH : isNaN(parseFloat(this.itemData.orderName)) ? '_newlh' : '_newlh-min',
+                isShow : isNaN(parseFloat(this.itemData.orderAmount)) ? false : true
             }
         },
 
@@ -16530,7 +16536,7 @@ if (module.hot) {(function () {  module.hot.accept()
     }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_order-card\" :class=\"{_cell_next: isGoNext}\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"10\" align=\"left\" self-align=\"center\">\n        <b-text :color=\"color\" :size=\"size\" :class=\"isNewLH\">\n            {{itemData.orderName}}<b-text class=\"_vertical\" color=\"light\" size=\"24\">{{itemData.orderDesc}}</b-text> \n            <br>\n            <b-text color=\"light\" size=\"24\">{{itemData.orderTime}} <b-text color=\"black\" size=\"24\">{{itemData.restore}}</b-text> </b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"8\" align=\"right\">\n        <b-text size=\"30\" color=\"coral\" v-if=\"itemData.orderType=='1'\">+{{itemData.orderAmount}}元</b-text>\n        <b-text size=\"30\" color=\"black\" v-else-if=\"itemData.orderType=='2'\">-{{itemData.orderAmount}}元</b-text>\n        <b-text size=\"30\" color=\"black\" v-else=\"\">{{itemData.orderAmount}}元</b-text>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_order-card\" :class=\"{_cell_next: isGoNext}\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"10\" align=\"left\" self-align=\"center\">\n        <b-text :color=\"color\" :size=\"size\" :class=\"isNewLH\">\n            {{itemData.orderName}}<b-text class=\"_vertical\" color=\"light\" size=\"24\">{{itemData.orderDesc}}</b-text> \n            <br>\n            <b-text color=\"light\" size=\"24\">{{itemData.orderTime}} <b-text color=\"black\" size=\"24\">{{itemData.restore}}</b-text> </b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"8\" align=\"right\" v-if=\"isShow\">\n        <b-text size=\"30\" color=\"coral\" v-if=\"itemData.orderType=='1'\">+{{itemData.orderAmount}}元</b-text>\n        <b-text size=\"30\" color=\"black\" v-else-if=\"itemData.orderType=='2'\">-{{itemData.orderAmount}}元</b-text>\n        <b-text size=\"30\" color=\"black\" v-else=\"\">{{itemData.orderAmount}}元</b-text>\n    </s-column>\n    <s-column width=\"8\" align=\"right\" v-else=\"\">\n        <b-text size=\"30\" color=\"coral\" v-if=\"itemData.orderType=='1'\">{{itemData.orderAmount}}</b-text>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16903,6 +16909,14 @@ module.exports = {
         labelWidth: {
             type: Number,
             default: contants.labelWidth
+        },
+        native: {
+            type: Boolean,
+            default: false
+        },
+        placeholder: {
+            type: String,
+            default: '请选择'
         }
     },
     data: function () {
@@ -16916,7 +16930,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"right\">\n        <b-select :size=\"size\" :color=\"color\"><slot></slot></b-select>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell min-height=\"2.473684\" border=\"true\">\n    <s-flex-column></s-flex-column>\n    <s-column :width=\"width.label\">\n        <b-text size=\"30\" color=\"grey\">{{ label }}</b-text>\n    </s-column>\n    <s-column :width=\"width.value\" align=\"right\">\n        <b-select :size=\"size\" :color=\"color\" :native=\"native\" :placeholder=\"placeholder\"><slot></slot></b-select>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -18612,6 +18626,10 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
+
+
+
+
 module.exports = {
     props: {
         id: {
@@ -18624,6 +18642,18 @@ module.exports = {
         color: {
             type: String,
             default: 'black'
+        },
+        native: {
+            type: Boolean,
+            default: false
+        },
+        dataSelect: {
+            type: Array,
+            default: function(){return ['11','22','333333333333']}
+        },
+        placeholder: {
+            type: String,
+            default: '请选择'
         }
     },
     data: function() {
@@ -18645,7 +18675,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span :id=\"identity\" class=\"_select\">\n    <b-text :style=\"styleObj\" class=\"_select_text\" :class=\"classObj\"><slot></slot></b-text>\n    <b-icon name=\"angle-right-bold\" color=\"light\" size=\"28\"></b-icon>\n</span>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span :id=\"identity\" class=\"_select\">\n    <b-text :style=\"styleObj\" v-if=\"!native\" class=\"_select_text\" :class=\"classObj\"><slot></slot></b-text>\n    <select class=\"_native-select\" v-else=\"\">\n        <option style=\"color: #c1c1c1\" :value=\"placeholder\">{{placeholder}}</option>\n        <option v-for=\"item in dataSelect\" value=\"item\">{{item}}</option>\n    </select>\n    <b-icon name=\"angle-right-bold\" color=\"light\" size=\"28\"></b-icon>\n</span>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

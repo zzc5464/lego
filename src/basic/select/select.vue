@@ -1,6 +1,10 @@
 <template>
     <span :id='identity' class='_select'>
-        <b-text :style="styleObj" class="_select_text" :class="classObj" ><slot></slot></b-text>
+        <b-text :style="styleObj" v-if="!native" class="_select_text" :class="classObj" ><slot></slot></b-text>
+        <select class='_native-select' v-else>
+            <option style="color: #c1c1c1" :value='placeholder'>{{placeholder}}</option>
+            <option v-for='item in dataSelect' value ="item" >{{item}}</option>
+        </select>
         <b-icon name="angle-right-bold" color="light" size="28"></b-icon>
     </span>
 </template>
@@ -18,6 +22,18 @@
             color: {
                 type: String,
                 default: 'black'
+            },
+            native: {
+                type: Boolean,
+                default: false
+            },
+            dataSelect: {
+                type: Array,
+                default: function(){return ['11','22','333333333333']}
+            },
+            placeholder: {
+                type: String,
+                default: '请选择'
             }
         },
         data: function() {

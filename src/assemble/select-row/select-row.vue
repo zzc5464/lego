@@ -5,7 +5,7 @@
             <b-text size='30' color='grey'>{{ label }}</b-text>
         </s-column>
         <s-column :width='width.value' align='right'>
-            <b-select :size='size' :color='color'><slot></slot></b-select>
+            <b-select :size='size' :color='color' :native='native' :placeholder='placeholder'><slot></slot></b-select>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>
@@ -30,6 +30,14 @@
             labelWidth: {
                 type: Number,
                 default: contants.labelWidth
+            },
+            native: {
+                type: Boolean,
+                default: false
+            },
+            placeholder: {
+                type: String,
+                default: '请选择'
             }
         },
         data: function () {

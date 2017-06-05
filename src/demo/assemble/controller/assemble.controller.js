@@ -310,10 +310,10 @@ AssembleController.prototype = new FController({
             ],
             // 预约赎回
             list6: [
-                {"orderName": "2000 ","orderDesc":"元","orderType":"1","orderTime":"预计2017-05-11 ","restore":"到期滚存","orderAmount":"7008.50"},
-                {"orderName": "2000 ","orderDesc":"元","orderType":"2","orderTime":"预计2017-05-11 ","restore":"到期滚存","orderAmount":"600.00"},
-                {"orderName": "2000 ","orderDesc":"元","orderType":"1","orderTime":"预计2017-05-11 ","restore":"到期滚存","orderAmount":"600.00"},
-                {"orderName": "2000 ","orderDesc":"元","orderType":"1","orderTime":"预计2017-05-11 ","restore":"到期滚存","orderAmount":"600.00"}
+                {"orderName": "2000 ","orderDesc":"元","orderType":"1","orderTime":"预计2017-05-11 ","restore":"到期滚存","orderAmount":"预约赎回"},
+                {"orderName": "2000 ","orderDesc":"元","orderType":"1","orderTime":"预计2017-05-11 ","restore":"到期滚存","orderAmount":"预约赎回"},
+                {"orderName": "2000 ","orderDesc":"元","orderType":"1","orderTime":"预计2017-05-11 ","restore":"到期滚存","orderAmount":"预约赎回"},
+                {"orderName": "2000 ","orderDesc":"元","orderType":"1","orderTime":"预计2017-05-11 ","restore":"到期滚存","orderAmount":"预约赎回"}
             ],
             onTap: function (itemData) {
                 console.log(itemData);

@@ -647,6 +647,13 @@
       .gum .lego ._assetheader div ._select i {
         display: inline-block;
         width: 15px; }
+.gum .lego ._select ._native-select {
+  outline: none;
+  border: none;
+  background: transparent;
+  direction: rtl;
+  font-size: 0.78947rem;
+  margin-right: -0.26316rem; }
 .gum .lego ._mask {
   position: fixed;
   top: 0;
