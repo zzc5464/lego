@@ -715,6 +715,12 @@
   color: #fff;
   font-size: 0.57895rem;
   z-index: 100; }
+.gum .lego ._order-card ._newlh {
+  line-height: 1.2; }
+.gum .lego ._order-card ._newlh-min {
+  line-height: .8; }
+.gum .lego ._order-card ._vertical {
+  vertical-align: middle; }
 .gum .lego ._card-invest {
   padding: 15px 15px 0; }
 .gum .lego ._card-title {
@@ -1009,8 +1015,10 @@
   color: #e6654c; }
 .gum .lego ._text_color_blackblue {
   color: #2e2516; }
-.gum .lego .text_color_coral {
+.gum .lego ._text_color_coral {
   color: #e6654c; }
+.gum .lego ._text_color_orange {
+  color: #ff7700; }
 .gum .lego ._text_size_16px {
   font-size: 0.42105rem; }
 .gum .lego ._text_size_18px {
@@ -1033,6 +1041,8 @@
   font-size: 1rem; }
 .gum .lego ._text_size_40px {
   font-size: 1.05263rem; }
+.gum .lego ._text_size_44px {
+  font-size: 1.15789rem; }
 .gum .lego ._text_size_60px {
   font-size: 1.57895rem; }
 .gum .lego ._text_size_112px {

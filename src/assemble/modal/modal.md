@@ -1,5 +1,5 @@
-# next-card list内部卡片信息
-> 在右边有箭头的card
+# modal 弹出框
+> 弹出框样式展示
 
 ### DEMO
 <div><img alt="DEMO" src="https://ohc0dpsgs.qnssl.com/lego/images/formNull_bottom_IDcard.png" width="280.859"/></div>
@@ -8,16 +8,15 @@
 
 属性 | 说明 | 类型 | 备注 
 --- | --- | --- | ---
-item-data | card上展示的信息 | Object | Object需包含bankName，bankNum，limit
+line | 展示messaged行数 | 字符串 | 默认为“0”，可选“1--单行居中|2--两行居中|3--input输入框”
 modal-data | 弹框展示信息 | Object | xxxx
-arr | xxx | Array | xxxx
 
 ### 子节点
 > 无
 
 ### 示例
 ```
-<list card='next-card' name='name' value='123' :data='list3' :on-tap='onTap' ></list>
+<list card='order-card' :data='list5' :on-tap='onTap'  ></list>
 ```
 
 ### &nbsp;

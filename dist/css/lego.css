@@ -855,6 +855,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.57895rem;
   z-index: 100; }
 
+._order-card ._newlh {
+  line-height: 1.2; }
+._order-card ._newlh-min {
+  line-height: .8; }
+._order-card ._vertical {
+  vertical-align: middle; }
+
 ._card-invest {
   padding: 15px 15px 0; }
 
@@ -1190,8 +1197,11 @@ button, input, span {
 ._text_color_blackblue {
   color: #2e2516; }
 
-.text_color_coral {
+._text_color_coral {
   color: #e6654c; }
+
+._text_color_orange {
+  color: #ff7700; }
 
 ._text_size_16px {
   font-size: 0.42105rem; }
@@ -1225,6 +1235,9 @@ button, input, span {
 
 ._text_size_40px {
   font-size: 1.05263rem; }
+
+._text_size_44px {
+  font-size: 1.15789rem; }
 
 ._text_size_60px {
   font-size: 1.57895rem; }

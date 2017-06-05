@@ -85,8 +85,11 @@ button, input, span {
 ._text_color_blackblue {
     color: $c-blackblue;
 }
-.text_color_coral {
+._text_color_coral {
     color: $c-coral;
+}
+._text_color_orange {
+    color: $c-orange;
 }
 
 // 所有字体大小
@@ -122,6 +125,9 @@ button, input, span {
 }
 ._text_size_40px {
     font-size: $text-size-40px;
+}
+._text_size_44px {
+    font-size: $text-size-44px;
 }
 ._text_size_60px {
     font-size: $text-size-60px;

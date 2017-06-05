@@ -1,6 +1,6 @@
 <template>
     <div>
-        <component v-for='(item, index) in data' :is='card' :item-data='item' :item-index='index' :checked='name !== "" && item[name] === value' :on-tap='onTapCallback'></component>
+        <component v-for='(item, index) in data' :is='card' :item-data='item' :item-index='index' :checked='name !== "" && item[name] === value' :on-tap='onTapCallback' :color="color" :size="size"></component>
     </div>
 </template>
 
@@ -36,7 +36,21 @@
             onTap: {
                 type: Function,
                 default: function () {}
+            },
+
+            // 左侧特殊字体颜色
+            color: {
+                type: String,
+                default: 'black'
+            },
+
+            // 左侧特殊字体大小
+            size: {
+                type: String,
+                default: '30'
             }
+
+
         }, 
 
         data: function () { 

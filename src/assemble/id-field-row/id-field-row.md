@@ -12,6 +12,7 @@ label | 标签文本 | 字符串 | 左侧文字
 placeholder | 提示文本 | 字符串 | 在输入框为空白时，灰色显示的文字
 value | 默认值 | 字符串 | 在输入框内的默认文本
 required | 是否必填 | true / false | 若为必填项，在光标移出时，会引发必填性检验
+label-width | 左边文字文字宽度 | 默认为“4.871795” | 左侧文字宽度设定
 
 ### 子节点
 > 无
@@ -20,7 +21,7 @@ required | 是否必填 | true / false | 若为必填项，在光标移出时，
 ```
 <a-table bgcolor='white'>
 
-    <id-field-row label='身份证号' placeholder='请输入身份证号' required='true'>
+    <id-field-row label='身份证号' :label-width='5' placeholder='请输入身份证号' required='true'>
     </id-field-row>
 
 </a-table>

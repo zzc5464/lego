@@ -1,12 +1,12 @@
 <template>
-    <s-cell height="3.421056" :on-tap='onTapCallback' class="_next-card" :class="{_cell_next: isGoNext}" border="true">
+    <s-cell height="3.421056" :on-tap='onTapCallback' class="_order-card" :class="{_cell_next: isGoNext}" border="true">
         <s-flex-column>
         </s-flex-column>
         <s-multiline width="10" align="left" self-align="center">
-            <b-text color="black" size="30">
-                {{itemData.orderName}}<b-text color="light" size="24">{{itemData.orderDesc}}</b-text> 
+            <b-text :color="color" :size="size" :class="isNewLH">
+                {{itemData.orderName}}<b-text class="_vertical" color="light" size="24">{{itemData.orderDesc}}</b-text> 
                 <br>
-                <b-text color="light" size="18">{{itemData.orderTime}}</b-text>
+                <b-text color="light" size="24">{{itemData.orderTime}} <b-text color="black" size="24">{{itemData.restore}}</b-text> </b-text>
             </b-text>
         </s-multiline>
         <s-column width="8" align="right">
@@ -43,6 +43,17 @@
             onTap: {
                 type: Function,
                 default: function () {}
+            },
+
+            color: {
+                type: String,
+                default: 'black'
+            },
+
+            // 左侧特殊字体大小
+            size: {
+                type: String,
+                default: '30'
             }
 
         },
@@ -50,7 +61,8 @@
 
         data: function () {
             return {
-                isGoNext : (this.itemData.orderType !=='1' && this.itemData.orderType !=='2')
+                isGoNext : (this.itemData.orderType !=='1' && this.itemData.orderType !=='2'),
+                isNewLH : this.color == 'orange' ? '_newlh-min' : '_newlh'
             }
         },
 
