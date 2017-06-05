@@ -5,7 +5,7 @@
             <b-text size='30' :color='color'>{{ label }}</b-text>
         </s-multiline>
         <s-multiline :width='width.value' :align='align'>
-            <b-text size='30' color='black'><slot></slot></b-text>
+            <b-text size='30' :color='colorRight'><slot></slot></b-text>
         </s-multiline>
         <s-flex-column></s-flex-column>
     </s-cell>
@@ -30,6 +30,10 @@
             color: {
                 type: String,
                 default: 'light'
+            },
+            colorRight: {
+                type: String,
+                default: 'black'
             }
         }, 
         data: function () {
