@@ -35,6 +35,10 @@
             placeholder: {
                 type: String,
                 default: '请输入充值金额'
+            },
+            callfn: {
+                type: Function,
+                default: function () {}
             }
         },
         data: function() {
@@ -61,6 +65,7 @@
                 } else {
                     $('#tiperror')[0].style.opacity = '0';
                 }
+                this.callfn();
             },
             iconTap: function (){
                 $('#clearamounts')[0].style.opacity = '0';

@@ -15160,6 +15160,10 @@ module.exports = {
         placeholder: {
             type: String,
             default: '请输入充值金额'
+        },
+        callfn: {
+            type: Function,
+            default: function () {}
         }
     },
     data: function() {
@@ -15186,6 +15190,7 @@ module.exports = {
             } else {
                 $('#tiperror')[0].style.opacity = '0';
             }
+            this.callfn();
         },
         iconTap: function (){
             $('#clearamounts')[0].style.opacity = '0';
@@ -16277,6 +16282,16 @@ module.exports = {
     },
 
     data: function () {
+        if (this.list.length == 0){
+            this.list = [
+                {
+                    "profitOf10K":"0",
+                    "navDate":"0",
+                    "nav":"0"
+                }
+            ]
+        }
+        
         var period = this.period,
             rate = parseInt(this.rate),
             list = this.list;
