@@ -27,6 +27,16 @@
         },
 
         data: function () {
+            if (this.list.length == 0){
+                this.list = [
+                    {
+                        "profitOf10K":"0",
+                        "navDate":"0",
+                        "nav":"0"
+                    }
+                ]
+            }
+            
             var period = this.period,
                 rate = parseInt(this.rate),
                 list = this.list;
