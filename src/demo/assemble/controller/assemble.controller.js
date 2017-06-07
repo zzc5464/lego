@@ -142,9 +142,6 @@ AssembleController.prototype = new FController({
         this.show('按钮', tplDockView);
     },
 
-
-
-
     panel: function () {
         var data = {
             tel: '',
@@ -317,7 +314,7 @@ AssembleController.prototype = new FController({
             ],
             // 单行
             list7: [
-                {"orderName": "2015-08-18 到期","orderAmount":"600.00"},
+                {},
                 {"orderName": "2015-08-18 到期","orderAmount":"600.00"},
                 {"orderName": "2015-08-18 到期","orderAmount":"600.00"},
                 {"orderName": "2015-08-18 到期","orderAmount":"600.00"}

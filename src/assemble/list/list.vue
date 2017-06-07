@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-show='data.length > 0'>
         <component v-for='(item, index) in data' :is='card' :item-data='item' :item-index='index' :checked='name !== "" && item[name] === value' :on-tap='onTapCallback' :color="color" :size="size"></component>
     </div>
 </template>

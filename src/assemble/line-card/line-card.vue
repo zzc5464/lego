@@ -1,5 +1,5 @@
 <template>
-    <s-cell height="3.15789" :on-tap='onTapCallback' bgcolor='white' class="_card" border="true">
+    <s-cell height="3.15789" :on-tap='onTapCallback' bgcolor='white' class="_card" border="true" v-show="itemData.orderName">
         <s-flex-column>
         </s-flex-column>
         <s-column width="10" align="left">

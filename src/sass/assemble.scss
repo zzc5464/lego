@@ -113,7 +113,9 @@ ul {
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><circle stroke='rgba(239,194,111,.5)' stroke-width='4' fill='#d7ac62' cx='10' cy='9.25' r='4'/></svg>");
     }
 }    
-
+._timeline {
+    text-align: center;
+}
 ._progress {
     height: calRem(120);
     margin: calRem(18) auto;

@@ -24,37 +24,38 @@
     </div>
     <div v-else-if='type === 4' class="_assetheader" :class="classObj" :style="styleObj">
         <header class="header">
-            <h6>{{datas.header}}</h6>
-            <h2>{{datas.invest}}</h2>
+            <h6>{{topData.header || desc}}</h6>
+            <h2>{{topData.invest || invest}}</h2>
         </header>
         <ul class="_three">
             <li>
-                <div>{{ datas.title1 }}</div>
-                <div>{{ datas.value1 }}</div>
+                <div>{{ topData.title1 || elements[0].text }}</div>
+                <div>{{ topData.value1 || elements[1].text }}</div>
             </li>
             <li>
-                <div>{{ datas.title2 }}</div>
-                <div>{{ datas.value2 }}</div>
+                <div>{{ topData.title2 || elements[2].text }}</div>
+                <div>{{ topData.value2 || elements[3].text }}</div>
             </li>
             <li>
-                <div>{{ datas.title3 }}</div>
-                <div>{{ datas.value3 }}</div>
+                <div>{{ topData.title3 || elements[4].text }}</div>
+                <div>{{ topData.value3 || elements[5].text }}</div>
             </li>
         </ul>
     </div>
     <div v-else-if='type === 5' class="_assetheader" :class="classObj" :style="styleObj">
         <header>
-            <h6 class="_eyecenter">{{tempData.header}} <b-icon size="40" name="eye" @tapped="hiddenData" v-show="open == true"></b-icon><b-icon size="40" name="eye-closed" @tapped="hiddenData" v-show="open != true" ></b-icon></h6>
-            <h2>{{tempData.invest}}</h2>
+            <h6 class="_eyecenter">{{topData.header || desc}} <b-icon size="40" name="eye" @tapped="hiddenData" v-show="open == true"></b-icon><b-icon size="40" name="eye-closed" @tapped="hiddenData" v-show="open != true" ></b-icon></h6>
+            <h2 v-if="open == true">{{topData.invest || invest}}</h2>
+            <h2 v-else>****</h2>
         </header>
         <ul class="_three _second">
             <li>
-                <div>{{ tempData.title1 }}</div>
-                <div>{{ tempData.value1 }}</div>
+                <div >{{ topData.title1 || elements[0].text }}</div>
+                <div v-if="open == true">{{ topData.value1 || elements[1].text }}</div><div v-else>****</div>
             </li>
             <li>
-                <div>{{ datas.title2 }}</div>
-                <div>{{ tempData.value2 }}</div>
+                <div >{{ topData.title2 || elements[2].text }}</div>
+                <div v-if="open == true">{{ topData.value2 || elements[3].text }}</div><div v-else>****</div>
             </li>
         </ul>
     </div>
@@ -92,19 +93,49 @@
             topData: {
                 type: Object,
                 default: function () { return {}; }
+            },
+
+            desc: {
+                type: String
+            },
+
+            invest: {
+                type: String
             }
+
         },
         data: function() {
             var obj = {}, list = [], t = 0;
             var temp = {};
-            for(var i in this.topData) {
-                temp[i] = this.topData[i];
-            }
+            var v = [];
+            var slots = this.$slots.default,
+                elems = [], options, children;
 
-            if (this.label === '1') {
-                t = 4;
+            if(this.$slots.hasOwnProperty('default') ){
+                slots.forEach(function (s) {
+                    options = s.componentOptions;
+                    if (options) {
+                        children = options.children;
+                        if (children.length > 0 && typeof children[0].text !== 'undefined') {
+                            elems.push({
+                                id: options.propsData.id,
+                                text: children[0].text
+                            });
+                        }
+                    }
+                });
+                v = elems;
             } 
-            else if (this.label === '2') {
+            
+            // for(var i in this.topData) {
+            //     temp[i] = this.topData[i];
+            // }
+
+            if ( elems.length == 6 || this.label === '1' ) {
+                t = 4;
+                
+            } 
+            else if (elems.length == 4 || this.label === '2') {
                 t = 5;
             } 
             else if (this.header === '' && this.footer === '') {
@@ -131,8 +162,7 @@
             }
             
             return {
-                tempData: this.topData,
-                datas: temp,
+                elements: elems,
                 open: true,
                 classObj: list,
                 styleObj: obj,
@@ -141,17 +171,10 @@
         },
         methods: {
             hiddenData: function() {
- 
-                if(this.tempData.invest !== '****') {
-                    this.tempData.invest = '****';
-                    this.tempData.value1 = '****';
-                    this.tempData.value2 = '****';
-                    this.open = false;
-                } else {
-                    this.tempData.invest = this.datas.invest;
-                    this.tempData.value1 = this.datas.value1;
-                    this.tempData.value2 = this.datas.value2;
-                    this.open = true;
+                if(!this.open){
+                    this.open = !this.open;
+                }else {
+                    this.open = !this.open;
                 }
                 
             }

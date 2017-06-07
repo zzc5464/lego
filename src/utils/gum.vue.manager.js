@@ -3,6 +3,7 @@
 var Vue = require('vue/dist/vue.common');
 
 var components = [
+    [ 'b-test'                  , require('../basic/test/test.vue.js')                              ],
     [ 'b-text'                  , require('../basic/text/text.vue.js')                              ],
     [ 'b-highlight'             , require('../basic/highlight/highlight.vue.js')                    ],
     [ 'b-icon'                  , require('../basic/icon/icon.vue.js')                              ],
@@ -48,6 +49,7 @@ var components = [
     [ 'timepoint'               , require('../assemble/timepoint/timepoint.vue.js')                 ],
     [ 'password'                , require('../assemble/password/password.vue.js')                   ],
     [ 'protocol'                , require('../assemble/protocol/protocol.vue.js')                   ],
+    [ 'lead-item'               , require('../assemble/lead-item/lead-item.vue.js')                 ],
     [ 'lead'                    , require('../assemble/lead/lead.vue.js')                           ],
 
     [ 'stub'                    , require('../assemble/stub/stub.vue.js')                           ],
