@@ -16664,7 +16664,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" :on-tap=\"onTapCallback\" bgcolor=\"white\" class=\"_card\" border=\"true\" data-tappable=\"\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-column width=\"15\" align=\"left\">\n        <b-text size=\"30\" color=\"grey\">{{ itemData.label }}</b-text>\n    </s-column>\n    <s-column width=\"3\" align=\"right\">\n        <b-icon name=\"angle-right-bold\" color=\"light\" size=\"28\"></b-icon>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.473684\" :on-tap=\"onTapCallback\" bgcolor=\"white\" class=\"_card\" border=\"true\" data-tappable=\"\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-column width=\"15\" align=\"left\">\n        <b-text size=\"30\" color=\"grey\">{{ itemData.name }}</b-text>\n    </s-column>\n    <s-column width=\"3\" align=\"right\">\n        <b-icon name=\"angle-right-bold\" color=\"light\" size=\"28\"></b-icon>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

@@ -3,7 +3,7 @@
         <s-flex-column>
         </s-flex-column>
         <s-column width="15" align="left">
-            <b-text size='30' color='grey'>{{ itemData.label }}</b-text>
+            <b-text size='30' color='grey'>{{ itemData.name }}</b-text>
         </s-column>
         <s-column width="3" align="right">
             <b-icon name="angle-right-bold" color="light" size="28"></b-icon>

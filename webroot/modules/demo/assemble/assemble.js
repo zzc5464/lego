@@ -328,8 +328,8 @@ AssembleController.prototype = new FController({
             ],
             // next-cell
             list9: [
-                {"label":"产品合同","link":"xxx"},
-                {"label":"yxyxyx","link":"yyy"}
+                {"name":"产品合同","link":"xxx"},
+                {"name":"yxyxyx","link":"yyy"}
             ],
             onTap: function (itemData) {
                 console.log(itemData.link);
