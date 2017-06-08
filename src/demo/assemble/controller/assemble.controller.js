@@ -325,8 +325,13 @@ AssembleController.prototype = new FController({
                 {"question": "到期预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回","answer":"到期预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回"},
                 {"question": "到期预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回","answer":"到期预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回预约赎回"}
             ],
+            // next-cell
+            list9: [
+                {"label":"产品合同","link":"xxx"},
+                {"label":"yxyxyx","link":"yyy"}
+            ],
             onTap: function (itemData) {
-                console.log(itemData);
+                console.log(itemData.link);
             }
         });
     },
