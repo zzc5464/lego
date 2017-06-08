@@ -60,12 +60,15 @@
                     $('#clearamounts')[0].style.opacity = '1';
                 }
                 
+                var flag = true;
                 if (inputValue > parseFloat(this.label)){
                     $('#tiperror')[0].style.opacity = '1';
+                    flag = true;
                 } else {
                     $('#tiperror')[0].style.opacity = '0';
+                    flag = false;
                 }
-                this.callfn();
+                this.callfn(flag);
             },
             iconTap: function (){
                 $('#clearamounts')[0].style.opacity = '0';
