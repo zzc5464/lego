@@ -951,15 +951,15 @@
   padding: 0.65789rem 0.78947rem 0.13158rem;
   background-color: #fff; }
   .gum .lego ._qa ._question, .gum .lego ._qa ._answer {
-    padding-left: 1.44737rem;
+    padding-left: 1.18421rem;
     font-size: 0;
     word-break: break-all; }
     .gum .lego ._qa ._question > span, .gum .lego ._qa ._answer > span {
       font-size: 0.78947rem;
       line-height: 1.57895rem; }
     .gum .lego ._qa ._question > span:first-child, .gum .lego ._qa ._answer > span:first-child {
-      margin-left: -1.44737rem;
-      padding-right: 0.65789rem; }
+      margin-left: -1.18421rem;
+      padding-right: 0.39474rem; }
   .gum .lego ._qa ._question span {
     color: #333; }
   .gum .lego ._qa ._answer span {
