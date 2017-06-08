@@ -82,7 +82,8 @@ var components = [
     [ 'line-chart'              , require('../assemble/line-chart/line-chart.vue.js')               ],
     [ 'keyboard'                , require('../assemble/keyboard/keyboard.vue.js')                   ],
     [ 'modal'                   , require('../assemble/modal/modal.vue.js')                         ],
-    [ 'annotation'              , require('../assemble/annotation/annotation.vue.js')               ]
+    [ 'annotation'              , require('../assemble/annotation/annotation.vue.js')               ],
+    [ 'question'                , require('../assemble/question/question.vue.js')                   ]
 ];
 
 components.forEach(function (component) {

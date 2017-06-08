@@ -289,8 +289,6 @@ ul {
     }
 }
 
-
-
 // 顶部渐变
 h1,h2,h3,h4,h5,h6 {
     margin: 0;
@@ -396,8 +394,6 @@ h1,h2,h3,h4,h5,h6 {
         margin-right: -#{calRem(10)};
     }
 }
-
-
 
 // modal
 ._mask {
@@ -792,7 +788,30 @@ h1,h2,h3,h4,h5,h6 {
     }
 }
 
-
+// 常见问题 q-a
+._qa {
+    padding: calRem(25) calRem(30) calRem(5);
+    background-color: $c-white;
+    ._question,._answer {
+        padding-left: calRem(55);
+        font-size: 0;
+        word-break: break-all;
+        & > span {
+            font-size: calRem(30);
+            line-height: calRem(60);
+        }
+        & > span:first-child {
+            margin-left: -#{calRem(55)};
+            padding-right: calRem(25);
+        }
+    }
+    ._question span {
+        color: $c-black;
+    }
+    ._answer span {
+        color: $c-light;
+    }
+}
 
 .fade-enter-active, .fade-leave-active {
  transition: opacity .5s

@@ -947,6 +947,23 @@
   padding-left: 30px; }
 .gum .lego ._payway .waylist:last-child {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>"); }
+.gum .lego ._qa {
+  padding: 0.65789rem 0.78947rem 0.13158rem;
+  background-color: #fff; }
+  .gum .lego ._qa ._question, .gum .lego ._qa ._answer {
+    padding-left: 1.44737rem;
+    font-size: 0;
+    word-break: break-all; }
+    .gum .lego ._qa ._question > span, .gum .lego ._qa ._answer > span {
+      font-size: 0.78947rem;
+      line-height: 1.57895rem; }
+    .gum .lego ._qa ._question > span:first-child, .gum .lego ._qa ._answer > span:first-child {
+      margin-left: -1.44737rem;
+      padding-right: 0.65789rem; }
+  .gum .lego ._qa ._question span {
+    color: #333; }
+  .gum .lego ._qa ._answer span {
+    color: #999; }
 .gum .lego .fade-enter-active, .gum .lego .fade-leave-active {
   transition: opacity 0.5s; }
 .gum .lego .fade-enter, .gum .lego .fade-leave-active {
