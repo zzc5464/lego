@@ -15,12 +15,12 @@
         </s-column>
     </s-cell>
 
-    <div v-else-if="elements.length === 2" class="_ruletab _ruletab1" >
+    <div v-else-if="elements.length === 2" class="_ruletab _ruletab1" :id="idName">
         <span :id="elements[0].id" rate='1' @mytap="tabswitch" class="_borderbtm" ><h3>{{elements[0].text}}</h3><h3>{{label7Rate}}</h3></span>
         <span :id="elements[1].id" rate='0' @mytap="tabswitch" ><h3>{{elements[1].text}}</h3><h3>{{labelWRate}}</h3></span>
     </div> 
     
-    <div v-else class="_ruletab _ruletab2">
+    <div v-else class="_ruletab _ruletab2" :id="idName">
         <span :id="item.id" :class="{_borderbtm: index == 0}" @mytap="tabswitch" v-for="(item,index) in elements">{{item.text}}</span>
     </div>
 </template>
@@ -31,6 +31,14 @@
     var event = require('../../utils/gum.vue.events');
     module.exports = {
         props: {
+            id: {
+                type: String,
+                default: ""
+            },
+            isDate: {
+                type: Boolean,
+                default: false
+            },
             radius: {
                 type: Boolean,
                 default: false
@@ -44,6 +52,14 @@
                 default: '0'
             },
             label: {
+                type: String,
+                default: ""
+            },
+            leftLabel: {
+                type: String,
+                default: ""
+            },
+            rightLabel: {
                 type: String,
                 default: ""
             }
@@ -65,10 +81,12 @@
                 }
             });
             return {
+                rateChange: this.isDate,
+                idName: this.id,
                 elements: elems,
                 periodType: this.period,
-                label7Rate: this.label && this.label.split('|')[0],
-                labelWRate: this.label && this.label.split('|')[1]
+                label7Rate: this.leftLabel || (this.label && this.label.split('|')[0]),
+                labelWRate: this.rightLabel || (this.label && this.label.split('|')[1])
             }
         },
         methods: {
@@ -84,7 +102,7 @@
               
                 t.classList.add('_borderbtm');
                 this.rateType = t.getAttribute('rate');
-                event.emit('tabswitch',this.rateType);
+                this.rateChange && event.emit('tabswitch',this.rateType);
             },
             tabedswitch: function (e) {
                 var sbilings = document.getElementById('radiusTab').getElementsByTagName('button');

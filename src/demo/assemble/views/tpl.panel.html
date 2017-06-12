@@ -43,7 +43,7 @@
         <check-line id='pay2' label='钱包支付' value='3,000.00 元'></check-line>
         <check-line id='pay3' label='银行卡支付' value='中国工商银行 尾号8188' checked='true' link='true'></check-line>
     </check-line-group>
-    <tab-button label='2.3456|3.2345' :is-date="true">
+    <tab-button left-label='2.3456' right-label='3.2345' :is-date="true"> 
         <a-button id='profit'>7日年化收益(%)</a-button>
         <a-button id='sdate'>万分收益(元)</a-button>
     </tab-button>
@@ -54,5 +54,9 @@
         <a-button id='income'>2个月</a-button>
     </tab-button>
     <fixed-row height='5' border='false' submit='true'></fixed-row>
+    <tab-button id="tab">
+        <a-button id='profit'>7日年化收益(%)</a-button>
+        <a-button id='sdate'>万分收益(元)</a-button>
+    </tab-button>
     <toast></toast>
 </p-main>

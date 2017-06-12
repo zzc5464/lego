@@ -16152,12 +16152,7 @@ module.exports = {
     },
     methods: {
         hiddenData: function() {
-            if(!this.open){
-                this.open = !this.open;
-            }else {
-                this.open = !this.open;
-            }
-            
+            this.open = !this.open;
         }
     }
 }
@@ -17470,6 +17465,14 @@ if (module.hot) {(function () {  module.hot.accept()
 var event = require('../../utils/gum.vue.events');
 module.exports = {
     props: {
+        id: {
+            type: String,
+            default: ""
+        },
+        isDate: {
+            type: Boolean,
+            default: false
+        },
         radius: {
             type: Boolean,
             default: false
@@ -17483,6 +17486,14 @@ module.exports = {
             default: '0'
         },
         label: {
+            type: String,
+            default: ""
+        },
+        leftLabel: {
+            type: String,
+            default: ""
+        },
+        rightLabel: {
             type: String,
             default: ""
         }
@@ -17504,10 +17515,12 @@ module.exports = {
             }
         });
         return {
+            rateChange: this.isDate,
+            idName: this.id,
             elements: elems,
             periodType: this.period,
-            label7Rate: this.label && this.label.split('|')[0],
-            labelWRate: this.label && this.label.split('|')[1]
+            label7Rate: this.leftLabel || (this.label && this.label.split('|')[0]),
+            labelWRate: this.rightLabel || (this.label && this.label.split('|')[1])
         }
     },
     methods: {
@@ -17523,7 +17536,7 @@ module.exports = {
           
             t.classList.add('_borderbtm');
             this.rateType = t.getAttribute('rate');
-            event.emit('tabswitch',this.rateType);
+            this.rateChange && event.emit('tabswitch',this.rateType);
         },
         tabedswitch: function (e) {
             var sbilings = document.getElementById('radiusTab').getElementsByTagName('button');
@@ -17544,7 +17557,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell bgcolor=\"white\" v-if=\"radius\" id=\"radiusTab\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[0].id\" period=\"0\" class=\"_radius_active\" @tapped=\"tabedswitch\">{{elements[0].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[1].id\" period=\"1\" @tapped=\"tabedswitch\">{{elements[1].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[2].id\" period=\"2\" @tapped=\"tabedswitch\">{{elements[2].text}}</b-radius-button>\n    </s-flex-column>\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n</s-cell>\n\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\"><h3>{{elements[0].text}}</h3><h3>{{label7Rate}}</h3></span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\"><h3>{{elements[1].text}}</h3><h3>{{labelWRate}}</h3></span>\n</div> \n\n<div v-else=\"\" class=\"_ruletab _ruletab2\">\n    <span :id=\"item.id\" :class=\"{_borderbtm: index == 0}\" @mytap=\"tabswitch\" v-for=\"(item,index) in elements\">{{item.text}}</span>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell bgcolor=\"white\" v-if=\"radius\" id=\"radiusTab\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[0].id\" period=\"0\" class=\"_radius_active\" @tapped=\"tabedswitch\">{{elements[0].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[1].id\" period=\"1\" @tapped=\"tabedswitch\">{{elements[1].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[2].id\" period=\"2\" @tapped=\"tabedswitch\">{{elements[2].text}}</b-radius-button>\n    </s-flex-column>\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n</s-cell>\n\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\" :id=\"idName\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\"><h3>{{elements[0].text}}</h3><h3>{{label7Rate}}</h3></span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\"><h3>{{elements[1].text}}</h3><h3>{{labelWRate}}</h3></span>\n</div> \n\n<div v-else=\"\" class=\"_ruletab _ruletab2\" :id=\"idName\">\n    <span :id=\"item.id\" :class=\"{_borderbtm: index == 0}\" @mytap=\"tabswitch\" v-for=\"(item,index) in elements\">{{item.text}}</span>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -19241,6 +19254,10 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"../../utils/gum.vue.events":"events","../../utils/validate":82,"vue":4,"vue-hot-reload-api":2}],67:[function(require,module,exports){
+var __vueify_insert__ = require("vueify/lib/insert-css")
+var __vueify_style__ = __vueify_insert__.insert("\nbutton { width: 100px; height: 40px; text-align: center; line-height: 40px; border: none; background-color: #f40; color: #fff; size: 24px;}\n._test1 {\n    position: absolute; bottom: 0;left: 0; z-index: 10;\n    width: 100%; height: 200px;background: #fff; text-align: center; font-size: 30px; color: green; line-height: 40px;box-sizing: border-box;\n}\n._test1 .slide-transition {\n    -webkit-transition: all 0.5;\n    transition: all 0.5;\n    -webkit-transform: translate3d(0,280px,0);\n            transform: translate3d(0,280px,0);\n}\n._test1 .slide-enter,._test1 .slide-leave {\n    -webkit-transform: translate3d(0,100px,0);\n            transform: translate3d(0,100px,0);\n}\n\n")
+
+
 
 
 
@@ -19252,38 +19269,40 @@ if (module.hot) {(function () {  module.hot.accept()
 
 module.exports = {
     props: {
-        
+        isshow: {
+            type: Boolean,
+            default: false
+        }
     },
     data: function() {
         return {
-
+            isShow: this.isshow
         };
     },
     methods: {
-        testDom: function(){
-            var domclass = this.$refs.pp;
-            console.log(domclass);
-        },
-        testRef: function(){
-            var domclass = this.$refs.icon;
-            console.log(domclass);
+        toshow: function(){
+            this.isShow = !this.isShow;
         }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_test\">\n    yyyyyyyy\n    <b-icon ref=\"icon\" name=\"eye-close\" size=\"30\" v-show=\"true\" @click=\"testDom\"></b-icon>\n    <p ref=\"pp\" @click=\"testRef\">xxxxxx</p>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div>\n    <button @click=\"toshow\">点击</button>\n    <div class=\"_test1\" v-show=\"isShow\" transition=\"slide\">\n        <p ref=\"pp\">xdsfasdfasdfasdfdfasdfdsfsdfdfxxxxx</p>\n    </div>\n</div>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
+  module.hot.dispose(function () {
+    __vueify_insert__.cache["\nbutton { width: 100px; height: 40px; text-align: center; line-height: 40px; border: none; background-color: #f40; color: #fff; size: 24px;}\n._test1 {\n    position: absolute; bottom: 0;left: 0; z-index: 10;\n    width: 100%; height: 200px;background: #fff; text-align: center; font-size: 30px; color: green; line-height: 40px;box-sizing: border-box;\n}\n._test1 .slide-transition {\n    -webkit-transition: all 0.5;\n    transition: all 0.5;\n    -webkit-transform: translate3d(0,280px,0);\n            transform: translate3d(0,280px,0);\n}\n._test1 .slide-enter,._test1 .slide-leave {\n    -webkit-transform: translate3d(0,100px,0);\n            transform: translate3d(0,100px,0);\n}\n\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
   if (!module.hot.data) {
     hotAPI.createRecord("_v-66e517b8", module.exports)
   } else {
     hotAPI.update("_v-66e517b8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],68:[function(require,module,exports){
+},{"vue":4,"vue-hot-reload-api":2,"vueify/lib/insert-css":5}],68:[function(require,module,exports){
 
 
 

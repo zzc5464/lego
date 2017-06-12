@@ -171,12 +171,7 @@
         },
         methods: {
             hiddenData: function() {
-                if(!this.open){
-                    this.open = !this.open;
-                }else {
-                    this.open = !this.open;
-                }
-                
+                this.open = !this.open;
             }
         }
     }
