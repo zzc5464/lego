@@ -3,7 +3,6 @@
 var Vue = require('vue/dist/vue.common');
 
 var components = [
-    [ 'b-test'                  , require('../basic/test/test.vue.js')                              ],
     [ 'b-text'                  , require('../basic/text/text.vue.js')                              ],
     [ 'b-highlight'             , require('../basic/highlight/highlight.vue.js')                    ],
     [ 'b-icon'                  , require('../basic/icon/icon.vue.js')                              ],

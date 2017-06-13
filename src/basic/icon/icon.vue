@@ -1,5 +1,5 @@
 <template>
-    <i class='pingan' v-on:mytap='tapped' :class='classObj'></i>
+    <i class='lego' v-on:mytap='tapped' :class='classObj'></i>
 </template>
 
 <script>

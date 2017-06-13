@@ -170,7 +170,7 @@ input::-webkit-input-placeholder {
 }
 ._field i {
     display: none;
-    @extend .pingan;
+    @extend .lego;
     @extend .i-round-cross;
     font-size: $text-size-34px;
     color: $c-lightgrey;

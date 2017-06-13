@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "pingan";
+  font-family: "lego";
   src: url("iconfont/iconfont.eot");
   /* IE9*/
   src: url("iconfont/iconfont.eot") format("embedded-opentype"), url("iconfont/iconfont.woff") format("woff"), url("iconfont/iconfont.ttf") format("truetype"), url("iconfont/iconfont.svg") format("svg");
@@ -12,8 +12,8 @@
   -webkit-align-items: center;
   align-items: center; }
 
-.pingan, ._field i {
-  font-family: "pingan" !important;
+.lego, ._field i {
+  font-family: "lego" !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
