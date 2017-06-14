@@ -15151,7 +15151,7 @@ var $ = function (selector){
 module.exports = {
     props: {
         defaultValue: {
-            type: Number
+            type: String
         },
         label: {
             type: String
@@ -15176,8 +15176,7 @@ module.exports = {
     },
     computed: {
         swithcCapital: function(){
-            var s = amountCapital.sumCapital(this.defaultValue);
-
+            var s = this.defaultValue ? amountCapital.sumCapital(this.defaultValue) : '';
             return s;
         }
     },

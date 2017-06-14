@@ -26,7 +26,7 @@
     module.exports = {
         props: {
             defaultValue: {
-                type: Number
+                type: String
             },
             label: {
                 type: String
@@ -51,8 +51,7 @@
         },
         computed: {
             swithcCapital: function(){
-                var s = amountCapital.sumCapital(this.defaultValue);
-
+                var s = this.defaultValue ? amountCapital.sumCapital(this.defaultValue) : '';
                 return s;
             }
         },
