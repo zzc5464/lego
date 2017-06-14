@@ -3,7 +3,7 @@
         <p>{{ desc }}</p>
         <div class="_amountdesc">
             <span class="_unit">￥</span>
-            <input class="_amount" @input="inputTap" id="payamount" type="number"  :placeholder="placeholder"  value=""> 
+            <input class="_amount" @input="inputTap" id="payamount" type="number"  :placeholder="placeholder" :value="defaultValue"> 
             <div>
                 <b-icon name="round-cross" color="stonegrey" size="40" @tapped="iconTap" id="clearamounts" data-tappable="" ontouchstart="" ></b-icon>
                 <b-highlight @tapped="amountAllIpt" v-show="label">全部转出</b-highlight>
@@ -11,7 +11,7 @@
             
         </div> 
         <h2 id="mapText">
-            <strong id="capitalamount"></strong>
+            <strong id="capitalamount">{{swithcCapital}}</strong>
             <span id="tiperror" class="_tiperror">已超限额</span> 
         </h2> 
     </div>
@@ -25,6 +25,9 @@
 
     module.exports = {
         props: {
+            defaultValue: {
+                type: Number
+            },
             label: {
                 type: String
             },
@@ -46,9 +49,16 @@
                 show: false
             }
         },
+        computed: {
+            swithcCapital: function(){
+                var s = amountCapital.sumCapital(this.defaultValue);
+
+                return s;
+            }
+        },
         methods: {
+            /* 输入验证 */
             inputTap: function (){
-                //this.show = true;
                 var tempValue = $('#payamount')[0].value;
                 var inputValue = (tempValue.length > 12) ? tempValue.slice(0,12) : tempValue ;
                 
@@ -70,12 +80,14 @@
                 }
                 this.callfn(flag);
             },
+            /* 全部删除 */
             iconTap: function (){
                 $('#clearamounts')[0].style.opacity = '0';
                 $('#payamount')[0].value = '';
                 $('#capitalamount')[0].innerHTML = '';
                 $('#tiperror')[0].style.opacity = '0';
             },
+            /* 全部转出 */
             amountAllIpt: function () {
                 $('#payamount')[0].value = this.label;
                 $('#tiperror')[0].style.opacity = '0';

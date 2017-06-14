@@ -6,7 +6,16 @@
 
 <script>
     module.exports = {
-        props: ['checked'],
+        props: {
+            checked: {
+                type: Boolean,
+                default: false
+            },
+            callfn: {
+                type: Function,
+                default: function () {}
+            }
+        },
         data: function() {
             return {
                 isChecked: this.checked
@@ -14,7 +23,9 @@
         },
         methods: {
             tapped: function() {
-                this.isChecked = !this.isChecked;
+                var _this = this;
+                _this.isChecked = !_this.isChecked;
+                _this.callfn(_this.isChecked);
             }
         }
     }

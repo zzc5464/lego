@@ -1,7 +1,7 @@
 <template>
     <div class='_protocol'>
         <div>
-            <b-checkbox :checked='isChecked'></b-checkbox>
+            <b-checkbox :checked='isChecked' :callfn='callfn'></b-checkbox>
         </div>
         <div>
             <span><slot></slot></span>
@@ -13,7 +13,16 @@
 
 
     module.exports = {
-        props: [ 'checked'],
+        props: {
+            checked: {
+                type: Boolean,
+                default: false
+            },
+            callfn: {
+                type: Function,
+                default: function () {}
+            }
+        },
         data: function() {
 
             return {

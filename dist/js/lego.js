@@ -15150,6 +15150,9 @@ var $ = function (selector){
 
 module.exports = {
     props: {
+        defaultValue: {
+            type: Number
+        },
         label: {
             type: String
         },
@@ -15171,9 +15174,16 @@ module.exports = {
             show: false
         }
     },
+    computed: {
+        swithcCapital: function(){
+            var s = amountCapital.sumCapital(this.defaultValue);
+
+            return s;
+        }
+    },
     methods: {
+        /* 输入验证 */
         inputTap: function (){
-            //this.show = true;
             var tempValue = $('#payamount')[0].value;
             var inputValue = (tempValue.length > 12) ? tempValue.slice(0,12) : tempValue ;
             
@@ -15195,12 +15205,14 @@ module.exports = {
             }
             this.callfn(flag);
         },
+        /* 全部删除 */
         iconTap: function (){
             $('#clearamounts')[0].style.opacity = '0';
             $('#payamount')[0].value = '';
             $('#capitalamount')[0].innerHTML = '';
             $('#tiperror')[0].style.opacity = '0';
         },
+        /* 全部转出 */
         amountAllIpt: function () {
             $('#payamount')[0].value = this.label;
             $('#tiperror')[0].style.opacity = '0';
@@ -15213,7 +15225,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_amountCapital\">\n    <p>{{ desc }}</p>\n    <div class=\"_amountdesc\">\n        <span class=\"_unit\">￥</span>\n        <input class=\"_amount\" @input=\"inputTap\" id=\"payamount\" type=\"number\" :placeholder=\"placeholder\" value=\"\"> \n        <div>\n            <b-icon name=\"round-cross\" color=\"stonegrey\" size=\"40\" @tapped=\"iconTap\" id=\"clearamounts\" data-tappable=\"\" ontouchstart=\"\"></b-icon>\n            <b-highlight @tapped=\"amountAllIpt\" v-show=\"label\">全部转出</b-highlight>\n        </div>\n        \n    </div> \n    <h2 id=\"mapText\">\n        <strong id=\"capitalamount\"></strong>\n        <span id=\"tiperror\" class=\"_tiperror\">已超限额</span> \n    </h2> \n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_amountCapital\">\n    <p>{{ desc }}</p>\n    <div class=\"_amountdesc\">\n        <span class=\"_unit\">￥</span>\n        <input class=\"_amount\" @input=\"inputTap\" id=\"payamount\" type=\"number\" :placeholder=\"placeholder\" :value=\"defaultValue\"> \n        <div>\n            <b-icon name=\"round-cross\" color=\"stonegrey\" size=\"40\" @tapped=\"iconTap\" id=\"clearamounts\" data-tappable=\"\" ontouchstart=\"\"></b-icon>\n            <b-highlight @tapped=\"amountAllIpt\" v-show=\"label\">全部转出</b-highlight>\n        </div>\n        \n    </div> \n    <h2 id=\"mapText\">\n        <strong id=\"capitalamount\">{{swithcCapital}}</strong>\n        <span id=\"tiperror\" class=\"_tiperror\">已超限额</span> \n    </h2> \n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16966,7 +16978,16 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 module.exports = {
-    props: [ 'checked'],
+    props: {
+        checked: {
+            type: Boolean,
+            default: false
+        },
+        callfn: {
+            type: Function,
+            default: function () {}
+        }
+    },
     data: function() {
 
         return {
@@ -16977,7 +16998,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_protocol\">\n    <div>\n        <b-checkbox :checked=\"isChecked\"></b-checkbox>\n    </div>\n    <div>\n        <span><slot></slot></span>\n    </div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_protocol\">\n    <div>\n        <b-checkbox :checked=\"isChecked\" :callfn=\"callfn\"></b-checkbox>\n    </div>\n    <div>\n        <span><slot></slot></span>\n    </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -18372,7 +18393,16 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 module.exports = {
-    props: ['checked'],
+    props: {
+        checked: {
+            type: Boolean,
+            default: false
+        },
+        callfn: {
+            type: Function,
+            default: function () {}
+        }
+    },
     data: function() {
         return {
             isChecked: this.checked
@@ -18380,7 +18410,9 @@ module.exports = {
     },
     methods: {
         tapped: function() {
-            this.isChecked = !this.isChecked;
+            var _this = this;
+            _this.isChecked = !_this.isChecked;
+            _this.callfn(_this.isChecked);
         }
     }
 }
