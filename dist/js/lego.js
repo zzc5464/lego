@@ -16556,46 +16556,51 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-
-
-// <b-text>{{itemIndex}} - {{itemData.name}} - {{checked}}</b-text>
-    // 银行卡 点击 进入下一页
-    module.exports = {
-        props: {
-            itemData: {
-                type: Object,
-                default: function () { return {}; }
-            },
-
-            itemIndex: {
-                type: Number,
-                default: 0
-            }, 
-
-            checked: {
-                type: Boolean,
-                default: false
-            },
-
-            onTap: {
-                type: Function,
-                default: function () {}
-            }
+// 银行卡 点击 进入下一页
+module.exports = {
+    props: {
+        itemData: {
+            type: Object,
+            default: function () { return {}; }
         },
 
-        data: function () {
-            return {}
+        itemIndex: {
+            type: Number,
+            default: 0
+        }, 
+
+        checked: {
+            type: Boolean,
+            default: false
         },
 
-        methods: {
-            onTapCallback: function (e) {
-                this.onTap(this.itemData, e);
-            }
+        onTap: {
+            type: Function,
+            default: function () {}
+        }
+    },
+
+    data: function () {
+        return {
+            tempData: this.itemData
+        }
+    },
+    computed: {
+        cutOff: function(){
+            var l = this.tempData.bankNum.slice(-4);
+            return l;
+        }
+    },
+
+    methods: {
+        onTapCallback: function (e) {
+            this.onTap(this.itemData, e);
         }
     }
+}
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell v-if=\"itemData.support == '1'\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card _cell_next\" bgcolor=\"white\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"black\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}} <br>\n            <b-text color=\"light\" size=\"24\">单笔限额{{itemData.limit}}万</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-select size=\"30\" color=\"high\"></b-select>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n<s-cell v-else-if=\"itemData.support == '2'\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card _cell_next\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"light\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}}<br>\n            <b-text color=\"black\" size=\"24\">不支持在线充值</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-select size=\"30\" color=\"high\">请更换银行卡</b-select>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n<s-cell v-else-if=\"itemData.support == '3'\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"light\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}}<br>\n            <b-text color=\"stonegrey\" size=\"24\">不支持在线充值</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        \n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell v-if=\"itemData.support == '1'\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card _cell_next\" bgcolor=\"white\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"black\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{cutOff}} <br>\n            <b-text color=\"light\" size=\"24\">单笔限额{{itemData.limit}}万</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-select size=\"30\" color=\"high\"></b-select>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n<s-cell v-else-if=\"itemData.support == '2'\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card _cell_next\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"light\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{cutOff}}<br>\n            <b-text color=\"black\" size=\"24\">不支持在线充值</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-select size=\"30\" color=\"high\">请更换银行卡</b-select>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n<s-cell v-else-if=\"itemData.support == '3'\" height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"light\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{cutOff}}<br>\n            <b-text color=\"stonegrey\" size=\"24\">不支持在线充值</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\"></s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17124,46 +17129,52 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-// <b-text>{{itemIndex}} - {{itemData.name}} - {{checked}}</b-text>
-    // 银行卡 点击 进入下一页
-    module.exports = {
-        props: {
-            itemData: {
-                type: Object,
-                default: function () { return {}; }
-            },
-
-            itemIndex: {
-                type: Number,
-                default: 0
-            }, 
-
-            checked: {
-                type: Boolean,
-                default: false
-            },
-
-            onTap: {
-                type: Function,
-                default: function () {}
-            }
-
-        },
-        
-
-        data: function () {
-            return {}
+// 银行卡 点击 进入下一页
+module.exports = {
+    props: {
+        itemData: {
+            type: Object,
+            default: function () { return {}; }
         },
 
-        methods: {
-            onTapCallback: function (e) {
-                this.onTap(this.itemData, e);
-            }
+        itemIndex: {
+            type: Number,
+            default: 0
+        }, 
+
+        checked: {
+            type: Boolean,
+            default: false
+        },
+
+        onTap: {
+            type: Function,
+            default: function () {}
+        }
+
+    },
+    
+
+    data: function () {
+        return {}
+    },
+
+    computed: {
+        cutOff: function(){
+            var l = this.tempData.bankNum.slice(-4);
+            return l;
+        }
+    },
+
+    methods: {
+        onTapCallback: function (e) {
+            this.onTap(this.itemData, e);
         }
     }
+}
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card\" bgcolor=\"white\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"black\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}} <br>\n            <b-text color=\"light\" size=\"24\">单笔限额{{itemData.limit}}万</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-icon v-if=\"checked\" size=\"30\" color=\"high\" name=\"check\"></b-icon>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card\" bgcolor=\"white\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"black\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{cutOff}} <br>\n            <b-text color=\"light\" size=\"24\">单笔限额{{itemData.limit}}万</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-icon v-if=\"checked\" size=\"30\" color=\"high\" name=\"check\"></b-icon>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

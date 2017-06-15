@@ -4,7 +4,7 @@
         </s-flex-column>
         <s-multiline width="12" align="left" self-align="center">
             <b-text color="black" size="30">
-                {{itemData.bankName}} &nbsp; 尾号{{itemData.bankNum}} <br>
+                {{itemData.bankName}} &nbsp; 尾号{{cutOff}} <br>
                 <b-text color="light" size="24">单笔限额{{itemData.limit}}万</b-text>
             </b-text>
         </s-multiline>
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-// <b-text>{{itemIndex}} - {{itemData.name}} - {{checked}}</b-text>
     // 银行卡 点击 进入下一页
     module.exports = {
         props: {
@@ -47,6 +46,13 @@
 
         data: function () {
             return {}
+        },
+
+        computed: {
+            cutOff: function(){
+                var l = this.tempData.bankNum.slice(-4);
+                return l;
+            }
         },
 
         methods: {

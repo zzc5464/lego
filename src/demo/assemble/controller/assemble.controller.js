@@ -275,23 +275,23 @@ AssembleController.prototype = new FController({
             // list: [{name: '123'}, {name: '456'}],
             // 可供选择的银行卡 且 选中第一张 
             list: [
-                {"bankName": "平安银行","bankNum":"3453","limit":"100"},
-                {"bankName": "建设银行","bankNum":"1233","limit":"200"},
-                {"bankName": "浦发银行","bankNum":"2333","limit":"30"}
+                {"bankName": "平安银行","bankNum":"333323453","limit":"100"},
+                {"bankName": "建设银行","bankNum":"2323231233","limit":"200"},
+                {"bankName": "浦发银行","bankNum":"2342342342342333","limit":"30"}
             ],
             // 点击银行卡  跳转下一页
             list1: [
-                {"bankName": "平安银行","bankNum":"3453","limit":"100","support":"1"}
+                {"bankName": "平安银行","bankNum":"333323453","limit":"100","support":"1"}
             ],
             // 不支持充值的银行卡 
             list2: [
-                {"bankName": "浦发银行","bankNum":"2333","limit":"30","support":"2"},
-                {"bankName": "平安银行","bankNum":"3453","limit":"100","support":"2"}
+                {"bankName": "浦发银行","bankNum":"333323453","limit":"30","support":"2"},
+                {"bankName": "平安银行","bankNum":"333323453","limit":"100","support":"2"}
             ],
             // 不支持充值的银行卡 
             list3: [
-                {"bankName": "浦发银行","bankNum":"2333","limit":"30","support":"3"},
-                {"bankName": "建设银行","bankNum":"1233","limit":"200","support":"3"}
+                {"bankName": "浦发银行","bankNum":"2333323453333","limit":"30","support":"3"},
+                {"bankName": "建设银行","bankNum":"333323453","limit":"200","support":"3"}
             ],
             // 在途资产
             list4: [
@@ -331,7 +331,7 @@ AssembleController.prototype = new FController({
                 {"name":"yxyxyx","link":"yyy"}
             ],
             onTap: function (itemData) {
-                console.log(itemData.link);
+                console.log(itemData);
             }
         });
     },
