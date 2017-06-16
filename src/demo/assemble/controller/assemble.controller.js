@@ -276,7 +276,7 @@ AssembleController.prototype = new FController({
             // 可供选择的银行卡 且 选中第一张 
             list: [
                 {"bankName": "平安银行","bankNum":"333323453","limit":"100"},
-                {"bankName": "建设银行","bankNum":"2323231233","limit":"200"},
+                {"bankName": "建设银行","bankNum":"2323231233"},
                 {"bankName": "浦发银行","bankNum":"2342342342342333","limit":"30"}
             ],
             // 点击银行卡  跳转下一页

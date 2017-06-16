@@ -17156,7 +17156,9 @@ module.exports = {
     
 
     data: function () {
-        return {}
+        return {
+            tempData: this.itemData
+        }
     },
 
     computed: {
@@ -17174,7 +17176,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card\" bgcolor=\"white\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"black\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{cutOff}} <br>\n            <b-text color=\"light\" size=\"24\">单笔限额{{itemData.limit}}万</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-icon v-if=\"checked\" size=\"30\" color=\"high\" name=\"check\"></b-icon>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"3.421056\" :on-tap=\"onTapCallback\" class=\"_next-card\" bgcolor=\"white\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-multiline width=\"12\" align=\"left\" self-align=\"center\">\n        <b-text color=\"black\" size=\"30\">\n            {{itemData.bankName}} &nbsp; 尾号{{cutOff}} <br>\n            <b-text color=\"light\" size=\"24\" v-show=\"itemData.limit\">单笔限额{{itemData.limit}}万</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"6\" align=\"right\">\n        <b-icon v-if=\"checked\" size=\"30\" color=\"high\" name=\"check\"></b-icon>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

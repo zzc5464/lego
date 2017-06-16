@@ -5,7 +5,7 @@
         <s-multiline width="12" align="left" self-align="center">
             <b-text color="black" size="30">
                 {{itemData.bankName}} &nbsp; 尾号{{cutOff}} <br>
-                <b-text color="light" size="24">单笔限额{{itemData.limit}}万</b-text>
+                <b-text color="light" size="24" v-show="itemData.limit">单笔限额{{itemData.limit}}万</b-text>
             </b-text>
         </s-multiline>
         <s-column width="6" align="right">
@@ -45,7 +45,9 @@
         
 
         data: function () {
-            return {}
+            return {
+                tempData: this.itemData
+            }
         },
 
         computed: {
