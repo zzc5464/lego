@@ -83,6 +83,7 @@ var components = [
     [ 'keyboard'                , require('../assemble/keyboard/keyboard.vue.js')                   ],
     [ 'modal'                   , require('../assemble/modal/modal.vue.js')                         ],
     [ 'annotation'              , require('../assemble/annotation/annotation.vue.js')               ],
+    [ 'total-button'            , require('../assemble/total-button/total-button.vue.js')           ],
     [ 'question'                , require('../assemble/question/question.vue.js')                   ]
 ];
 
