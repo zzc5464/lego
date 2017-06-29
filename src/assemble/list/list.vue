@@ -1,6 +1,6 @@
 <template>
     <div v-show='data.length > 0'>
-        <component v-for='(item, index) in data' :is='card' :item-data='item' :item-index='index' :checked='name !== "" && item[name] === value' :on-tap='onTapCallback' :color="color" :size="size"></component>
+        <component v-for='(item, index) in data' :is='card' :item-data='item' :item-index='index' :checked='name !== "" && item[name] === value' :on-tap='onTapCallback' :color="color" :size="size" :show-right="showRight"></component>
     </div>
 </template>
 
@@ -48,6 +48,11 @@
             size: {
                 type: String,
                 default: '30'
+            },
+
+            showRight: {
+                type: Boolean,
+                default: true
             }
 
 

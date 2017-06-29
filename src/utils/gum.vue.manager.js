@@ -56,6 +56,7 @@ var components = [
     [ 'text-row'                , require('../assemble/text-row/text-row.vue.js')                   ],
     [ 'select-row'              , require('../assemble/select-row/select-row.vue.js')               ],
     [ 'text-field-row'          , require('../assemble/text-field-row/text-field-row.vue.js')       ],
+    [ 'textarea-row'            , require('../assemble/textarea-row/textarea-row.vue.js')       ],
     [ 'tel-field-row'           , require('../assemble/tel-field-row/tel-field-row.vue.js')         ],
     [ 'id-field-row'            , require('../assemble/id-field-row/id-field-row.vue.js')           ],
     [ 'otp-field-row'           , require('../assemble/otp-field-row/otp-field-row.vue.js')         ],

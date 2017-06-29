@@ -3,10 +3,10 @@
         <s-flex-column>
         </s-flex-column>
         <s-column width="15" align="left">
-            <b-text size='30' color='grey'>{{ itemData.name }}</b-text>
+            <b-text size='30' :color='color'>{{ itemData.name }}</b-text>
         </s-column>
-        <s-column width="3" align="right">
-            <b-icon name="angle-right-bold" color="light" size="28"></b-icon>
+        <s-column width="3" align="right" >
+            <b-icon name="angle-right-bold" v-show="showRight" color="light" size="28"></b-icon>
         </s-column>
         <s-flex-column>
         </s-flex-column>
@@ -48,6 +48,11 @@
             size: {
                 type: String,
                 default: '30'
+            },
+
+            showRight: {
+                type: Boolean,
+                default: true
             }
 
         },

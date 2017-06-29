@@ -285,7 +285,6 @@ ul {
     padding: 1rem .8rem;
     width: 70%;
     margin: 1rem auto 0;
-    // background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%…oke='#dcdcdc' x='0' y='0' width='100%' height='100%' rx='8' ry='8'/></svg>");
     border-radius: 4px;
     color: $c-lightgrey;
 
@@ -418,18 +417,6 @@ h1,h2,h3,h4,h5,h6 {
                 width: 15px;
             }
         }
-    }
-}
-
-// 选择框
-._select {
-    & ._native-select {
-        outline: none;
-        border: none;
-        background: transparent;
-        direction: rtl;
-        font-size: calRem(30);
-        margin-right: -#{calRem(10)};
     }
 }
 

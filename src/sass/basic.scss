@@ -152,10 +152,38 @@ input,textarea {
     display: block;
     width: 100%;
     padding: 0;
+    outline: none;
 }
 
-input::-webkit-input-placeholder {
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
     color: $c-lightgrey;
+}
+._textarea {
+    position: relative;
+    height: 5rem;
+    width: 100%;
+    
+    textarea {
+        width: 100%;
+        height: 100%;
+        resize: none;
+        margin: 0;
+        padding: 0.684211rem 0.78947rem 1.25rem;
+        box-sizing: border-box;
+        background-color: $c-white;
+        background-image: $img-border-btm;
+        background-position: 0 100%;
+        background-repeat: no-repeat;
+    }
+   span {
+        position: absolute;
+        bottom: 0.273684rem;
+        right: 0.78947rem;
+        color: $c-lightgrey;
+        font-size: 0.78947rem;
+        z-index: 2;
+   }
 }
 
 ._field {
@@ -301,7 +329,18 @@ input::-webkit-input-placeholder {
 
 ._select {
     margin-right: -2px;
+    & ._native-select {
+        outline: none;
+        border: none;
+        background: transparent;
+        direction: rtl;
+        font-size: calRem(30);
+        margin-right: -#{calRem(10)};
+        width: auto;
+        color: $c-black;
+    }
 }
 ._select_text {
     vertical-align: 1px;
+    color: $c-lightgrey;
 }

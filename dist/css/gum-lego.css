@@ -225,9 +225,34 @@
   border: 0;
   display: block;
   width: 100%;
-  padding: 0; }
-.gum .lego input::-webkit-input-placeholder, .gum .lego ._field i input::-webkit-input-placeholder {
+  padding: 0;
+  outline: none; }
+.gum .lego input::-webkit-input-placeholder, .gum .lego ._field i input::-webkit-input-placeholder,
+.gum .lego textarea::-webkit-input-placeholder,
+.gum .lego ._field i textarea::-webkit-input-placeholder {
   color: #c1c1c1; }
+.gum .lego ._textarea, .gum .lego ._field i ._textarea {
+  position: relative;
+  height: 5rem;
+  width: 100%; }
+  .gum .lego ._textarea textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    margin: 0;
+    padding: 0.684211rem 0.78947rem 1.25rem;
+    box-sizing: border-box;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
+    background-position: 0 100%;
+    background-repeat: no-repeat; }
+  .gum .lego ._textarea span {
+    position: absolute;
+    bottom: 0.273684rem;
+    right: 0.78947rem;
+    color: #c1c1c1;
+    font-size: 0.78947rem;
+    z-index: 2; }
 .gum .lego ._field, .gum .lego ._field i ._field {
   display: -webkit-box;
   display: -webkit-flex;
@@ -342,8 +367,18 @@
       transform: translateX(20px); }
 .gum .lego ._select, .gum .lego ._field i ._select {
   margin-right: -2px; }
+  .gum .lego ._select ._native-select {
+    outline: none;
+    border: none;
+    background: transparent;
+    direction: rtl;
+    font-size: 0.78947rem;
+    margin-right: -0.26316rem;
+    width: auto;
+    color: #333; }
 .gum .lego ._select_text, .gum .lego ._field i ._select_text {
-  vertical-align: 1px; }
+  vertical-align: 1px;
+  color: #c1c1c1; }
 .gum .lego ._cell, .gum .lego ._field i ._cell, .gum .lego ._single-cell, .gum .lego ._field i ._single-cell {
   display: -webkit-box;
   display: -webkit-flex;
@@ -651,13 +686,6 @@
       .gum .lego ._assetheader div ._select i {
         display: inline-block;
         width: 15px; }
-.gum .lego ._select ._native-select {
-  outline: none;
-  border: none;
-  background: transparent;
-  direction: rtl;
-  font-size: 0.78947rem;
-  margin-right: -0.26316rem; }
 .gum .lego ._mask, .gum .lego ._field i ._mask {
   position: fixed;
   top: 0;

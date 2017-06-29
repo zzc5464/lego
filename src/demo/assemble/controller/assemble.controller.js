@@ -256,6 +256,20 @@ AssembleController.prototype = new FController({
                     data.submit();
                 }
             });
+            $('#xxx').input(function(){
+                var s = this.getElementsByTagName('input')[0].value;
+                if(s.length == 3) {
+                    s+='-';
+                }
+                this.getElementsByTagName('input')[0].value = s;
+                if(s.length == 6) {
+                    s+='-';
+                }
+                this.getElementsByTagName('input')[0].value = s;
+                console.log(s);
+            });
+
+            console.log($('#label').find('select').val());
 
         }, data);
     },
