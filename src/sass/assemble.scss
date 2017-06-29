@@ -347,7 +347,7 @@ h1,h2,h3,h4,h5,h6 {
     h2 {
         font-weight: normal;
         @extend ._text_color_high;
-        font-size: celRem(50);
+        font-size: calRem(70);
         line-height: calRem(90);
     }
     h6 {
@@ -380,8 +380,9 @@ h1,h2,h3,h4,h5,h6 {
             color: $c-white;
                 font-size: calRem(32);
             & > div:first-child {
-                color: $c-white;
+                color: $c-light;
                 font-size: calRem(22);
+                line-height: 1;
             }
         }
         li:first-child {

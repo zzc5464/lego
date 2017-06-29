@@ -638,7 +638,7 @@
     line-height: 1.57895rem; }
   .gum .lego ._assetheader h2 {
     font-weight: normal;
-    font-size: celRem(50);
+    font-size: 1.84211rem;
     line-height: 2.36842rem; }
   .gum .lego ._assetheader h6 {
     line-height: 1.31579rem; }
@@ -662,8 +662,9 @@
       color: #fff;
       font-size: 0.84211rem; }
       .gum .lego ._assetheader ._three li > div:first-child {
-        color: #fff;
-        font-size: 0.57895rem; }
+        color: #999;
+        font-size: 0.57895rem;
+        line-height: 1; }
     .gum .lego ._assetheader ._three li:first-child {
       width: 33%;
       margin-left: 1.31579rem; }
@@ -1100,6 +1101,8 @@
   font-size: 1.05263rem; }
 .gum .lego ._text_size_44px, .gum .lego ._field i ._text_size_44px {
   font-size: 1.15789rem; }
+.gum .lego ._text_size_50px, .gum .lego ._field i ._text_size_50px {
+  font-size: 1.31579rem; }
 .gum .lego ._text_size_60px, .gum .lego ._field i ._text_size_60px {
   font-size: 1.57895rem; }
 .gum .lego ._text_size_112px, .gum .lego ._field i ._text_size_112px {

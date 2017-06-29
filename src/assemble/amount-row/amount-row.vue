@@ -6,7 +6,7 @@
             <input class="_amount" @input="inputTap" id="payamount" type="number"  :placeholder="placeholder" :value="defaultValue"> 
             <div>
                 <b-icon name="round-cross" color="stonegrey" size="40" @tapped="iconTap" id="clearamounts" data-tappable="" ontouchstart="" ></b-icon>
-                <b-highlight @tapped="amountAllIpt" v-show="label">全部转出</b-highlight>
+                <b-highlight @tapped="amountAllIpt" v-show="label">{{descAll}}</b-highlight>
             </div>
             
         </div> 
@@ -42,6 +42,9 @@
             callfn: {
                 type: Function,
                 default: function () {}
+            },
+            descAll: {
+                type: String
             }
         },
         data: function() {
