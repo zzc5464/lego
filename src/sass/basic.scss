@@ -87,7 +87,10 @@ button {
     border-radius: 0;
     box-sizing: border-box;
 }
+._rectangular_button.tapping {
+    color: $c-tapping;
 
+}
 // <b-tab-button/>
 ._tab_button {
     background-color: $c-white;

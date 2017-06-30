@@ -253,6 +253,9 @@ button {
   border-radius: 0;
   box-sizing: border-box; }
 
+._rectangular_button.tapping {
+  color: #b38f47; }
+
 ._tab_button {
   background-color: #fff;
   color: #d7ac62;
