@@ -191,6 +191,8 @@
   border: 0;
   border-radius: 0;
   box-sizing: border-box; }
+.gum .lego ._rectangular_button.tapping {
+  color: #b38f47; }
 .gum .lego ._tab_button, .gum .lego ._field i ._tab_button {
   background-color: #fff;
   color: #d7ac62;
@@ -669,7 +671,7 @@
       width: 29%;
       margin-left: 0.65789rem;
       color: #fff;
-      font-size: 0.84211rem; }
+      font-size: 1rem; }
       .gum .lego ._assetheader ._three li > div:first-child {
         color: #999;
         font-size: 0.57895rem;
@@ -724,7 +726,7 @@
   line-height: 1.94737rem;
   background: #fff; }
 .gum .lego ._comment-more, .gum .lego ._field i ._comment-more {
-  padding: 0.78947rem 0.78947rem 0.52632rem;
+  padding: 0.52632rem 0.78947rem 0.52632rem 0.78947rem;
   line-height: 0.94737rem;
   font-size: 0; }
   .gum .lego ._comment-more > div, .gum .lego ._field i ._comment-more > div {
@@ -957,9 +959,9 @@
 .gum .lego ._payway .realradio {
   position: relative;
   display: inline-block;
-  width: 1.05263rem;
-  height: 1.05263rem;
-  line-height: 1.05263rem;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
   border: 1px solid #999;
   border-radius: 50%;
   background-color: transparent;
@@ -969,7 +971,7 @@
   padding-right: 0.31579rem;
   -webkit-tap-highlight-color: transparent; }
 .gum .lego ._payway .realradio i {
-  font-size: 0.84211rem;
+  font-size: 16px;
   color: #fff; }
 .gum .lego ._payway .realradio.active {
   border-color: #d7ac62;

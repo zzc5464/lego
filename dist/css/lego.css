@@ -265,6 +265,9 @@ button {
   border-radius: 0;
   box-sizing: border-box; }
 
+._rectangular_button.tapping {
+  color: #b38f47; }
+
 ._tab_button {
   background-color: #fff;
   color: #d7ac62;
@@ -803,7 +806,7 @@ h1, h2, h3, h4, h5, h6 {
       width: 29%;
       margin-left: 0.65789rem;
       color: #fff;
-      font-size: 0.84211rem; }
+      font-size: 1rem; }
       ._assetheader ._three li > div:first-child {
         color: #999;
         font-size: 0.57895rem;
@@ -864,7 +867,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #fff; }
 
 ._comment-more {
-  padding: 0.78947rem 0.78947rem 0.52632rem;
+  padding: 0.52632rem 0.78947rem 0.52632rem 0.78947rem;
   line-height: 0.94737rem;
   font-size: 0; }
   ._comment-more > div {
@@ -1115,9 +1118,9 @@ h1, h2, h3, h4, h5, h6 {
 ._payway .realradio {
   position: relative;
   display: inline-block;
-  width: 1.05263rem;
-  height: 1.05263rem;
-  line-height: 1.05263rem;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
   border: 1px solid #999;
   border-radius: 50%;
   background-color: transparent;
@@ -1127,7 +1130,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 0.31579rem;
   -webkit-tap-highlight-color: transparent; }
 ._payway .realradio i {
-  font-size: 0.84211rem;
+  font-size: 16px;
   color: #fff; }
 ._payway .realradio.active {
   border-color: #d7ac62;

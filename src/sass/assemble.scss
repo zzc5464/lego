@@ -379,7 +379,7 @@ h1,h2,h3,h4,h5,h6 {
             width: 29%;
             margin-left: calRem(25);
             color: $c-white;
-                font-size: calRem(32);
+                font-size: calRem(38);
             & > div:first-child {
                 color: $c-light;
                 font-size: calRem(22);
@@ -458,7 +458,7 @@ h1,h2,h3,h4,h5,h6 {
     background: $c-white;
 }
 ._comment-more {
-    padding: calRem(30) calRem(30) calRem(20);
+    padding: calRem(20) calRem(30) calRem(20) calRem(30);
     line-height: calRem(36);
     font-size: 0;
     & > div {
@@ -775,9 +775,9 @@ h1,h2,h3,h4,h5,h6 {
     .realradio {
         position: relative;
         display: inline-block;
-        width: calRem(40);
-        height: calRem(40);
-        line-height: calRem(40);
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
         border: 1px solid #999;
         border-radius: 50%;
         background-color: rgba(0,0,0,0);
@@ -788,7 +788,7 @@ h1,h2,h3,h4,h5,h6 {
         -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
     .realradio i{
-        font-size: calRem(32);
+        font-size: 16px;
         color: #fff;
     }
     .realradio.active {

@@ -44,7 +44,7 @@
     </div>
     <div v-else-if='type === 5' class="_assetheader" :class="classObj" :style="styleObj">
         <header>
-            <h6 class="_eyecenter">{{topData.header || desc}} <b-icon size="40" name="eye" @tapped="hiddenData" v-show="open == true"></b-icon><b-icon size="40" name="eye-closed" @tapped="hiddenData" v-show="open != true" ></b-icon></h6>
+            <h6 class="_eyecenter">{{topData.header || desc}} <b-icon size="50" name="eye" @tapped="hiddenData" v-show="open == true"></b-icon><b-icon size="50" name="eye-closed" @tapped="hiddenData" v-show="open != true" ></b-icon></h6>
             <h2 v-if="open == true">{{topData.invest || invest}}</h2>
             <h2 v-else>****</h2>
         </header>
