@@ -38,7 +38,7 @@
             </li>
             <li>
                 <div>{{ topData.title3 || elements[4].text }}</div>
-                <div>{{ topData.value3 || elements[5].text }}</div>
+                <div class='chinese-font-size'>{{ topData.value3 || elements[5].text }}</div>
             </li>
         </ul>
     </div>
