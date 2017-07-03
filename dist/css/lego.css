@@ -181,6 +181,18 @@
 .i-round-cross:before, ._field i:before {
   content: "\e65a"; }
 
+.i-eye-close:before {
+  content: "\e62e"; }
+
+.i-checkbox-no:before {
+  content: "\e60f"; }
+
+.i-radio-checked:before {
+  content: "\e65c"; }
+
+.i-checkbox-solid:before {
+  content: "\e65d"; }
+
 ._text {
   font-weight: normal;
   color: #666;
@@ -355,7 +367,6 @@ textarea::-webkit-input-placeholder {
 ._address_field {
   outline: none; }
 
-._checkbox,
 ._solid_checkbox {
   display: inline-block;
   width: 0.84211rem;
@@ -368,8 +379,7 @@ textarea::-webkit-input-placeholder {
   overflow: hidden;
   vertical-align: middle; }
 
-._checkbox._checkbox_active,
-._solid_checkbox._solid_checkbox_active {
+._solid_checkbox._checkbox_active {
   border-color: #d7ac62;
   background-color: #d7ac62; }
 
@@ -541,6 +551,11 @@ textarea::-webkit-input-placeholder {
   background-position: 0 100%;
   background-repeat: no-repeat; }
 
+._cell._border-top, ._single-cell._border-top {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0' width='100%' height='0.5'/></svg>");
+  background-position: 0 0;
+  background-repeat: no-repeat; }
+
 ._none {
   display: none; }
 
@@ -588,9 +603,9 @@ ul {
     display: flex;
     align-content: flex-start; }
   ._protocol > div:first-child {
-    width: 1.31579rem;
-    padding-top: 0.13158rem; }
+    width: 1.31579rem; }
   ._protocol > div:last-child {
+    padding-top: .15rem;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
@@ -1100,19 +1115,19 @@ h1, h2, h3, h4, h5, h6 {
 ._payway .realradio {
   position: relative;
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  line-height: 18px;
+  width: 1.05263rem;
+  height: 1.05263rem;
+  line-height: 1.05263rem;
   border: 1px solid #999;
   border-radius: 50%;
   background-color: transparent;
   box-sizing: border-box;
   text-align: center;
   overflow: hidden;
-  margin-right: 6px;
+  padding-right: 0.31579rem;
   -webkit-tap-highlight-color: transparent; }
 ._payway .realradio i {
-  font-size: 16px;
+  font-size: 0.84211rem;
   color: #fff; }
 ._payway .realradio.active {
   border-color: #d7ac62;
@@ -1177,7 +1192,7 @@ h1, h2, h3, h4, h5, h6 {
 ._footer {
   width: 100%;
   position: fixed;
-  bottom: 0; }
+  bottom: -1px; }
 
 ._main_wrp_toast {
   width: 100%;
@@ -1228,6 +1243,9 @@ button, input, span {
   color: #666; }
 
 ._text_color_stonegrey {
+  color: #c1c1c1; }
+
+._text_color_lightgrey {
   color: #c1c1c1; }
 
 ._text_color_light, ._assetheader h6 {

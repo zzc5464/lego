@@ -125,6 +125,14 @@
   content: "\e657"; }
 .gum .lego .i-round-cross:before, .gum .lego ._field i:before {
   content: "\e65a"; }
+.gum .lego .i-eye-close:before {
+  content: "\e62e"; }
+.gum .lego .i-checkbox-no:before {
+  content: "\e60f"; }
+.gum .lego .i-radio-checked:before {
+  content: "\e65c"; }
+.gum .lego .i-checkbox-solid:before {
+  content: "\e65d"; }
 .gum .lego ._text, .gum .lego ._field i ._text {
   font-weight: normal;
   color: #666;
@@ -269,9 +277,7 @@
   display: block; }
 .gum .lego ._address_field, .gum .lego ._field i ._address_field {
   outline: none; }
-.gum .lego ._checkbox, .gum .lego ._field i ._checkbox,
-.gum .lego ._solid_checkbox,
-.gum .lego ._field i ._solid_checkbox {
+.gum .lego ._solid_checkbox, .gum .lego ._field i ._solid_checkbox {
   display: inline-block;
   width: 0.84211rem;
   height: 0.84211rem;
@@ -282,8 +288,7 @@
   text-align: center;
   overflow: hidden;
   vertical-align: middle; }
-.gum .lego ._checkbox._checkbox_active,
-.gum .lego ._solid_checkbox._solid_checkbox_active {
+.gum .lego ._solid_checkbox._checkbox_active {
   border-color: #d7ac62;
   background-color: #d7ac62; }
 .gum .lego ._solid_radio, .gum .lego ._field i ._solid_radio,
@@ -436,6 +441,10 @@
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
   background-position: 0 100%;
   background-repeat: no-repeat; }
+.gum .lego ._cell._border-top, .gum .lego ._single-cell._border-top {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0' width='100%' height='0.5'/></svg>");
+  background-position: 0 0;
+  background-repeat: no-repeat; }
 .gum .lego ._none, .gum .lego ._field i ._none {
   display: none; }
 .gum .lego ._flype, .gum .lego ._field i ._flype, .gum .lego ._notetips, .gum .lego ._field i ._notetips {
@@ -478,9 +487,9 @@
     display: flex;
     align-content: flex-start; }
   .gum .lego ._protocol > div:first-child, .gum .lego ._field i ._protocol > div:first-child {
-    width: 1.31579rem;
-    padding-top: 0.13158rem; }
+    width: 1.31579rem; }
   .gum .lego ._protocol > div:last-child, .gum .lego ._field i ._protocol > div:last-child {
+    padding-top: .15rem;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
@@ -948,19 +957,19 @@
 .gum .lego ._payway .realradio {
   position: relative;
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  line-height: 18px;
+  width: 1.05263rem;
+  height: 1.05263rem;
+  line-height: 1.05263rem;
   border: 1px solid #999;
   border-radius: 50%;
   background-color: transparent;
   box-sizing: border-box;
   text-align: center;
   overflow: hidden;
-  margin-right: 6px;
+  padding-right: 0.31579rem;
   -webkit-tap-highlight-color: transparent; }
 .gum .lego ._payway .realradio i {
-  font-size: 16px;
+  font-size: 0.84211rem;
   color: #fff; }
 .gum .lego ._payway .realradio.active {
   border-color: #d7ac62;
@@ -1016,7 +1025,7 @@
 .gum .lego ._footer, .gum .lego ._field i ._footer {
   width: 100%;
   position: fixed;
-  bottom: 0; }
+  bottom: -1px; }
 .gum .lego ._main_wrp_toast, .gum .lego ._field i ._main_wrp_toast {
   width: 100%;
   height: 100%; }
@@ -1056,6 +1065,8 @@
 .gum .lego ._text_color_grey, .gum .lego ._field i ._text_color_grey {
   color: #666; }
 .gum .lego ._text_color_stonegrey, .gum .lego ._field i ._text_color_stonegrey {
+  color: #c1c1c1; }
+.gum .lego ._text_color_lightgrey, .gum .lego ._field i ._text_color_lightgrey {
   color: #c1c1c1; }
 .gum .lego ._text_color_light, .gum .lego ._field i ._text_color_light, .gum .lego ._assetheader h6 {
   color: #999; }

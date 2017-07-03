@@ -1,6 +1,6 @@
 <template>
     <div class='_textarea _border' :style='styleObj' >
-        <textarea placeholder='请输入'></textarea>
+        <textarea :placeholder='placeholder'></textarea>
         <span>{{ max }}字</span>
     </div>
 </template>

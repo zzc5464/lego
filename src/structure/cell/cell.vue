@@ -19,6 +19,10 @@
                 type: String,
                 default: ''
             },
+            borderTop: {
+                type: String,
+                default: ''
+            },
             bgcolor: {
                 type: String
             },
@@ -30,13 +34,13 @@
         data: function() {
             var list = [];
             this.border === 'true' && list.push('_border');
+            this.borderTop === 'true' && list.push('_border-top');
             this.bgcolor && list.push('_bgcolor_' + this.bgcolor);
 
             return {
                 styleObj: this.minHeight ? {
                     minHeight: this.minHeight + 'rem'
                 } : {
-                    // height: (this.height || '2.473684') + 'rem'
                     height: this.height + 'rem'
                 },
                 classObj: list

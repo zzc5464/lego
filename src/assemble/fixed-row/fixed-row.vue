@@ -1,5 +1,5 @@
 <template>
-    <s-single-cell :height='dheight' :border='bordeValue' bgcolor='transparent' class='_justify-center'>
+    <s-single-cell :height='dheight' :border='bordeValue' :bgcolor='bgcolor' class='_justify-center'>
         <b-text size='30' :color='colorValue'><slot></slot></b-text>
     </s-single-cell>
 </template>
@@ -18,6 +18,10 @@
             border: {
                 type: String,
                 default: 'true'
+            },
+            bgcolor: {
+                type: String,
+                default: 'transparent'
             }
         },
         data: function (){

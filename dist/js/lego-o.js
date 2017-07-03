@@ -15636,7 +15636,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 module.exports = {
-    props: [ 'bgcolor', 'filled' ],
+    props: [ 'bgcolor', 'filled', 'borderTop' ],
 
     data: function () {
         var slots = this.$slots.default,
@@ -15663,7 +15663,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<!-- 构建单按钮样式（充满效果）-->\n<s-cell v-if=\"elements.length === 1 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column align=\"center\">\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" color=\"white\" filled=\"true\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建单按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 1 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"12.894736\" align=\"center\">\n        <b-button :id=\"elements[0].id\" size=\"34\" color=\"white\" height=\"2.105263\" filled=\"true\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（充满效果）-->\n<s-cell v-else-if=\"elements.length === 2 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" filled=\"false\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[1].id\" size=\"34\" height=\"3.157895\" filled=\"true\">{{elements[1].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 2 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[0].id\" size=\"34\" height=\"2.105263\" filled=\"false\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-column width=\".789474\"></s-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[1].id\" size=\"34\" height=\"2.105263\" filled=\"true\">{{elements[1].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建三按钮样式（充满效果）-->\n<s-cell v-else-if=\"elements.length === 3\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" filled=\"false\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n    <s-column width=\"5\">\n        <b-rectangular-button :id=\"elements[1].id\" size=\"34\" height=\"3.157895\" bgcolor=\"cream\" color=\"light\" filled=\"false\">{{elements[1].text}}</b-rectangular-button>\n    </s-column>\n    <s-column width=\"5\">\n        <b-rectangular-button :id=\"elements[2].id\" size=\"34\" height=\"3.157895\" filled=\"true\">{{elements[2].text}}</b-rectangular-button>\n    </s-column>\n</s-cell>\n\n<!-- \b误用提示 -->\n<s-cell v-else=\"\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-text>参数不合法</b-text>\n    </s-flex-column>\n</s-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<!-- 构建单按钮样式（充满效果）-->\n<s-cell v-if=\"elements.length === 1 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\" :border-top=\"borderTop\">\n    <s-flex-column align=\"center\">\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" color=\"white\" filled=\"true\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建单按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 1 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\" :border-top=\"borderTop\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"12.894736\" align=\"center\">\n        <b-button :id=\"elements[0].id\" size=\"34\" color=\"white\" height=\"2.105263\" filled=\"true\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（充满效果）-->\n<s-cell v-else-if=\"elements.length === 2 &amp;&amp; filled === &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\" :border-top=\"borderTop\">\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" filled=\"false\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[1].id\" size=\"34\" height=\"3.157895\" filled=\"true\">{{elements[1].text}}</b-rectangular-button>\n    </s-flex-column>\n</s-cell>\n\n<!-- 构建双按钮样式（留白效果）-->\n<s-cell v-else-if=\"elements.length === 2 &amp;&amp; filled !== &quot;true&quot;\" :height=\"height\" :bgcolor=\"bgcolor\" :border-top=\"borderTop\">\n    <s-flex-column></s-flex-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[0].id\" size=\"34\" height=\"2.105263\" filled=\"false\">{{elements[0].text}}</b-button>\n    </s-column>\n    <s-column width=\".789474\"></s-column>\n    <s-column width=\"8.947368\">\n        <b-button :id=\"elements[1].id\" size=\"34\" height=\"2.105263\" filled=\"true\">{{elements[1].text}}</b-button>\n    </s-column>\n    <s-flex-column></s-flex-column>\n</s-cell>\n\n<!-- 构建三按钮样式（充满效果）-->\n<s-cell v-else-if=\"elements.length === 3\" :height=\"height\" :bgcolor=\"bgcolor\" :border-top=\"borderTop\">\n    <s-flex-column>\n        <b-rectangular-button :id=\"elements[0].id\" size=\"34\" height=\"3.157895\" filled=\"false\">{{elements[0].text}}</b-rectangular-button>\n    </s-flex-column>\n    <s-column width=\"5\">\n        <b-rectangular-button :id=\"elements[1].id\" size=\"34\" height=\"3.157895\" bgcolor=\"cream\" color=\"light\" filled=\"false\">{{elements[1].text}}</b-rectangular-button>\n    </s-column>\n    <s-column width=\"5\">\n        <b-rectangular-button :id=\"elements[2].id\" size=\"34\" height=\"3.157895\" filled=\"true\">{{elements[2].text}}</b-rectangular-button>\n    </s-column>\n</s-cell>\n\n<!-- \b误用提示 -->\n<s-cell v-else=\"\" :height=\"height\" :bgcolor=\"bgcolor\">\n    <s-flex-column>\n        <b-text>参数不合法</b-text>\n    </s-flex-column>\n</s-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15695,6 +15695,10 @@ module.exports = {
         border: {
             type: String,
             default: 'true'
+        },
+        bgcolor: {
+            type: String,
+            default: 'transparent'
         }
     },
     data: function (){
@@ -15707,7 +15711,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-single-cell :height=\"dheight\" :border=\"bordeValue\" bgcolor=\"transparent\" class=\"_justify-center\">\n    <b-text size=\"30\" :color=\"colorValue\"><slot></slot></b-text>\n</s-single-cell>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-single-cell :height=\"dheight\" :border=\"bordeValue\" :bgcolor=\"bgcolor\" class=\"_justify-center\">\n    <b-text size=\"30\" :color=\"colorValue\"><slot></slot></b-text>\n</s-single-cell>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17909,7 +17913,7 @@ module.exports = {
 
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_textarea _border\" :style=\"styleObj\">\n    <textarea placeholder=\"请输入\"></textarea>\n    <span>{{ max }}字</span>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_textarea _border\" :style=\"styleObj\">\n    <textarea :placeholder=\"placeholder\"></textarea>\n    <span>{{ max }}字</span>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -18584,33 +18588,39 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-module.exports = {
-    props: {
-        checked: {
-            type: Boolean,
-            default: false
+
+
+// <b-icon v-show="isChecked" name="check" color="white" size="16"></b-icon>
+// :class="{_checkbox_active: isChecked}"
+
+var event = require('../../utils/gum.vue.events');
+    module.exports = {
+        props: {
+            checked: {
+                type: Boolean,
+                default: false
+            },
+            callfn: {
+                type: Function,
+                default: function () {}
+            }
         },
-        callfn: {
-            type: Function,
-            default: function () {}
-        }
-    },
-    data: function() {
-        return {
-            isChecked: this.checked
-        }
-    },
-    methods: {
-        tapped: function() {
-            var _this = this;
-            _this.isChecked = !_this.isChecked;
-            _this.callfn(_this.isChecked);
+        data: function() {
+            return {
+                isChecked: this.checked
+            }
+        },
+        methods: {
+            tapped: function() {
+                var _this = this;
+                _this.isChecked = !_this.isChecked;
+                _this.callfn(_this.isChecked);
+            }
         }
     }
-}
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span v-on:mytap=\"tapped\" :checked=\"isChecked\" class=\"_checkbox\" :class=\"{_checkbox_active: isChecked}\">\n      <b-icon v-show=\"isChecked\" name=\"check\" color=\"white\" size=\"16\"></b-icon>\n</span>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<span v-on:mytap=\"tapped\" :checked=\"isChecked\" class=\"_checkbox\" :class=\"{_checkbox_active: isChecked}\">\n      <b-icon v-show=\"isChecked\" name=\"checkbox-solid\" color=\"high\" size=\"16\"></b-icon>\n      <b-icon v-show=\"!isChecked\" name=\"checkbox-no\" color=\"lightgrey\" size=\"16\"></b-icon>\n</span>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -18621,7 +18631,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-fa497078", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],54:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],54:[function(require,module,exports){
 
 
 
@@ -19808,6 +19818,10 @@ module.exports = {
             type: String,
             default: ''
         },
+        borderTop: {
+            type: String,
+            default: ''
+        },
         bgcolor: {
             type: String
         },
@@ -19819,13 +19833,13 @@ module.exports = {
     data: function() {
         var list = [];
         this.border === 'true' && list.push('_border');
+        this.borderTop === 'true' && list.push('_border-top');
         this.bgcolor && list.push('_bgcolor_' + this.bgcolor);
 
         return {
             styleObj: this.minHeight ? {
                 minHeight: this.minHeight + 'rem'
             } : {
-                // height: (this.height || '2.473684') + 'rem'
                 height: this.height + 'rem'
             },
             classObj: list

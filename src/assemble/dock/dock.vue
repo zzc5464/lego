@@ -1,13 +1,13 @@
 <template>
     <!-- 构建单按钮样式（充满效果）-->
-    <s-cell v-if='elements.length === 1 && filled === "true"' :height='height' :bgcolor='bgcolor'>
+    <s-cell v-if='elements.length === 1 && filled === "true"' :height='height' :bgcolor='bgcolor' :border-top='borderTop'>
         <s-flex-column align='center'>
             <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" color="white" filled="true">{{elements[0].text}}</b-rectangular-button>
         </s-flex-column>
     </s-cell>
 
     <!-- 构建单按钮样式（留白效果）-->
-    <s-cell v-else-if='elements.length === 1 && filled !== "true"' :height='height' :bgcolor='bgcolor'>
+    <s-cell v-else-if='elements.length === 1 && filled !== "true"' :height='height' :bgcolor='bgcolor' :border-top='borderTop'>
         <s-flex-column></s-flex-column>
         <s-column width='12.894736' align='center'>
             <b-button :id='elements[0].id' size='34' color='white' height='2.105263' filled='true'>{{elements[0].text}}</b-button>
@@ -16,7 +16,7 @@
     </s-cell>
 
     <!-- 构建双按钮样式（充满效果）-->
-    <s-cell v-else-if='elements.length === 2 && filled === "true"' :height='height' :bgcolor='bgcolor'>
+    <s-cell v-else-if='elements.length === 2 && filled === "true"' :height='height' :bgcolor='bgcolor' :border-top='borderTop'>
         <s-flex-column>
             <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" filled="false">{{elements[0].text}}</b-rectangular-button>
         </s-flex-column>
@@ -26,7 +26,7 @@
     </s-cell>
 
     <!-- 构建双按钮样式（留白效果）-->
-    <s-cell v-else-if='elements.length === 2 && filled !== "true"' :height='height' :bgcolor='bgcolor'>
+    <s-cell v-else-if='elements.length === 2 && filled !== "true"' :height='height' :bgcolor='bgcolor' :border-top='borderTop'>
         <s-flex-column></s-flex-column>
         <s-column width='8.947368'>
             <b-button :id='elements[0].id' size='34' height='2.105263' filled='false'>{{elements[0].text}}</b-button>
@@ -39,7 +39,7 @@
     </s-cell>
 
     <!-- 构建三按钮样式（充满效果）-->
-    <s-cell v-else-if='elements.length === 3' :height='height' :bgcolor='bgcolor'>
+    <s-cell v-else-if='elements.length === 3' :height='height' :bgcolor='bgcolor' :border-top='borderTop'>
         <s-flex-column>
             <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" filled="false">{{elements[0].text}}</b-rectangular-button>
         </s-flex-column>
@@ -60,7 +60,7 @@
 </template>
 <script>
     module.exports = {
-        props: [ 'bgcolor', 'filled' ],
+        props: [ 'bgcolor', 'filled', 'borderTop' ],
 
         data: function () {
             var slots = this.$slots.default,

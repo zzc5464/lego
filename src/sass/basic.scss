@@ -208,14 +208,9 @@ textarea::-webkit-input-placeholder {
 }
 
 ._address_field {
-    // resize: none;
-    // overflow: hidden;
-    // height: 2.5rem;
-    // box-sizing: border-box;
     outline: none;
 }
 
-._checkbox,
 ._solid_checkbox{
     display: inline-block;
     width: calRem(32);
@@ -228,11 +223,16 @@ textarea::-webkit-input-placeholder {
     overflow: hidden;
     vertical-align: middle;
 }
-._checkbox._checkbox_active,
-._solid_checkbox._solid_checkbox_active{
+
+._solid_checkbox._checkbox_active{
     border-color: $c-high;
     background-color: $c-high;
 }
+
+// ._checkbox {
+//     display: inline-block;
+//     vertical-align: middle;
+// }
 
 ._solid_radio,
 ._radio {

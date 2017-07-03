@@ -1,10 +1,16 @@
 <template>
     <span v-on:mytap = "tapped" :checked="isChecked" class="_checkbox" :class="{_checkbox_active: isChecked}">
-          <b-icon v-show="isChecked" name="check"color="white" size="16"></b-icon>
+          <b-icon v-show="isChecked" name="checkbox-solid" color="high" size="16"></b-icon>
+          <b-icon v-show="!isChecked" name="checkbox-no" color="lightgrey" size="16"></b-icon>
     </span>
 </template>
 
 <script>
+
+// <b-icon v-show="isChecked" name="check" color="white" size="16"></b-icon>
+// :class="{_checkbox_active: isChecked}"
+
+var event = require('../../utils/gum.vue.events');
     module.exports = {
         props: {
             checked: {

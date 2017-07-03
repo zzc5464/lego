@@ -72,3 +72,8 @@
     background-position: 0 100%;
     background-repeat: no-repeat;
 }
+._cell._border-top, ._single-cell._border-top {
+    background-image: $img-border-btop;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
