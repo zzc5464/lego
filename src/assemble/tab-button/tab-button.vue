@@ -16,8 +16,8 @@
     </s-cell>
 
     <div v-else-if="elements.length === 2" class="_ruletab _ruletab1" :id="idName">
-        <span :id="elements[0].id" rate='1' @mytap="tabswitch" class="_borderbtm" ><h3>{{elements[0].text}}</h3><h3>{{label7Rate}}</h3></span>
-        <span :id="elements[1].id" rate='0' @mytap="tabswitch" ><h3>{{elements[1].text}}</h3><h3>{{labelWRate}}</h3></span>
+        <span :id="elements[0].id" rate='1' @mytap="tabswitch" class="_borderbtm" ><h3 :style="styleObj">{{elements[0].text}}</h3><h3 class="num-size">{{label7Rate}}</h3></span>
+        <span :id="elements[1].id" rate='0' @mytap="tabswitch" ><h3 :style="styleObj">{{elements[1].text}}</h3><h3 class="num-size">{{labelWRate}}</h3></span>
     </div> 
     
     <div v-else class="_ruletab _ruletab2" :id="idName">
@@ -62,11 +62,17 @@
             rightLabel: {
                 type: String,
                 default: ""
+            },
+            titleSize: {
+                type: String,
+                default: "32"
             }
         },
         data: function (){
             var slots = this.$slots.default,
             elems = [], options, children;
+            var obj = {};
+            this.titleSize && (obj.fontSize = this.titleSize/38 + 'rem');
 
             slots.forEach(function (s) {
                 options = s.componentOptions;
@@ -81,6 +87,7 @@
                 }
             });
             return {
+                styleObj: obj,
                 rateChange: this.isDate,
                 idName: this.id,
                 elements: elems,

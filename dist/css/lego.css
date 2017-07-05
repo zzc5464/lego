@@ -568,7 +568,7 @@ textarea::-webkit-input-placeholder {
   color: #999;
   background-color: #fffce8;
   height: 1.94737rem;
-  line-height: 1.89474rem;
+  line-height: 1.94737rem;
   box-sizing: border-box;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
   background-position: 0 100%;
@@ -576,6 +576,17 @@ textarea::-webkit-input-placeholder {
   overflow: hidden; }
   ._flype i, ._notetips i {
     float: right;
+    padding-left: 0.31579rem;
+    font-weight: bold; }
+
+._notetips {
+  position: relative; }
+  ._notetips > span {
+    display: inline-block;
+    width: 95%; }
+  ._notetips i {
+    position: absolute;
+    right: 0.78947rem;
     padding-left: 0.31579rem;
     font-weight: bold; }
 
@@ -811,6 +822,8 @@ h1, h2, h3, h4, h5, h6 {
         color: #999;
         font-size: 0.57895rem;
         line-height: 1; }
+      ._assetheader ._three li .chinese-font-size {
+        font-size: .85rem; }
     ._assetheader ._three li:first-child {
       width: 33%;
       margin-left: 1.31579rem; }
@@ -1003,7 +1016,7 @@ h1, h2, h3, h4, h5, h6 {
       right: 0.26316rem; }
 
 ._ruletab {
-  padding-top: 9px;
+  padding-top: .30315rem;
   overflow: hidden;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
   background-position: 0 100%;
@@ -1015,12 +1028,14 @@ h1, h2, h3, h4, h5, h6 {
     width: 5.263158rem;
     color: #333;
     font-size: .789474rem;
-    line-height: 1.894737rem;
+    line-height: 1.5;
     text-align: center; }
   ._ruletab span h3 {
     font-weight: normal;
-    font-size: .789474rem;
+    font-size: .842105rem;
     line-height: 1.2rem; }
+  ._ruletab span .num-size {
+    font-size: .789473rem; }
   ._ruletab span._borderbtm {
     border-bottom: 2px solid #d7ac62;
     color: #d7ac62; }
@@ -1032,7 +1047,10 @@ h1, h2, h3, h4, h5, h6 {
 ._ruletab1 span {
   flex: 1;
   margin: 0 1.578947rem;
-  padding: 0.2rem 0; }
+  padding: 0.36315rem 0; }
+
+._ruletab1 .no-pb {
+  padding-bottom: .1rem; }
 
 ._ruletab2 {
   display: flex; }

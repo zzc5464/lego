@@ -9,7 +9,7 @@
     color: $c-light;
     background-color: $c-lightyellow;
     height: calRem(74);
-    line-height: calRem(72);
+    line-height: calRem(74);
     box-sizing: border-box;
     background-image: $img-border-btm;
     background-position: 0 100%;
@@ -17,6 +17,19 @@
     overflow: hidden;
     & i{
         float: right;
+        padding-left: calRem(12);
+        font-weight: bold;
+    }
+}
+._notetips {
+    position: relative;
+    & > span {
+        display: inline-block;
+        width: 95%;
+    }
+    & i{
+        position: absolute;
+        right: calRem(30);
         padding-left: calRem(12);
         font-weight: bold;
     }
@@ -385,7 +398,7 @@ h1,h2,h3,h4,h5,h6 {
                 font-size: calRem(22);
                 line-height: 1;
             }
-            chinese-font-size{
+            .chinese-font-size{
                 font-size: .85rem;
             }
         }
@@ -639,7 +652,7 @@ h1,h2,h3,h4,h5,h6 {
 
 // tab switch
 ._ruletab {
-    padding-top: 11px;
+    padding-top: .30315rem;
     overflow: hidden;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
     background-position: 0 100%;
@@ -651,14 +664,17 @@ h1,h2,h3,h4,h5,h6 {
         width: 5.263158rem;
         color: #333;
         font-size: .789474rem;
-        line-height: 1.894737rem;
+        line-height: 1.5;
         text-align: center;
         
     }
     & span h3{
         font-weight: normal;
-        font-size: .789474rem;
+        font-size: .842105rem;
         line-height: 1.2rem;
+    }
+    & span .num-size {
+        font-size: .789473rem;
     }
     & span._borderbtm {
         border-bottom: 2px solid $c-high;
@@ -672,7 +688,10 @@ h1,h2,h3,h4,h5,h6 {
 ._ruletab1 span{
     flex: 1;
     margin: 0 1.578947rem;
-    padding: 0.2rem 0;
+    padding: 0.36315rem 0;
+}
+._ruletab1 .no-pb {
+    padding-bottom: .1rem;
 }
 
 ._ruletab2 {

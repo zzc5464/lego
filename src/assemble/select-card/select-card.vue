@@ -52,7 +52,9 @@
 
         computed: {
             cutOff: function(){
-                var l = this.tempData.bankNum.slice(-4);
+                var num;
+                this.tempData.bankNum ? (num = this.tempData.bankNum) : (num = '');
+                var l = num.slice(-4);
                 return l;
             }
         },

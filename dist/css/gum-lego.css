@@ -455,7 +455,7 @@
   color: #999;
   background-color: #fffce8;
   height: 1.94737rem;
-  line-height: 1.89474rem;
+  line-height: 1.94737rem;
   box-sizing: border-box;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
   background-position: 0 100%;
@@ -463,6 +463,16 @@
   overflow: hidden; }
   .gum .lego ._flype i, .gum .lego ._notetips i {
     float: right;
+    padding-left: 0.31579rem;
+    font-weight: bold; }
+.gum .lego ._notetips, .gum .lego ._field i ._notetips {
+  position: relative; }
+  .gum .lego ._notetips > span, .gum .lego ._field i ._notetips > span {
+    display: inline-block;
+    width: 95%; }
+  .gum .lego ._notetips i {
+    position: absolute;
+    right: 0.78947rem;
     padding-left: 0.31579rem;
     font-weight: bold; }
 .gum .lego ._flype, .gum .lego ._field i ._flype {
@@ -676,6 +686,8 @@
         color: #999;
         font-size: 0.57895rem;
         line-height: 1; }
+      .gum .lego ._assetheader ._three li .chinese-font-size {
+        font-size: .85rem; }
     .gum .lego ._assetheader ._three li:first-child {
       width: 33%;
       margin-left: 1.31579rem; }
@@ -852,7 +864,7 @@
       top: 0.78947rem;
       right: 0.26316rem; }
 .gum .lego ._ruletab, .gum .lego ._field i ._ruletab {
-  padding-top: 9px;
+  padding-top: .30315rem;
   overflow: hidden;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0.5' width='100%' height='0.5'/></svg>");
   background-position: 0 100%;
@@ -864,12 +876,14 @@
     width: 5.263158rem;
     color: #333;
     font-size: .789474rem;
-    line-height: 1.894737rem;
+    line-height: 1.5;
     text-align: center; }
   .gum .lego ._ruletab span h3 {
     font-weight: normal;
-    font-size: .789474rem;
+    font-size: .842105rem;
     line-height: 1.2rem; }
+  .gum .lego ._ruletab span .num-size {
+    font-size: .789473rem; }
   .gum .lego ._ruletab span._borderbtm {
     border-bottom: 2px solid #d7ac62;
     color: #d7ac62; }
@@ -879,7 +893,9 @@
 .gum .lego ._ruletab1 span {
   flex: 1;
   margin: 0 1.578947rem;
-  padding: 0.2rem 0; }
+  padding: 0.36315rem 0; }
+.gum .lego ._ruletab1 .no-pb {
+  padding-bottom: .1rem; }
 .gum .lego ._ruletab2, .gum .lego ._field i ._ruletab2 {
   display: flex; }
 .gum .lego ._ruletab2 span {

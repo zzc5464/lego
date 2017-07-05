@@ -16180,7 +16180,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"type === 0\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h3><slot></slot></h3>\n    <h6>{{ footer }}</h6>\n</div>\n<div v-else-if=\"type === 1\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h6>{{ header }}</h6>\n    <h2><slot></slot></h2>\n</div>\n<div v-else-if=\"type === 2\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 3\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n        <b-select :id=\"linkId\" size=\"24\" color=\"high\">{{ link }}</b-select>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 4\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <header class=\"header\">\n        <h6>{{topData.header || desc}}</h6>\n        <h2>{{topData.invest || invest}}</h2>\n    </header>\n    <ul class=\"_three\">\n        <li>\n            <div>{{ topData.title1 || elements[0].text }}</div>\n            <div>{{ topData.value1 || elements[1].text }}</div>\n        </li>\n        <li>\n            <div>{{ topData.title2 || elements[2].text }}</div>\n            <div>{{ topData.value2 || elements[3].text }}</div>\n        </li>\n        <li>\n            <div>{{ topData.title3 || elements[4].text }}</div>\n            <div>{{ topData.value3 || elements[5].text }}</div>\n        </li>\n    </ul>\n</div>\n<div v-else-if=\"type === 5\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <header>\n        <h6 class=\"_eyecenter\">{{topData.header || desc}} <b-icon size=\"50\" name=\"eye\" @tapped=\"hiddenData\" v-show=\"open == true\"></b-icon><b-icon size=\"50\" name=\"eye-closed\" @tapped=\"hiddenData\" v-show=\"open != true\"></b-icon></h6>\n        <h2 v-if=\"open == true\">{{topData.invest || invest}}</h2>\n        <h2 v-else=\"\">****</h2>\n    </header>\n    <ul class=\"_three _second\">\n        <li>\n            <div>{{ topData.title1 || elements[0].text }}</div>\n            <div v-if=\"open == true\">{{ topData.value1 || elements[1].text }}</div><div v-else=\"\">****</div>\n        </li>\n        <li>\n            <div>{{ topData.title2 || elements[2].text }}</div>\n            <div v-if=\"open == true\">{{ topData.value2 || elements[3].text }}</div><div v-else=\"\">****</div>\n        </li>\n    </ul>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"type === 0\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h3><slot></slot></h3>\n    <h6>{{ footer }}</h6>\n</div>\n<div v-else-if=\"type === 1\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h6>{{ header }}</h6>\n    <h2><slot></slot></h2>\n</div>\n<div v-else-if=\"type === 2\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 3\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n        <b-select :id=\"linkId\" size=\"24\" color=\"high\">{{ link }}</b-select>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 4\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <header class=\"header\">\n        <h6>{{topData.header || desc}}</h6>\n        <h2>{{topData.invest || invest}}</h2>\n    </header>\n    <ul class=\"_three\">\n        <li>\n            <div>{{ topData.title1 || elements[0].text }}</div>\n            <div>{{ topData.value1 || elements[1].text }}</div>\n        </li>\n        <li>\n            <div>{{ topData.title2 || elements[2].text }}</div>\n            <div>{{ topData.value2 || elements[3].text }}</div>\n        </li>\n        <li>\n            <div>{{ topData.title3 || elements[4].text }}</div>\n            <div class=\"chinese-font-size\">{{ topData.value3 || elements[5].text }}</div>\n        </li>\n    </ul>\n</div>\n<div v-else-if=\"type === 5\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <header>\n        <h6 class=\"_eyecenter\">{{topData.header || desc}} <b-icon size=\"50\" name=\"eye\" @tapped=\"hiddenData\" v-show=\"open == true\"></b-icon><b-icon size=\"50\" name=\"eye-closed\" @tapped=\"hiddenData\" v-show=\"open != true\"></b-icon></h6>\n        <h2 v-if=\"open == true\">{{topData.invest || invest}}</h2>\n        <h2 v-else=\"\">****</h2>\n    </header>\n    <ul class=\"_three _second\">\n        <li>\n            <div>{{ topData.title1 || elements[0].text }}</div>\n            <div v-if=\"open == true\">{{ topData.value1 || elements[1].text }}</div><div v-else=\"\">****</div>\n        </li>\n        <li>\n            <div>{{ topData.title2 || elements[2].text }}</div>\n            <div v-if=\"open == true\">{{ topData.value2 || elements[3].text }}</div><div v-else=\"\">****</div>\n        </li>\n    </ul>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17192,7 +17192,9 @@ module.exports = {
 
     computed: {
         cutOff: function(){
-            var l = this.tempData.bankNum.slice(-4);
+            var num;
+            this.tempData.bankNum ? (num = this.tempData.bankNum) : (num = '');
+            var l = num.slice(-4);
             return l;
         }
     },
@@ -17558,11 +17560,17 @@ module.exports = {
         rightLabel: {
             type: String,
             default: ""
+        },
+        titleSize: {
+            type: String,
+            default: "32"
         }
     },
     data: function (){
         var slots = this.$slots.default,
         elems = [], options, children;
+        var obj = {};
+        this.titleSize && (obj.fontSize = this.titleSize/38 + 'rem');
 
         slots.forEach(function (s) {
             options = s.componentOptions;
@@ -17577,6 +17585,7 @@ module.exports = {
             }
         });
         return {
+            styleObj: obj,
             rateChange: this.isDate,
             idName: this.id,
             elements: elems,
@@ -17619,7 +17628,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell bgcolor=\"white\" v-if=\"radius\" id=\"radiusTab\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[0].id\" period=\"0\" class=\"_radius_active\" @tapped=\"tabedswitch\">{{elements[0].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[1].id\" period=\"1\" @tapped=\"tabedswitch\">{{elements[1].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[2].id\" period=\"2\" @tapped=\"tabedswitch\">{{elements[2].text}}</b-radius-button>\n    </s-flex-column>\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n</s-cell>\n\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\" :id=\"idName\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\"><h3>{{elements[0].text}}</h3><h3>{{label7Rate}}</h3></span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\"><h3>{{elements[1].text}}</h3><h3>{{labelWRate}}</h3></span>\n</div> \n\n<div v-else=\"\" class=\"_ruletab _ruletab2\" :id=\"idName\">\n    <span :id=\"item.id\" :class=\"{_borderbtm: index == 0}\" @mytap=\"tabswitch\" v-for=\"(item,index) in elements\">{{item.text}}</span>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell bgcolor=\"white\" v-if=\"radius\" id=\"radiusTab\">\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[0].id\" period=\"0\" class=\"_radius_active\" @tapped=\"tabedswitch\">{{elements[0].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[1].id\" period=\"1\" @tapped=\"tabedswitch\">{{elements[1].text}}</b-radius-button>\n    </s-flex-column>\n    <s-flex-column align=\"center\">\n        <b-radius-button :id=\"elements[2].id\" period=\"2\" @tapped=\"tabedswitch\">{{elements[2].text}}</b-radius-button>\n    </s-flex-column>\n    <s-column width=\".789474\" align=\"left\">\n    </s-column>\n</s-cell>\n\n<div v-else-if=\"elements.length === 2\" class=\"_ruletab _ruletab1\" :id=\"idName\">\n    <span :id=\"elements[0].id\" rate=\"1\" @mytap=\"tabswitch\" class=\"_borderbtm\"><h3 :style=\"styleObj\">{{elements[0].text}}</h3><h3 class=\"num-size\">{{label7Rate}}</h3></span>\n    <span :id=\"elements[1].id\" rate=\"0\" @mytap=\"tabswitch\"><h3 :style=\"styleObj\">{{elements[1].text}}</h3><h3 class=\"num-size\">{{labelWRate}}</h3></span>\n</div> \n\n<div v-else=\"\" class=\"_ruletab _ruletab2\" :id=\"idName\">\n    <span :id=\"item.id\" :class=\"{_borderbtm: index == 0}\" @mytap=\"tabswitch\" v-for=\"(item,index) in elements\">{{item.text}}</span>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -17996,7 +18005,7 @@ module.exports = {
         var ty = ['15','75','135','195'];
         var tyn = ['40','100','160','220'];
 
-        var tempH = '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-4,0,375,95"><g>\
+        var tempH = '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-4,0,375,90"><g>\
                     <circle stroke="#C1C1C1" stroke-width="4" fill="#C1C1C1" cx="13%" cy="30" r="4"/>\
                     <rect fill="#C1C1C1" x="13%" y="30" width="35%" height="0.5"/>\
                     <text x="13%" y="58" text-anchor="middle" font-size="'+ this.labelFont +'rem" fill="#999">'+ ele[0].label +'</text>\
