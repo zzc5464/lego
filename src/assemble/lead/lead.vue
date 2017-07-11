@@ -62,7 +62,7 @@
     <div v-else-if='type === 6' class="_assetheader _login" :class="classObj" :style="styleObj">
         <header class="header">
             <h6>{{topData.header || desc}}</h6>
-            <b-button id='login-btn' size='34' color='white' width='6' height='2.105263' >点击登录</b-button>
+            <b-button id='login-btn' size='28' color='white' width='6' height='1.578947' >点击登录</b-button>
             <div class="_asset-btn">
                 <b-icon name="gear" size="40" color="white"></b-icon>
             </div>

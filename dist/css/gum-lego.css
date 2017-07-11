@@ -755,7 +755,12 @@
 .gum .lego ._login header {
   position: relative; }
 .gum .lego ._login button {
-  transform: translateX(5.6rem); }
+  transform: translateX(5.6rem);
+  color: #d7ac62;
+  background-color: transparent;
+  margin: 5px 0; }
+.gum .lego ._login button.tapping {
+  background-color: transparent; }
 .gum .lego ._login ._asset-btn {
   position: absolute;
   top: 0;
