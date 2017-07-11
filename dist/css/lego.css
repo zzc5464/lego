@@ -892,6 +892,18 @@ h1, h2, h3, h4, h5, h6 {
         display: inline-block;
         width: 15px; }
 
+._login header {
+  position: relative; }
+._login button {
+  transform: translateX(5.6rem); }
+._login ._asset-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  text-align: right; }
+
 ._mask {
   position: fixed;
   top: 0;

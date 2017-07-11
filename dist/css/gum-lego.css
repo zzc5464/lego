@@ -752,6 +752,17 @@
       .gum .lego ._assetheader div ._select i {
         display: inline-block;
         width: 15px; }
+.gum .lego ._login header {
+  position: relative; }
+.gum .lego ._login button {
+  transform: translateX(5.6rem); }
+.gum .lego ._login ._asset-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  text-align: right; }
 .gum .lego ._mask, .gum .lego ._field i ._mask {
   position: fixed;
   top: 0;

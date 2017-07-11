@@ -437,6 +437,23 @@ h1,h2,h3,h4,h5,h6 {
         }
     }
 }
+._login {
+    & header {
+        position: relative;
+        
+    }
+    & button {
+        transform: translateX(5.6rem);
+    }
+    & ._asset-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        text-align: right;
+    }
+}
 
 // modal
 ._mask {

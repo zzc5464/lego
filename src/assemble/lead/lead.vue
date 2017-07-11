@@ -59,6 +59,25 @@
             </li>
         </ul>
     </div>
+    <div v-else-if='type === 6' class="_assetheader _login" :class="classObj" :style="styleObj">
+        <header class="header">
+            <h6>{{topData.header || desc}}</h6>
+            <b-button id='login-btn' size='34' color='white' width='6' height='2.105263' >点击登录</b-button>
+            <div class="_asset-btn">
+                <b-icon name="gear" size="40" color="white"></b-icon>
+            </div>
+        </header>
+        <ul class="_three _second">
+            <li>
+                <div>{{ topData.title1 || elements[0].text }}</div>
+                <div>{{ topData.value1 || elements[1].text }}</div>
+            </li>
+            <li>
+                <div>{{ topData.title2 || elements[2].text }}</div>
+                <div>{{ topData.value2 || elements[3].text }}</div>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -101,6 +120,11 @@
 
             invest: {
                 type: String
+            },
+
+            login: {
+                type: Boolean,
+                default: false
             }
 
         },
@@ -126,12 +150,10 @@
                 });
                 v = elems;
             } 
-            
-            // for(var i in this.topData) {
-            //     temp[i] = this.topData[i];
-            // }
-
-            if ( elems.length == 6 || this.label === '1' ) {
+            if (this.login === true ) {
+                t = 6;
+            } 
+            else if ( elems.length == 6 || this.label === '1' ) {
                 t = 4;
                 
             } 
