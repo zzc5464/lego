@@ -1181,23 +1181,25 @@ h1, h2, h3, h4, h5, h6 {
 ._payway .realradio {
   position: relative;
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  border: 1px solid #999;
+  width: 1.052631rem;
+  height: 1.052631rem;
+  line-height: 1.052631rem;
+  border: 1px solid #dcdcdc;
   border-radius: 50%;
-  background-color: transparent;
+  background-color: #fff;
   box-sizing: border-box;
   text-align: center;
-  overflow: hidden;
-  padding-right: 0.31579rem;
-  -webkit-tap-highlight-color: transparent; }
+  margin-right: 0.31579rem;
+  -webkit-tap-highlight-color: transparent;
+  transition: all .1s ease; }
 ._payway .realradio i {
-  font-size: 16px;
-  color: #fff; }
+  font-size: 1rem;
+  color: transparent; }
 ._payway .realradio.active {
-  border-color: #d7ac62;
-  background-color: #d7ac62; }
+  border-color: transparent;
+  transition: all .1s ease; }
+  ._payway .realradio.active i {
+    color: #d7ac62; }
 ._payway .waylist .next {
   position: absolute;
   top: 0.666316rem;

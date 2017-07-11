@@ -2,7 +2,7 @@
     <div class="_payway">  
         <div class="waylist" :id="item.id" v-for="(item, index) in elements">
             <span class="realradio" :class="{active: item.checked}"  @mytap='inputTab'>
-                <b-icon name="check"></b-icon>
+                <b-icon name="radio-checked"></b-icon>
             </span> 
             <span>{{item.label}}</span> 
             <span class="next"> 

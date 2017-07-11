@@ -15458,7 +15458,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_payway\">  \n    <div class=\"waylist\" :id=\"item.id\" v-for=\"(item, index) in elements\">\n        <span class=\"realradio\" :class=\"{active: item.checked}\" @mytap=\"inputTab\">\n            <b-icon name=\"check\"></b-icon>\n        </span> \n        <span>{{item.label}}</span> \n        <span class=\"next\"> \n            {{item.value}}<b-icon v-if=\"item.link\" name=\"angle-right-bold\"></b-icon>\n        </span>  \n        <p v-if=\"item.comment\">{{item.comment}}</p>\n    </div>  \n    \n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_payway\">  \n    <div class=\"waylist\" :id=\"item.id\" v-for=\"(item, index) in elements\">\n        <span class=\"realradio\" :class=\"{active: item.checked}\" @mytap=\"inputTab\">\n            <b-icon name=\"radio-checked\"></b-icon>\n        </span> \n        <span>{{item.label}}</span> \n        <span class=\"next\"> \n            {{item.value}}<b-icon v-if=\"item.link\" name=\"angle-right-bold\"></b-icon>\n        </span>  \n        <p v-if=\"item.comment\">{{item.comment}}</p>\n    </div>  \n    \n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

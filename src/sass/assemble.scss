@@ -797,25 +797,30 @@ h1,h2,h3,h4,h5,h6 {
     .realradio {
         position: relative;
         display: inline-block;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        border: 1px solid #999;
+        width: 1.052631rem;
+        height: 1.052631rem;
+        line-height: 1.052631rem;
+        border: 1px solid $c-stonegrey;
         border-radius: 50%;
-        background-color: rgba(0,0,0,0);
+        background-color: #fff;
         box-sizing: border-box;
         text-align: center;
-        overflow: hidden;
-        padding-right: calRem(12);
+        margin-right: calRem(12);
         -webkit-tap-highlight-color: rgba(0,0,0,0);
+        transition: all .1s ease;
     }
     .realradio i{
-        font-size: 16px;
-        color: #fff;
+        font-size: 1rem;
+        color: transparent;
     }
     .realradio.active {
-        border-color: #d7ac62;
-        background-color: #d7ac62;
+        border-color: transparent;
+        transition: all .1s ease;
+        & i {
+            color: #d7ac62;
+        }
+        // border-color: #d7ac62;
+        // background-color: #d7ac62;
     } 
     .waylist .next{
         position: absolute;
