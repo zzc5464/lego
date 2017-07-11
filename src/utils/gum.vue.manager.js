@@ -26,6 +26,7 @@ var components = [
     [ 'b-checkbox'              , require('../basic/checkbox/checkbox.vue.js')                      ],
     [ 'b-solid-checkbox'        , require('../basic/solid-checkbox/solid-checkbox.vue.js')          ],
     [ 'b-radio'                 , require('../basic/radio/radio.vue.js')                            ],
+    [ 'b-radio-group'           , require('../basic/radio/radio-group.vue.js')                      ],
     [ 'b-solid-radio'           , require('../basic/solid-radio/solid-radio.vue.js')                ],
     [ 'b-toggle'                , require('../basic/toggle/toggle.vue.js')                          ],
 
@@ -100,7 +101,7 @@ VueManager.prototype = {
     getInstance: function (opts) {
         this.instance && this.instance.$destroy();
         this.instance = new Vue(opts);
-
+        Vue.config.devtools = true;
         return this.instance;
     }
 }

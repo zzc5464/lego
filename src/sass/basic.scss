@@ -232,11 +232,6 @@ textarea::-webkit-input-placeholder {
     background-color: $c-high;
 }
 
-// ._checkbox {
-//     display: inline-block;
-//     vertical-align: middle;
-// }
-
 ._solid_radio,
 ._radio {
     position: relative;
@@ -274,6 +269,88 @@ textarea::-webkit-input-placeholder {
     border-color: $c-high;
     background-color: $c-high;
 }
+
+// new radio
+$radio-prefix-cls: 'l-radio';
+
+.#{$radio-prefix-cls}-wrapper {
+    font-size: 16px;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    margin-right: 8px;
+}
+
+// 基础样式
+.#{$radio-prefix-cls} {
+    display: inline-block;
+    margin-right: 4px;
+    white-space: nowrap;
+    outline: none;
+    position: relative;
+    line-height: 1;
+    vertical-align: middle;
+
+    &-inner {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        position: relative;
+        top: 0;
+        left: 0;
+        background-color: $c-transparent;
+        border: 1px solid $c-lightgrey;
+        border-radius: 50%;
+        //transition: all 1s;
+
+        & i {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        // &:after {
+        //     position: absolute;
+        //     width: 10px;
+        //     height: 10px;
+        //     left: 3px;
+        //     top: 3px;
+        //     border-radius: 50%;
+        //     display: table;
+        //     border-top: 0;
+        //     border-left: 0;
+        //     content: '';
+        //     background-color: $c-light;
+        //     opacity: 0;
+
+        // }
+    }
+    &-input {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        opacity: 0;
+    }
+}
+//选中
+.#{$radio-prefix-cls}-checked {
+    .#{$radio-prefix-cls}-inner {
+        border-color: $c-transparent;
+        // &:after {
+        //     opacity: 1;
+        //     background-color: $c-high;
+        // }
+        & i {
+            opacity: 1;
+        }
+    }
+}   
+
+
 
 ._toggle {
     position: relative;

@@ -69,7 +69,7 @@
             var ty = ['15','75','135','195'];
             var tyn = ['40','100','160','220'];
 
-            var tempH = '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-4,0,375,90"><g>\
+            var tempH = '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="4.736842rem" viewBox="-4,0,375,90"><g>\
                         <circle stroke="#C1C1C1" stroke-width="4" fill="#C1C1C1" cx="13%" cy="30" r="4"/>\
                         <rect fill="#C1C1C1" x="13%" y="30" width="35%" height="0.5"/>\
                         <text x="13%" y="58" text-anchor="middle" font-size="'+ this.labelFont +'rem" fill="#999">'+ ele[0].label +'</text>\

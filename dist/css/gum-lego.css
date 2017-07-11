@@ -326,6 +326,48 @@
 .gum .lego ._radio_active, .gum .lego ._field i ._radio_active {
   border-color: #d7ac62;
   background-color: #d7ac62; }
+.gum .lego .l-radio-wrapper, .gum .lego ._field i .l-radio-wrapper {
+  font-size: 16px;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  margin-right: 8px; }
+.gum .lego .l-radio, .gum .lego ._field i .l-radio {
+  display: inline-block;
+  margin-right: 4px;
+  white-space: nowrap;
+  outline: none;
+  position: relative;
+  line-height: 1;
+  vertical-align: middle; }
+  .gum .lego .l-radio-inner, .gum .lego ._field i .l-radio-inner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    border: 1px solid #c1c1c1;
+    border-radius: 50%; }
+    .gum .lego .l-radio-inner i {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0; }
+  .gum .lego .l-radio-input, .gum .lego ._field i .l-radio-input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 0; }
+.gum .lego .l-radio-checked .l-radio-inner {
+  border-color: transparent; }
+  .gum .lego .l-radio-checked .l-radio-inner i {
+    opacity: 1; }
 .gum .lego ._toggle, .gum .lego ._field i ._toggle {
   position: relative;
   display: inline-block;
