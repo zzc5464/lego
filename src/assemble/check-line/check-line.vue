@@ -37,6 +37,11 @@
                 type: String,
                 default: 'false'
 
+            },
+
+            callFn: {
+                type: Function,
+                default: function(){}
             }
         },
 

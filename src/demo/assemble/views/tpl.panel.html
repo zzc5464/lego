@@ -39,10 +39,10 @@
     <!--<amount-row desc='充值金额' placeholder="本次最多赎回1000.00元"></amount-row>-->
     <!--<amount-row label='1000' placeholder="本次最多赎回1000.00元"></amount-row>-->
     <stub border='false'></stub>
-    <check-line-group>
-        <check-line id='pay1' label='银行卡支付' comment='单日限额 3000 元' value='平安银行 尾号3500' link='true'></check-line>
-        <check-line id='pay2' label='钱包支付' value='3,000.00 元'></check-line>
-        <check-line id='pay3' label='银行卡支付' value='中国工商银行 尾号8188' checked='true' link='true'></check-line>
+    <check-line-group :call-fn='function(ev){console.log(ev.id)}'>
+        <check-line id='pay1' label='银行卡支付' comment='单日限额 3000 元' value='平安银行 尾号3500' link='true' ></check-line>
+        <check-line id='pay2' label='钱包支付' value='3,000.00 元' ></check-line>
+        <check-line id='pay3' label='银行卡支付' value='中国工商银行 尾号8188' checked='true' link='true' ></check-line>
     </check-line-group>
     <tab-button left-label='2.3456' right-label='3.2345' :is-date="true" title-size='26'> 
         <a-button id='profit'>7日年化收益(%)</a-button>

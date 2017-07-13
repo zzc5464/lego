@@ -15405,6 +15405,12 @@ if (module.hot) {(function () {  module.hot.accept()
 
 var events = require('../../utils/gum.vue.events');
 module.exports = {
+    props: {
+        callFn: {
+            type: Function,
+            default: function(){}
+        }
+    },
     data: function() {
         var slots = this.$slots.default,
         elems = [], options, children;
@@ -15421,6 +15427,7 @@ module.exports = {
                     value   : options.propsData.value,
                     checked : options.propsData.checked === 'true',
                     link    : options.propsData.link === 'true'
+                    // callFn  : options.propsData.callFn
                 });
 
                 if (options.propsData.checked === 'true') {
@@ -15451,6 +15458,9 @@ module.exports = {
             }
             
             el.firstChild.classList.add('active');
+            var l = el.getAttribute('index');
+            //this.elements[l].callFn(this.elements[l]);
+            this.callFn(this.elements[l]);
 
             this.$emit('input', el.lastChild);
         }
@@ -15458,7 +15468,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_payway\">  \n    <div class=\"waylist\" :id=\"item.id\" v-for=\"(item, index) in elements\">\n        <span class=\"realradio\" :class=\"{active: item.checked}\" @mytap=\"inputTab\">\n            <b-icon name=\"radio-checked\"></b-icon>\n        </span> \n        <span>{{item.label}}</span> \n        <span class=\"next\"> \n            {{item.value}}<b-icon v-if=\"item.link\" name=\"angle-right-bold\"></b-icon>\n        </span>  \n        <p v-if=\"item.comment\">{{item.comment}}</p>\n    </div>  \n    \n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_payway\">  \n    <div class=\"waylist\" :id=\"item.id\" v-for=\"(item, index) in elements\" @mytap=\"inputTab\" :index=\"index\">\n        <span class=\"realradio\" :class=\"{active: item.checked}\" @mytap=\"inputTab\">\n            <b-icon name=\"radio-checked\"></b-icon>\n        </span> \n        <span>{{item.label}}</span> \n        <span class=\"next\"> \n            {{item.value}}<b-icon v-if=\"item.link\" name=\"angle-right-bold\"></b-icon>\n        </span>  \n        <p v-if=\"item.comment\">{{item.comment}}</p>\n    </div>  \n    \n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15509,6 +15519,11 @@ module.exports = {
             type: String,
             default: 'false'
 
+        },
+
+        callFn: {
+            type: Function,
+            default: function(){}
         }
     },
 
@@ -18027,7 +18042,7 @@ module.exports = {
         var ty = ['15','75','135','195'];
         var tyn = ['40','100','160','220'];
 
-        var tempH = '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="4.736842rem" viewBox="-4,0,375,90"><g>\
+        var tempH = '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="90px" viewBox="-4,0,375,90"><g>\
                     <circle stroke="#C1C1C1" stroke-width="4" fill="#C1C1C1" cx="13%" cy="30" r="4"/>\
                     <rect fill="#C1C1C1" x="13%" y="30" width="35%" height="0.5"/>\
                     <text x="13%" y="58" text-anchor="middle" font-size="'+ this.labelFont +'rem" fill="#999">'+ ele[0].label +'</text>\

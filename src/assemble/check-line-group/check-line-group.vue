@@ -1,6 +1,6 @@
 <template>
     <div class="_payway">  
-        <div class="waylist" :id="item.id" v-for="(item, index) in elements">
+        <div class="waylist" :id="item.id" v-for="(item, index) in elements" @mytap="inputTab" :index="index">
             <span class="realradio" :class="{active: item.checked}"  @mytap='inputTab'>
                 <b-icon name="radio-checked"></b-icon>
             </span> 
@@ -17,6 +17,12 @@
 <script>
     var events = require('../../utils/gum.vue.events');
     module.exports = {
+        props: {
+            callFn: {
+                type: Function,
+                default: function(){}
+            }
+        },
         data: function() {
             var slots = this.$slots.default,
             elems = [], options, children;
@@ -33,6 +39,7 @@
                         value   : options.propsData.value,
                         checked : options.propsData.checked === 'true',
                         link    : options.propsData.link === 'true'
+                        // callFn  : options.propsData.callFn
                     });
 
                     if (options.propsData.checked === 'true') {
@@ -63,6 +70,9 @@
                 }
                 
                 el.firstChild.classList.add('active');
+                var l = el.getAttribute('index');
+                //this.elements[l].callFn(this.elements[l]);
+                this.callFn(this.elements[l]);
 
                 this.$emit('input', el.lastChild);
             }
