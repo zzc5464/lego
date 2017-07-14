@@ -62,8 +62,8 @@
     <div v-else-if='type === 6' class="_assetheader _login" :class="classObj" :style="styleObj">
         <header class="header">
             <h6>{{topData.header || desc}}</h6>
-            <b-button id='login-btn' size='28' color='white' width='6' height='1.578947' >点击登录</b-button>
-            <div class="_asset-btn">
+            <b-button id='login-btn' size='28' v-show='login' color='white' width='6' height='1.578947' >点击登录</b-button>
+            <div class="_asset-btn" v-show='asset' >
                 <b-icon name="gear" size="40" color="white"></b-icon>
             </div>
         </header>
@@ -125,6 +125,11 @@
             login: {
                 type: Boolean,
                 default: false
+            },
+
+            asset: {
+                type: Boolean,
+                default: false
             }
 
         },
@@ -150,7 +155,7 @@
                 });
                 v = elems;
             } 
-            if (this.login === true ) {
+            if (this.login === true || this.asset === true ) {
                 t = 6;
             } 
             else if ( elems.length == 6 || this.label === '1' ) {
