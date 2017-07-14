@@ -22,10 +22,15 @@
         </div>
         <b-text size='22' color='high'>{{ footer }}</b-text>
     </div>
-    <div v-else-if='type === 4' class="_assetheader" :class="classObj" :style="styleObj">
+    <div v-else-if='type === 4' class="_assetheader _login" :class="classObj" :style="styleObj">
         <header class="header">
             <h6>{{topData.header || desc}}</h6>
-            <h2>{{topData.invest || invest}}</h2>
+            
+            <b-button id='login-btn' size='28' v-show='login' color='white' width='6' height='1.578947' >点击登录</b-button>
+            <h2 v-show='!login'>{{topData.invest || invest}}</h2>
+            <div class="_asset-btn" v-show='asset' >
+                <b-icon name="gear" size="40" color="white"></b-icon>
+            </div>
         </header>
         <ul class="_three">
             <li>
@@ -42,11 +47,17 @@
             </li>
         </ul>
     </div>
-    <div v-else-if='type === 5' class="_assetheader" :class="classObj" :style="styleObj">
+    <div v-else-if='type === 5' class="_assetheader _login" :class="classObj" :style="styleObj">
         <header>
             <h6 class="_eyecenter">{{topData.header || desc}} <b-icon size="50" name="eye" @tapped="hiddenData" v-show="open == true"></b-icon><b-icon size="50" name="eye-closed" @tapped="hiddenData" v-show="open != true" ></b-icon></h6>
-            <h2 v-if="open == true">{{topData.invest || invest}}</h2>
-            <h2 v-else>****</h2>
+            <b-button id='login-btn' size='28' v-show='login' color='white' width='6' height='1.578947' >点击登录</b-button>
+
+            <h2 v-show='!login' v-if="open == true">{{topData.invest || invest}}</h2>
+            <h2 v-show='!login' v-else>****</h2>
+
+            <div class="_asset-btn" v-show='asset' >
+                <b-icon name="gear" size="40" color="white"></b-icon>
+            </div>
         </header>
         <ul class="_three _second">
             <li>
@@ -59,25 +70,7 @@
             </li>
         </ul>
     </div>
-    <div v-else-if='type === 6' class="_assetheader _login" :class="classObj" :style="styleObj">
-        <header class="header">
-            <h6>{{topData.header || desc}}</h6>
-            <b-button id='login-btn' size='28' v-show='login' color='white' width='6' height='1.578947' >点击登录</b-button>
-            <div class="_asset-btn" v-show='asset' >
-                <b-icon name="gear" size="40" color="white"></b-icon>
-            </div>
-        </header>
-        <ul class="_three _second">
-            <li>
-                <div>{{ topData.title1 || elements[0].text }}</div>
-                <div>{{ topData.value1 || elements[1].text }}</div>
-            </li>
-            <li>
-                <div>{{ topData.title2 || elements[2].text }}</div>
-                <div>{{ topData.value2 || elements[3].text }}</div>
-            </li>
-        </ul>
-    </div>
+
 </template>
 
 <script>
@@ -155,10 +148,11 @@
                 });
                 v = elems;
             } 
-            if (this.login === true || this.asset === true ) {
-                t = 6;
-            } 
-            else if ( elems.length == 6 || this.label === '1' ) {
+            // if (this.login === true ) {
+            //     t = 6;
+            // } 
+            // else 
+            if ( elems.length == 6 || this.label === '1' ) {
                 t = 4;
                 
             } 
