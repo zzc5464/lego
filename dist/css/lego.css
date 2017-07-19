@@ -604,6 +604,9 @@ textarea::-webkit-input-placeholder {
   background-position: 0 0;
   background-repeat: no-repeat; }
 
+._cell._borderPadding, ._single-cell._borderPadding {
+  background-position: 0.789473rem 100%; }
+
 ._none {
   display: none; }
 

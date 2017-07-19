@@ -29,6 +29,10 @@
             onTap: {
                 type: Function,
                 default: function () {}
+            },
+            borderPadding: {
+                type: Boolean,
+                default: false
             }
         },
         data: function() {
@@ -36,6 +40,7 @@
             this.border === 'true' && list.push('_border');
             this.borderTop === 'true' && list.push('_border-top');
             this.bgcolor && list.push('_bgcolor_' + this.bgcolor);
+            this.borderPadding === true && list.push('_borderPadding');
 
             return {
                 styleObj: this.minHeight ? {

@@ -1,5 +1,5 @@
 <template>
-    <s-cell :height="newHeight" :on-tap='onTapCallback' class="_welfare-card"  bgcolor='white' border="true">
+    <s-cell :height="newHeight" :border-padding="borderPadding" :on-tap='onTapCallback' class="_welfare-card"  bgcolor='white' border="true">
         <s-flex-column>
         </s-flex-column>
         <s-column width="6" align="left">
@@ -47,6 +47,11 @@
             height: {
                 type: String,
                 default: '110'
+            },
+
+            borderPadding: {
+                type: Boolean,
+                default: false
             }
 
         },

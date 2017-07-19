@@ -489,6 +489,8 @@
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#dcdcdc' x='0' y='0' width='100%' height='0.5'/></svg>");
   background-position: 0 0;
   background-repeat: no-repeat; }
+.gum .lego ._cell._borderPadding, .gum .lego ._single-cell._borderPadding {
+  background-position: 0.789473rem 100%; }
 .gum .lego ._none, .gum .lego ._field i ._none {
   display: none; }
 .gum .lego ._flype, .gum .lego ._field i ._flype, .gum .lego ._notetips, .gum .lego ._field i ._notetips {
