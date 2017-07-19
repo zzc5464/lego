@@ -6,8 +6,7 @@
             <b-text color="light" size="28">{{ leftLabel }}</b-text>
         </s-column>
         <s-multiline width="11" align="right" self-align="center">
-            <b-text color="high" size="24" class="_text-right">
-                {{rightLabel}} <br>
+            <b-text color="high" size="24" class="_text-right">{{rightLabel}}<br>
                 <b-text color="light" size="22" v-show="rightNote">{{rightNote}}</b-text>
             </b-text>
         </s-multiline>
