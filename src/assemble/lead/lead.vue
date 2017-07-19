@@ -2,6 +2,7 @@
     <div v-if='type === 0' class="_assetheader" :class="classObj" :style="styleObj" >
         <h3><slot></slot></h3>
         <h6>{{ footer }}</h6>
+        <button>{{ btn }}</button>
     </div>
     <div v-else-if='type === 1' class="_assetheader" :class="classObj" :style="styleObj" >
         <h6>{{ header }}</h6>
@@ -123,6 +124,10 @@
             asset: {
                 type: Boolean,
                 default: false
+            },
+
+            btn: {
+                type: String
             }
 
         },
