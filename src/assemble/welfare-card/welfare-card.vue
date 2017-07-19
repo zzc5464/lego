@@ -1,5 +1,5 @@
 <template>
-    <s-cell height="2.894736" :on-tap='onTapCallback' class="_welfare-card"  bgcolor='white' border="true">
+    <s-cell :height="newHeight" :on-tap='onTapCallback' class="_welfare-card"  bgcolor='white' border="true">
         <s-flex-column>
         </s-flex-column>
         <s-column width="6" align="left">
@@ -42,6 +42,11 @@
             onTap: {
                 type: Function,
                 default: function () {}
+            },
+
+            height: {
+                type: String,
+                default: '110'
             }
 
         },
@@ -50,6 +55,12 @@
         data: function () {
             return {
                 tempData: this.itemData
+            }
+        },
+
+        computed: {
+            newHeight: function(){
+                return (this.height/38).toFixed(6);
             }
         },
 

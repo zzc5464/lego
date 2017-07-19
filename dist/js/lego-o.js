@@ -18469,6 +18469,11 @@ module.exports = {
         onTap: {
             type: Function,
             default: function () {}
+        },
+
+        height: {
+            type: String,
+            default: '110'
         }
 
     },
@@ -18480,6 +18485,14 @@ module.exports = {
         }
     },
 
+    computed: {
+        newHeight: function(){
+            //var h = (this.height/38).toFixed(6);
+            
+            return (this.height/38).toFixed(6);
+        }
+    },
+
     methods: {
         onTapCallback: function (e) {
             this.onTap(this.itemData, e);
@@ -18488,7 +18501,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.894736\" :on-tap=\"onTapCallback\" class=\"_welfare-card\" bgcolor=\"white\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-column width=\"6\" align=\"left\">\n        <b-text color=\"light\" size=\"28\">{{ leftLabel }}</b-text>\n    </s-column>\n    <s-multiline width=\"11\" align=\"right\" self-align=\"center\">\n        <b-text color=\"high\" size=\"24\" class=\"_text-right\">\n            {{rightLabel}} <br>\n            <b-text color=\"light\" size=\"22\" v-show=\"rightNote\">{{rightNote}}</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"1\" align=\"right\">\n        <b-icon name=\"angle-right-bold\" color=\"light\" size=\"28\"></b-icon>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell :height=\"newHeight\" :on-tap=\"onTapCallback\" class=\"_welfare-card\" bgcolor=\"white\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-column width=\"6\" align=\"left\">\n        <b-text color=\"light\" size=\"28\">{{ leftLabel }}</b-text>\n    </s-column>\n    <s-multiline width=\"11\" align=\"right\" self-align=\"center\">\n        <b-text color=\"high\" size=\"24\" class=\"_text-right\">\n            {{rightLabel}} <br>\n            <b-text color=\"light\" size=\"22\" v-show=\"rightNote\">{{rightNote}}</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"1\" align=\"right\">\n        <b-icon name=\"angle-right-bold\" color=\"light\" size=\"28\"></b-icon>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
