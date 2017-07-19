@@ -47,27 +47,6 @@
         },
         
         beforeMount:function(){
-            // var self = this;
-            // if(self.phonevali){
-            //     bus.$on('phoneMsg',function(res){
-            //         self.phoneErrMsg = res;
-            //     })
-            // }
-            // if(self.emailvali){
-            //     bus.$on('emailMsg',function(res){
-            //         self.emailErrMsg = res;
-            //     })
-            // }
-            // if(self.idcardvali){
-            //     bus.$on('idcardMsg',function(res){
-            //         self.idcardErrMsg = res;
-            //     })
-            // }
-            // if(self.numbervali){
-            //     bus.$on('numberMsg',function(res){
-            //         self.numberErrMsg = res;
-            //     })
-            // }
         },
         methods:{
             timekeeper:function(){

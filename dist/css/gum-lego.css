@@ -694,6 +694,7 @@
   padding: 0;
   font-weight: normal; }
 .gum .lego ._assetheader, .gum .lego ._field i ._assetheader {
+  position: relative;
   width: 100%;
   padding: 0.52632rem 0.78947rem;
   box-sizing: border-box; }
@@ -705,6 +706,17 @@
     line-height: 2.36842rem; }
   .gum .lego ._assetheader h6 {
     line-height: 1.31579rem; }
+  .gum .lego ._assetheader button {
+    position: absolute;
+    bottom: 0.89474rem;
+    right: 0.94737rem;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff; }
+  .gum .lego ._assetheader button.tapping {
+    color: #fff;
+    border-color: #fff;
+    background-color: transparent; }
   .gum .lego ._assetheader header {
     text-align: center;
     padding: 0.52632rem 0; }
@@ -795,15 +807,17 @@
   padding: 0 0.78947rem;
   line-height: 1.94737rem;
   background: #fff; }
+  .gum .lego ._comment i {
+    vertical-align: middle; }
 .gum .lego ._comment-more, .gum .lego ._field i ._comment-more {
   padding: 0.52632rem 0.78947rem 0.52632rem 0.78947rem;
   line-height: 0.94737rem;
   font-size: 0; }
   .gum .lego ._comment-more > div, .gum .lego ._field i ._comment-more > div {
     display: inline-block;
-    width: 95%; }
+    width: 92%; }
   .gum .lego ._comment-more > div:first-child, .gum .lego ._field i ._comment-more > div:first-child {
-    width: 5%;
+    width: 7.5%;
     vertical-align: top; }
 .gum .lego ._toast, .gum .lego ._field i ._toast {
   opacity: 0;
@@ -1190,6 +1204,8 @@
   font-size: 1.05263rem; }
 .gum .lego ._text_size_44px, .gum .lego ._field i ._text_size_44px {
   font-size: 1.15789rem; }
+.gum .lego ._text_size_48px, .gum .lego ._field i ._text_size_48px {
+  font-size: 1.26316rem; }
 .gum .lego ._text_size_50px, .gum .lego ._field i ._text_size_50px {
   font-size: 1.31579rem; }
 .gum .lego ._text_size_60px, .gum .lego ._field i ._text_size_60px {
@@ -1202,6 +1218,8 @@
   font-size: 5.89474rem; }
 .gum .lego ._text_size_300px, .gum .lego ._field i ._text_size_300px {
   font-size: 7.89474rem; }
+.gum .lego ._text-right, .gum .lego ._field i ._text-right {
+  text-align: right; }
 .gum .lego ._bgcolor_white, .gum .lego ._field i ._bgcolor_white {
   background-color: #fff; }
 .gum .lego ._bgcolor_high, .gum .lego ._field i ._bgcolor_high {

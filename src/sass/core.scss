@@ -132,6 +132,9 @@ button, input, span {
 ._text_size_44px {
     font-size: $text-size-44px;
 }
+._text_size_48px {
+    font-size: $text-size-48px;
+}
 ._text_size_50px {
     font-size: $text-size-50px;
 }
@@ -149,6 +152,10 @@ button, input, span {
 }
 ._text_size_300px {
     font-size: $text-size-300px;
+}
+
+._text-right {
+    text-align: right;
 }
 
 // 所有 background-color 属性列表

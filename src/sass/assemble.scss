@@ -348,6 +348,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 ._assetheader {
+    position: relative;
     width: 100%;
     padding: calRem(20) calRem(30);
     box-sizing: border-box;
@@ -368,6 +369,19 @@ h1,h2,h3,h4,h5,h6 {
         @extend ._text_color_light;
         @extend ._text_size_24px;
         line-height: calRem(50);
+    }
+    button {
+        position: absolute;
+        bottom: calRem(34);
+        right: calRem(36);
+        color: $c-white;
+        background-color: transparent;
+        border: 1px solid $c-white;
+    }
+    button.tapping {
+        color: $c-white;
+        border-color: $c-white;
+        background-color: transparent;
     }
     header {
         text-align: center;
@@ -495,6 +509,9 @@ h1,h2,h3,h4,h5,h6 {
     padding: 0 calRem(30);
     line-height: calRem(74);
     background: $c-white;
+    i {
+        vertical-align: middle;
+    }
 }
 ._comment-more {
     padding: calRem(20) calRem(30) calRem(20) calRem(30);
@@ -502,10 +519,10 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 0;
     & > div {
         display: inline-block;
-        width: 95%;
+        width: 92%;
     }
     & > div:first-child {
-        width: 5%;
+        width: 7.5%;
         vertical-align: top;
     }
 }
@@ -889,6 +906,8 @@ h1,h2,h3,h4,h5,h6 {
         color: $c-light;
     }
 }
+
+
 
 .fade-enter-active, .fade-leave-active {
  transition: opacity .5s

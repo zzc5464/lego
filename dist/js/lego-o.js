@@ -1,186 +1,4 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-},{}],2:[function(require,module,exports){
 var Vue // late bind
 var map = window.__VUE_HOT_MAP__ = Object.create(null)
 var installed = false
@@ -313,7 +131,7 @@ exports.reload = tryWrap(function (id, options) {
   })
 })
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v2.1.10
@@ -8885,7 +8703,7 @@ Vue$3.compile = compileToFunctions;
 module.exports = Vue$3;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":1}],4:[function(require,module,exports){
+},{"_process":5}],3:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v2.1.10
@@ -15097,7 +14915,7 @@ setTimeout(function () {
 module.exports = Vue$2;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":1}],5:[function(require,module,exports){
+},{"_process":5}],4:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 function noop () {}
@@ -15121,6 +14939,192 @@ exports.insert = function (css) {
     inserted[css] = false
   }
 }
+
+},{}],5:[function(require,module,exports){
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
 
 },{}],6:[function(require,module,exports){
 
@@ -15238,7 +15242,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0696886c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/amount.capital":81,"vue":4,"vue-hot-reload-api":2}],7:[function(require,module,exports){
+},{"../../utils/amount.capital":82,"vue":3,"vue-hot-reload-api":1}],7:[function(require,module,exports){
 
 
 
@@ -15295,7 +15299,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-186713a8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":82,"vue":4,"vue-hot-reload-api":2}],8:[function(require,module,exports){
+},{"../../utils/contants":83,"vue":3,"vue-hot-reload-api":1}],8:[function(require,module,exports){
 
 
 
@@ -15320,7 +15324,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-267071cc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],9:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],9:[function(require,module,exports){
 
 
 
@@ -15385,7 +15389,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-bedf9b68", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],10:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],10:[function(require,module,exports){
 
 
 
@@ -15479,7 +15483,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-b3a6aba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],11:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":3,"vue-hot-reload-api":1}],11:[function(require,module,exports){
 
 
 
@@ -15544,7 +15548,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-12876028", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],12:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],12:[function(require,module,exports){
 
 
 
@@ -15566,6 +15570,10 @@ module.exports = {
         oneline: {
             type: Boolean,
             default: true
+        },
+        warn: {
+            type: Boolean,
+            default: false
         }
     },
     data: function() {
@@ -15573,11 +15581,16 @@ module.exports = {
         return {
             
         };
+    },
+    computed: {
+        iconName: function(){
+            return this.warn ? 'i-hollow' : 'quote';
+        }
     }
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_comment _borderbottom1px\" v-if=\"oneline\">\n    <b-icon name=\"quote\" size=\"48\" color=\"stonegrey\"></b-icon>\n    <slot></slot>\n</div>\n<div class=\"_comment _comment-more _borderbottom1px\" v-else=\"\">\n    <div>\n        <b-icon name=\"quote\" size=\"48\" color=\"stonegrey\"></b-icon>\n    </div>\n    <div>\n        <slot></slot>\n    </div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"_comment _borderbottom1px\" v-if=\"oneline\">\n    <b-icon :name=\"iconName\" size=\"44\" color=\"stonegrey\"></b-icon>\n    <slot></slot>\n</div>\n<div class=\"_comment _comment-more _borderbottom1px\" v-else=\"\">\n    <div>\n        <b-icon :name=\"iconName\" size=\"44\" color=\"stonegrey\"></b-icon>\n    </div>\n    <div>\n        <slot></slot>\n    </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -15588,7 +15601,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-5a60eae8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],13:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],13:[function(require,module,exports){
 
 
 
@@ -15689,7 +15702,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-22a8402c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],14:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],14:[function(require,module,exports){
 
 
 
@@ -15737,7 +15750,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-5be542d0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],15:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],15:[function(require,module,exports){
 
 
 
@@ -15787,7 +15800,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6724abde", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],16:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],16:[function(require,module,exports){
 
 
 
@@ -15846,7 +15859,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-42c3e16c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":82,"vue":4,"vue-hot-reload-api":2}],17:[function(require,module,exports){
+},{"../../utils/contants":83,"vue":3,"vue-hot-reload-api":1}],17:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n .kbd {\n    position: fixed;\n    bottom: 0;\n    width: 100%;\n    background: #e5e5e5;\n}\n .kbd .ok {\n    /*background: none;*/\n    float: right;\n    padding: 10px 15px;\n    color: #d7ac62;\n}\n .kbd .buttons {\n    width: 100%;\n    float: left;\n    background: #fff;\n}\n .kbd ul {\n    width: 100%;\n    float: left;\n    background: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' y='100%'><rect fill='#e5e5e5' x='0' y='50%' width='100%' height='0.5'/><rect fill='#e5e5e5' x='0' y='75%' width='100%' height='0.5'/><rect fill='#e5e5e5' x='0' y='25%' width='100%' height='0.5'/><rect fill='#e5e5e5' x='33.33%' y='0' height='100%' width='0.5'/><rect fill='#e5e5e5' x='66.66%' y='0' height='100%' width='0.5'/></svg>\");\n}\n .kbd li {\n    float: left;\n    width: 33.33%;\n    height: 3em;\n}\n .kbd li.blank {\n    background: #e5e5e5;\n}\n .kbd li button {\n    width: 100%;\n    height: 100%;\n    text-align: center;\n    /*border: none;*/\n    /*background: none;*/\n    border-radius: 0;\n    color: #d7ac62;\n}\n .kbd li button.tapping {\n    background-color: #e5e5e5;\n}\n")
 
@@ -15990,7 +16003,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-1483c7ac", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2,"vueify/lib/insert-css":5}],18:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":3,"vue-hot-reload-api":1,"vueify/lib/insert-css":4}],18:[function(require,module,exports){
 
 
 
@@ -16015,7 +16028,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-20f4c5d6", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],19:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],19:[function(require,module,exports){
 
 
 
@@ -16145,7 +16158,8 @@ module.exports = {
         },
 
         btn: {
-            type: String
+            type: String,
+            default: ''
         }
 
     },
@@ -16171,10 +16185,6 @@ module.exports = {
             });
             v = elems;
         } 
-        // if (this.login === true ) {
-        //     t = 6;
-        // } 
-        // else 
         if ( elems.length == 6 || this.label === '1' ) {
             t = 4;
             
@@ -16221,7 +16231,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"type === 0\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h3><slot></slot></h3>\n    <h6>{{ footer }}</h6>\n    <button>{{ btn }}</button>\n</div>\n<div v-else-if=\"type === 1\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h6>{{ header }}</h6>\n    <h2><slot></slot></h2>\n</div>\n<div v-else-if=\"type === 2\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 3\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n        <b-select :id=\"linkId\" size=\"24\" color=\"high\">{{ link }}</b-select>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 4\" class=\"_assetheader _login\" :class=\"classObj\" :style=\"styleObj\">\n    <header class=\"header\">\n        <h6>{{topData.header || desc}}</h6>\n        \n        <b-button id=\"login-btn\" size=\"28\" v-show=\"login\" color=\"white\" width=\"6\" height=\"1.578947\">点击登录</b-button>\n        <h2 v-show=\"!login\">{{topData.invest || invest}}</h2>\n        <div class=\"_asset-btn\" v-show=\"asset\">\n            <b-icon name=\"gear\" size=\"40\" color=\"white\"></b-icon>\n        </div>\n    </header>\n    <ul class=\"_three\">\n        <li>\n            <div>{{ topData.title1 || elements[0].text }}</div>\n            <div>{{ topData.value1 || elements[1].text }}</div>\n        </li>\n        <li>\n            <div>{{ topData.title2 || elements[2].text }}</div>\n            <div>{{ topData.value2 || elements[3].text }}</div>\n        </li>\n        <li>\n            <div>{{ topData.title3 || elements[4].text }}</div>\n            <div class=\"chinese-font-size\">{{ topData.value3 || elements[5].text }}</div>\n        </li>\n    </ul>\n</div>\n<div v-else-if=\"type === 5\" class=\"_assetheader _login\" :class=\"classObj\" :style=\"styleObj\">\n    <header>\n        <h6 class=\"_eyecenter\">{{topData.header || desc}} <b-icon size=\"50\" name=\"eye\" @tapped=\"hiddenData\" v-show=\"open == true\"></b-icon><b-icon size=\"50\" name=\"eye-closed\" @tapped=\"hiddenData\" v-show=\"open != true\"></b-icon></h6>\n        <b-button id=\"login-btn\" size=\"28\" v-show=\"login\" color=\"white\" width=\"6\" height=\"1.578947\">点击登录</b-button>\n\n        <h2 v-show=\"!login\" v-if=\"open == true\">{{topData.invest || invest}}</h2>\n        <h2 v-show=\"!login\" v-else=\"\">****</h2>\n\n        <div class=\"_asset-btn\" v-show=\"asset\">\n            <b-icon name=\"gear\" size=\"40\" color=\"white\"></b-icon>\n        </div>\n    </header>\n    <ul class=\"_three _second\">\n        <li>\n            <div>{{ topData.title1 || elements[0].text }}</div>\n            <div v-if=\"open == true\">{{ topData.value1 || elements[1].text }}</div><div v-else=\"\">****</div>\n        </li>\n        <li>\n            <div>{{ topData.title2 || elements[2].text }}</div>\n            <div v-if=\"open == true\">{{ topData.value2 || elements[3].text }}</div><div v-else=\"\">****</div>\n        </li>\n    </ul>\n</div>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-if=\"type === 0\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h3><slot></slot></h3>\n    <h6>{{ footer }}</h6>\n</div>\n<div v-else-if=\"type === 1\" class=\"_assetheader\" :class=\"classObj\" :style=\"styleObj\">\n    <h6>{{ header }}</h6>\n    <h2><slot></slot></h2>\n    <b-button size=\"28\" height=\"1.5\" width=\"3.973684\" v-show=\" btn !== '' \">{{ btn }}</b-button>\n</div>\n<div v-else-if=\"type === 2\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 3\" class=\"_assetheader\">\n    <b-text size=\"21\" color=\"high\">{{ header }}</b-text>\n    <div>\n        <b-text size=\"36\" color=\"white\"><slot></slot></b-text>\n        <b-select :id=\"linkId\" size=\"24\" color=\"high\">{{ link }}</b-select>\n    </div>\n    <b-text size=\"22\" color=\"high\">{{ footer }}</b-text>\n</div>\n<div v-else-if=\"type === 4\" class=\"_assetheader _login\" :class=\"classObj\" :style=\"styleObj\">\n    <header class=\"header\">\n        <h6>{{topData.header || desc}}</h6>\n        \n        <b-button id=\"login-btn\" size=\"28\" v-show=\"login\" color=\"white\" width=\"6\" height=\"1.578947\">点击登录</b-button>\n        <h2 v-show=\"!login\">{{topData.invest || invest}}</h2>\n        <div class=\"_asset-btn\" v-show=\"asset\">\n            <b-icon name=\"gear\" size=\"40\" color=\"white\"></b-icon>\n        </div>\n    </header>\n    <ul class=\"_three\">\n        <li>\n            <div>{{ topData.title1 || elements[0].text }}</div>\n            <div>{{ topData.value1 || elements[1].text }}</div>\n        </li>\n        <li>\n            <div>{{ topData.title2 || elements[2].text }}</div>\n            <div>{{ topData.value2 || elements[3].text }}</div>\n        </li>\n        <li>\n            <div>{{ topData.title3 || elements[4].text }}</div>\n            <div class=\"chinese-font-size\">{{ topData.value3 || elements[5].text }}</div>\n        </li>\n    </ul>\n</div>\n<div v-else-if=\"type === 5\" class=\"_assetheader _login\" :class=\"classObj\" :style=\"styleObj\">\n    <header>\n        <h6 class=\"_eyecenter\">{{topData.header || desc}} <b-icon size=\"50\" name=\"eye\" @tapped=\"hiddenData\" v-show=\"open == true\"></b-icon><b-icon size=\"50\" name=\"eye-closed\" @tapped=\"hiddenData\" v-show=\"open != true\"></b-icon></h6>\n        <b-button id=\"login-btn\" size=\"28\" v-show=\"login\" color=\"white\" width=\"6\" height=\"1.578947\">点击登录</b-button>\n\n        <h2 v-show=\"!login\" v-if=\"open == true\">{{topData.invest || invest}}</h2>\n        <h2 v-show=\"!login\" v-else=\"\">****</h2>\n\n        <div class=\"_asset-btn\" v-show=\"asset\">\n            <b-icon name=\"gear\" size=\"40\" color=\"white\"></b-icon>\n        </div>\n    </header>\n    <ul class=\"_three _second\">\n        <li>\n            <div>{{ topData.title1 || elements[0].text }}</div>\n            <div v-if=\"open == true\">{{ topData.value1 || elements[1].text }}</div><div v-else=\"\">****</div>\n        </li>\n        <li>\n            <div>{{ topData.title2 || elements[2].text }}</div>\n            <div v-if=\"open == true\">{{ topData.value2 || elements[3].text }}</div><div v-else=\"\">****</div>\n        </li>\n    </ul>\n</div>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -16232,7 +16242,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-c7797c68", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],20:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],20:[function(require,module,exports){
 
 
 
@@ -16311,7 +16321,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-53c6d940", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],21:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],21:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n.svg-line[_v-5b3a9c6c]{\n    height: 12em;\n    background: #fff;\n    text-align: center;\n}\n")
 
@@ -16393,7 +16403,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-5b3a9c6c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","../../utils/line.chart":83,"vue":4,"vue-hot-reload-api":2,"vueify/lib/insert-css":5}],22:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/line.chart":84,"vue":3,"vue-hot-reload-api":1,"vueify/lib/insert-css":4}],22:[function(require,module,exports){
 
 
 
@@ -16477,7 +16487,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6ae71b0c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],23:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],23:[function(require,module,exports){
 
 
 
@@ -16565,7 +16575,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-65404128", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],24:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":3,"vue-hot-reload-api":1}],24:[function(require,module,exports){
 
 
 
@@ -16668,7 +16678,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-405a15e2", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],25:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],25:[function(require,module,exports){
 
 
 
@@ -16751,7 +16761,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-5b837bf4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],26:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],26:[function(require,module,exports){
 
 
 
@@ -16845,7 +16855,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-e430d3a8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],27:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],27:[function(require,module,exports){
 
 
 
@@ -16907,7 +16917,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-f4c382d0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":82,"vue":4,"vue-hot-reload-api":2}],28:[function(require,module,exports){
+},{"../../utils/contants":83,"vue":3,"vue-hot-reload-api":1}],28:[function(require,module,exports){
 
 
 
@@ -16963,7 +16973,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-a23648d4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],29:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],29:[function(require,module,exports){
 
 
 
@@ -17028,7 +17038,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3d665ba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],30:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":3,"vue-hot-reload-api":1}],30:[function(require,module,exports){
 
 
 
@@ -17075,7 +17085,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-bc10a268", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],31:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],31:[function(require,module,exports){
 
 
 
@@ -17133,7 +17143,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-24d8e68c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],32:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],32:[function(require,module,exports){
 
 
 
@@ -17178,7 +17188,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-d46f4098", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],33:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],33:[function(require,module,exports){
 
 
 
@@ -17259,7 +17269,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-79a71360", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],34:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],34:[function(require,module,exports){
 
 
 
@@ -17328,7 +17338,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-296479ec", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":82,"vue":4,"vue-hot-reload-api":2}],35:[function(require,module,exports){
+},{"../../utils/contants":83,"vue":3,"vue-hot-reload-api":1}],35:[function(require,module,exports){
 
 
 
@@ -17354,7 +17364,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-2641d00a", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],36:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],36:[function(require,module,exports){
 
 
 
@@ -17415,7 +17425,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-ff422f28", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],37:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],37:[function(require,module,exports){
 
 
 
@@ -17464,7 +17474,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6cfbe1cc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],38:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],38:[function(require,module,exports){
 
 
 
@@ -17505,7 +17515,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-ccbab8a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],39:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],39:[function(require,module,exports){
 
 
 
@@ -17536,7 +17546,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6136a50c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],40:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],40:[function(require,module,exports){
 
 
 
@@ -17680,7 +17690,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0c40e34c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],41:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":3,"vue-hot-reload-api":1}],41:[function(require,module,exports){
 
 
 
@@ -17730,7 +17740,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-24c1d4ac", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],42:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],42:[function(require,module,exports){
 
 
 
@@ -17800,7 +17810,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-33243478", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":82,"vue":4,"vue-hot-reload-api":2}],43:[function(require,module,exports){
+},{"../../utils/contants":83,"vue":3,"vue-hot-reload-api":1}],43:[function(require,module,exports){
 
 
 
@@ -17862,7 +17872,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-dd7a2ba8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":82,"vue":4,"vue-hot-reload-api":2}],44:[function(require,module,exports){
+},{"../../utils/contants":83,"vue":3,"vue-hot-reload-api":1}],44:[function(require,module,exports){
 
 
 
@@ -17924,7 +17934,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-379a35e8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":82,"vue":4,"vue-hot-reload-api":2}],45:[function(require,module,exports){
+},{"../../utils/contants":83,"vue":3,"vue-hot-reload-api":1}],45:[function(require,module,exports){
 
 
 
@@ -17974,7 +17984,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-17d08aac", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],46:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],46:[function(require,module,exports){
 
 
 
@@ -18117,7 +18127,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-a3c62628", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],47:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],47:[function(require,module,exports){
 
 
 
@@ -18161,7 +18171,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-21b167d8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],48:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],48:[function(require,module,exports){
 
 
 
@@ -18221,7 +18231,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-8e052d84", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/contants":82,"vue":4,"vue-hot-reload-api":2}],49:[function(require,module,exports){
+},{"../../utils/contants":83,"vue":3,"vue-hot-reload-api":1}],49:[function(require,module,exports){
 
 
 
@@ -18341,7 +18351,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-62a2cac8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],50:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":3,"vue-hot-reload-api":1}],50:[function(require,module,exports){
 
 
 
@@ -18414,7 +18424,82 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-a572a9a8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],51:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],51:[function(require,module,exports){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 银行卡 点击 进入下一页
+module.exports = {
+    props: {
+        leftLabel: {
+            type: String,
+            default: ''
+        },
+
+        rightLabel: {
+            type: String,
+            default: ''
+        }, 
+
+        rightNote: {
+            type: String,
+            default: ''
+        },
+
+        onTap: {
+            type: Function,
+            default: function () {}
+        }
+
+    },
+    
+
+    data: function () {
+        return {
+            tempData: this.itemData
+        }
+    },
+
+    methods: {
+        onTapCallback: function (e) {
+            this.onTap(this.itemData, e);
+        }
+    }
+}
+
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell height=\"2.894736\" :on-tap=\"onTapCallback\" class=\"_welfare-card\" bgcolor=\"white\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-column width=\"6\" align=\"left\">\n        <b-text color=\"light\" size=\"28\">{{ leftLabel }}</b-text>\n    </s-column>\n    <s-multiline width=\"11\" align=\"right\" self-align=\"center\">\n        <b-text color=\"high\" size=\"24\" class=\"_text-right\">\n            {{rightLabel}} <br>\n            <b-text color=\"light\" size=\"22\" v-show=\"rightNote\">{{rightNote}}</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"1\" align=\"right\">\n        <b-icon name=\"angle-right-bold\" color=\"light\" size=\"28\"></b-icon>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-41c31228", module.exports)
+  } else {
+    hotAPI.update("_v-41c31228", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":3,"vue-hot-reload-api":1}],52:[function(require,module,exports){
 
 
 
@@ -18524,7 +18609,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-cd2039b0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","../../utils/validate":84,"vue":4,"vue-hot-reload-api":2}],52:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":85,"vue":3,"vue-hot-reload-api":1}],53:[function(require,module,exports){
 
 
 
@@ -18574,27 +18659,6 @@ module.exports = {
     },
     
     beforeMount:function(){
-        // var self = this;
-        // if(self.phonevali){
-        //     bus.$on('phoneMsg',function(res){
-        //         self.phoneErrMsg = res;
-        //     })
-        // }
-        // if(self.emailvali){
-        //     bus.$on('emailMsg',function(res){
-        //         self.emailErrMsg = res;
-        //     })
-        // }
-        // if(self.idcardvali){
-        //     bus.$on('idcardMsg',function(res){
-        //         self.idcardErrMsg = res;
-        //     })
-        // }
-        // if(self.numbervali){
-        //     bus.$on('numberMsg',function(res){
-        //         self.numberErrMsg = res;
-        //     })
-        // }
     },
     methods:{
         timekeeper:function(){
@@ -18630,7 +18694,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-4392a664", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],53:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],54:[function(require,module,exports){
 
 
 
@@ -18681,7 +18745,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-fa497078", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],54:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":3,"vue-hot-reload-api":1}],55:[function(require,module,exports){
 
 
 
@@ -18760,7 +18824,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-47954578", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","../../utils/validate":84,"vue":4,"vue-hot-reload-api":2}],55:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":85,"vue":3,"vue-hot-reload-api":1}],56:[function(require,module,exports){
 
 
 
@@ -18802,7 +18866,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-eeafffe4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],56:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],57:[function(require,module,exports){
 
 
 
@@ -18847,7 +18911,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-eec7c6f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],57:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],58:[function(require,module,exports){
 
 
 
@@ -18930,7 +18994,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-052a3ee4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","../../utils/validate":84,"vue":4,"vue-hot-reload-api":2}],58:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":85,"vue":3,"vue-hot-reload-api":1}],59:[function(require,module,exports){
 
 
 
@@ -18984,7 +19048,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-64bddec8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],59:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],60:[function(require,module,exports){
 
 
 
@@ -19068,7 +19132,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0355bfa4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","../../utils/validate":84,"vue":4,"vue-hot-reload-api":2}],60:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":85,"vue":3,"vue-hot-reload-api":1}],61:[function(require,module,exports){
 
 
 
@@ -19171,7 +19235,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3ed66764", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],61:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":3,"vue-hot-reload-api":1}],62:[function(require,module,exports){
 
 
 
@@ -19206,7 +19270,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0650cddc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],62:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],63:[function(require,module,exports){
 
 
 
@@ -19258,7 +19322,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-e54ce000", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],63:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],64:[function(require,module,exports){
 
 
 
@@ -19309,7 +19373,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-b89c90f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],64:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],65:[function(require,module,exports){
 
 
 
@@ -19378,7 +19442,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-02d50f24", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],65:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],66:[function(require,module,exports){
 
 
 
@@ -19422,7 +19486,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-93fd89f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],66:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],67:[function(require,module,exports){
 
 
 
@@ -19457,7 +19521,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-413fcb18", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],67:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],68:[function(require,module,exports){
 
 
 
@@ -19490,7 +19554,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-6894e2a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],68:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],69:[function(require,module,exports){
 
 
 
@@ -19536,7 +19600,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-52de0038", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],69:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],70:[function(require,module,exports){
 
 
 
@@ -19640,7 +19704,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-08467336", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","../../utils/validate":84,"vue":4,"vue-hot-reload-api":2}],70:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":85,"vue":3,"vue-hot-reload-api":1}],71:[function(require,module,exports){
 
 
 
@@ -19686,7 +19750,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3ec5af8a", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],71:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],72:[function(require,module,exports){
 
 
 
@@ -19766,7 +19830,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-00ed29e4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","../../utils/validate":84,"vue":4,"vue-hot-reload-api":2}],72:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","../../utils/validate":85,"vue":3,"vue-hot-reload-api":1}],73:[function(require,module,exports){
 
 
 
@@ -19802,7 +19866,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-84e5a5f8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],73:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],74:[function(require,module,exports){
 
 
 
@@ -19835,7 +19899,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-44bb3c24", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],74:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],75:[function(require,module,exports){
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<footer class=\"_footer\">\n    <slot></slot>\n</footer>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
@@ -19847,7 +19911,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-e95d6bae", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],75:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],76:[function(require,module,exports){
 
 
 
@@ -19949,7 +20013,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-27ed8ae9", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../utils/gum.vue.events":"events","vue":4,"vue-hot-reload-api":2}],76:[function(require,module,exports){
+},{"../../utils/gum.vue.events":"events","vue":3,"vue-hot-reload-api":1}],77:[function(require,module,exports){
 
 
 
@@ -20017,7 +20081,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-2cf463a9", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],77:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],78:[function(require,module,exports){
 
 
 
@@ -20061,7 +20125,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-e67e4e2e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],78:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],79:[function(require,module,exports){
 
 
 
@@ -20098,7 +20162,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3c4dc802", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],79:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],80:[function(require,module,exports){
 
 
 
@@ -20142,7 +20206,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3f93e705", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],80:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],81:[function(require,module,exports){
 
 
 
@@ -20203,7 +20267,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-ffede88e", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2}],81:[function(require,module,exports){
+},{"vue":3,"vue-hot-reload-api":1}],82:[function(require,module,exports){
 function ConvertCurrency(){
     
 }
@@ -20296,7 +20360,7 @@ module.exports = new ConvertCurrency();
 
 
         
-},{}],82:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 'use strict';
 
 var contants = {
@@ -20305,7 +20369,7 @@ var contants = {
 }
 
 module.exports = contants;
-},{}],83:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 "use strict";
 
 // period: 周期，0为七天，1为一个月，2为两个月
@@ -20497,7 +20561,7 @@ module.exports = function() {
     //    return '数据异常';
     //}
 }
-},{}],84:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 'use strict';
 
 var required    = require('../validator/require.validator'),
@@ -20567,7 +20631,7 @@ Validate.prototype.errors = function () {
 }
 
 module.exports = Validate;
-},{"../validator/email.validator":85,"../validator/idcard.validator":86,"../validator/number.validator":87,"../validator/require.validator":88,"../validator/tel.validator":89}],85:[function(require,module,exports){
+},{"../validator/email.validator":86,"../validator/idcard.validator":87,"../validator/number.validator":88,"../validator/require.validator":89,"../validator/tel.validator":90}],86:[function(require,module,exports){
 'use strict';
 
 function EmailValidator () {
@@ -20584,7 +20648,7 @@ EmailValidator.prototype.validate = function (value) {
 }
 
 module.exports = new EmailValidator();
-},{}],86:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 'use strict';
 
 function IdCardValidator () {
@@ -20742,7 +20806,7 @@ module.exports = new IdCardValidator();
                 //         return Errors[1];
                 //         break;
                 // }
-},{}],87:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 'use strict';
 
 function NumberValidator () {
@@ -20763,7 +20827,7 @@ NumberValidator.prototype = {
 }
 
 module.exports = new NumberValidator();
-},{}],88:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 'use strict';
 
 function RequireValidator () {
@@ -20777,7 +20841,7 @@ RequireValidator.prototype = {
 }
 
 module.exports = new RequireValidator();
-},{}],89:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 'use strict';
 
 function TelValidator () {
@@ -20836,7 +20900,7 @@ Events.prototype.toastClear = function () {
 }
 
 module.exports = new Events();
-},{"vue/dist/vue.common":3}],"lego":[function(require,module,exports){
+},{"vue/dist/vue.common":2}],"lego":[function(require,module,exports){
 'use strict';
 
 var Vue = require('vue/dist/vue.common');
@@ -20912,6 +20976,7 @@ var components = [
     [ 'next-cell'               , require('../assemble/next-cell/next-cell.vue.js')                 ],
     [ 'select-card'             , require('../assemble/select-card/select-card.vue.js')             ],
     [ 'order-card'              , require('../assemble/order-card/order-card.vue.js')               ],
+    [ 'welfare-card'            , require('../assemble/welfare-card/welfare-card.vue.js')           ],
     [ 'comment'                 , require('../assemble/comment/comment.vue.js')                     ],
     [ 'toast'                   , require('../assemble/toast/toast.vue.js')                         ],
 
@@ -20946,4 +21011,4 @@ VueManager.prototype = {
 }
 
 module.exports = new VueManager();
-},{"../assemble/amount-row/amount-row.vue.js":6,"../assemble/annotation/annotation.vue.js":7,"../assemble/button/button.vue.js":8,"../assemble/card/card.vue.js":9,"../assemble/check-line-group/check-line-group.vue.js":10,"../assemble/check-line/check-line.vue.js":11,"../assemble/comment/comment.vue.js":12,"../assemble/dock/dock.vue.js":13,"../assemble/fixed-row/fixed-row.vue.js":14,"../assemble/flype/flype.vue.js":15,"../assemble/id-field-row/id-field-row.vue.js":16,"../assemble/keyboard/keyboard.vue.js":17,"../assemble/lead-item/lead-item.vue.js":18,"../assemble/lead/lead.vue.js":19,"../assemble/line-card/line-card.vue.js":20,"../assemble/line-chart/line-chart.vue.js":21,"../assemble/list/list.vue.js":22,"../assemble/modal/modal.vue.js":23,"../assemble/next-card/next-card.vue.js":24,"../assemble/next-cell/next-cell.vue.js":25,"../assemble/order-card/order-card.vue.js":26,"../assemble/otp-field-row/otp-field-row.vue.js":27,"../assemble/panel/panel.vue.js":28,"../assemble/password/password.vue.js":29,"../assemble/protocol/protocol.vue.js":30,"../assemble/question/question.vue.js":31,"../assemble/remarks/remarks.vue.js":32,"../assemble/select-card/select-card.vue.js":33,"../assemble/select-row/select-row.vue.js":34,"../assemble/stage/stage.vue.js":35,"../assemble/stages/stages.vue.js":36,"../assemble/stepwise/stepwise.vue.js":37,"../assemble/stick/stick.vue.js":38,"../assemble/stub/stub.vue.js":39,"../assemble/tab-button/tab-button.vue.js":40,"../assemble/table/table.vue.js":41,"../assemble/tel-field-row/tel-field-row.vue.js":42,"../assemble/text-field-row/text-field-row.vue.js":43,"../assemble/text-row/text-row.vue.js":44,"../assemble/textarea-row/textarea-row.vue.js":45,"../assemble/timeline/timeline.vue.js":46,"../assemble/timepoint/timepoint.vue.js":47,"../assemble/title/title.vue.js":48,"../assemble/toast/toast.vue.js":49,"../assemble/total-button/total-button.vue.js":50,"../basic/address-field/address-field.vue.js":51,"../basic/button/button.vue.js":52,"../basic/checkbox/checkbox.vue.js":53,"../basic/email-field/email-field.vue.js":54,"../basic/highlight/highlight.vue.js":55,"../basic/icon/icon.vue.js":56,"../basic/idcard-field/idcard-field.vue.js":57,"../basic/image/image.vue.js":58,"../basic/number-field/number-field.vue.js":59,"../basic/radio/radio-group.vue.js":60,"../basic/radio/radio.vue.js":61,"../basic/radius-button/radius-button.vue.js":62,"../basic/rectangular-button/rectangular-button.vue.js":63,"../basic/select/select.vue.js":64,"../basic/solid-checkbox/solid-checkbox.vue.js":65,"../basic/solid-radio/solid-radio.vue.js":66,"../basic/svg/svg.vue.js":67,"../basic/tab-button/tab-button.vue.js":68,"../basic/tel-field/tel-field.vue.js":69,"../basic/text-button/text-button.vue.js":70,"../basic/text-field/text-field.vue.js":71,"../basic/text/text.vue.js":72,"../basic/toggle/toggle.vue.js":73,"../page/footer/footer.vue.js":74,"../page/main/main.vue.js":75,"../structure/cell/cell.vue.js":76,"../structure/column/column.vue.js":77,"../structure/flex-column/flex-column.vue.js":78,"../structure/multiline/multiline.vue.js":79,"../structure/single-cell/single-cell.vue.js":80,"vue/dist/vue.common":3}]},{},[]);
+},{"../assemble/amount-row/amount-row.vue.js":6,"../assemble/annotation/annotation.vue.js":7,"../assemble/button/button.vue.js":8,"../assemble/card/card.vue.js":9,"../assemble/check-line-group/check-line-group.vue.js":10,"../assemble/check-line/check-line.vue.js":11,"../assemble/comment/comment.vue.js":12,"../assemble/dock/dock.vue.js":13,"../assemble/fixed-row/fixed-row.vue.js":14,"../assemble/flype/flype.vue.js":15,"../assemble/id-field-row/id-field-row.vue.js":16,"../assemble/keyboard/keyboard.vue.js":17,"../assemble/lead-item/lead-item.vue.js":18,"../assemble/lead/lead.vue.js":19,"../assemble/line-card/line-card.vue.js":20,"../assemble/line-chart/line-chart.vue.js":21,"../assemble/list/list.vue.js":22,"../assemble/modal/modal.vue.js":23,"../assemble/next-card/next-card.vue.js":24,"../assemble/next-cell/next-cell.vue.js":25,"../assemble/order-card/order-card.vue.js":26,"../assemble/otp-field-row/otp-field-row.vue.js":27,"../assemble/panel/panel.vue.js":28,"../assemble/password/password.vue.js":29,"../assemble/protocol/protocol.vue.js":30,"../assemble/question/question.vue.js":31,"../assemble/remarks/remarks.vue.js":32,"../assemble/select-card/select-card.vue.js":33,"../assemble/select-row/select-row.vue.js":34,"../assemble/stage/stage.vue.js":35,"../assemble/stages/stages.vue.js":36,"../assemble/stepwise/stepwise.vue.js":37,"../assemble/stick/stick.vue.js":38,"../assemble/stub/stub.vue.js":39,"../assemble/tab-button/tab-button.vue.js":40,"../assemble/table/table.vue.js":41,"../assemble/tel-field-row/tel-field-row.vue.js":42,"../assemble/text-field-row/text-field-row.vue.js":43,"../assemble/text-row/text-row.vue.js":44,"../assemble/textarea-row/textarea-row.vue.js":45,"../assemble/timeline/timeline.vue.js":46,"../assemble/timepoint/timepoint.vue.js":47,"../assemble/title/title.vue.js":48,"../assemble/toast/toast.vue.js":49,"../assemble/total-button/total-button.vue.js":50,"../assemble/welfare-card/welfare-card.vue.js":51,"../basic/address-field/address-field.vue.js":52,"../basic/button/button.vue.js":53,"../basic/checkbox/checkbox.vue.js":54,"../basic/email-field/email-field.vue.js":55,"../basic/highlight/highlight.vue.js":56,"../basic/icon/icon.vue.js":57,"../basic/idcard-field/idcard-field.vue.js":58,"../basic/image/image.vue.js":59,"../basic/number-field/number-field.vue.js":60,"../basic/radio/radio-group.vue.js":61,"../basic/radio/radio.vue.js":62,"../basic/radius-button/radius-button.vue.js":63,"../basic/rectangular-button/rectangular-button.vue.js":64,"../basic/select/select.vue.js":65,"../basic/solid-checkbox/solid-checkbox.vue.js":66,"../basic/solid-radio/solid-radio.vue.js":67,"../basic/svg/svg.vue.js":68,"../basic/tab-button/tab-button.vue.js":69,"../basic/tel-field/tel-field.vue.js":70,"../basic/text-button/text-button.vue.js":71,"../basic/text-field/text-field.vue.js":72,"../basic/text/text.vue.js":73,"../basic/toggle/toggle.vue.js":74,"../page/footer/footer.vue.js":75,"../page/main/main.vue.js":76,"../structure/cell/cell.vue.js":77,"../structure/column/column.vue.js":78,"../structure/flex-column/flex-column.vue.js":79,"../structure/multiline/multiline.vue.js":80,"../structure/single-cell/single-cell.vue.js":81,"vue/dist/vue.common":2}]},{},[]);

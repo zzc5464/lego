@@ -833,6 +833,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal; }
 
 ._assetheader {
+  position: relative;
   width: 100%;
   padding: 0.52632rem 0.78947rem;
   box-sizing: border-box; }
@@ -844,6 +845,17 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 2.36842rem; }
   ._assetheader h6 {
     line-height: 1.31579rem; }
+  ._assetheader button {
+    position: absolute;
+    bottom: 0.89474rem;
+    right: 0.94737rem;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff; }
+  ._assetheader button.tapping {
+    color: #fff;
+    border-color: #fff;
+    background-color: transparent; }
   ._assetheader header {
     text-align: center;
     padding: 0.52632rem 0; }
@@ -940,6 +952,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 0.78947rem;
   line-height: 1.94737rem;
   background: #fff; }
+  ._comment i {
+    vertical-align: middle; }
 
 ._comment-more {
   padding: 0.52632rem 0.78947rem 0.52632rem 0.78947rem;
@@ -947,9 +961,9 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0; }
   ._comment-more > div {
     display: inline-block;
-    width: 95%; }
+    width: 92%; }
   ._comment-more > div:first-child {
-    width: 5%;
+    width: 7.5%;
     vertical-align: top; }
 
 ._toast {
@@ -1399,6 +1413,9 @@ button, input, span {
 ._text_size_44px {
   font-size: 1.15789rem; }
 
+._text_size_48px {
+  font-size: 1.26316rem; }
+
 ._text_size_50px {
   font-size: 1.31579rem; }
 
@@ -1416,6 +1433,9 @@ button, input, span {
 
 ._text_size_300px {
   font-size: 7.89474rem; }
+
+._text-right {
+  text-align: right; }
 
 ._bgcolor_white {
   background-color: #fff; }

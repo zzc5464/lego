@@ -2,11 +2,11 @@
     <div v-if='type === 0' class="_assetheader" :class="classObj" :style="styleObj" >
         <h3><slot></slot></h3>
         <h6>{{ footer }}</h6>
-        <button>{{ btn }}</button>
     </div>
     <div v-else-if='type === 1' class="_assetheader" :class="classObj" :style="styleObj" >
         <h6>{{ header }}</h6>
         <h2><slot></slot></h2>
+        <b-button size="28" height="1.5" width="3.973684"  v-show=" btn !== '' ">{{ btn }}</b-button>
     </div>
     <div v-else-if='type === 2' class="_assetheader">
         <b-text size='21' color='high'>{{ header }}</b-text>
@@ -127,7 +127,8 @@
             },
 
             btn: {
-                type: String
+                type: String,
+                default: ''
             }
 
         },
@@ -153,10 +154,6 @@
                 });
                 v = elems;
             } 
-            // if (this.login === true ) {
-            //     t = 6;
-            // } 
-            // else 
             if ( elems.length == 6 || this.label === '1' ) {
                 t = 4;
                 
