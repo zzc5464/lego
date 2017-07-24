@@ -6,7 +6,7 @@
     <div v-else-if='type === 1' class="_assetheader" :class="classObj" :style="styleObj" >
         <h6>{{ header }}</h6>
         <h2><slot></slot></h2>
-        <b-button id="btnId" size="28" height="1.5" width="3.973684"  v-show=" btn !== '' ">{{ btn }}</b-button>
+        <b-button class="linkbtn" :id="btnId" size="28" height="1.5" width="3.973684"  v-show=" btn !== '' ">{{ btn }}</b-button>
     </div>
     <div v-else-if='type === 2' class="_assetheader">
         <b-text size='21' color='high'>{{ header }}</b-text>

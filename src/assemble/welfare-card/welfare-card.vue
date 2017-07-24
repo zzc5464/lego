@@ -2,10 +2,10 @@
     <s-cell :height="newHeight" :border-padding="borderPadding" :on-tap='onTapCallback' class="_welfare-card"  bgcolor='white' border="true">
         <s-flex-column>
         </s-flex-column>
-        <s-column width="6" align="left">
+        <s-column :width="leftWidth" align="left">
             <b-text color="light" size="28">{{ leftLabel }}</b-text>
         </s-column>
-        <s-multiline width="11" align="right" self-align="center">
+        <s-multiline :width="rightWidth" align="right" self-align="center">
             <b-text color="high" size="24" class="_text-right">{{rightLabel}}<br>
                 <b-text color="light" size="22" v-show="rightNote">{{rightNote}}</b-text>
             </b-text>
@@ -26,6 +26,11 @@
             leftLabel: {
                 type: String,
                 default: ''
+            },
+
+            leftWidth: {
+                type: String,
+                default: '7'
             },
 
             rightLabel: {
@@ -65,6 +70,9 @@
         computed: {
             newHeight: function(){
                 return (this.height/38).toFixed(6);
+            },
+            rightWidth: function(){
+                return (17 - this.leftWidth)
             }
         },
 

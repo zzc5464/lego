@@ -708,14 +708,14 @@
     line-height: 2.36842rem; }
   .gum .lego ._assetheader h6 {
     line-height: 1.31579rem; }
-  .gum .lego ._assetheader button {
+  .gum .lego ._assetheader .linkbtn {
     position: absolute;
     bottom: 0.89474rem;
     right: 0.94737rem;
     color: #fff;
     background-color: transparent;
     border: 1px solid #fff; }
-  .gum .lego ._assetheader button.tapping {
+  .gum .lego ._assetheader .linkbtn.tapping {
     color: #fff;
     border-color: #fff;
     background-color: transparent; }
@@ -739,7 +739,6 @@
       color: #fff;
       font-size: 1rem; }
       .gum .lego ._assetheader ._three li > div:first-child {
-        color: #999;
         font-size: 0.57895rem;
         line-height: 1; }
       .gum .lego ._assetheader ._three li .chinese-font-size {
@@ -772,7 +771,7 @@
   transform: translateX(6rem);
   color: #d7ac62;
   background-color: transparent;
-  margin: 5px 0; }
+  margin: 5px 0 10px; }
 .gum .lego ._login button.tapping {
   background-color: transparent; }
 .gum .lego ._login ._asset-btn {
@@ -1154,6 +1153,8 @@
   font-family: PingFangSC-Medium, sans-serif; }
 .gum .lego ._text_color_white, .gum .lego ._field i ._text_color_white, .gum .lego ._toast_message, .gum .lego ._field i ._toast_message {
   color: #fff; }
+.gum .lego ._text_color_offwhite, .gum .lego ._field i ._text_color_offwhite {
+  color: #efefef; }
 .gum .lego ._text_color_black, .gum .lego ._field i ._text_color_black {
   color: #333; }
 .gum .lego ._text_color_grey, .gum .lego ._field i ._text_color_grey {

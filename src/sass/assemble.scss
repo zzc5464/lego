@@ -370,7 +370,7 @@ h1,h2,h3,h4,h5,h6 {
         @extend ._text_size_24px;
         line-height: calRem(50);
     }
-    button {
+    .linkbtn {
         position: absolute;
         bottom: calRem(34);
         right: calRem(36);
@@ -378,7 +378,7 @@ h1,h2,h3,h4,h5,h6 {
         background-color: transparent;
         border: 1px solid $c-white;
     }
-    button.tapping {
+    .linkbtn.tapping {
         color: $c-white;
         border-color: $c-white;
         background-color: transparent;
@@ -408,7 +408,6 @@ h1,h2,h3,h4,h5,h6 {
             color: $c-white;
                 font-size: calRem(38);
             & > div:first-child {
-                color: $c-light;
                 font-size: calRem(22);
                 line-height: 1;
             }
@@ -460,7 +459,7 @@ h1,h2,h3,h4,h5,h6 {
         transform: translateX(6rem);
         color: $c-high;
         background-color: transparent; 
-        margin: 5px 0;
+        margin: 5px 0 10px;
     }
     & button.tapping {
         background-color: transparent;

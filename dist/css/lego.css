@@ -848,14 +848,14 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 2.36842rem; }
   ._assetheader h6 {
     line-height: 1.31579rem; }
-  ._assetheader button {
+  ._assetheader .linkbtn {
     position: absolute;
     bottom: 0.89474rem;
     right: 0.94737rem;
     color: #fff;
     background-color: transparent;
     border: 1px solid #fff; }
-  ._assetheader button.tapping {
+  ._assetheader .linkbtn.tapping {
     color: #fff;
     border-color: #fff;
     background-color: transparent; }
@@ -879,7 +879,6 @@ h1, h2, h3, h4, h5, h6 {
       color: #fff;
       font-size: 1rem; }
       ._assetheader ._three li > div:first-child {
-        color: #999;
         font-size: 0.57895rem;
         line-height: 1; }
       ._assetheader ._three li .chinese-font-size {
@@ -913,7 +912,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(6rem);
   color: #d7ac62;
   background-color: transparent;
-  margin: 5px 0; }
+  margin: 5px 0 10px; }
 ._login button.tapping {
   background-color: transparent; }
 ._login ._asset-btn {
@@ -1337,6 +1336,9 @@ button, input, span {
 
 ._text_color_white, ._toast_message {
   color: #fff; }
+
+._text_color_offwhite {
+  color: #efefef; }
 
 ._text_color_black {
   color: #333; }

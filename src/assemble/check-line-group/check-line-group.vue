@@ -37,9 +37,7 @@
                         label   : options.propsData.label,
                         comment : options.propsData.comment,
                         value   : options.propsData.value,
-                        checked : options.propsData.checked === 'true',
-                        link    : options.propsData.link === 'true'
-                        // callFn  : options.propsData.callFn
+                        checked : options.propsData.checked === 'true'
                     });
 
                     if (options.propsData.checked === 'true') {
