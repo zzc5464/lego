@@ -2,7 +2,7 @@
     <!-- 构建单按钮样式（充满效果）-->
     <s-cell v-if='elements.length === 1 && filled === "true"' :height='height' :bgcolor='bgcolor' :border-top='borderTop'>
         <s-flex-column align='center'>
-            <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" color="white" filled="true">{{elements[0].text}}</b-rectangular-button>
+            <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" color="white" :disabled="elements[0].disabled" filled="true">{{elements[0].text}}</b-rectangular-button>
         </s-flex-column>
     </s-cell>
 
@@ -10,7 +10,7 @@
     <s-cell v-else-if='elements.length === 1 && filled !== "true"' :height='height' :bgcolor='bgcolor' :border-top='borderTop'>
         <s-flex-column></s-flex-column>
         <s-column width='12.894736' align='center'>
-            <b-button :id='elements[0].id' size='34' color='white' height='2.105263' filled='true'>{{elements[0].text}}</b-button>
+            <b-button :id='elements[0].id' size='34' color='white' height='2.105263' :disabled="elements[0].disabled" filled='true'>{{elements[0].text}}</b-button>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>
@@ -18,10 +18,10 @@
     <!-- 构建双按钮样式（充满效果）-->
     <s-cell v-else-if='elements.length === 2 && filled === "true"' :height='height' :bgcolor='bgcolor' :border-top='borderTop'>
         <s-flex-column>
-            <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" filled="false">{{elements[0].text}}</b-rectangular-button>
+            <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" :disabled="elements[0].disabled" filled="false">{{elements[0].text}}</b-rectangular-button>
         </s-flex-column>
         <s-flex-column>
-            <b-rectangular-button :id='elements[1].id' size="34" height="3.157895" filled="true">{{elements[1].text}}</b-rectangular-button>
+            <b-rectangular-button :id='elements[1].id' size="34" height="3.157895" :disabled="elements[1].disabled" filled="true">{{elements[1].text}}</b-rectangular-button>
         </s-flex-column>
     </s-cell>
 
@@ -29,11 +29,11 @@
     <s-cell v-else-if='elements.length === 2 && filled !== "true"' :height='height' :bgcolor='bgcolor' :border-top='borderTop'>
         <s-flex-column></s-flex-column>
         <s-column width='8.947368'>
-            <b-button :id='elements[0].id' size='34' height='2.105263' filled='false'>{{elements[0].text}}</b-button>
+            <b-button :id='elements[0].id' size='34' height='2.105263' :disabled="elements[0].disabled" filled='false'>{{elements[0].text}}</b-button>
         </s-column>
         <s-column width='.789474'></s-column>
         <s-column width='8.947368'>
-            <b-button :id='elements[1].id' size='34' height='2.105263' filled='true'>{{elements[1].text}}</b-button>
+            <b-button :id='elements[1].id' size='34' height='2.105263' :disabled="elements[1].disabled" filled='true'>{{elements[1].text}}</b-button>
         </s-column>
         <s-flex-column></s-flex-column>
     </s-cell>
@@ -41,13 +41,13 @@
     <!-- 构建三按钮样式（充满效果）-->
     <s-cell v-else-if='elements.length === 3' :height='height' :bgcolor='bgcolor' :border-top='borderTop'>
         <s-flex-column>
-            <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" filled="false">{{elements[0].text}}</b-rectangular-button>
+            <b-rectangular-button :id='elements[0].id' size="34" height="3.157895" :disabled="elements[0].disabled" filled="false">{{elements[0].text}}</b-rectangular-button>
         </s-flex-column>
         <s-column width='5'>
-            <b-rectangular-button :id='elements[1].id' size="34" height="3.157895" bgcolor="cream" color="light" filled="false">{{elements[1].text}}</b-rectangular-button>
+            <b-rectangular-button :id='elements[1].id' size="34" height="3.157895" :disabled="elements[1].disabled" bgcolor="cream" color="light" filled="false">{{elements[1].text}}</b-rectangular-button>
         </s-column>
         <s-column width='5'>
-            <b-rectangular-button :id='elements[2].id' size="34" height="3.157895" filled="true">{{elements[2].text}}</b-rectangular-button>
+            <b-rectangular-button :id='elements[2].id' size="34" height="3.157895" :disabled="elements[2].disabled" filled="true">{{elements[2].text}}</b-rectangular-button>
         </s-column>
     </s-cell>
 
@@ -73,7 +73,8 @@
                     if (children.length > 0 && typeof children[0].text !== 'undefined') {
                         elems.push({
                             id: options.propsData.id,
-                            text: children[0].text
+                            text: children[0].text,
+                            disabled: options.propsData.disabled
                         });
                     }
                 }

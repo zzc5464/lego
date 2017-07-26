@@ -70,15 +70,6 @@ button {
     color: $c-light;
 }
 
-// .hairlines .lego ._button {
-//     border: $border-2x-high;
-// }
-// @media only screen and (min-width: 412px) {
-//     .hairlines .lego ._button {
-//         border: $border-3x-high;
-//     }
-// }
-
 // <b-rectangular-button/>
 ._rectangular_button {
     background-color: $c-white;
@@ -89,8 +80,16 @@ button {
 }
 ._rectangular_button.tapping {
     color: $c-tapping;
-
 }
+._rectangular_button:disabled {
+    color: $c-white;
+    background-color: $c-stonegrey;
+}
+._rectangular_button.tapping:disabled {
+    color: $c-white;
+    background-color: $c-stonegrey;
+}
+
 // <b-tab-button/>
 ._tab_button {
     background-color: $c-white;

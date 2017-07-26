@@ -4,7 +4,15 @@
 
 <script>
     module.exports = {
-        props: [ 'id' ],
+        props: {
+            id: {
+                type: String
+            },
+            disabled: {
+                type: Boolean,
+                default: false
+            }
+        },
         data: function() {
             return {};
         }

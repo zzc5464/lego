@@ -193,6 +193,12 @@
   box-sizing: border-box; }
 .gum .lego ._rectangular_button.tapping {
   color: #b38f47; }
+.gum .lego ._rectangular_button:disabled {
+  color: #fff;
+  background-color: #dcdcdc; }
+.gum .lego ._rectangular_button.tapping:disabled {
+  color: #fff;
+  background-color: #dcdcdc; }
 .gum .lego ._tab_button, .gum .lego ._field i ._tab_button {
   background-color: #fff;
   color: #d7ac62;
