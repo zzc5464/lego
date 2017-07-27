@@ -18458,7 +18458,8 @@ if (module.hot) {(function () {  module.hot.accept()
 
 
 
-
+    // <s-flex-column>
+    // </s-flex-column>
 // 银行卡 点击 进入下一页
 module.exports = {
     props: {
@@ -18467,7 +18468,7 @@ module.exports = {
             default: ''
         },
 
-        leftWidth: {
+        rightWidth: {
             type: String,
             default: '7'
         },
@@ -18510,8 +18511,8 @@ module.exports = {
         newHeight: function(){
             return (this.height/38).toFixed(6);
         },
-        rightWidth: function(){
-            return (17 - this.leftWidth)
+        leftWidth: function(){
+            return (17.126666 - this.leftWidth)
         }
     },
 
@@ -18523,7 +18524,7 @@ module.exports = {
 }
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell :height=\"newHeight\" :border-padding=\"borderPadding\" :on-tap=\"onTapCallback\" class=\"_welfare-card\" bgcolor=\"white\" border=\"true\">\n    <s-flex-column>\n    </s-flex-column>\n    <s-column :width=\"leftWidth\" align=\"left\">\n        <b-text color=\"light\" size=\"28\">{{ leftLabel }}</b-text>\n    </s-column>\n    <s-multiline :width=\"rightWidth\" align=\"right\" self-align=\"center\">\n        <b-text color=\"high\" size=\"24\" class=\"_text-right\">{{rightLabel}}<br>\n            <b-text color=\"light\" size=\"22\" v-show=\"rightNote\">{{rightNote}}</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"1\" align=\"right\">\n        <b-icon name=\"angle-right-bold\" color=\"light\" size=\"28\"></b-icon>\n    </s-column>\n    <s-flex-column>\n    </s-flex-column>\n</s-cell>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<s-cell :height=\"newHeight\" :border-padding=\"borderPadding\" :on-tap=\"onTapCallback\" class=\"_welfare-card\" bgcolor=\"white\" border=\"true\">\n    <s-column width=\".789474\"></s-column>\n    <s-flex-column align=\"left\">\n        <b-text color=\"light\" size=\"28\">{{ leftLabel }}</b-text>\n    </s-flex-column>\n    <s-multiline :width=\"rightWidth\" align=\"right\" self-align=\"center\">\n        <b-text color=\"high\" size=\"24\" class=\"_text-right\">{{rightLabel}}<br>\n            <b-text color=\"light\" size=\"22\" v-show=\"rightNote\">{{rightNote}}</b-text>\n        </b-text>\n    </s-multiline>\n    <s-column width=\"1\" align=\"right\">\n        <b-icon name=\"angle-right-bold\" color=\"light\" size=\"28\"></b-icon>\n    </s-column>\n    <s-column width=\".789474\"></s-column>\n    \n</s-cell>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -20131,11 +20132,6 @@ module.exports = {
     props: [ 'width', 'align' ],
 
     data: function() {
-        // var justifyContent = {
-        //     left    : 'flex-start',
-        //     right   : 'flex-end',
-        //     center  : 'center'
-        // }
         var justifyContent = {
             left    : '_justify-start',
             right   : '_justify-end',
@@ -20146,8 +20142,6 @@ module.exports = {
             classObj: justifyContent[this.align] || justifyContent['left'],
             styleObj: {
                 width           : this.width + 'rem'
-                // , 
-                // justifyContent  : justifyContent[this.align] || justifyContent['left']
             }
         };
     }

@@ -1,10 +1,9 @@
 <template>
     <s-cell :height="newHeight" :border-padding="borderPadding" :on-tap='onTapCallback' class="_welfare-card"  bgcolor='white' border="true">
-        <s-flex-column>
-        </s-flex-column>
-        <s-column :width="leftWidth" align="left">
+        <s-column width=".789474" ></s-column>
+        <s-flex-column  align="left">
             <b-text color="light" size="28">{{ leftLabel }}</b-text>
-        </s-column>
+        </s-flex-column>
         <s-multiline :width="rightWidth" align="right" self-align="center">
             <b-text color="high" size="24" class="_text-right">{{rightLabel}}<br>
                 <b-text color="light" size="22" v-show="rightNote">{{rightNote}}</b-text>
@@ -13,13 +12,15 @@
         <s-column width="1" align="right" >
             <b-icon name="angle-right-bold" color="light" size="28"></b-icon>
         </s-column>
-        <s-flex-column>
-        </s-flex-column>
+        <s-column width=".789474" ></s-column>
+        
     </s-cell>
     
 </template>
 
 <script>
+        // <s-flex-column>
+        // </s-flex-column>
     // 银行卡 点击 进入下一页
     module.exports = {
         props: {
@@ -28,7 +29,7 @@
                 default: ''
             },
 
-            leftWidth: {
+            rightWidth: {
                 type: String,
                 default: '7'
             },
@@ -71,8 +72,8 @@
             newHeight: function(){
                 return (this.height/38).toFixed(6);
             },
-            rightWidth: function(){
-                return (17 - this.leftWidth)
+            leftWidth: function(){
+                return (17.126666 - this.leftWidth)
             }
         },
 
