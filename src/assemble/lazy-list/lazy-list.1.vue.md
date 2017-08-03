@@ -3,6 +3,7 @@
             <li v-for="user in users">{{user.name}}</li>
     </ul>
 </template>
+
 <script>
     module.exports = {
         props   : [ 'data', 'name', 'value', 'onTapped' ],

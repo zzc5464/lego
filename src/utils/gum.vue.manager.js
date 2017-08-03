@@ -103,6 +103,7 @@ VueManager.prototype = {
     getInstance: function (opts) {
         this.instance && this.instance.$destroy();
         this.instance = new Vue(opts);
+        console.log(opts);
         Vue.config.devtools = true;
         return this.instance;
     }
