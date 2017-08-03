@@ -1128,6 +1128,20 @@
 .gum .lego ._main_wrp_toast, .gum .lego ._field i ._main_wrp_toast {
   width: 100%;
   height: 100%; }
+.gum .lego ._modalup, .gum .lego ._field i ._modalup {
+  width: 100%;
+  position: absolute;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+.gum .lego .fade-enter-active, .gum .lego ._field i .fade-enter-active, .gum .lego .fade-leave-active, .gum .lego ._field i .fade-leave-active {
+  transition: all 0.5s;
+  bottom: 0; }
+.gum .lego .fade-enter, .gum .lego ._field i .fade-enter, .gum .lego .fade-leave-to, .gum .lego ._field i .fade-leave-to {
+  bottom: -100%; }
 .gum .lego html, .gum .lego ._field i html, .gum .lego body, .gum .lego ._field i body, .gum .lego #wrapper {
   height: 100%;
   -webkit-user-select: none !important;

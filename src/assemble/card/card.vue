@@ -2,12 +2,12 @@
     <s-single-cell height="4.736842" :on-tap='onTapCallback' class="_card" border="true" >
         <s-column width=".789474" align="left">
         </s-column>
-        <s-column width="16" align="left" self-align="center">
+        <s-flex-column align="left" self-align="center">
             <b-text color="black" size="30">{{itemData.bankName}}  <br>
                 <b-text color="light" size="24">单笔：100万 &nbsp; 单日：500万 &nbsp; 日累计：10笔</b-text><br>
                 <b-text color="light" size="24">交易时间：12:00-24:00</b-text>
             </b-text>
-        </s-column>
+        </s-flex-column>
         <s-column width=".789474" align="left">
         </s-column>
     </s-single-cell>

@@ -2,11 +2,11 @@
     <s-cell :height="newHeight" :border-padding="borderPadding" :on-tap='onTapCallback' class="_welfare-card"  bgcolor='white' border="true">
         <s-column width=".789474" ></s-column>
         <s-flex-column  align="left">
-            <b-text color="light" size="28">{{ leftLabel }}</b-text>
+            <b-text color="light" size="30">{{ leftLabel }}</b-text>
         </s-flex-column>
         <s-multiline :width="rightWidth" align="right" self-align="center">
-            <b-text color="high" size="24" class="_text-right">{{rightLabel}}<br>
-                <b-text color="light" size="22" v-show="rightNote">{{rightNote}}</b-text>
+            <b-text color="high" size="30" class="_text-right">{{rightLabel}}<br>
+                <b-text color="light" size="24" v-show="rightNote">{{rightNote}}</b-text>
             </b-text>
         </s-multiline>
         <s-column width="1" align="right" >

@@ -38,6 +38,7 @@ var components = [
 
     [ 'p-main'                  , require('../page/main/main.vue.js')                               ],
     [ 'p-footer'                , require('../page/footer/footer.vue.js')                           ],
+    [ 'p-modalup'               , require('../page/modalup/modalup.vue.js')                         ],
 
     [ 'flype'                   , require('../assemble/flype/flype.vue.js')                         ],
     [ 'stick'                   , require('../assemble/stick/stick.vue.js')                         ],
