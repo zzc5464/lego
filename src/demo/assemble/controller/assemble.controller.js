@@ -250,24 +250,24 @@ AssembleController.prototype = new FController({
             $('#save2').tap(function () {
                 var errors = events.validate();
 
-                if (errors.length > 0) {
+                // if (errors.length > 0) {
                     events.fieldErrors(errors);
-                } else {
-                    data.submit();
-                }
+                // } else {
+                //     data.submit();
+                // }
             });
-            $('#xxx').input(function(){
-                var s = this.getElementsByTagName('input')[0].value;
-                if(s.length == 3) {
-                    s+='-';
-                }
-                this.getElementsByTagName('input')[0].value = s;
-                if(s.length == 6) {
-                    s+='-';
-                }
-                this.getElementsByTagName('input')[0].value = s;
-                console.log(s);
-            });
+            // $('#xxx').input(function(){
+            //     var s = this.getElementsByTagName('input')[0].value;
+            //     if(s.length == 3) {
+            //         s+='-';
+            //     }
+            //     this.getElementsByTagName('input')[0].value = s;
+            //     if(s.length == 6) {
+            //         s+='-';
+            //     }
+            //     this.getElementsByTagName('input')[0].value = s;
+            //     console.log(s);
+            // });
 
             console.log($('#label').find('select').val());
 

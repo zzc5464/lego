@@ -827,9 +827,6 @@
     width: 7.5%;
     vertical-align: top; }
 .gum .lego ._toast, .gum .lego ._field i ._toast {
-  opacity: 0;
-  transition: all 1s; }
-.gum .lego ._toast_container, .gum .lego ._field i ._toast_container {
   position: fixed;
   top: 50%;
   left: 0;
@@ -1109,11 +1106,15 @@
 .gum .lego .fade-enter, .gum .lego ._field i .fade-enter, .gum .lego .fade-leave-active, .gum .lego ._field i .fade-leave-active {
   opacity: 0; }
 .gum .lego .slide-fade-enter-active, .gum .lego ._field i .slide-fade-enter-active {
-  transition: all .3s ease; }
+  transition: all .5s ease-in;
+  transform: scale(1);
+  opacity: 1; }
 .gum .lego .slide-fade-leave-active, .gum .lego ._field i .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
-.gum .lego .slide-fade-enter, .gum .lego ._field i .slide-fade-enter, .gum .lego .slide-fade-leave-active, .gum .lego ._field i .slide-fade-leave-active {
-  transform: translateX(10px);
+  transition: all .6s ease-out;
+  transform: scale(1);
+  opacity: 1; }
+.gum .lego .slide-fade-enter, .gum .lego ._field i .slide-fade-enter, .gum .lego .slide-fade-leave-to, .gum .lego ._field i .slide-fade-leave-to {
+  transform: scale(0.8);
   opacity: 0; }
 .gum .lego ._main, .gum .lego ._field i ._main {
   min-height: 100.1%; }

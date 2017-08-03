@@ -1,17 +1,24 @@
 <template>
-    <div id="toast" class="_toast" v-if="!toptoast" >
-        <div class="_toast_container">
+    <transition name='slide-fade'>
+        <div class="_toast"  id="toast" v-if="isShow">
             <div class="_toast_message">
                 <slot>{{errMsg}}</slot>
             </div>
         </div>
-    </div>
-    <div class='_top-toast' v-else>
-        <slot>{{errMsg}}</slot>
-    </div>
+    </transition>
 </template>
 
 <script>
+// <div id="toast" class="_toast" v-if="isShow" >
+//         <div class="_toast_container"  id="toast" v-if="isShow">
+//             <div class="_toast_message">
+//                 <slot>{{errMsg}}</slot>
+//             </div>
+//         </div>
+//     </div>
+    // <div class='_top-toast' v-else>
+    //     <slot>{{errMsg}}</slot>
+    // </div>
     var events = require('../../utils/gum.vue.events');
 
     module.exports = {
@@ -24,7 +31,7 @@
             // 每条 toast 提示的停留时间
             stay: {
                 type: Number,
-                default: 2000
+                default: 3000
             }
         },
         data: function() {
@@ -73,7 +80,8 @@
                     this.errMsg = msg;
                     // 启动 toast 弹出的动画
                     // TODO:
-                    document.getElementById('toast').style.opacity = '1';
+                    this.isShow = true;
+                    //document.getElementById('toast').style.opacity = '1';
                     // console.log('TOAST: ' + msg);
 
                     setTimeout((function () {
@@ -81,7 +89,8 @@
 
                         // 启动 隐藏当前 toast 的动画
                         // TODO:
-                        document.getElementById('toast').style.opacity = '0';
+                        this.isShow = false;
+                        //document.getElementById('toast').style.opacity = '0';
                         // console.log('TOAST CLOSING');
 
                         // 当 toast 消失的动画结束，启动下一个 toast 提示框弹出动画

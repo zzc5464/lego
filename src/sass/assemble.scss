@@ -527,11 +527,13 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 // toast
+// ._toast {
+//     // opacity: 0;
+//     display: block;
+//     transition: all 1s;
+// }
+// ._toast_container {
 ._toast {
-    opacity: 0;
-    transition: all 1s;
-}
-._toast_container {
     position: fixed;
     top: 50%;
     left: 0;
@@ -552,8 +554,6 @@ h1,h2,h3,h4,h5,h6 {
     @extend ._text_size_34px;
     z-index: $zindex-modal;
 }
-
-
 
 //顶部toast
 ._top-toast {
@@ -907,7 +907,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
-
+// 动画
 .fade-enter-active, .fade-leave-active {
  transition: opacity .5s
 }
@@ -915,14 +915,17 @@ h1,h2,h3,h4,h5,h6 {
  opacity: 0
 }
 
-
 .slide-fade-enter-active {
-  transition: all .3s ease;
+  transition: all .5s ease-in;
+  transform: scale(1);
+  opacity: 1;
 }
 .slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .6s ease-out;
+  transform: scale(1);
+  opacity: 1;
 }
-.slide-fade-enter, .slide-fade-leave-active {
-  transform: translateX(10px);
+.slide-fade-enter, .slide-fade-leave-to{
+  transform: scale(0.8);
   opacity: 0;
 }
