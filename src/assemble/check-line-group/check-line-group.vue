@@ -37,6 +37,7 @@
                         label   : options.propsData.label,
                         comment : options.propsData.comment,
                         value   : options.propsData.value,
+                        link    : options.propsData.link,
                         checked : options.propsData.checked === 'true'
                     });
 
