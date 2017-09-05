@@ -291,7 +291,9 @@ AssembleController.prototype = new FController({
             list: [
                 {"bankName": "平安银行","bankNum":"333323453","limit":"100"},
                 {"bankName": "建设银行","bankNum":"2323231233"},
-                {"bankName": "浦发银行","bankNum":"2342342342342333","limit":"30"}
+                {"bankName": "浦发银行","bankNum":"2342342342342333","limit":"30"},
+                                {"bankName": "浦发银行","bankNum":"2342342342342333","limit":"未激活"}
+
             ],
             // 点击银行卡  跳转下一页
             list1: [
