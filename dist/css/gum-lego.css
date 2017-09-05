@@ -40,7 +40,9 @@
 .gum .lego .i-arrow-up:before {
   content: "\e609"; }
 .gum .lego .i-plus:before {
-  content: "\e617"; }
+  content: "\e617";
+  font-size: 1rem;
+  padding-right: .3rem; }
 .gum .lego .i-minus:before {
   content: "\e618"; }
 .gum .lego .i-clock:before {
