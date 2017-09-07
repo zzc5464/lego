@@ -10,7 +10,7 @@
             </b-text>
         </s-multiline>
         <s-column width="6" align="right">
-            <b-icon v-if="checked" size="30" color="high" name="check"></b-icon>
+            <b-icon v-if="checked" size="40" color="high" name="check"></b-icon>
         </s-column>
         <s-flex-column>
         </s-flex-column>
