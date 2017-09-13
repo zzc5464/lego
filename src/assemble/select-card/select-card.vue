@@ -1,5 +1,5 @@
 <template>
-    <s-cell height="3.421056" :on-tap='onTapCallback' class="_next-card"  bgcolor='white' border="true">
+    <s-cell :height='itemData.limit?3.421056:2.473684' :on-tap='onTapCallback' class="_next-card"  bgcolor='white' border="true">
         <s-flex-column>
         </s-flex-column>
         <s-multiline width="12" align="left" self-align="center">
