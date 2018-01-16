@@ -2,7 +2,8 @@
     <div class="_amountCapital">
         <p>{{ desc }}</p>
         <div class="_amountdesc">
-            <span class="_unit">￥</span>
+            <!-- <span class="_unit">￥</span> -->
+            <span class="_unit">¥</span>
             <input class="_amount" @input="inputTap" id="payamount" type="number"  :placeholder="placeholder" :value="defaultValue"> 
             <div>
                 <b-icon name="round-cross" color="stonegrey" size="40" @tapped="iconTap" id="clearamounts" data-tappable="" ontouchstart="" ></b-icon>
