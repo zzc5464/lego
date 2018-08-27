@@ -8,11 +8,9 @@
 
 ### &nbsp;
 
-## 演示
-### 我们提示了一整套演示代码，来展示 LEGO 目前所有的组件样式，请拿出手机，扫描二维码查看
+### 在线文档
 
-<center><img alt="扫一扫" width="160" src="https://ohc0dpsgs.qnssl.com/lego/images/DemoCode.png"/></center>
-> 扫描二维码，可以在手机里查看演示效果
+https://wangweiqi.com/lego/1.0.0/docs/
 
 ### &nbsp;
 

@@ -12,7 +12,7 @@
     var events = require('../../utils/gum.vue.events');
         //toasts = [];
 
-    module.exports = {
+    export default {
         props: {
             bgcolor: {
                 type: String,
